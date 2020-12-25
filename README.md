@@ -1,0 +1,2 @@
+# SistemaGestionActividades
+Para el proyecto final de la materia estructura de datos, tercer ciclo de la carrera de las ciencias de la computación. Nuestro grupo conformado por: Juan Armijos, Luis Jumbo y Patricio Paredes a propuesto un sistema de gestión de actividades enfocado para una empresa de desarrollo de software, con el objetivo de que sus integrantes posean un sistema que les permita tener mayor control en las actividades que deben realizar y su tiempo de ejecución logrando así mayor rendimiento, eficacia y comunicación en las actividades internas de la empresa.
