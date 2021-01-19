@@ -9,7 +9,7 @@ public class PersonaDAO extends AdaptadorDAO {
     private PersonaModelo persona;
 
     public PersonaDAO() {
-        super(new ConexionDAO(), PersonaModelo.class);
+        super(new ConexionDAO(), PersonaModelo.class, new ConexionDAO().getCARPETA_EMPLEADOS());
     }
 
     public PersonaModelo getPersona() {
