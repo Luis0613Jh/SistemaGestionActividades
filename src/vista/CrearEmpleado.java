@@ -5,6 +5,7 @@
  */
 package vista;
 
+
 /**
  *
  * @author juana
@@ -14,6 +15,7 @@ public class CrearEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    
     public CrearEmpleado() {
         initComponents();
     }
@@ -154,15 +156,25 @@ public class CrearEmpleado extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1);
-        jButton1.setBounds(40, 60, 70, 29);
+        jButton1.setBounds(40, 60, 70, 37);
 
         jButton2.setBackground(new java.awt.Color(0, 153, 51));
         jButton2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Registrar.");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton2);
-        jButton2.setBounds(510, 60, 140, 29);
+        jButton2.setBounds(510, 60, 140, 37);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 380, 700, 120);
@@ -173,6 +185,14 @@ public class CrearEmpleado extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(716, 539));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
