@@ -1,5 +1,5 @@
 
-package Controlador;
+package controlador;
 
 public class ControladorPersona {
 
