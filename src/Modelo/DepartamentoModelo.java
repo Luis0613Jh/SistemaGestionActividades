@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 public class DepartamentoModelo {
     private String nombreDepartamento;

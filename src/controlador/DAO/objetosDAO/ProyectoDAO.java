@@ -2,6 +2,7 @@ package controlador.DAO.objetosDAO;
 
 import controlador.DAO.AdaptadorDAO;
 import controlador.DAO.ConexionDAO;
+import modelo.ProyectoModelo;
 
 public class ProyectoDAO extends AdaptadorDAO {
 

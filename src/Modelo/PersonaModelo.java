@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 public class PersonaModelo {
     private Integer id;
@@ -7,7 +7,7 @@ public class PersonaModelo {
     private String telefono;
     private String external_id;
     private String cedula;
-    private CuentaModelo cuanta;
+    private int idCuenta;
     private RolModelo rol;
     private String path;
 
