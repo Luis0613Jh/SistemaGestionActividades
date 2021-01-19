@@ -5,36 +5,11 @@ public class PersonaModelo {
     private String nombre;
     private String correo;
     private String telefono;
-    private String external_id;
+    private int external_id;
     private String cedula;
-    private CuentaModelo cuanta;
-    private RolModelo rol;
-    private String path;
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public CuentaModelo getCuanta() {
-        return cuanta;
-    }
-
-    public void setCuanta(CuentaModelo cuanta) {
-        this.cuanta = cuanta;
-    }
-
-    public RolModelo getRol() {
-        return rol;
-    }
-
-    public void setRol(RolModelo rol) {
-        this.rol = rol;
-    }
-    
+    private int id_cuenta;
+    private int id_rol;
+    private String path_imagen;
 
     public Integer getId() {
         return id;
@@ -68,11 +43,11 @@ public class PersonaModelo {
         this.telefono = telefono;
     }
 
-    public String getExternal_id() {
+    public int getExternal_id() {
         return external_id;
     }
 
-    public void setExternal_id(String external_id) {
+    public void setExternal_id(int external_id) {
         this.external_id = external_id;
     }
 
@@ -83,7 +58,30 @@ public class PersonaModelo {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-    
-    
+
+    public int getId_cuenta() {
+        return id_cuenta;
+    }
+
+    public void setId_cuenta(int id_cuenta) {
+        this.id_cuenta = id_cuenta;
+    }
+
+    public int getId_rol() {
+        return id_rol;
+    }
+
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
+    }
+
+    public String getPath() {
+        return path_imagen;
+    }
+
+    public void setPath(String path) {
+        this.path_imagen = path;
+    }
+
     
 }
