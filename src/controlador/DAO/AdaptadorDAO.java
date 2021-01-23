@@ -18,6 +18,10 @@ public class AdaptadorDAO implements InterfazDAO{
         this.carpeta = carpeta;
     }
 
+    public AdaptadorDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public ListaSimple listarObjetos() {
         ListaSimple listaAux = new ListaSimple();
