@@ -2,6 +2,8 @@ package controlador.DAO.objetosDAO;
 
 import controlador.DAO.AdaptadorDAO;
 import controlador.DAO.ConexionDAO;
+import controlador.listaSimple.ListaSimple;
+import controlador.utilidades.UtilidadesControlador;
 import modelo.PersonaModelo;
 
 public class PersonaDAO extends AdaptadorDAO {
@@ -25,7 +27,6 @@ public class PersonaDAO extends AdaptadorDAO {
 
     public Boolean guardarPersona() {
         try {
-            this.getPersona().setId(Integer.parseInt(String.valueOf(listarObjetos().tamanio() + 1)));
             this.guardarObjeto(this.getPersona());
             return true;
         } catch (Exception e) {
@@ -34,8 +35,8 @@ public class PersonaDAO extends AdaptadorDAO {
         }
     }
 
-//    public ListaSimple ordenar(ListaSimple lista, int tipo_ordenacion, String atributo) {
-//        lista.ordenar(tipo_ordenacion, atributo);
-//        return lista;
-//    }
+    public ListaSimple ordenarPersonas(ListaSimple lista, String atributo) {
+        UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
+        return lista;
+    }
 }

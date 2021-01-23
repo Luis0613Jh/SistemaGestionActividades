@@ -3,6 +3,7 @@ package controlador.DAO.objetosDAO;
 import controlador.DAO.AdaptadorDAO;
 import controlador.DAO.ConexionDAO;
 import controlador.listaSimple.ListaSimple;
+import controlador.utilidades.UtilidadesControlador;
 import modelo.CuentaModelo;
 
 public class CuentaDAO extends AdaptadorDAO {
@@ -26,7 +27,6 @@ public class CuentaDAO extends AdaptadorDAO {
 
     public Boolean guardarCuenta() {
         try {
-            this.getCuenta().setId(Integer.parseInt(String.valueOf(listarObjetos().tamanio() + 1)));
             this.guardarObjeto(this.getCuenta());
             return true;
         } catch (Exception e) {
@@ -35,21 +35,22 @@ public class CuentaDAO extends AdaptadorDAO {
         }
     }
 
-//    public CuentaModelo iniciarSesion(String usuario, String clave) {
-//        ListaSimple cuentas = listarObjetos();
-//
-//        //cuentas = ordenar(cuentas, ListaSimple.ORDENAR_ASCENDENTE, "usuario");
-//        CuentaModelo cuenta = (CuentaModelo) cuentas.busquedaBinaria(usuario, "usuario");
-//        if (cuenta != null) {
-//            if (!cuenta.getClave().equals(clave)) {
-//                cuenta = null;
-//            }
-//        }
-//        return cuenta;
-//    }
+    public CuentaModelo iniciarSesion(String usuario, String clave) {
+        ListaSimple cuentas = listarObjetos();
 
-//    public ListaSimple ordenar(ListaSimple lista, int tipo_ordenacion, String atributo) {
-//        lista.ordenar(tipo_ordenacion, atributo);
-//        return lista;
-//    }
+        UtilidadesControlador.ordenarQuicksort(0, cuentas.tamanio() - 1, cuentas, "usuario");
+        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarDatoBinaria_Objeto(usuario, "usuario", cuentas);
+        
+        if (cuenta != null) {
+            if (!cuenta.getClave().equals(clave)) {
+                cuenta = null;
+            }
+        }
+        return cuenta;
+    }
+
+    public ListaSimple ordenar(ListaSimple lista, String atributo) {
+        UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
+        return lista;
+    }
 }
