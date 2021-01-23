@@ -5,6 +5,9 @@
  */
 package vista;
 
+import controlador.ControladorPersona;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -15,11 +18,18 @@ public class CrearEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    
+    ControladorPersona controladorEmp = new ControladorPersona();
     public CrearEmpleado() {
         initComponents();
     }
-
+    public boolean vacios(){
+        if(jTextField1.getText().length()>0 && jTextField2.getText().length()>0 && jTextField3.getText().length()>0 && jTextField4.getText().length()>0 && jTextField5.getText().length()>0 && jTextField6.getText().length()>0 && jTextField7.getText().length()>0){
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,7 +197,20 @@ public class CrearEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        if(vacios()){
+            controladorEmp.getPersona().setCedula(jTextField3.getText());
+            controladorEmp.getPersona().setNombre(jTextField2.getText());
+            controladorEmp.getPersona().setCorreo(jTextField4.getText());
+            controladorEmp.getPersona().setTelefono(jTextField7.getText());
+            controladorEmp.getRol().setRol(jTextField5.getText());
+            controladorEmp.getCuenta().setUsuario(jTextField6.getText());
+            controladorEmp.getCuenta().setClave(jTextField1.getText());
+            if(controladorEmp.guardarEmpleado()){
+                JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
