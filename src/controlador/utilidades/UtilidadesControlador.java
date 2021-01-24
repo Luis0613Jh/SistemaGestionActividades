@@ -104,4 +104,8 @@ public class UtilidadesControlador {
         
         return objeto;
     }
+    
+    public static int generarId(){
+        return (int)Math.random()*1000;
+    }
 }
