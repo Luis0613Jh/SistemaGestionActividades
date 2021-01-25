@@ -8,7 +8,6 @@ public interface InterfazDAO {
     /**
      * Método que guarda un objeto.
      * @param objeto Objeto a guardar
-     * @throws Control de excepciones.
      */
     public void guardarObjeto(Object objeto) throws Exception;
     

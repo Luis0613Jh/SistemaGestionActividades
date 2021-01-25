@@ -1,4 +1,3 @@
-
 package controlador.listaSimple;
 
 import javax.swing.JOptionPane;
@@ -6,30 +5,37 @@ import javax.swing.JOptionPane;
 public class ListaSimple {
 
     private Nodo cabecera;
-/**
- * Construye una lista simple 
- */
+
+    /**
+     * Construye una lista simple
+     */
     public ListaSimple() {
         this.cabecera = null;
     }
-/**
- * Metodo para obtener la cabecera de la lista
- * @return Retorna la cabecera de la lista
- */
+
+    /**
+     * Metodo para obtener la cabecera de la lista
+     *
+     * @return Retorna la cabecera de la lista
+     */
     public Nodo getCabecera() {
         return cabecera;
     }
-/**
- * Metodo enviar cabecera 
- * @param Recibe un Nodo el cual seria el Nodo inicial de la lista 
- */
+
+    /**
+     * Metodo enviar cabecera
+     *
+     * @param cabecera Recibe un Nodo el cual seria el Nodo inicial de la lista
+     */
     public void setCabecera(Nodo cabecera) {
         this.cabecera = cabecera;
     }
-/**
- * Método para verificar si la lista es vacia
- * @return Un boolean para saber si la lista esta o no vacia
- */
+
+    /**
+     * Método para verificar si la lista es vacia
+     *
+     * @return Un boolean para saber si la lista esta o no vacia
+     */
     public boolean estaVacia() {
         return (this.cabecera == null);
     }
@@ -56,7 +62,7 @@ public class ListaSimple {
     /**
      * Método para insertar al inicio de la lista
      *
-     * @param Recibe el objeto a insertar en la posicion inicial
+     * @param objeto Recibe el objeto a insertar en la posicion inicial
      */
     public void insertarInicio(Object objeto) {
         Nodo temporal = new Nodo(objeto);
@@ -67,8 +73,8 @@ public class ListaSimple {
     /**
      * Método para agregar un elemento por posición
      *
-     * @param Recibe el objeto a insertar 
-     * @param Recibe la posicion del objeto a insertar
+     * @param objeto Recibe el objeto a insertar
+     * @param posicion Recibe la posicion del objeto a insertar
      */
     public void insertarPorPosicion(Object objeto, int posicion) {
         if (estaVacia() || posicion == 0) {
@@ -89,7 +95,7 @@ public class ListaSimple {
     /**
      * Método para agregar un elemento al final
      *
-     * @param Recibe un objeto a insertar en la posición final
+     * @param objeto Recibe un objeto a insertar en la posición final
      */
     public void insertarFinal(Object objeto) {
         if (tamanio() >= 1) {
@@ -101,7 +107,8 @@ public class ListaSimple {
 
     /**
      * Método para buscar por posición
-     * @param Recibe la posicion del objeto a buscar
+     *
+     * @param posicion Recibe la posicion del objeto a buscar
      * @return objeto a buscar
      */
     public Object buscarPorPosicion(int posicion) {
@@ -127,7 +134,8 @@ public class ListaSimple {
 
     /**
      * Método para buscar por dato
-     * @param Recibe un string a buscar 
+     *
+     * @param dato Recibe un string a buscar
      * @return objeto a buscar
      */
     public String buscarPosiciones(String dato) {
@@ -161,10 +169,11 @@ public class ListaSimple {
     public void eliminarTodaLaLista() {
         cabecera = null;
     }
-   
+
     /**
      * Método para eliminar por posición
-     * @param Recibe la posicion a eliminar  
+     *
+     * @param posicion Recibe la posicion a eliminar
      */
     public void eliminarPorPosicion(int posicion) {
         if (!estaVacia()) {
@@ -184,12 +193,13 @@ public class ListaSimple {
             System.out.println("La lista se encuentra vacía.");
         }
     }
-/**
- * Método para editar por posición
- * @param Recibe la posicion del dato a editar
- * @param Recibe el objeto a editar 
- */
-    
+
+    /**
+     * Método para editar por posición
+     *
+     * @param posicion Recibe la posicion del dato a editar
+     * @param objeto Recibe el objeto a editar
+     */
     public void editarPorPosicion(int posicion, Object objeto) {
         if (posicion >= 0 && posicion < tamanio()) {
             if (posicion == 0) {
@@ -205,9 +215,10 @@ public class ListaSimple {
             throw new IndexOutOfBoundsException("Fuera de rango");
         }
     }
-/**
- * Método para imprimir toda la lista
- */
+
+    /**
+     * Método para imprimir toda la lista
+     */
     public void imprimir() {
 
         if (!estaVacia()) {
@@ -222,7 +233,8 @@ public class ListaSimple {
 
     /**
      * Método para eliminar por dato
-     * @param Recibe un string a eliminar 
+     *
+     * @param dato Recibe un string a eliminar
      */
     public void eliminarPorDato(String dato) {
         if (cabecera.getObjeto().equals(dato)) {
