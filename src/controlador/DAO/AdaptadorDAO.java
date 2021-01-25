@@ -11,14 +11,22 @@ public class AdaptadorDAO implements InterfazDAO {
     private Class claseObjeto;
     private String carpeta;
 
+    /**
+     * Construye un objeto AdaptadorDAO, indicando: conexionDAO, claseObjeto, carpeta.
+     * @param conexionDAO Objeto que conecta el objeto XStream con el AdaptadorDAO.
+     * @param claseObjeto Objeto que contiene toda la inforamción de la clase de un objeto.
+     * @param carpeta Indica el nombre de la carpeta a crear, es de tipo string.
+     */
     public AdaptadorDAO(ConexionDAO conexionDAO, Class claseObjeto, String carpeta) {
         this.conexionDAO = conexionDAO;
         this.claseObjeto = claseObjeto;
         this.carpeta = carpeta;
     }
 
+    /**
+     * Construye un objeto AdaptadorDAO sin recibir ningún parámetro.
+     */
     public AdaptadorDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
