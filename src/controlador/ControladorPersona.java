@@ -18,22 +18,47 @@ public class ControladorPersona {
     CuentaModelo cuenta = new CuentaModelo();
     RolModelo rol = new RolModelo();
 
+    /**
+     * Metodo obtener rol
+     *
+     * @return Un RolModelo correspondiente a rol
+     */
     public RolModelo getRol() {
         return rol;
     }
 
+    /**
+     * Metodo enviar rol
+     *
+     * @param rol
+     */
     public void setRol(RolModelo rol) {
         this.rol = rol;
     }
 
+    /**
+     * Metodo obtener cuenta
+     *
+     * @return Un CuentaModelo correspondiente a cuenta
+     */
     public CuentaModelo getCuenta() {
         return cuenta;
     }
 
+    /**
+     * Metodo enviar cuenta
+     *
+     * @param cuenta
+     */
     public void setCuenta(CuentaModelo cuenta) {
         this.cuenta = cuenta;
     }
 
+    /**
+     * Metodo obtener persona
+     *
+     * @return Un PersonaModelo correspondiente a persona
+     */
     public PersonaModelo getPersona() {
         if (persona == null) {
             persona = new PersonaModelo();
@@ -41,6 +66,11 @@ public class ControladorPersona {
         return persona;
     }
 
+    /**
+     * Metodo enviar persona
+     *
+     * @param persona
+     */
     public void setPersona(PersonaModelo persona) {
         this.persona = persona;
     }
@@ -48,7 +78,8 @@ public class ControladorPersona {
     /**
      * Metodo para clonar el objeto empleado que se enviara al guardar
      *
-     * @return
+     * @return Un PersonaModelo correspondiente a la informacion clonada
+     * llenando ids
      */
     public PersonaModelo clonarEmpleado() {
         PersonaModelo aux = new PersonaModelo();

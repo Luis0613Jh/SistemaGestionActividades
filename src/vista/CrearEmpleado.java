@@ -22,6 +22,10 @@ public class CrearEmpleado extends javax.swing.JFrame {
     public CrearEmpleado() {
         initComponents();
     }
+    /**
+     * Metodo para saber si hay campos vacios
+     * @return Un boolean correspondiente a si esta vacia
+     */
     public boolean vacios(){
         if(jTextField1.getText().length()>0 && jTextField2.getText().length()>0 && jTextField3.getText().length()>0 && jTextField4.getText().length()>0 && jTextField5.getText().length()>0 && jTextField6.getText().length()>0 && jTextField7.getText().length()>0){
             return true;
