@@ -11,6 +11,7 @@ public class ConexionDAO {
     private final String CARPETA_ROLES = "Roles";
     private final String CARPETA_PROYECTOS = "Proyectos";
     private final String CARPETA_ACTIVIDADES = "Actividades";
+    private final String CARPETA_DEPARTAMENTOS = "Departamentos";
     private XStream xstream;
 
     public ConexionDAO() {
@@ -44,7 +45,11 @@ public class ConexionDAO {
     public String getCARPETA_ACTIVIDADES() {
         return CARPETA_ACTIVIDADES;
     }
-    
+
+    public String getCARPETA_DEPARTAMENTOS() {
+        return CARPETA_DEPARTAMENTOS;
+    }
+       
     public void instanciarObjetoXStream() {
         xstream = new XStream(new JettisonMappedXmlDriver());
         xstream.setMode(XStream.NO_REFERENCES);

@@ -43,8 +43,8 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
+        txtNombreDepartamento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -95,12 +95,10 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1);
         jComboBox1.setBounds(250, 180, 310, 30);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(250, 140, 310, 30);
         jPanel2.add(jTextField1);
         jTextField1.setBounds(250, 230, 310, 70);
+        jPanel2.add(txtNombreDepartamento);
+        txtNombreDepartamento.setBounds(250, 140, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 640, 310);
@@ -455,7 +453,6 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -465,5 +462,6 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtNombreDepartamento;
     // End of variables declaration//GEN-END:variables
 }
