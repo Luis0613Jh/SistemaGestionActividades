@@ -1,4 +1,3 @@
-
 package controlador.utilidades;
 
 import controlador.listaSimple.ListaSimple;
@@ -7,23 +6,33 @@ import java.lang.reflect.Method;
 
 public class UtilidadesControlador {
 
-    public static int compararObjetos(Object o, Object o1, String atributoClase) {
+    /**
+     * Método que compara dos objetos, según el atributo de la clase especificado.
+     * @param objeto1 Primer objeto a comparar, es de tipo Object.
+     * @param objeto2 Segundo objeto a comparar, es de tipo Object.
+     * @param atributoClase Atributo del modelo a comparar entre ambos objetos, es de tipo string.
+     * @return Retorna un entero según la comparación entre ambos objetos con el atributo especificado.
+     * > Devuelve 0 sin son iguales.
+     * > Devuelve 1 si objeto1 es mayor a objeto2.
+     * > Devuelve -1 si objeto1 es menor a objeto2.
+     */
+    public static int compararObjetos(Object objeto1, Object objeto2, String atributoClase) {
         int i = 0;
 
-        if (extraerDatoDeObjeto(o, atributoClase) instanceof Integer && extraerDatoDeObjeto(o1, atributoClase) instanceof Integer) {
-            Integer uno = (Integer) extraerDatoDeObjeto(o, atributoClase);
-            Integer dos = (Integer) extraerDatoDeObjeto(o1, atributoClase);
-            
+        if (extraerDatoDeObjeto(objeto1, atributoClase) instanceof Integer && extraerDatoDeObjeto(objeto2, atributoClase) instanceof Integer) {
+            Integer uno = (Integer) extraerDatoDeObjeto(objeto1, atributoClase);
+            Integer dos = (Integer) extraerDatoDeObjeto(objeto2, atributoClase);
+
             if (uno > dos) {
                 i = 1;
             } else if (uno < dos) {
                 i = -1;
             }
 
-        } else if (extraerDatoDeObjeto(o, atributoClase) instanceof String && extraerDatoDeObjeto(o1, atributoClase) instanceof String) {
-            String uno = extraerDatoDeObjeto(o, atributoClase).toString();
-            String dos = extraerDatoDeObjeto(o1, atributoClase).toString();
-            
+        } else if (extraerDatoDeObjeto(objeto1, atributoClase) instanceof String && extraerDatoDeObjeto(objeto2, atributoClase) instanceof String) {
+            String uno = extraerDatoDeObjeto(objeto1, atributoClase).toString();
+            String dos = extraerDatoDeObjeto(objeto2, atributoClase).toString();
+
             if (uno != null && dos != null) {
                 i = uno.toUpperCase().compareTo(dos.toUpperCase());
             }
@@ -31,23 +40,65 @@ public class UtilidadesControlador {
         return i;
     }
     
-    private static Object extraerDatoDeObjeto(Object obj, String atributoClase) {
-        Class clase = obj.getClass();
+    /**
+     * Método que compara un objeto con un dato, según el atributo de la clase especificado para el objeto.
+     * @param objeto Objeto a comparar, es de tipo Object.
+     * @param dato Dato a comparar, es de tipo Object.
+     * @param atributoClase Atributo del modelo del objeto a comparar con el dato, es de tipo string.
+     * @return Retorna un entero según la comparación entre el objeto y el dato con el atributo especificado.
+     * > Devuelve 0 sin son iguales.
+     * > Devuelve 1 si objeto es mayor a dato.
+     * > Devuelve -1 si objeto es menor a dato.
+     */
+    public static int compararObjetoDato(Object objeto, Object dato, String atributoClase) {
+        int i = 0;
+
+        if (dato instanceof Integer) {
+            Integer objetoEntero = (Integer) extraerDatoDeObjeto(objeto, atributoClase);
+            Integer datoEntero = (int) dato;
+
+            if (objetoEntero > datoEntero) {
+                i = 1;
+            } else if (objetoEntero < datoEntero) {
+                i = -1;
+            }
+
+        } else if (dato instanceof String) {
+            String objetoString = extraerDatoDeObjeto(objeto, atributoClase).toString();
+            String datoString = dato.toString();
+
+            if (objetoString != null && datoString != null) {
+                i = objetoString.toUpperCase().compareTo(datoString.toUpperCase());
+            }
+        }
+        return i;
+    }
+
+    /**
+     * Método que extrae la información de un objeto según su atributo de clase especificado.
+     * @param objeto Objeto a extraer su información, es de tipo Object.
+     * @param atributoClase Atributo de la clase del objeto a extraer su información, es de tipo string.
+     * @return Devuelve un objeto que contiene la información especificada del objeto según su atributo de clase.
+     * > En caso de encontrar una coincidencia, devuelve un objeto con referencia a una string o a un entero según el tipo de dato establecido. 
+     * > En caso de no encontrar ninguna coincidencia, devuelve null.
+     */
+    private static Object extraerDatoDeObjeto(Object objeto, String atributoClase) {
+        Class clase = objeto.getClass();
         Field atributo = null;
         Object informacion = null;
-        
+
         for (Field f : clase.getDeclaredFields()) {
             if (f.getName().toString().equalsIgnoreCase(atributoClase)) {
                 atributo = f;
             }
         }
-        
+
         if (atributo != null) {
             for (Method metodoAux : clase.getMethods()) {
                 if (metodoAux.getName().startsWith("get")) {
                     if (metodoAux.getName().toLowerCase().endsWith(atributo.getName())) {
                         try {
-                            informacion = metodoAux.invoke(obj);
+                            informacion = metodoAux.invoke(objeto);
                             break;
                         } catch (Exception e) {
                             System.out.println("Error en el método: " + e.getMessage());
@@ -59,7 +110,13 @@ public class UtilidadesControlador {
         return (informacion != null) ? informacion : null;
     }
 
-    // Método Quicksort 
+    /**
+     * Método que ordena una lista en orden ascendente según el atributo indicado.
+     * @param inferior Posición inicial en donde va a empezar a ordenar el método, generalmente se indica la primera posición (0).
+     * @param superior Posición final en donde va a finalizar a ordenar el método, generalmente se indica la última posiciónn (lista.tamanio() -1).
+     * @param lista Lista a ordenar.
+     * @param atributo Atributo por el cual se va a ordenar la lista, es de tipo string.
+     */
     public static void ordenarQuicksort(int inferior, int superior, ListaSimple lista, String atributo) {
         int i = inferior;
         int j = superior;
@@ -84,38 +141,44 @@ public class UtilidadesControlador {
                 j--;
             }
         }
-        
+
         if (inferior < j) {
             ordenarQuicksort(inferior, j, lista, atributo);
         }
-        
+
         if (i < superior) {
             ordenarQuicksort(i, superior, lista, atributo);
         }
     }
 
-//    //Método para buscar por dato con búsqueda binaria, retorna el objeto
-//    public static Object buscarDatoBinaria_Objeto(String dato, String atributo, ListaSimple lista) {
-//        Object objeto = null;
-//        int centro = 0;
-//        int inferior = 0;
-//        int superior = lista.tamanio() - 1;
-//        
-//        while (inferior <= superior) {
-//            
-//            centro = (superior + inferior) / 2;
-//            String objeto_Centro = UtilidadesControlador.extracciondato(lista.buscarPorPosicion(centro), atributo);
-//
-//            if (objeto_Centro.equalsIgnoreCase(dato)) {
-//                objeto = objeto_Centro;
-//                return objeto;
-//            } else if (dato.toUpperCase().compareTo(objeto_Centro) < 0) {
-//                superior = centro - 1;
-//            } else {
-//                inferior = centro + 1;
-//            }
-//        }
-//        
-//        return objeto;
-//    }
+    /**
+     * Método que busca un objeto por medio del algoritmo de búsqueda binaria, según el atributo especificado de la clase del objeto a buscar.
+     * @param dato Dato a encontrar en el objeto, es de tipo Object.
+     * @param atributo Atributo por el cual se va buscar en el objeto, es de tipo String.
+     * @param lista Lista en donde se va a buscar el objeto especificado.
+     * @return Devuelve un objeto que contiene la información especificada del objeto según su atributo de clase.
+     * > En caso de encontrar una coincidencia, devuelve un objeto con la información del objeto encontrado, es de tipo Object.
+     * > En caso de no encontrar ninguna coincidencia, devuelve null.
+     */
+    public static Object buscarObjetoPorBusquedaBinariaPorDato(Object dato, String atributo, ListaSimple lista) {
+        Object objeto = null;
+        int centro = 0;
+        int inferior = 0;
+        int superior = lista.tamanio() - 1;
+
+        while (inferior <= superior) {
+
+            centro = (superior + inferior) / 2;
+            Object objeto_Centro = lista.buscarPorPosicion(centro);
+
+            if (compararObjetoDato(objeto_Centro, dato, atributo) == 0) {
+                return objeto_Centro;
+            } else if (compararObjetoDato(objeto_Centro, dato, atributo) < 0) {
+                inferior = centro + 1;
+            } else {
+                superior = centro - 1;
+            }
+        }
+        return objeto;
+    }
 }

@@ -39,7 +39,7 @@ public class CuentaDAO extends AdaptadorDAO {
 //        ListaSimple cuentas = listarObjetos();
 //
 //        UtilidadesControlador.ordenarQuicksort(0, cuentas.tamanio() - 1, cuentas, "usuario");
-//        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarDatoBinaria_Objeto(usuario, "usuario", cuentas);
+//        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(usuario, "usuario", cuentas);
 //        
 //        if (cuenta != null) {
 //            if (!cuenta.getClave().equals(clave)) {
