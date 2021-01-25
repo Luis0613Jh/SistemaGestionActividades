@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorPersona;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author juana
@@ -14,10 +18,22 @@ public class CrearEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona controladorEmp = new ControladorPersona();
     public CrearEmpleado() {
         initComponents();
     }
-
+    /**
+     * Metodo para saber si hay campos vacios
+     * @return Un boolean correspondiente a si esta vacia
+     */
+    public boolean vacios(){
+        if(jTextField1.getText().length()>0 && jTextField2.getText().length()>0 && jTextField3.getText().length()>0 && jTextField4.getText().length()>0 && jTextField5.getText().length()>0 && jTextField6.getText().length()>0 && jTextField7.getText().length()>0){
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,15 +170,25 @@ public class CrearEmpleado extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1);
-        jButton1.setBounds(40, 60, 70, 29);
+        jButton1.setBounds(40, 60, 70, 37);
 
         jButton2.setBackground(new java.awt.Color(0, 153, 51));
         jButton2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Registrar.");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton2);
-        jButton2.setBounds(510, 60, 140, 29);
+        jButton2.setBounds(510, 60, 140, 37);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 380, 700, 120);
@@ -173,6 +199,27 @@ public class CrearEmpleado extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(716, 539));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(vacios()){
+            controladorEmp.getPersona().setCedula(jTextField3.getText());
+            controladorEmp.getPersona().setNombre(jTextField2.getText());
+            controladorEmp.getPersona().setCorreo(jTextField4.getText());
+            controladorEmp.getPersona().setTelefono(jTextField7.getText());
+            controladorEmp.getRol().setRol(jTextField5.getText());
+            controladorEmp.getCuenta().setUsuario(jTextField6.getText());
+            controladorEmp.getCuenta().setClave(jTextField1.getText());
+            if(controladorEmp.guardarEmpleado()){
+                JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

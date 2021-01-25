@@ -2,13 +2,16 @@ package controlador.DAO.objetosDAO;
 
 import controlador.DAO.AdaptadorDAO;
 import controlador.DAO.ConexionDAO;
+import controlador.listaSimple.ListaSimple;
+import controlador.utilidades.UtilidadesControlador;
+import modelo.ProyectoModelo;
 
 public class ProyectoDAO extends AdaptadorDAO {
 
     private ProyectoModelo proyecto;
 
     public ProyectoDAO() {
-        super(new ConexionDAO(), ProyectoModelo.class);
+        super(new ConexionDAO(), ProyectoModelo.class, new ConexionDAO().getCARPETA_PROYECTOS());
     }
 
     public ProyectoModelo getProyecto() {
@@ -24,7 +27,6 @@ public class ProyectoDAO extends AdaptadorDAO {
 
     public Boolean guardarProyecto() {
         try {
-            this.getProyecto().setId(Integer.parseInt(String.valueOf(listarObjetos().tamanio() + 1)));
             this.guardarObjeto(this.getProyecto());
             return true;
         } catch (Exception e) {
@@ -33,8 +35,8 @@ public class ProyectoDAO extends AdaptadorDAO {
         }
     }
 
-//    public ListaSimple ordenar(ListaSimple lista, int tipo_ordenacion, String atributo) {
-//        lista.ordenar(tipo_ordenacion, atributo);
-//        return lista;
-//    }
+    public ListaSimple ordenarProyectos(ListaSimple lista, String atributo) {
+        UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
+        return lista;
+    }
 }
