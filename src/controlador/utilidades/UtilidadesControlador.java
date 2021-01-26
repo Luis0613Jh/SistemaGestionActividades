@@ -4,6 +4,7 @@ package controlador.utilidades;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import javax.swing.JComboBox;
 
 public class UtilidadesControlador {
 
@@ -107,5 +108,11 @@ public class UtilidadesControlador {
     
     public static int generarId(){
         return (int)Math.random()*1000;
+    }
+    public static void cargarComboBoxDias(JComboBox cdx ,String[] dato){
+        cdx.removeAllItems();               
+        for(int i = 0 ; i < dato.length ; i++){
+            cdx.addItem(dato[i]);
+        }
     }
 }

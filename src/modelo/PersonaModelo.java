@@ -13,7 +13,8 @@ public class PersonaModelo {
     private String path_imagen;
 
     /**
-     *Metodo obtener id
+     * Metodo obtener id
+     *
      * @return Un Integer correspondiente a id
      */
     public Integer getId() {
@@ -21,7 +22,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo enviar id
+     * Metodo enviar id
+     *
      * @param id
      */
     public void setId(Integer id) {
@@ -29,7 +31,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo obtener nombre
+     * Metodo obtener nombre
+     *
      * @return Un String correspondiente a nombre
      */
     public String getNombre() {
@@ -37,7 +40,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo enviar nombre
+     * Metodo enviar nombre
+     *
      * @param nombre
      */
     public void setNombre(String nombre) {
@@ -45,22 +49,26 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo obtener correo
+     * Metodo obtener correo
+     *
      * @return Un String correspondiente a correo
      */
     public String getCorreo() {
         return correo;
     }
+
     /**
      * Metodo enviar correo
-     * @param correo 
+     *
+     * @param correo
      */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
     /**
-     *Metodo obtener telefono
+     * Metodo obtener telefono
+     *
      * @return Un String correspondiente a telefono
      */
     public String getTelefono() {
@@ -68,7 +76,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo enviar telefono
+     * Metodo enviar telefono
+     *
      * @param telefono
      */
     public void setTelefono(String telefono) {
@@ -76,7 +85,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo obtener getExternal_id
+     * Metodo obtener getExternal_id
+     *
      * @return Un int correspondiente a getExternal_id
      */
     public int getExternal_id() {
@@ -84,7 +94,8 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo enviar getExternal_id
+     * Metodo enviar getExternal_id
+     *
      * @param external_id
      */
     public void setExternal_id(int external_id) {
@@ -92,57 +103,72 @@ public class PersonaModelo {
     }
 
     /**
-     *Metodo obtener cedula
+     * Metodo obtener cedula
+     *
      * @return Un String correspondiente a cedula
      */
     public String getCedula() {
         return cedula;
     }
+
     /**
      * Metodo enviar cedula
-     * @param cedula 
+     *
+     * @param cedula
      */
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
+
     /**
      * Metodo obtener id_cuenta
+     *
      * @return Un int correspondiente a id_cuenta
      */
     public int getId_cuenta() {
         return id_cuenta;
     }
+
     /**
      * Metodo enviar id_cuenta
-     * @param id_cuenta 
+     *
+     * @param id_cuenta
      */
     public void setId_cuenta(int id_cuenta) {
         this.id_cuenta = id_cuenta;
     }
+
     /**
      * Metodo obtener id_rol
+     *
      * @return Un int correspondiente a id_rol
      */
     public int getId_rol() {
         return id_rol;
     }
+
     /**
      * Modelo enviar id_rol
-     * @param id_rol 
+     *
+     * @param id_rol
      */
     public void setId_rol(int id_rol) {
         this.id_rol = id_rol;
     }
+
     /**
      * Modelo obtener path_imagen
+     *
      * @return Un String correspondiente a path_imagen
      */
     public String getPath() {
         return path_imagen;
     }
+
     /**
      * Metodo enviar path_imagen
-     * @param path 
+     *
+     * @param path
      */
     public void setPath(String path) {
         this.path_imagen = path;
