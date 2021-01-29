@@ -77,7 +77,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Crear actividad.");
+        jLabel2.setText("Crear hito.");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(30, 20, 400, 50);
 

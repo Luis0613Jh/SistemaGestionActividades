@@ -42,6 +42,8 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -81,25 +83,25 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Prioridad:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 260, 130, 30);
+        jLabel4.setBounds(30, 300, 130, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Descripción:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(30, 320, 190, 30);
+        jLabel5.setBounds(30, 350, 190, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(250, 260, 310, 30);
+        jComboBox1.setBounds(250, 300, 310, 30);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 320, 310, 70);
+        jTextField1.setBounds(250, 350, 310, 70);
         jPanel2.add(jTextField2);
         jTextField2.setBounds(250, 100, 310, 30);
         jPanel2.add(jDateChooser2);
         jDateChooser2.setBounds(250, 150, 310, 30);
         jPanel2.add(jDateChooser1);
-        jDateChooser1.setBounds(250, 210, 310, 30);
+        jDateChooser1.setBounds(250, 200, 310, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,10 +113,20 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha entrega:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(30, 210, 190, 30);
+        jLabel7.setBounds(30, 200, 190, 30);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Departamento:");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(30, 250, 130, 30);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox2);
+        jComboBox2.setBounds(250, 250, 310, 30);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 640, 400);
+        jPanel2.setBounds(0, 0, 640, 430);
 
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
@@ -144,12 +156,12 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jButton2.setBounds(410, 40, 190, 30);
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(0, 400, 640, 100);
+        jPanel5.setBounds(0, 430, 640, 100);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 640, 500);
+        jPanel1.setBounds(0, 0, 640, 530);
 
-        setSize(new java.awt.Dimension(658, 541));
+        setSize(new java.awt.Dimension(658, 573));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -466,6 +478,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel2;
@@ -474,6 +487,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
