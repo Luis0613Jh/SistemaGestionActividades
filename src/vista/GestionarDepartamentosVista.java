@@ -1,24 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
-/**
- *
- * @author juana
- */
+
 public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdministradorVista
+     * Creates new form PruebaModificado
      */
     public GestionarDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearDepartamento.setSelected(true);
-        
     }
 
     /**
@@ -29,47 +21,125 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        rSMenuBar1 = new rojerusan.RSMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        rSCalendar1 = new necesario.RSCalendar();
-        roboto1 = new rojeru_san.efectos.Roboto();
-        scheduledExecutorTimingSource1 = new org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource();
-        rSButtonRiple2 = new rojeru_san.RSButtonRiple();
+        rSLabelSombra1 = new rojeru_san.rslabel.RSLabelSombra();
         jPanel1 = new javax.swing.JPanel();
-        panelBotones = new javax.swing.JPanel();
-        btnCrearDepartamento = new rojerusan.RSButtonMetro();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        pnlMenu = new javax.swing.JPanel();
+        btnEliminarDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnCambiarEncargado = new rojeru_san.rsbutton.RSButtonMetro();
+        btnCrearDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
-        btnVerDetalladamente = new rojeru_san.rsbutton.RSButtonMetro();
-        btnEliminarDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
+        btnVerDetalladamente = new rojerusan.RSButtonMetro();
+        jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojerusan.RSTableMetro();
-        btnGuardarCambios = new rojerusan.RSButtonMetro();
-        jPanel2 = new javax.swing.JPanel();
-        btnMenu = new rojeru_san.rsbutton.RSButtonMetro();
-        rSLabelHora1 = new rojeru_san.rsdate.RSLabelHora();
+        jButton2 = new javax.swing.JButton();
 
-        jMenu1.setText("File");
-        rSMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        rSMenuBar1.add(jMenu2);
-
-        rSButtonRiple2.setBackground(new java.awt.Color(0, 153, 51));
-        rSButtonRiple2.setText("Gestionar empleados.");
+        rSLabelSombra1.setText("rSLabelSombra1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        panelBotones.setBackground(new java.awt.Color(204, 204, 204));
-        panelBotones.setLayout(null);
+        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 0, 0));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Instructivo.");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 937;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        pnlMenu.setBackground(new java.awt.Color(204, 204, 204));
+
+        btnEliminarDepartamento.setText("Eliminar departamento.");
+        btnEliminarDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDepartamentoActionPerformed(evt);
+            }
+        });
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        jLabel1.setText("Administrador.");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 57, Short.MAX_VALUE)
+                .addComponent(jLabel1))
+        );
+
+        btnCambiarEncargado.setText("Cambiar encargado.");
+        btnCambiarEncargado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarEncargadoActionPerformed(evt);
+            }
+        });
 
         btnCrearDepartamento.setText("Crear departamento.");
         btnCrearDepartamento.addActionListener(new java.awt.event.ActionListener() {
@@ -77,57 +147,67 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                 btnCrearDepartamentoActionPerformed(evt);
             }
         });
-        panelBotones.add(btnCrearDepartamento);
-        btnCrearDepartamento.setBounds(0, 90, 230, 50);
-
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel4.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Administrador + nombre del admin");
-        jPanel4.add(jLabel1);
-        jLabel1.setBounds(0, 30, 230, 21);
-
-        panelBotones.add(jPanel4);
-        jPanel4.setBounds(0, 0, 230, 70);
-
-        btnCambiarEncargado.setText("Cambiar encargado.");
-        btnCambiarEncargado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCambiarEncargado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarEncargadoActionPerformed(evt);
-            }
-        });
-        panelBotones.add(btnCambiarEncargado);
-        btnCambiarEncargado.setBounds(0, 150, 230, 50);
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setText("Salir.");
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-        panelBotones.add(btnSalir);
-        btnSalir.setBounds(0, 360, 230, 50);
 
         btnVerDetalladamente.setText("Ver detalladamente.");
-        btnVerDetalladamente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnVerDetalladamente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerDetalladamenteActionPerformed(evt);
             }
         });
-        panelBotones.add(btnVerDetalladamente);
-        btnVerDetalladamente.setBounds(0, 270, 230, 50);
 
-        btnEliminarDepartamento.setText("Eliminar departamento.");
-        btnEliminarDepartamento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        panelBotones.add(btnEliminarDepartamento);
-        btnEliminarDepartamento.setBounds(0, 210, 230, 50);
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlMenuLayout.createSequentialGroup()
+                        .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                .addComponent(btnEliminarDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCambiarEncargado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnCambiarEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jPanel1.add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 230, 430));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = -10;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(pnlMenu, gridBagConstraints);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,55 +223,66 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 680, 310));
+        jButton2.setBackground(new java.awt.Color(0, 153, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Guardar cambios.");
 
-        btnGuardarCambios.setBackground(new java.awt.Color(0, 153, 0));
-        btnGuardarCambios.setText("Guardar cambios.");
-        jPanel1.add(btnGuardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 220, 50));
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
-        jPanel2.setLayout(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 649;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 0, 0, 0);
+        jPanel1.add(jPanel6, gridBagConstraints);
 
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
-        btnMenu.setGrosorLinea(10);
-        btnMenu.setIconTextGap(10);
-        btnMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnMenu);
-        btnMenu.setBounds(30, 10, 60, 50);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1055, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        rSLabelHora1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        rSLabelHora1.setForeground(new java.awt.Color(255, 255, 255));
-        rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
-        jPanel2.add(rSLabelHora1);
-        rSLabelHora1.setBounds(750, 20, 200, 40);
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 80));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 510));
-
-        setSize(new java.awt.Dimension(992, 547));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        int posicion = this.panelBotones.getX();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int posicion = this.pnlMenu.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -250, 2, 2, panelBotones);
+            Animacion.Animacion.mover_izquierda(0, -250, 2, 2, pnlMenu);
         } else {
-            Animacion.Animacion.mover_derecha(-250, 0, 2, 2, panelBotones);
+            Animacion.Animacion.mover_derecha(-250, 0, 2, 2, pnlMenu);
         }
-    }//GEN-LAST:event_btnMenuActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDepartamentoActionPerformed
         CrearDepartamentoVista cd = new CrearDepartamentoVista();
@@ -213,6 +304,21 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         vdd.setLocationRelativeTo(null);
         vdd.setVisible(true);
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        AdministradorVista admin = new AdministradorVista();
+        this.dispose();
+        admin.setLocationRelativeTo(null);
+        admin.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnEliminarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDepartamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarDepartamentoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,18 +349,6 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -266,26 +360,21 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.rsbutton.RSButtonMetro btnCambiarEncargado;
-    private rojerusan.RSButtonMetro btnCrearDepartamento;
+    private rojeru_san.rsbutton.RSButtonMetro btnCrearDepartamento;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarDepartamento;
-    private rojerusan.RSButtonMetro btnGuardarCambios;
-    private rojeru_san.rsbutton.RSButtonMetro btnMenu;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
-    private rojeru_san.rsbutton.RSButtonMetro btnVerDetalladamente;
+    private rojerusan.RSButtonMetro btnVerDetalladamente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel panelBotones;
-    private rojeru_san.RSButtonRiple rSButtonRiple2;
-    private necesario.RSCalendar rSCalendar1;
-    private rojeru_san.rsdate.RSLabelHora rSLabelHora1;
-    private rojerusan.RSMenuBar rSMenuBar1;
+    private javax.swing.JPanel pnlMenu;
+    private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
     private rojerusan.RSTableMetro rSTableMetro1;
-    private rojeru_san.efectos.Roboto roboto1;
-    private org.jdesktop.core.animation.timing.sources.ScheduledExecutorTimingSource scheduledExecutorTimingSource1;
     // End of variables declaration//GEN-END:variables
 }
