@@ -39,4 +39,10 @@ public class ActividadDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+
+    public ActividadModelo buscarActividad(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarActividads(lista, atributo);
+        ActividadModelo cuenta = (ActividadModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }

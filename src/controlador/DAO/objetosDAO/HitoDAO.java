@@ -39,4 +39,10 @@ public class HitoDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+
+    public HitoModelo buscarHito(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarHitos(lista, atributo);
+        HitoModelo cuenta = (HitoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }

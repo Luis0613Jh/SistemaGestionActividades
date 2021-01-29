@@ -39,4 +39,10 @@ public class PersonaDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+
+    public PersonaModelo buscarPersona(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarPersonas(lista, atributo);
+        PersonaModelo cuenta = (PersonaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }

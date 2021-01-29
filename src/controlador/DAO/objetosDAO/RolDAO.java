@@ -39,4 +39,10 @@ public class RolDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+    
+    public RolModelo buscarRol(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarRoles(lista, atributo);
+        RolModelo cuenta = (RolModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }

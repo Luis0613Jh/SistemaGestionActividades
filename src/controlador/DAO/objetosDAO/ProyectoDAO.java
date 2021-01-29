@@ -39,4 +39,10 @@ public class ProyectoDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+    
+    public ProyectoModelo buscarProyecto(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarProyectos(lista, atributo);
+        ProyectoModelo cuenta = (ProyectoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }
