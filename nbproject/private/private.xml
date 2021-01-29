@@ -2,30 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/GestionarActividadesVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearEmpleadoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearProyectosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/AdministradorVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearDepartamentoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/GestionarDepartamentosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/ConfirmarProcesoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/JefeProyectoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/ProyectosAsignadosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/InstructivoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/VerDetalladamenteProyectosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/VerDetalladamenteDepartamentosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CambiarEncargadoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearHitoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/GestionarHitosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/LoginVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/GestionarEmpleadosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/GestionarProyectosVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearActividadVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/CrearAdministradorVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/EditarEmpleadoVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/BienvenidaVista.java</file>
-            <file>file:/C:/Users/juana/OneDrive/Documentos/NetBeansProjects/Proyecto%20final/SistemaGestionActividades/src/vista/VerDetalladamenteEmpleadoVista.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

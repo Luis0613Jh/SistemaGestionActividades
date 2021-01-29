@@ -204,7 +204,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tw Cen MT" size="24" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Jefe proyecto."/>
+                    <Property name="text" type="java.lang.String" value="Encargado "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFoto">
@@ -223,7 +223,7 @@
             </Container>
             <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnGestionarProyectos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Proyectos asignados."/>
+                <Property name="text" type="java.lang.String" value="Actividades asignadas."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarProyectosActionPerformed"/>
