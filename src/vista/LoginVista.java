@@ -7,21 +7,56 @@ import javax.swing.JOptionPane;
  *
  * @author juana
  */
+import controlador.servicio.CuentaServicio;
+import controlador.utilidades.Sesion;
+import javax.swing.JOptionPane;
+
+
 public class LoginVista extends javax.swing.JFrame {
 
+    private Sesion sesion = new Sesion();
+    private CuentaServicio cuentaServicio = new CuentaServicio();
+    
     /**
      * Creates new form pms
      */
     public LoginVista() {
         initComponents();
     }
-    public boolean camposLlenos(){
-        if(txtUsuario.getText().length()>0 && txtClave.getText().length() > 0){
-            return true;
-        }else{
-            return false;
+
+    public void iniciarSesion() {
+        
+        sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getPassword().toString()));
+        if(sesion.getCuenta() != null) {
+            System.out.println("Cuenta bien");
+            sesion.obtenerDatos();
+            System.out.println("Cedula: " + sesion.getPersona().getCedula());
+            System.out.println("Rol: " + sesion.getRol().getRol());
+            autorizarVista(sesion.getRol().getRol());
+        } else {
+            JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
-    }  
+    }
+    
+    public void autorizarVista(String rolNombre) {
+        System.out.println("---------ROL: " + rolNombre);
+        
+        switch (rolNombre) {
+            case "Administrador":
+                System.out.println("Es un administrador");
+            break;
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+            break;
+            case "Encargado":
+                System.out.println("Es un Encargado");
+            break;
+            case "Personal":
+                System.out.println("Es un Personal");
+            break;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +77,7 @@ public class LoginVista extends javax.swing.JFrame {
         rSLabelImage1 = new rojeru_san.rslabel.RSLabelImage();
         rSLabelImage3 = new rojeru_san.rslabel.RSLabelImage();
         lblIngreseUsuarioClave = new javax.swing.JLabel();
-        btnIniciarSesion2 = new rojeru_san.RSButtonRiple();
+        btnIniciarSesion = new rojeru_san.RSButtonRiple();
         btnSalir = new rojeru_san.RSButtonRiple();
 
         btnIniciarSesion1.setText("Iniciar Sesión");
@@ -58,24 +93,18 @@ public class LoginVista extends javax.swing.JFrame {
 
         panelSesion.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSLabelImage2.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\user_customer_person_13976.png")); // NOI18N
-
         txtUsuario.setPlaceholder("Ingrese su usuario");
 
         txtClave.setPlaceholder("Ingrese su contraseña");
-
-        rSLabelImage1.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\user_customer_person_13976.png")); // NOI18N
-
-        rSLabelImage3.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\password_userpassword_9564.png")); // NOI18N
 
         lblIngreseUsuarioClave.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
         lblIngreseUsuarioClave.setForeground(new java.awt.Color(204, 0, 0));
         lblIngreseUsuarioClave.setText("Ingrese el usuario y contraseña.");
 
-        btnIniciarSesion2.setText("Iniciar Sesión");
-        btnIniciarSesion2.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesion2ActionPerformed(evt);
+                btnIniciarSesionActionPerformed(evt);
             }
         });
 
@@ -107,7 +136,7 @@ public class LoginVista extends javax.swing.JFrame {
                             .addGroup(panelSesionLayout.createSequentialGroup()
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(panelSesionLayout.createSequentialGroup()
                         .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -138,7 +167,7 @@ public class LoginVista extends javax.swing.JFrame {
                 .addComponent(lblIngreseUsuarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -181,15 +210,9 @@ public class LoginVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
 
-    private void btnIniciarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion2ActionPerformed
-//        if(camposLlenos()){
-//            if(){
-//                
-//            }
-//        }else{
-//            JOptionPane.showMessageDialog(null,"Llene todos los campos");
-//        }
-    }//GEN-LAST:event_btnIniciarSesion2ActionPerformed
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        iniciarSesion();
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
@@ -234,8 +257,8 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.RSButtonRiple btnIniciarSesion;
     private rojeru_san.RSButtonRiple btnIniciarSesion1;
-    private rojeru_san.RSButtonRiple btnIniciarSesion2;
     private rojeru_san.RSButtonRiple btnSalir;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblIngreseUsuarioClave;

@@ -1,16 +1,20 @@
 
 package vista;
 
+import vista.tabla.tabla_GestionarEmpleado;
 
 public class GestionarProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+     * Creates new form AdministradorVista
+     */    
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearProyecto.setSelected(true);
+        
     }
 
     /**

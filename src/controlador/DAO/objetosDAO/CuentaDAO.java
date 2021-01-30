@@ -35,22 +35,27 @@ public class CuentaDAO extends AdaptadorDAO {
         }
     }
 
-//    public CuentaModelo iniciarSesion(String usuario, String clave) {
-//       ListaSimple cuentas = listarOb//jetos();
-//
-//        UtilidadesControlador.ordenarQuicksort(0, cuentas.tamanio() - 1, cuentas, "usuario");
-//        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(usuario, "usuario", cuentas);
-//        
-//        if (cuenta != null) {
-//            if (!cuenta.getClave().equals(clave)) {
-//                cuenta = null;
-//            }
-//        }
-//        return cuenta;
-//    }
+    public CuentaModelo iniciarSesion(String usuario, String clave) {
+        ListaSimple listaCuentas = listarObjetos();
 
-    public ListaSimple ordenar(ListaSimple lista, String atributo) {
+        CuentaModelo cuenta = buscarCuenta(usuario, "usuario", listaCuentas);
+        
+        if (cuenta != null) {
+            if (!cuenta.getClave().equals(clave)) {
+                cuenta = null;
+            }
+        }
+        return cuenta;
+    }
+
+    public ListaSimple ordenarCuentas(ListaSimple lista, String atributo) {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
+    }
+    
+    public CuentaModelo buscarCuenta(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarCuentas(lista, atributo);
+        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
     }
 }

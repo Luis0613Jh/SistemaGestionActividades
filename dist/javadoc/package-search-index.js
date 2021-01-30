@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"controlador"},{"l":"controlador.DAO"},{"l":"controlador.DAO.objetosDAO"},{"l":"controlador.listaSimple"},{"l":"controlador.utilidades"},{"l":"modelo"},{"l":"sistemagestionactividades"},{"l":"vista"}]

@@ -39,4 +39,10 @@ public class DepartamentoDAO extends AdaptadorDAO {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
+
+    public DepartamentoModelo buscarDepartamento(String dato, String atributo, ListaSimple lista) {
+        lista = ordenarDepartamentos(lista, atributo);
+        DepartamentoModelo cuenta = (DepartamentoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
 }
