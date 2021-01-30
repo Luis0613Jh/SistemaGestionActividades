@@ -5,9 +5,15 @@
  */
 package vista;
 
+import controlador.ControladorCuenta;
+import controlador.ControladorPersona;
+import controlador.ControladorRol;
+import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -21,11 +27,41 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    public EditarEmpleadoVista() {
+    ControladorPersona controlador;
+    ControladorRol controladorRol = new ControladorRol();
+    ControladorCuenta controladorCuenta = new ControladorCuenta();
+    public EditarEmpleadoVista(ControladorPersona controlador) {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        llenarDatos();
+        
     }
 
+    private EditarEmpleadoVista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public void llenarDatos(){
+        jTextField2.setText(controlador.getPersona().getNombre());
+        jTextField3.setText(controlador.getPersona().getCedula());
+        jTextField4.setText(controlador.getPersona().getCorreo());
+        jTextField7.setText(controlador.getPersona().getTelefono());
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        jTextField5.setText(controladorRol.getRol().getRol());
+        controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
+        jTextField6.setText(controladorCuenta.getCuenta().getUsuario());
+        jTextField1.setText(controladorCuenta.getCuenta().getClave());
+        cargarImagen(controlador.getPersona().getPath());
+    }
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+            lblFoto.setIcon(fondo1);
+        } else {
+            lblFoto.setText("Empeado sin \n foto cargada");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +91,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -110,7 +147,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Departamento:");
+        jLabel6.setText("Rol :");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(30, 300, 130, 30);
 
@@ -137,6 +174,11 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jTextField4.setBounds(250, 220, 310, 30);
 
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jTextField5);
         jTextField5.setBounds(250, 300, 310, 30);
 
@@ -159,7 +201,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 25);
+        btnElegirFoto.setBounds(640, 320, 230, 33);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,6 +212,15 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jTextField7);
         jTextField7.setBounds(250, 260, 310, 30);
+
+        jButton3.setText("Cambiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(137, 300, 90, 32);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -233,6 +284,15 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new Frm_CambioRol(this,true,controlador).setVisible(true);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,6 +401,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

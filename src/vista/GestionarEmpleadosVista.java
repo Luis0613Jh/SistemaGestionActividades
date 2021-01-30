@@ -210,7 +210,9 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        EditarEmpleadoVista ee = new EditarEmpleadoVista();
+        int eleccion = rSTableMetro1.getSelectedRow();
+        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
+        EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
         this.dispose();
         ee.setLocationRelativeTo(null);
         ee.setVisible(true);
