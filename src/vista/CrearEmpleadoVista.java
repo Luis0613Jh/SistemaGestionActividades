@@ -10,6 +10,8 @@ import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -25,24 +27,29 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      * Creates new form CrearAdministrador
      */
     ControladorPersona controladorEmp = new ControladorPersona();
+
     public CrearEmpleadoVista() {
         initComponents();
-        this.setLocationRelativeTo(this);        
+        this.setLocationRelativeTo(this);
         UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
     }
-    
+
     /**
      * Metodo para saber si hay campos vacios
+     *
      * @return Un boolean correspondiente a si esta vacia
      */
-    public boolean vacios(){
-        if(jTextField1.getText().length()>0 && jTextField2.getText().length()>0 && jTextField3.getText().length()>0 && jTextField4.getText().length()>0  && jTextField6.getText().length()>0 && jTextField7.getText().length()>0){
+    public boolean vacios() {
+        if (jTextField1.getText().length() > 0 && jTextField2.getText().length() > 0 && jTextField3.getText().length() > 0 && jTextField4.getText().length() > 0 && jTextField6.getText().length() > 0 && jTextField7.getText().length() > 0) {
             return true;
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
             return false;
         }
     }
+
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,7 +242,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private void btnElegirFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElegirFotoActionPerformed
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Buscar foto o imagen");
-        if (fc.showOpenDialog(this)== JFileChooser.APPROVE_OPTION) {
+        if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
             controladorEmp.getPersona().setPath(fc.getSelectedFile().toString());
@@ -243,7 +250,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(vacios()){
+        if (vacios()) {
             controladorEmp.getPersona().setCedula(jTextField3.getText());
             controladorEmp.getPersona().setNombre(jTextField2.getText());
             controladorEmp.getPersona().setCorreo(jTextField4.getText());
@@ -251,10 +258,10 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setId_rol(controladorEmp.obtenerID(jComboBox1.getSelectedIndex()));
             controladorEmp.getCuenta().setUsuario(jTextField6.getText());
             controladorEmp.getCuenta().setClave(jTextField1.getText());
-            if(controladorEmp.guardarEmpleado()){
+            if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
-                
-            }else{
+
+            } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
             }
         }
@@ -262,10 +269,10 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
-         this.dispose();
+        this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

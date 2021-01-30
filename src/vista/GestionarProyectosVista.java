@@ -5,6 +5,8 @@
  */
 package vista;
 
+import vista.tabla.tabla_GestionarEmpleado;
+
 /**
  *
  * @author juana
@@ -13,12 +15,12 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form AdministradorVista
-     */
+     */    
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearProyecto.setSelected(true);
-
+        
     }
 
     /**

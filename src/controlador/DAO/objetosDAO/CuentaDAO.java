@@ -36,7 +36,7 @@ public class CuentaDAO extends AdaptadorDAO {
     }
 
 //    public CuentaModelo iniciarSesion(String usuario, String clave) {
-//        ListaSimple cuentas = listarObjetos();
+//       ListaSimple cuentas = listarOb//jetos();
 //
 //        UtilidadesControlador.ordenarQuicksort(0, cuentas.tamanio() - 1, cuentas, "usuario");
 //        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(usuario, "usuario", cuentas);

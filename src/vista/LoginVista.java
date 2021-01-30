@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juana
@@ -17,7 +19,13 @@ public class LoginVista extends javax.swing.JFrame {
     public LoginVista() {
         initComponents();
     }
-
+    public boolean camposLlenos(){
+        if(txtUsuario.getText().length()>0 && txtClave.getText().length() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,7 +181,13 @@ public class LoginVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
 
     private void btnIniciarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion2ActionPerformed
-        // TODO add your handling code here:
+//        if(camposLlenos()){
+//            if(){
+//                
+//            }
+//        }else{
+//            JOptionPane.showMessageDialog(null,"Llene todos los campos");
+//        }
     }//GEN-LAST:event_btnIniciarSesion2ActionPerformed
 
     /**

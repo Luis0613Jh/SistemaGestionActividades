@@ -5,9 +5,16 @@
  */
 package vista;
 
+import controlador.ControladorCuenta;
+import controlador.ControladorPersona;
+import controlador.ControladorRol;
+import java.awt.HeadlessException;
+import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -21,9 +28,43 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona controlador;
+    ControladorRol controladorRol = new ControladorRol();
+    ControladorCuenta controladorCuenta = new ControladorCuenta();
     public VerDetalladamenteEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarDatos();
+    }
+
+    public VerDetalladamenteEmpleadoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        llenarDatos();
+    }
+
+    public void llenarDatos() {
+        jLabel10.setText(controlador.getPersona().getNombre());
+        jLabel11.setText(controlador.getPersona().getCedula());
+        jLabel12.setText(controlador.getPersona().getCorreo());
+        jLabel13.setText(controlador.getPersona().getTelefono());
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        jLabel14.setText(controladorRol.getRol().getRol());
+        controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
+        jLabel15.setText(controladorCuenta.getCuenta().getUsuario());
+        jLabel9.setText(controladorCuenta.getCuenta().getClave());
+        cargarImagen(controlador.getPersona().getPath());
+    }
+
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+            lblFoto.setIcon(fondo1);
+        } else {
+            lblFoto.setText("Empeado sin \n foto cargada");
+        }
     }
 
     /**
@@ -108,7 +149,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Departamento:");
+        jLabel6.setText("Rol :");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(30, 300, 130, 30);
 
@@ -186,6 +227,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controlador.setPersona(null);
         GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
         this.dispose();
         ge.setLocationRelativeTo(null);

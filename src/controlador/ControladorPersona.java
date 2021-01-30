@@ -175,4 +175,21 @@ public class ControladorPersona {
         
         return ((RolModelo)rol.buscarPorPosicion(i)).getId();
     }
+    public ListaSimple obtenerListaCuentas(){
+        CuentaDAO adc = new CuentaDAO();
+        return adc.listarObjetos();
+    }
+    public ListaSimple obtenerListaEmpleados(){
+        PersonaDAO ad = new PersonaDAO();
+        return ad.listarObjetos();
+    }
+    
+    public boolean validarUsuarioClave(){
+        CuentaModelo aux = (CuentaModelo)UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(cuenta, "id", obtenerListaCuentas());
+        if(aux != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
