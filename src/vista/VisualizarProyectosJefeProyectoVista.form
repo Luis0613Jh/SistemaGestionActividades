@@ -122,7 +122,6 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnCrearProyecto" pref="210" max="32767" attributes="0"/>
-                                  <Component id="btnEliminarProyecto" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnVerDetalladamente" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnSalir" pref="210" max="32767" attributes="0"/>
                               </Group>
@@ -140,11 +139,9 @@
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
                       <Component id="btnCrearProyecto" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnEliminarProyecto" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="btnVerDetalladamente" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
@@ -192,19 +189,14 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tw Cen MT" size="24" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Administrador."/>
+                    <Property name="text" type="java.lang.String" value="Jefe proyecto."/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnEliminarProyecto">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar proyecto."/>
-              </Properties>
-            </Component>
             <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnCrearProyecto">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Crear proyecto."/>
+                <Property name="text" type="java.lang.String" value="Gestionar actividades."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearProyectoActionPerformed"/>

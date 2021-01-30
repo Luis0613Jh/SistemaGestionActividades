@@ -1,29 +1,16 @@
 
 package vista;
 
-import controlador.ControladorPersona;
-import modelo.PersonaModelo;
-import vista.tabla.tabla_GestionarEmpleado;
 
-/**
- *
- * @author juana
- */
-public class GestionarEmpleadosVista extends javax.swing.JFrame {
+public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
-    tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
-    ControladorPersona controlador = new ControladorPersona();
-    public GestionarEmpleadosVista() {
+    public VisualizarProyectosJefeProyectoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(controlador.obtenerListaEmpleados());
-        rSTableMetro1.setModel(tabla);
-        rSTableMetro1.updateUI();
-
+        this.btnCrearProyecto.setSelected(true);
     }
 
     /**
@@ -40,13 +27,11 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
-        btnEliminarEmpleado = new rojeru_san.rsbutton.RSButtonMetro();
+        btnVerDetalladamente = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEditarEmpleado = new rojeru_san.rsbutton.RSButtonMetro();
-        btnCrearEmpleado = new rojeru_san.rsbutton.RSButtonMetro();
+        btnCrearProyecto = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
-        btnVerDatos = new rojerusan.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojerusan.RSTableMetro();
@@ -90,17 +75,17 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnEliminarEmpleado.setText("Eliminar empleado.");
-        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        btnVerDetalladamente.setText("Ver detalladamente.");
+        btnVerDetalladamente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarEmpleadoActionPerformed(evt);
+                btnVerDetalladamenteActionPerformed(evt);
             }
         });
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jLabel1.setText("Administrador.");
+        jLabel1.setText("Jefe proyecto.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -118,17 +103,10 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        btnEditarEmpleado.setText("Editar empleado.");
-        btnEditarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        btnCrearProyecto.setText("Gestionar actividades.");
+        btnCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        btnCrearEmpleado.setText("Crear empleado.");
-        btnCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearEmpleadoActionPerformed(evt);
+                btnCrearProyectoActionPerformed(evt);
             }
         });
 
@@ -137,13 +115,6 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
-            }
-        });
-
-        btnVerDatos.setText("Ver detalladamente.");
-        btnVerDatos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerDatosActionPerformed(evt);
             }
         });
 
@@ -156,11 +127,9 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCrearEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnEditarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnVerDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnCrearProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -170,19 +139,15 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addComponent(btnCrearEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnEditarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVerDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addComponent(btnCrearProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 201, 580));
+        jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 201, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -253,31 +218,19 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
-        CrearEmpleadoVista ce = new CrearEmpleadoVista();
+    private void btnCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProyectoActionPerformed
+        GestionarActividadesVista gac = new GestionarActividadesVista();
         this.dispose();
-        ce.setLocationRelativeTo(null);
-        ce.setVisible(true);
-    }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
+        gac.setLocationRelativeTo(null);
+        gac.setVisible(true);
+    }//GEN-LAST:event_btnCrearProyectoActionPerformed
 
-    private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        int eleccion = rSTableMetro1.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
+    private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
+        VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista();
         this.dispose();
-        ee.setLocationRelativeTo(null);
-        ee.setVisible(true);
-
-    }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
-
-    private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
-        int eleccion = rSTableMetro1.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
-        vde.setLocationRelativeTo(null);
-        vde.setVisible(true);        
-        this.dispose();
-    }//GEN-LAST:event_btnVerDatosActionPerformed
+        vdp.setLocationRelativeTo(null);
+        vdp.setVisible(true);
+    }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         AdministradorVista admin = new AdministradorVista();
@@ -285,10 +238,6 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,14 +256,38 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarProyectosJefeProyectoVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarProyectosJefeProyectoVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarProyectosJefeProyectoVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionarEmpleadosVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarProyectosJefeProyectoVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -327,17 +300,15 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestionarEmpleadosVista().setVisible(true);
+                new VisualizarProyectosJefeProyectoVista().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnCrearEmpleado;
-    private rojeru_san.rsbutton.RSButtonMetro btnEditarEmpleado;
-    private rojeru_san.rsbutton.RSButtonMetro btnEliminarEmpleado;
+    private rojeru_san.rsbutton.RSButtonMetro btnCrearProyecto;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
-    private rojerusan.RSButtonMetro btnVerDatos;
+    private rojeru_san.rsbutton.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

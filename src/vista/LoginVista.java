@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
 import javax.swing.JOptionPane;
@@ -85,6 +81,11 @@ public class LoginVista extends javax.swing.JFrame {
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelSesionLayout = new javax.swing.GroupLayout(panelSesion);
         panelSesion.setLayout(panelSesionLayout);
@@ -190,6 +191,10 @@ public class LoginVista extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_btnIniciarSesion2ActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,10 +220,6 @@ public class LoginVista extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
