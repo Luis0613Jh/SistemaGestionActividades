@@ -1,1 +1,0 @@
-{"controlador.listaSimple.ListaSimple":{"cabecera":{"objeto":{"@class":"modelo.CuentaModelo","id":44646,"external_id":44646,"usuario":45,"clave":432},"siguiente":{"objeto":{"@class":"modelo.CuentaModelo","id":0,"external_id":0,"usuario":213213,"clave":21321321},"siguiente":{"objeto":{"@class":"modelo.CuentaModelo","id":0,"external_id":0,"usuario":324234,"clave":324234324}}}}}}
