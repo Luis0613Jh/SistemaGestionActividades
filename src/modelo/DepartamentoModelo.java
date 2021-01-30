@@ -9,7 +9,8 @@ public class DepartamentoModelo {
     private String descripcion;
 
     /**
-     *Metodo obtener nombreDepartamento
+     * Metodo obtener nombreDepartamento
+     *
      * @return Un String correspondiente a nombreDepartamento
      */
     public String getNombreDepartamento() {
@@ -17,7 +18,8 @@ public class DepartamentoModelo {
     }
 
     /**
-     *Metodo enviar nombreDepartamento
+     * Metodo enviar nombreDepartamento
+     *
      * @param nombreDepartamento
      */
     public void setNombreDepartamento(String nombreDepartamento) {
@@ -25,7 +27,8 @@ public class DepartamentoModelo {
     }
 
     /**
-     *Metodo obtener encargado
+     * Metodo obtener encargado
+     *
      * @return Un PersonaModelo correspondinete a encargado
      */
     public PersonaModelo getEncargado() {
@@ -33,50 +36,63 @@ public class DepartamentoModelo {
     }
 
     /**
-     *Metodo enviar encargado
+     * Metodo enviar encargado
+     *
      * @param encargado
      */
     public void setEncargado(PersonaModelo encargado) {
         this.encargado = encargado;
     }
+
     /**
      * Metodo obtener id
+     *
      * @return Un int correspondiente a id
      */
     public int getId() {
         return id;
     }
+
     /**
      * Metodo enviar id
-     * @param id 
+     *
+     * @param id
      */
     public void setId(int id) {
         this.id = id;
     }
+
     /**
      * Metodo obtener external_id
+     *
      * @return Un int correspondiente a external_id
      */
     public int getExternal_id() {
         return external_id;
     }
+
     /**
      * Metodo enviar external_id
-     * @param external_id 
+     *
+     * @param external_id
      */
     public void setExternal_id(int external_id) {
         this.external_id = external_id;
     }
+
     /**
      * Metodo obtener descripcion
+     *
      * @return Un String correspondiente a descripcion
      */
     public String getDescripcion() {
         return descripcion;
     }
+
     /**
      * Metodo enviar descripcion
-     * @param descripcion 
+     *
+     * @param descripcion
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;

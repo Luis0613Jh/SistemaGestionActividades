@@ -5,12 +5,14 @@ import controlador.DAO.InterfazDAO;
 import controlador.DAO.objetosDAO.CuentaDAO;
 import controlador.DAO.objetosDAO.PersonaDAO;
 import controlador.DAO.objetosDAO.RolDAO;
+import controlador.listaSimple.ListaSimple;
 import controlador.utilidades.UtilidadesControlador;
 import javax.swing.JOptionPane;
 import modelo.CuentaModelo;
 import modelo.DepartamentoModelo;
 import modelo.PersonaModelo;
 import modelo.RolModelo;
+import modelo.RolProyectoModelo;
 
 public class ControladorPersona {
 
@@ -87,11 +89,11 @@ public class ControladorPersona {
         aux.setCorreo(persona.getCorreo());
         aux.setExternal_id(UtilidadesControlador.generarId());
         persona.setExternal_id(aux.getExternal_id());
-        aux.setId(UtilidadesControlador.generarId());
+        aux.setId(numeroEmpleados()+1);
         persona.setId(aux.getId());
-        aux.setId_rol(UtilidadesControlador.generarId());
-        persona.setId_rol(aux.getId_rol());
-        aux.setId_cuenta(UtilidadesControlador.generarId());
+        aux.setId_rol(persona.getId_rol());
+        System.out.println("Rol = " +persona.getId_rol());
+        aux.setId_cuenta(numeroEmpleados()+1);
         persona.setId_cuenta(aux.getId());
         aux.setNombre(persona.getNombre());
         aux.setPath(persona.getPath());
@@ -150,5 +152,44 @@ public class ControladorPersona {
         aux.setId(persona.getId());
         aux.setRol(rol.getRol());
         return aux;
+    }
+    
+    public int numeroEmpleados(){
+        PersonaDAO ad = new PersonaDAO();
+        ListaSimple lista = ad.listarObjetos();
+        return lista.tamanio();
+    }
+    
+    public String[] ObtenerRoles(){
+        RolDAO r = new  RolDAO();
+        ListaSimple rol = r.listarObjetos();
+        String[] roles = new String[rol.tamanio()];        
+        for(int i = 0 ; i < rol.tamanio() ; i++){
+            roles[i] = ((RolModelo)rol.buscarPorPosicion(i)).toString();            
+        }
+        return roles;
+    }
+    public int obtenerID(int i){
+        RolDAO r = new  RolDAO();
+        ListaSimple rol = r.listarObjetos();
+        
+        return ((RolModelo)rol.buscarPorPosicion(i)).getId();
+    }
+    public ListaSimple obtenerListaCuentas(){
+        CuentaDAO adc = new CuentaDAO();
+        return adc.listarObjetos();
+    }
+    public ListaSimple obtenerListaEmpleados(){
+        PersonaDAO ad = new PersonaDAO();
+        return ad.listarObjetos();
+    }
+    
+    public boolean validarUsuarioClave(){
+        CuentaModelo aux = (CuentaModelo)UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(cuenta, "id", obtenerListaCuentas());
+        if(aux != null){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

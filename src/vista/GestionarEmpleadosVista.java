@@ -6,10 +6,16 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     /**
      * Creates new form PruebaModificado
      */
+    tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
+    ControladorPersona controlador = new ControladorPersona();
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
+        tabla.setLista(controlador.obtenerListaEmpleados());
+        rSTableMetro1.setModel(tabla);
+        rSTableMetro1.updateUI();
+
     }
 
     /**
@@ -255,10 +261,12 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
 
     private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista();
-        this.dispose();
+        int eleccion = rSTableMetro1.getSelectedRow();
+        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
+        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
         vde.setLocationRelativeTo(null);
-        vde.setVisible(true);
+        vde.setVisible(true);        
+        this.dispose();
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

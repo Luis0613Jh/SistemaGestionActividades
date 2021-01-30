@@ -60,4 +60,11 @@ public class RolModelo {
         this.external_id = external_id;
     }
 
+    @Override
+    public String toString() {
+        return tipo; 
+    }
+    
+    
+
 }
