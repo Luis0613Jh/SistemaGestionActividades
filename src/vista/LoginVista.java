@@ -1,4 +1,3 @@
-
 package vista;
 
 import javax.swing.JOptionPane;
@@ -11,52 +10,61 @@ import controlador.servicio.CuentaServicio;
 import controlador.utilidades.Sesion;
 import javax.swing.JOptionPane;
 
-
 public class LoginVista extends javax.swing.JFrame {
 
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
-    
+
     /**
      * Creates new form pms
      */
     public LoginVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     public void iniciarSesion() {
-        
-        sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getPassword().toString()));
-        if(sesion.getCuenta() != null) {
-            System.out.println("Cuenta bien");
+
+        sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
+        if (sesion.getCuenta() != null) {
             sesion.obtenerDatos();
-            System.out.println("Cedula: " + sesion.getPersona().getCedula());
-            System.out.println("Rol: " + sesion.getRol().getRol());
             autorizarVista(sesion.getRol().getRol());
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void autorizarVista(String rolNombre) {
         System.out.println("---------ROL: " + rolNombre);
-        
+
         switch (rolNombre) {
             case "Administrador":
-                System.out.println("Es un administrador");
-            break;
+                System.out.println("Es un Administrador");
+                this.dispose();
+                AdministradorVista av = new AdministradorVista();
+                av.setVisible(true);
+                break;
             case "Jefe de Proyecto":
                 System.out.println("Es un Jefe de Proyecto");
-            break;
+                this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista();
+                jpv.setVisible(true);
+                break;
             case "Encargado":
                 System.out.println("Es un Encargado");
-            break;
+                this.dispose();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista();
+                edv.setVisible(true);
+                break;
             case "Personal":
                 System.out.println("Es un Personal");
-            break;
+                this.dispose();
+                PersonalVista pv = new PersonalVista();
+                pv.setVisible(true);
+                break;
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

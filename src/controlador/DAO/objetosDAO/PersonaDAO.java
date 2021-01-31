@@ -45,4 +45,28 @@ public class PersonaDAO extends AdaptadorDAO {
         PersonaModelo cuenta = (PersonaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
     }
+
+    public Boolean modificarPersona(Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar persona: " + e);
+            return false;
+        }
+    }
+
+    public Boolean darDeBajaPersona(String dato, String atributo, ListaSimple lista) {
+        PersonaModelo persona = buscarPersona(dato, atributo, lista);
+        persona.setActivo(false);
+        try {
+            // Se modifica
+            modificarPersona(persona, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en dar de baja el persona: " + e);
+            return false;
+        }
+    }
 }

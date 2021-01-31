@@ -58,4 +58,28 @@ public class CuentaDAO extends AdaptadorDAO {
         CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
     }
+    
+    public Boolean modificarCuenta (Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar cuenta: " + e);
+            return false;
+        }
+    }
+    
+    public Boolean darDeBajaCuenta(String dato, String atributo, ListaSimple lista) {
+        CuentaModelo cuenta = buscarCuenta(dato, atributo, lista);
+        cuenta.setActivo(false);
+        try {
+            // Se modifica
+            modificarCuenta(cuenta, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en dar de baja el cuenta: " + e);
+            return false;
+        }
+    }
 }

@@ -7,6 +7,7 @@ public class DepartamentoModelo {
     private int id;
     private int external_id;
     private String descripcion;
+    private boolean activo;
 
     /**
      * Metodo obtener nombreDepartamento
@@ -96,6 +97,14 @@ public class DepartamentoModelo {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

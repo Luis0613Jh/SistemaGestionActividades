@@ -245,7 +245,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
-            controladorEmp.getPersona().setPath(fc.getSelectedFile().toString());
+            controladorEmp.getPersona().setPath_imagen(fc.getSelectedFile().toString());
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 

@@ -10,7 +10,8 @@ public class ProyectoModelo {
     private Date fechaFinal;
     private int external_id;
     private String codigo;
-
+    private boolean activo;
+    
     /**
      * Metodo obtenr id
      *
@@ -117,6 +118,14 @@ public class ProyectoModelo {
      */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

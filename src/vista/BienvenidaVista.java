@@ -1,14 +1,20 @@
 
 package vista;
 
+import controlador.servicio.RolServicio;
+
 
 public class BienvenidaVista extends javax.swing.JFrame {
 
+    private RolServicio rolServicio = new RolServicio();
+    
     /**
      * Creates new form Bienvenida
      */
     public BienvenidaVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        rolServicio.crearRoles();
     }
 
     /**
@@ -143,7 +149,6 @@ public class BienvenidaVista extends javax.swing.JFrame {
         LoginVista p = new LoginVista();
         this.dispose();
         p.setVisible(true);
-        p.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed

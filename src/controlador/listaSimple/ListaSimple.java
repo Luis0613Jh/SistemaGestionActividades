@@ -1,5 +1,6 @@
 package controlador.listaSimple;
 
+import controlador.utilidades.UtilidadesControlador;
 import javax.swing.JOptionPane;
 
 public class ListaSimple {
@@ -213,6 +214,20 @@ public class ListaSimple {
             }
         } else {
             throw new IndexOutOfBoundsException("Fuera de rango");
+        }
+    }
+
+    public void editarPorDato(Object dato, String atributo, Object objeto) {
+        Nodo temporal = cabecera;
+
+        while (temporal != null) {
+            int num = UtilidadesControlador.compararObjetoDato(temporal.getObjeto(), dato, atributo);
+            if (num == 0) {
+                temporal.setObjeto(objeto);
+                break;
+            } else {
+                temporal = temporal.getSiguiente();
+            }
         }
     }
 

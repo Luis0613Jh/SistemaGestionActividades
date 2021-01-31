@@ -54,7 +54,9 @@ public class AdaptadorDAO implements InterfazDAO {
                 conexionDAO.getXstream().toXML(listaAux, new FileOutputStream(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json"));
             } else {
                 ListaSimple listaAux = new ListaSimple();
+                listaAux.imprimir();
                 listaAux.insertarFinal(objeto);
+                listaAux.imprimir();
                 conexionDAO.getXstream().toXML(listaAux, new FileOutputStream(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json"));
             }
         } else {
@@ -63,6 +65,18 @@ public class AdaptadorDAO implements InterfazDAO {
         }
     }
 
+    @Override
+    public void modificarObjetos(ListaSimple lista) {
+        File archivo = new File(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json");
+        try {
+            if (archivo.exists()) {
+                conexionDAO.getXstream().toXML(lista, new FileOutputStream(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json"));
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR al listar: " + e.getMessage());
+        }
+    }
+    
     public boolean verificarRutaArchivo() {
         boolean bandera = false;
         File carpetaContenedora = new File(conexionDAO.getCARPETA_CONTENEDORA());

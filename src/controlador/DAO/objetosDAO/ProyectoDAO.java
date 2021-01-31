@@ -42,7 +42,31 @@ public class ProyectoDAO extends AdaptadorDAO {
     
     public ProyectoModelo buscarProyecto(String dato, String atributo, ListaSimple lista) {
         lista = ordenarProyectos(lista, atributo);
-        ProyectoModelo cuenta = (ProyectoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
-        return cuenta;
+        ProyectoModelo proyecto = (ProyectoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return proyecto;
+    }
+    
+    public Boolean modificarProyecto (Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar proyecto: " + e);
+            return false;
+        }
+    }
+    
+    public Boolean darDeBajaProyecto(String dato, String atributo, ListaSimple lista) {
+        ProyectoModelo proyecto = buscarProyecto(dato, atributo, lista);
+        proyecto.setActivo(false);
+        try {
+            // Se modifica
+            modificarProyecto(proyecto, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en dar de baja el proyecto: " + e);
+            return false;
+        }
     }
 }

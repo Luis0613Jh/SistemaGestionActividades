@@ -11,6 +11,7 @@ public class DepartamentoServicio {
     public static String DESCRIPCION = "decripcion";
     public static String EXTERNAL_ID = "external_id";
     public static String NOMBRE_ENCARGADO = "encargado";
+    public static String ACTIVO = "activo";
     private DepartamentoDAO departamentoDAO = new DepartamentoDAO();
 
     public DepartamentoModelo getDepartamento() {
@@ -37,4 +38,11 @@ public class DepartamentoServicio {
         return departamentoDAO.buscarDepartamento(dato, atributo, listarDepartamentos());
     }
 
+    public Boolean modificarDepartamento (Object objeto, String atributo, ListaSimple lista) {
+        return departamentoDAO.modificarDepartamento(objeto, atributo, lista);
+    }
+    
+    public Boolean darDeBajaDepartamento (String dato, String atributo, ListaSimple lista) {
+        return departamentoDAO.darDeBajaDepartamento(dato, atributo, lista);
+    }
 }

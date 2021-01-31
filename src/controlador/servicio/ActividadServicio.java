@@ -13,7 +13,7 @@ public class ActividadServicio {
     public static String EXTERNAL_ID = "external_id";
     public static String DESCRIPCION = "descripcion";
     public static String PRIORIDAD = "prioridad";
-    public static String FINALIZADO = "finalizado";
+    public static String ACTIVO = "activo";
     private ActividadDAO actividadDAO = new ActividadDAO();
 
     public ActividadModelo getActividad() {
@@ -40,4 +40,11 @@ public class ActividadServicio {
         return actividadDAO.buscarActividad(dato, atributo, listarActividads());
     }
 
+    public Boolean modificarActividad (Object objeto, String atributo, ListaSimple lista) {
+        return actividadDAO.modificarActividad(objeto, atributo, lista);
+    }
+    
+    public Boolean darDeBajaActividad (String dato, String atributo, ListaSimple lista) {
+        return actividadDAO.darDeBajaActividad(dato, atributo, lista);
+    }
 }

@@ -13,7 +13,7 @@ public class HitoServicio {
     public static String EXTERNAL_ID = "external_id";
     public static String PRIORIDAD = "prioridad";
     public static String RESPONSABLE = "responsable";
-    public static String FINALIZADO = "finalizado";
+    public static String ACTIVO = "activo";
     private HitoDAO hitoDAO = new HitoDAO();
 
     public HitoModelo getHito() {
@@ -38,6 +38,14 @@ public class HitoServicio {
 
     public HitoModelo buscarHito(String dato, String atributo) {
         return hitoDAO.buscarHito(dato, atributo, listarHitos());
+    }
+    
+    public Boolean modificarHito (Object objeto, String atributo, ListaSimple lista) {
+        return hitoDAO.modificarHito(objeto, atributo, lista);
+    }
+    
+    public Boolean darDeBajaHito (String dato, String atributo, ListaSimple lista) {
+        return hitoDAO.darDeBajaHito(dato, atributo, lista);
     }
 
 }

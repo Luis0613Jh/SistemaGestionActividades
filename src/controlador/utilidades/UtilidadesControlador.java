@@ -82,6 +82,10 @@ public class UtilidadesControlador {
         return i;
     }
 
+    public static Object extraerDato (Object objeto, String atributoClase) {
+        return extraerDatoDeObjeto(objeto, atributoClase);
+    }
+    
     /**
      * Método que extrae la información de un objeto según su atributo de clase especificado.
      * @param objeto Objeto a extraer su información, es de tipo Object.

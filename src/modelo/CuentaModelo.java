@@ -6,6 +6,7 @@ public class CuentaModelo {
     private int external_id;
     private String usuario;
     private String clave;
+    private boolean activo;
 
     /**
      * Metodo obtener external_id
@@ -77,6 +78,14 @@ public class CuentaModelo {
      */
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

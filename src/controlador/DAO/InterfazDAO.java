@@ -12,4 +12,5 @@ public interface InterfazDAO {
      * @return Retorna la lista con toda la información recuperada.
      */
     public ListaSimple listarObjetos();  
+    public void modificarObjetos(ListaSimple lista);  
 }
