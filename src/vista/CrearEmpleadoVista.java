@@ -38,19 +38,19 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtNombrePersonal = new javax.swing.JTextField();
+        txtCedulaPersonal = new javax.swing.JTextField();
+        txtCorreoElectronicoPersonal = new javax.swing.JTextField();
+        txtUsuarioPersonal = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtTelefonoPersonal = new javax.swing.JTextField();
+        cbxRol = new javax.swing.JComboBox<>();
+        txtContraseniaPersonal = new javax.swing.JPasswordField();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -113,25 +113,21 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel7);
         jLabel7.setBounds(30, 340, 130, 30);
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 380, 310, 30);
+        txtNombrePersonal.setBorder(null);
+        jPanel2.add(txtNombrePersonal);
+        txtNombrePersonal.setBounds(250, 140, 310, 30);
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(250, 140, 310, 30);
+        txtCedulaPersonal.setBorder(null);
+        jPanel2.add(txtCedulaPersonal);
+        txtCedulaPersonal.setBounds(250, 180, 310, 30);
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(250, 180, 310, 30);
+        txtCorreoElectronicoPersonal.setBorder(null);
+        jPanel2.add(txtCorreoElectronicoPersonal);
+        txtCorreoElectronicoPersonal.setBounds(250, 220, 310, 30);
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(250, 220, 310, 30);
-
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(250, 340, 310, 30);
+        txtUsuarioPersonal.setBorder(null);
+        jPanel2.add(txtUsuarioPersonal);
+        txtUsuarioPersonal.setBounds(250, 340, 310, 30);
 
         lblFoto.setBackground(new java.awt.Color(255, 255, 255));
         lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -156,14 +152,16 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel8);
         jLabel8.setBounds(30, 260, 130, 30);
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(250, 260, 310, 30);
+        txtTelefonoPersonal.setBorder(null);
+        jPanel2.add(txtTelefonoPersonal);
+        txtTelefonoPersonal.setBounds(250, 260, 310, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(250, 300, 310, 30);
+        cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxRol.setBorder(null);
+        jPanel2.add(cbxRol);
+        cbxRol.setBounds(250, 300, 310, 30);
+        jPanel2.add(txtContraseniaPersonal);
+        txtContraseniaPersonal.setBounds(250, 380, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -171,29 +169,29 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir.");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(30, 50, 70, 29);
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(30, 50, 70, 29);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrar.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setBackground(new java.awt.Color(0, 153, 0));
+        btnRegistrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Registrar.");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton2);
-        jButton2.setBounds(760, 50, 140, 30);
+        jPanel5.add(btnRegistrar);
+        btnRegistrar.setBounds(760, 50, 140, 30);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 430, 930, 110);
@@ -214,19 +212,19 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
        AdministradorVista admin = new AdministradorVista();
        this.dispose();
        admin.setLocationRelativeTo(null);
        admin.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
          this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,9 +283,9 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElegirFoto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbxRol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,12 +298,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JTextField txtCedulaPersonal;
+    private javax.swing.JPasswordField txtContraseniaPersonal;
+    private javax.swing.JTextField txtCorreoElectronicoPersonal;
+    private javax.swing.JTextField txtNombrePersonal;
+    private javax.swing.JTextField txtTelefonoPersonal;
+    private javax.swing.JTextField txtUsuarioPersonal;
     // End of variables declaration//GEN-END:variables
 }

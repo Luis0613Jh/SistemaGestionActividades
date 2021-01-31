@@ -9,7 +9,7 @@ public class PersonalVista extends javax.swing.JFrame {
     public PersonalVista() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnGestionarProyectos.setSelected(true);
+        this.btnHitosAsignados.setSelected(true);
     }
 
     /**
@@ -28,11 +28,11 @@ public class PersonalVista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
-        btnGestionarDepartamentos = new rojeru_san.rsbutton.RSButtonMetro();
+        btnActividadesPersonales = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
-        btnGestionarProyectos = new rojeru_san.rsbutton.RSButtonMetro();
+        btnHitosAsignados = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         rSCalendar1 = new rojerusan.RSCalendar();
@@ -87,10 +87,10 @@ public class PersonalVista extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnGestionarDepartamentos.setText("Actividades personales.");
-        btnGestionarDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+        btnActividadesPersonales.setText("Actividades personales.");
+        btnActividadesPersonales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarDepartamentosActionPerformed(evt);
+                btnActividadesPersonalesActionPerformed(evt);
             }
         });
 
@@ -125,10 +125,10 @@ public class PersonalVista extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        btnGestionarProyectos.setText("Hitos asignados.");
-        btnGestionarProyectos.addActionListener(new java.awt.event.ActionListener() {
+        btnHitosAsignados.setText("Hitos asignados.");
+        btnHitosAsignados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarProyectosActionPerformed(evt);
+                btnHitosAsignadosActionPerformed(evt);
             }
         });
 
@@ -149,8 +149,8 @@ public class PersonalVista extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnHitosAsignados, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -161,9 +161,9 @@ public class PersonalVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
-                .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHitosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
@@ -231,16 +231,18 @@ public class PersonalVista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnGestionarProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProyectosActionPerformed
+    private void btnHitosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitosAsignadosActionPerformed
         VisualizarHitosPersonalVista gps = new VisualizarHitosPersonalVista();
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);
-    }//GEN-LAST:event_btnGestionarProyectosActionPerformed
+    }//GEN-LAST:event_btnHitosAsignadosActionPerformed
 
-    private void btnGestionarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDepartamentosActionPerformed
-        
-    }//GEN-LAST:event_btnGestionarDepartamentosActionPerformed
+    private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
+        ActividadesPersonalesVista apv = new ActividadesPersonalesVista();
+        apv.setLocationRelativeTo(null);
+        apv.setVisible(true);        
+    }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         LoginVista lv = new LoginVista();
@@ -316,8 +318,8 @@ public class PersonalVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnGestionarDepartamentos;
-    private rojeru_san.rsbutton.RSButtonMetro btnGestionarProyectos;
+    private rojeru_san.rsbutton.RSButtonMetro btnActividadesPersonales;
+    private rojeru_san.rsbutton.RSButtonMetro btnHitosAsignados;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;

@@ -34,20 +34,16 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtNombreEmpleado = new javax.swing.JTextField();
+        btnCorreoElectronico = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -75,7 +71,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Contraseña:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 380, 130, 30);
+        jLabel1.setBounds(30, 300, 130, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,53 +85,33 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(30, 140, 130, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Cédula:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 180, 130, 30);
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Correo electrónico:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(30, 220, 190, 30);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Departamento:");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(30, 300, 130, 30);
+        jLabel5.setBounds(30, 180, 190, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Usuario:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(30, 340, 130, 30);
+        jLabel7.setBounds(30, 260, 130, 30);
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField1.setBorder(null);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 380, 310, 30);
+        jTextField1.setBounds(250, 300, 310, 30);
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(250, 140, 310, 30);
+        txtNombreEmpleado.setBorder(null);
+        jPanel2.add(txtNombreEmpleado);
+        txtNombreEmpleado.setBounds(250, 140, 310, 30);
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(250, 180, 310, 30);
+        btnCorreoElectronico.setBorder(null);
+        jPanel2.add(btnCorreoElectronico);
+        btnCorreoElectronico.setBounds(250, 180, 310, 30);
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(250, 220, 310, 30);
-
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(250, 300, 310, 30);
-
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField6.setBorder(null);
         jPanel2.add(jTextField6);
-        jTextField6.setBounds(250, 340, 310, 30);
+        jTextField6.setBounds(250, 260, 310, 30);
 
         lblFoto.setBackground(new java.awt.Color(255, 255, 255));
         lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -158,11 +134,11 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Teléfono:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(30, 260, 130, 30);
+        jLabel8.setBounds(30, 220, 130, 30);
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(250, 260, 310, 30);
+        txtTelefono.setBorder(null);
+        jPanel2.add(txtTelefono);
+        txtTelefono.setBounds(250, 220, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -299,15 +275,14 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField btnCorreoElectronico;
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -315,12 +290,9 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JTextField txtNombreEmpleado;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

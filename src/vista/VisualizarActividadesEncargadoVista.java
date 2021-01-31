@@ -10,7 +10,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
     public VisualizarActividadesEncargadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnCrearActividad.setSelected(true);
+        this.btnGestionarHitos.setSelected(true);
     }
 
     /**
@@ -29,11 +29,11 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         pnlMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnCrearActividad = new rojeru_san.rsbutton.RSButtonMetro();
+        btnGestionarHitos = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        tblActividadEncargadoVista = new rojerusan.RSTableMetro();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -93,10 +93,10 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        btnCrearActividad.setText("Gestionar hitos");
-        btnCrearActividad.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarHitos.setText("Gestionar hitos");
+        btnGestionarHitos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActividadActionPerformed(evt);
+                btnGestionarHitosActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnCrearActividad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                            .addComponent(btnGestionarHitos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -128,7 +128,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addComponent(btnCrearActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGestionarHitos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(258, 258, 258)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
@@ -138,7 +138,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblActividadEncargadoVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -149,8 +149,8 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblActividadEncargadoVista.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tblActividadEncargadoVista);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -201,12 +201,12 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         admin.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnCrearActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActividadActionPerformed
+    private void btnGestionarHitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarHitosActionPerformed
         GestionarHitosVista cav = new GestionarHitosVista();
         this.dispose();
         cav.setLocationRelativeTo(null);
         cav.setVisible(true);
-    }//GEN-LAST:event_btnCrearActividadActionPerformed
+    }//GEN-LAST:event_btnGestionarHitosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,7 +371,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnCrearActividad;
+    private rojeru_san.rsbutton.RSButtonMetro btnGestionarHitos;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -382,6 +382,6 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlMenu;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblActividadEncargadoVista;
     // End of variables declaration//GEN-END:variables
 }

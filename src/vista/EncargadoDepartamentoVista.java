@@ -1,4 +1,3 @@
-
 package vista;
 
 public class EncargadoDepartamentoVista extends javax.swing.JFrame {
@@ -28,14 +27,14 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
-        btnGestionarDepartamentos = new rojeru_san.rsbutton.RSButtonMetro();
+        btnActividadesPersonales = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         btnGestionarProyectos = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
-        rSCalendar1 = new rojerusan.RSCalendar();
+        calendarioEncargado = new rojerusan.RSCalendar();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -87,10 +86,10 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(204, 204, 204));
 
-        btnGestionarDepartamentos.setText("Actividades personales.");
-        btnGestionarDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+        btnActividadesPersonales.setText("Actividades personales.");
+        btnActividadesPersonales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarDepartamentosActionPerformed(evt);
+                btnActividadesPersonalesActionPerformed(evt);
             }
         });
 
@@ -150,7 +149,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -163,7 +162,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
@@ -180,7 +179,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSCalendar1.setColorBackground(new java.awt.Color(0, 153, 0));
+        calendarioEncargado.setColorBackground(new java.awt.Color(0, 153, 0));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -188,14 +187,14 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(rSCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
+                .addComponent(calendarioEncargado, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rSCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(calendarioEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
 
@@ -232,14 +231,16 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGestionarProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProyectosActionPerformed
-       VisualizarActividadesEncargadoVista vae = new  VisualizarActividadesEncargadoVista();
-       vae.setLocationRelativeTo(null);
-       vae.setVisible(true);
+        VisualizarActividadesEncargadoVista vae = new VisualizarActividadesEncargadoVista();
+        vae.setLocationRelativeTo(null);
+        vae.setVisible(true);
     }//GEN-LAST:event_btnGestionarProyectosActionPerformed
 
-    private void btnGestionarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDepartamentosActionPerformed
-        
-    }//GEN-LAST:event_btnGestionarDepartamentosActionPerformed
+    private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
+        ActividadesPersonalesVista apv = new ActividadesPersonalesVista();
+        apv.setLocationRelativeTo(null);
+        apv.setVisible(true);
+    }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         LoginVista lv = new LoginVista();
@@ -315,9 +316,10 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnGestionarDepartamentos;
+    private rojeru_san.rsbutton.RSButtonMetro btnActividadesPersonales;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarProyectos;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
+    private rojerusan.RSCalendar calendarioEncargado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -327,7 +329,6 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JPanel pnlMenu;
-    private rojerusan.RSCalendar rSCalendar1;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
     // End of variables declaration//GEN-END:variables
 }

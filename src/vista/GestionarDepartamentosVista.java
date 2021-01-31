@@ -27,7 +27,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnInstructivo = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
         btnEliminarDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
@@ -38,8 +38,8 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         btnVerDetalladamente = new rojerusan.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
-        jButton2 = new javax.swing.JButton();
+        tbtGestionarDepartamentos = new rojerusan.RSTableMetro();
+        btnGuardarCambios = new javax.swing.JButton();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -60,13 +60,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Instructivo.");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnInstructivo.setBackground(new java.awt.Color(255, 0, 0));
+        btnInstructivo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnInstructivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnInstructivo.setText("Instructivo.");
+        btnInstructivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnInstructivoActionPerformed(evt);
             }
         });
 
@@ -80,7 +80,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInstructivo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -91,7 +91,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInstructivo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -209,7 +209,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tbtGestionarDepartamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -220,13 +220,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tbtGestionarDepartamentos.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tbtGestionarDepartamentos);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar cambios.");
+        btnGuardarCambios.setBackground(new java.awt.Color(0, 153, 0));
+        btnGuardarCambios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambios.setText("Guardar cambios.");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -238,7 +238,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -247,7 +247,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -316,9 +316,9 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarDepartamentoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnInstructivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnInstructivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,11 +362,11 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonMetro btnCambiarEncargado;
     private rojeru_san.rsbutton.RSButtonMetro btnCrearDepartamento;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarDepartamento;
+    private javax.swing.JButton btnGuardarCambios;
+    private javax.swing.JButton btnInstructivo;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojerusan.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -375,6 +375,6 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlMenu;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tbtGestionarDepartamentos;
     // End of variables declaration//GEN-END:variables
 }
