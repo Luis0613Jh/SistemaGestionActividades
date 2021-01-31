@@ -6,6 +6,16 @@ public class RolModelo {
     private int external_id;
     private String tipo;
 
+    public RolModelo(int id, int external_id, String tipo) {
+        this.id = id;
+        this.external_id = external_id;
+        this.tipo = tipo;
+    }
+
+    public RolModelo() {
+       
+    }
+
     /**
      * Metodo obtener tipo
      *

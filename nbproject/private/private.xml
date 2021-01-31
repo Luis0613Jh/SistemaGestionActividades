@@ -14,17 +14,28 @@
         <group>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorPersona.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/RolModelo.java</file>
-            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/LoginVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarProyectosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorRol.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/objetosDAO/RolDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/ConexionDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/Frm_CambioRol.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/utilidades/UtilidadesControlador.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearDepartamentoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorActividad.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/VerDetalladamenteEmpleadoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/objetosDAO/DepartamentoDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/AdaptadorDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/LoginVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/EditarEmpleadoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearActividadVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/VerDetalladamenteDepartamentosVista.java</file>
-            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarEmpleadosVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/AdministradorVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorDepartamento.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarDepartamentosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorCuenta.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/RolProyectoModelo.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearProyectosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/PersonaModelo.java</file>
-            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/VerDetalladamenteEmpleadoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearEmpleadoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/tabla/tabla_GestionarEmpleado.java</file>
         </group>

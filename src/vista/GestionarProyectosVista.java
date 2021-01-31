@@ -7,9 +7,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
-     */
-     * Creates new form AdministradorVista
-     */    
+     */  
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);

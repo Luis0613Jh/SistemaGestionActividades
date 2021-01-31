@@ -43,4 +43,15 @@ public class ControladorRol {
             }
         }
     }
+    public RolModelo obtenerRolPor_Id(int id){
+        RolDAO leer = new RolDAO();
+        ListaSimple temp = leer.listarObjetos();
+        for(int i = 0 ; i < temp.tamanio() ; i++){
+            RolModelo aux = (RolModelo)temp.buscarPorPosicion(i);
+            if(aux.getId() == id){
+                return aux;
+            }
+        }
+        return null;
+    }
 }

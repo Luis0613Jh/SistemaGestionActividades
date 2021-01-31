@@ -1,9 +1,10 @@
-
 package vista;
+
 
 import controlador.ControladorCuenta;
 import controlador.ControladorPersona;
 import controlador.ControladorRol;
+import controlador.utilidades.UtilidadesControlador;
 import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
@@ -11,9 +12,9 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 public class EditarEmpleadoVista extends javax.swing.JFrame {
 
@@ -23,18 +24,21 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     ControladorPersona controlador;
     ControladorRol controladorRol = new ControladorRol();
     ControladorCuenta controladorCuenta = new ControladorCuenta();
+
     public EditarEmpleadoVista(ControladorPersona controlador) {
         initComponents();
         this.setLocationRelativeTo(this);
         this.controlador = controlador;
         llenarDatos();
         
+
     }
 
     private EditarEmpleadoVista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
-    public void llenarDatos(){
+
+    public void llenarDatos() {
         jTextField2.setText(controlador.getPersona().getNombre());
         jTextField3.setText(controlador.getPersona().getCedula());
         jTextField4.setText(controlador.getPersona().getCorreo());
@@ -46,6 +50,15 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jTextField1.setText(controladorCuenta.getCuenta().getClave());
         cargarImagen(controlador.getPersona().getPath());
     }
+
+    public boolean camposEnBlanco() {
+        if (jTextField1.getText().length() > 0 && jTextField2.getText().length() > 0 && jTextField3.getText().length() > 0 && jTextField4.getText().length() > 0 && jTextField5.getText().length() > 0 && jTextField6.getText().length() > 0 && jTextField7.getText().length() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void cargarImagen(String path) {
         if (path != null) {
             ImageIcon foto = new ImageIcon(path);
@@ -55,6 +68,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             lblFoto.setText("Empeado sin \n foto cargada");
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -261,14 +275,30 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
+            controlador.getPersona().setPath(fc.getSelectedFile().toString());
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+
+        if (camposEnBlanco()) {
+            controlador.getPersona().setCedula(jTextField3.getText());
+            controlador.getPersona().setCorreo(jTextField4.getText());
+            controlador.getPersona().setNombre(jTextField2.getText());
+            controlador.getPersona().setTelefono(jTextField7.getText());
+            controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
+            //UtilidadesControlador.
+            AdministradorVista admin = new AdministradorVista();
+            this.dispose();
+            admin.setLocationRelativeTo(null);
+            admin.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+        }
+
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -283,8 +313,8 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new Frm_CambioRol(this,true,controlador).setVisible(true);
-        
+        new Frm_CambioRol(this, true, controlador).setVisible(true);
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

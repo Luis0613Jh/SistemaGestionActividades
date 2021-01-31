@@ -1,10 +1,14 @@
 
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -14,11 +18,30 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona contper =  new ControladorPersona();
+    ControladorDepartamento contdep = new ControladorDepartamento();
     public CrearDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarEmpleados();
     }
-
+    public void llenarEmpleados(){
+        if(contper.obtenerListaEmpleados() != null){
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(jComboBox1, contper.obtenerListaEmpleados());
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay empleados");
+            dispose();
+        }
+        
+    };
+    public boolean camposVacios(){
+        if(jTextField1.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,10 +157,17 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        if(camposVacios()){
+            contdep.getDepatamento().setNombreDepartamento(txtNombreDepartamento.getText());
+            //contdep.getDepatamento().setEncargado(encargado);
+            AdministradorVista admin = new AdministradorVista();
+            this.dispose();
+            admin.setLocationRelativeTo(null);
+            admin.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

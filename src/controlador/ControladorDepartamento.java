@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import controlador.DAO.objetosDAO.DepartamentoDAO;
 import modelo.DepartamentoModelo;
 
 /**
@@ -21,6 +22,9 @@ public class ControladorDepartamento {
      * @return Un DepartamentoModelo correspndiente a depatamento
      */
     public DepartamentoModelo getDepatamento() {
+        if(depatamento == null){
+            depatamento = new DepartamentoModelo();
+        }
         return depatamento;
     }
 
@@ -33,14 +37,7 @@ public class ControladorDepartamento {
         this.depatamento = depatamento;
     }
 
-    /**
-     * Metodo para clonar el modelo temporaal de departamento y manejar ids
-     */
-    public void clonarDepartamento() {
-        DepartamentoModelo aux = new DepartamentoModelo();
-
-    }
-
+    
     /**
      * Metodo para guardar el departmento en el json
      *
@@ -48,7 +45,9 @@ public class ControladorDepartamento {
      */
     public boolean guardarDepartamento() {
         try {
-
+            DepartamentoDAO dep = new DepartamentoDAO();
+            dep.setDepartamento(depatamento);
+            dep.guardarDepartamento();
             return true;
         } catch (Exception e) {
             return false;
