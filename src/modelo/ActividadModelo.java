@@ -12,6 +12,7 @@ public class ActividadModelo {
     private String prioridad;
     private boolean activo;
     private int external_id;
+    private int proyecto_id;
 
     /**
      * Metodo obtener id

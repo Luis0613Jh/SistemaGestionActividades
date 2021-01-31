@@ -263,5 +263,18 @@ public class ListaSimple {
             aux.setSiguiente(siguiente);
         }
     }
+    
+    public void eliminarPorObjeto(Object objeto) {
+        if (cabecera.getObjeto().equals(objeto)) {
+            cabecera = cabecera.getSiguiente();
+        } else {
+            Nodo aux = cabecera;
+            while (!((aux.getSiguiente().getObjeto().equals(objeto)))) {
+                aux = aux.getSiguiente();
+            }
+            Nodo siguiente = aux.getSiguiente().getSiguiente();
+            aux.setSiguiente(siguiente);
+        }
+    }
 
 }

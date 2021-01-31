@@ -40,7 +40,7 @@ public class ProyectoDAO extends AdaptadorDAO {
         return lista;
     }
     
-    public ProyectoModelo buscarProyecto(String dato, String atributo, ListaSimple lista) {
+    public ProyectoModelo buscarProyecto(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarProyectos(lista, atributo);
         ProyectoModelo proyecto = (ProyectoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return proyecto;
@@ -57,7 +57,7 @@ public class ProyectoDAO extends AdaptadorDAO {
         }
     }
     
-    public Boolean darDeBajaProyecto(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaProyecto(Object dato, String atributo, ListaSimple lista) {
         ProyectoModelo proyecto = buscarProyecto(dato, atributo, lista);
         proyecto.setActivo(false);
         try {
@@ -68,5 +68,10 @@ public class ProyectoDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el proyecto: " + e);
             return false;
         }
+    }
+    
+    public ListaSimple listarProyectosCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        ordenarProyectos(lista, atributo);
+        return listarCoincidencias(lista, dato, atributo);
     }
 }

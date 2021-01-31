@@ -41,7 +41,7 @@ public class RolDAO extends AdaptadorDAO {
         return lista;
     }
 
-    public RolModelo buscarRol(String dato, String atributo, ListaSimple lista) {
+    public RolModelo buscarRol(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarRoles(lista, atributo);
         RolModelo cuenta = (RolModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -114,5 +114,14 @@ public class RolDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el rol: " + e);
             return false;
         }
+    }
+    
+    public int obtenerIdRol(ListaSimple lista, Object dato, String atributo) {
+        lista = ordenarRoles(lista, atributo);
+        System.out.println("Lista ordenada");
+        lista.imprimir();
+        RolModelo rol = (RolModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        System.out.println("Rol: " + rol.getRol());
+        return rol.getId();
     }
 }

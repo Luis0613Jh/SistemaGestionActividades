@@ -33,6 +33,10 @@ public class PersonaServicio {
     public ListaSimple listarPersonas() {
         return personaDAO.listarObjetos();
     }
+    
+    public ListaSimple listarPersonasCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        return personaDAO.listarPersonasCoincidentes(lista, dato, atributo);
+    }
 
     public ListaSimple ordenarListadoPersonas(String atributo) {
         return personaDAO.ordenarPersonas(personaDAO.listarObjetos(), atributo);

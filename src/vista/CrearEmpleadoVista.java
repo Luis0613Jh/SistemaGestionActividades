@@ -253,7 +253,6 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getCuenta().setClave(jTextField1.getText());
             if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
-
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
             }
@@ -265,7 +264,6 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
