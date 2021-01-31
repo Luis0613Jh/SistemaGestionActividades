@@ -10,7 +10,7 @@ public class ActividadModelo {
     private Date fechaEntrega;
     private String descripcion;
     private String prioridad;
-    private boolean finalizado;
+    private boolean activo;
     private int external_id;
 
     /**
@@ -122,21 +122,21 @@ public class ActividadModelo {
     }
 
     /**
-     * Metodo enviar finalizado
+     * Metodo enviar activo
      *
-     * @return Un boolean que corresponde a finalizado
+     * @return Un boolean que corresponde a activo
      */
-    public boolean isFinalizado() {
-        return finalizado;
+    public boolean getActivo() {
+        return activo;
     }
 
     /**
-     * Metodo enviar finalizado
+     * Metodo enviar activo
      *
-     * @param finalizado
+     * @param activo
      */
-    public void setFinalizado(boolean finalizado) {
-        this.finalizado = finalizado;
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     /**
@@ -157,4 +157,5 @@ public class ActividadModelo {
         this.external_id = external_id;
     }
 
+    
 }

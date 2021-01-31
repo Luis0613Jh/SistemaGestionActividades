@@ -45,4 +45,28 @@ public class HitoDAO extends AdaptadorDAO {
         HitoModelo cuenta = (HitoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
     }
+    
+    public Boolean modificarHito (Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar hito: " + e);
+            return false;
+        }
+    }
+    
+    public Boolean darDeBajaHito(String dato, String atributo, ListaSimple lista) {
+        HitoModelo hito = buscarHito(dato, atributo, lista);
+        hito.setActivo(false);
+        try {
+            // Se modifica
+            modificarHito(hito, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en dar de baja el hito: " + e);
+            return false;
+        }
+    }
 }

@@ -96,7 +96,7 @@ public class ControladorPersona {
         aux.setId_cuenta(numeroEmpleados()+1);
         persona.setId_cuenta(aux.getId());
         aux.setNombre(persona.getNombre());
-        aux.setPath(persona.getPath());
+        aux.setPath_imagen(persona.getPath_imagen());
         aux.setTelefono(persona.getTelefono());
         return aux;
     }
@@ -169,16 +169,19 @@ public class ControladorPersona {
         }
         return roles;
     }
+    
     public int obtenerID(int i){
         RolDAO r = new  RolDAO();
         ListaSimple rol = r.listarObjetos();
         
         return ((RolModelo)rol.buscarPorPosicion(i)).getId();
     }
+    
     public ListaSimple obtenerListaCuentas(){
         CuentaDAO adc = new CuentaDAO();
         return adc.listarObjetos();
     }
+    
     public ListaSimple obtenerListaEmpleados(){
         PersonaDAO ad = new PersonaDAO();
         return ad.listarObjetos();

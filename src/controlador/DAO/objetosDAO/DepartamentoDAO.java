@@ -45,4 +45,28 @@ public class DepartamentoDAO extends AdaptadorDAO {
         DepartamentoModelo cuenta = (DepartamentoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
     }
+    
+    public Boolean modificarDepartamento (Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar departamento: " + e);
+            return false;
+        }
+    }
+    
+    public Boolean darDeBajaDepartamento(String dato, String atributo, ListaSimple lista) {
+        DepartamentoModelo departamento = buscarDepartamento(dato, atributo, lista);
+        departamento.setActivo(false);
+        try {
+            // Se modifica
+            modificarDepartamento(departamento, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar el departamento: " + e);
+            return false;
+        }
+    }
 }

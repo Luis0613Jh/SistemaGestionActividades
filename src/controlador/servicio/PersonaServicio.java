@@ -15,6 +15,7 @@ public class PersonaServicio {
     public static String ID_CUENTA = "id_cuenta";
     public static String ID_ROL = "id_rol";
     public static String PATH_IMAGEN = "path_imagen";
+    public static String ACTIVO = "activo";
     private PersonaDAO personaDAO = new PersonaDAO();
 
     public PersonaModelo getPersona() {
@@ -41,4 +42,11 @@ public class PersonaServicio {
         return personaDAO.buscarPersona(dato, atributo, listarPersonas());
     }
 
+    public Boolean modificarPersona (Object objeto, String atributo, ListaSimple lista) {
+        return personaDAO.modificarPersona(objeto, atributo, lista);
+    }
+    
+    public Boolean darDeBajaPersona (String dato, String atributo, ListaSimple lista) {
+        return personaDAO.darDeBajaPersona(dato, atributo, lista);
+    }
 }

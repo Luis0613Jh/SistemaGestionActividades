@@ -11,6 +11,7 @@ public class PersonaModelo {
     private int id_cuenta;
     private int id_rol;
     private String path_imagen;
+    private boolean activo;
 
     /**
      * Metodo obtener id
@@ -161,7 +162,7 @@ public class PersonaModelo {
      *
      * @return Un String correspondiente a path_imagen
      */
-    public String getPath() {
+    public String getPath_imagen() {
         return path_imagen;
     }
 
@@ -170,8 +171,16 @@ public class PersonaModelo {
      *
      * @param path
      */
-    public void setPath(String path) {
-        this.path_imagen = path;
+    public void setPath_imagen(String path_imagen) {
+        this.path_imagen = path_imagen;
+    }
+
+    public boolean getEstaDespedido() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

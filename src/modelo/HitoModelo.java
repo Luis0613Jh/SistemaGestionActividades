@@ -10,7 +10,7 @@ public class HitoModelo {
     private Date fechaInicio;
     private String prioridad;
     private PersonaModelo responsable;
-    private boolean finalizado;
+    private boolean activo;
     private int external_id;
 
     /**
@@ -122,21 +122,21 @@ public class HitoModelo {
     }
 
     /**
-     * Metodo obtener estado con boolean finalizado
+     * Metodo obtener estado con boolean activo
      *
-     * @return Un boolean correspondiente a finalizado
+     * @return Un boolean correspondiente a activo
      */
-    public boolean isFinalizado() {
-        return finalizado;
+    public boolean getActivo() {
+        return activo;
     }
 
     /**
-     * Metodo enviar finalizado
+     * Metodo enviar activo
      *
-     * @param finalizado
+     * @param activo
      */
-    public void setFinalizado(boolean finalizado) {
-        this.finalizado = finalizado;
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     /**

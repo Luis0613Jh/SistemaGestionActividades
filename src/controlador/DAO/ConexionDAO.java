@@ -90,8 +90,9 @@ public class ConexionDAO {
      * Instancia el objeto XStream.
      */
     public void instanciarObjetoXStream() {
-        //xstream = new XStream(new JettisonMappedXmlDriver());
-        xstream = new XStream(new JsonHierarchicalStreamDriver());
+        xstream = new XStream(new JettisonMappedXmlDriver());
+        //xstream = new XStream(new JsonHierarchicalStreamDriver());
         xstream.setMode(XStream.NO_REFERENCES);
     }
+
 }

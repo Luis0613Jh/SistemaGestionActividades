@@ -5,6 +5,7 @@ public class RolModelo {
     private int id;
     private int external_id;
     private String tipo;
+    private boolean activo;
 
     /**
      * Metodo obtener tipo
@@ -59,12 +60,18 @@ public class RolModelo {
     public void setExternal_id(int external_id) {
         this.external_id = external_id;
     }
+    
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
 
     @Override
     public String toString() {
         return tipo; 
     }
     
-    
-
 }

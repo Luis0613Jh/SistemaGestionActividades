@@ -1,6 +1,10 @@
 
 package vista;
 
+import controlador.ControladorPersona;
+import modelo.PersonaModelo;
+import vista.tabla.tabla_GestionarEmpleado;
+
 public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     /**

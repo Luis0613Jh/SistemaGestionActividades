@@ -46,7 +46,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
         jLabel15.setText(controladorCuenta.getCuenta().getUsuario());
         jLabel9.setText(controladorCuenta.getCuenta().getClave());
-        cargarImagen(controlador.getPersona().getPath());
+        cargarImagen(controlador.getPersona().getPath_imagen());
     }
 
     public void cargarImagen(String path) {
