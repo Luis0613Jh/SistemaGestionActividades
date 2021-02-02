@@ -40,7 +40,7 @@ public class HitoDAO extends AdaptadorDAO {
         return lista;
     }
 
-    public HitoModelo buscarHito(String dato, String atributo, ListaSimple lista) {
+    public HitoModelo buscarHito(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarHitos(lista, atributo);
         HitoModelo cuenta = (HitoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -57,7 +57,7 @@ public class HitoDAO extends AdaptadorDAO {
         }
     }
     
-    public Boolean darDeBajaHito(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaHito(Object dato, String atributo, ListaSimple lista) {
         HitoModelo hito = buscarHito(dato, atributo, lista);
         hito.setActivo(false);
         try {
@@ -68,5 +68,15 @@ public class HitoDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el hito: " + e);
             return false;
         }
+    }
+    
+    public ListaSimple listarHitosCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        ordenarHitos(lista, atributo);
+        return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    public int obtenerIdHito(ListaSimple lista, Object dato, String atributo) {
+        HitoModelo hito = buscarHito(dato, atributo, lista);
+        return hito.getId();
     }
 }

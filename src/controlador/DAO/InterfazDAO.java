@@ -13,4 +13,5 @@ public interface InterfazDAO {
      */
     public ListaSimple listarObjetos();  
     public void modificarObjetos(ListaSimple lista);  
+    public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo);  
 }

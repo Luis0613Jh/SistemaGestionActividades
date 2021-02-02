@@ -30,12 +30,16 @@ public class ProyectoServicio {
     public ListaSimple listarProyectos() {
         return proyectoDAO.listarObjetos();
     }
+    
+    public ListaSimple listarProyectosCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        return proyectoDAO.listarProyectosCoincidentes(lista, dato, atributo);
+    }
 
     public ListaSimple ordenarListadoProyectos(String atributo) {
         return proyectoDAO.ordenarProyectos(proyectoDAO.listarObjetos(), atributo);
     }
 
-    public ProyectoModelo buscarProyecto(String dato, String atributo) {
+    public ProyectoModelo buscarProyecto(Object dato, String atributo) {
         return proyectoDAO.buscarProyecto(dato, atributo, listarProyectos());
     }
 
@@ -43,7 +47,11 @@ public class ProyectoServicio {
         return proyectoDAO.modificarProyecto(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaProyecto (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaProyecto (Object dato, String atributo, ListaSimple lista) {
         return proyectoDAO.darDeBajaProyecto(dato, atributo, lista);
+    }
+    
+    public int obtenerIdProyecto(ListaSimple lista, Object dato, String atributo) {
+        return proyectoDAO.obtenerIdProyecto(lista, dato, atributo);
     }
 }

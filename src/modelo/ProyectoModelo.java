@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ProyectoModelo {
 
-    private String id;
+    private int id;
     private PersonaModelo jefeProyecto;
     private Date fechaInicio;
     private Date fechaFinal;
@@ -17,7 +17,7 @@ public class ProyectoModelo {
      *
      * @return Un String correspondiente a id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -26,7 +26,7 @@ public class ProyectoModelo {
      *
      * @param id
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -31,12 +31,16 @@ public class ActividadServicio {
     public ListaSimple listarActividads() {
         return actividadDAO.listarObjetos();
     }
-
-    public ListaSimple ordenarListadoActividads(String atributo) {
-        return actividadDAO.ordenarActividads(actividadDAO.listarObjetos(), atributo);
+    
+    public ListaSimple listarActividadesCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        return actividadDAO.listarActividadesCoincidentes(lista, dato, atributo);
     }
 
-    public ActividadModelo buscarActividad(String dato, String atributo) {
+    public ListaSimple ordenarListadoActividads(String atributo) {
+        return actividadDAO.ordenarActividades(actividadDAO.listarObjetos(), atributo);
+    }
+
+    public ActividadModelo buscarActividad(Object dato, String atributo) {
         return actividadDAO.buscarActividad(dato, atributo, listarActividads());
     }
 
@@ -44,7 +48,11 @@ public class ActividadServicio {
         return actividadDAO.modificarActividad(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaActividad (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaActividad (Object dato, String atributo, ListaSimple lista) {
         return actividadDAO.darDeBajaActividad(dato, atributo, lista);
+    }
+    
+    public int obtenerIdActividad(ListaSimple lista, Object dato, String atributo) {
+        return actividadDAO.obtenerIdActividad(lista, dato, atributo);
     }
 }

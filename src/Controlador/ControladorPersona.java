@@ -89,11 +89,11 @@ public class ControladorPersona {
         aux.setCorreo(persona.getCorreo());
         aux.setExternal_id(UtilidadesControlador.generarId());
         persona.setExternal_id(aux.getExternal_id());
-        aux.setId(numeroEmpleados()+1);
+        aux.setId(numeroEmpleados() + 1);
         persona.setId(aux.getId());
         aux.setId_rol(persona.getId_rol());
-        System.out.println("Rol = " +persona.getId_rol());
-        aux.setId_cuenta(numeroEmpleados()+1);
+        System.out.println("Rol = " + persona.getId_rol());
+        aux.setId_cuenta(numeroEmpleados() + 1);
         persona.setId_cuenta(aux.getId());
         aux.setNombre(persona.getNombre());
         aux.setPath_imagen(persona.getPath_imagen());
@@ -150,48 +150,48 @@ public class ControladorPersona {
         RolModelo aux = new RolModelo();
         aux.setExternal_id(persona.getExternal_id());
         aux.setId(persona.getId());
-        aux.setRol(rol.getRol());
+        aux.setTipo(rol.getTipo());
         return aux;
     }
-    
-    public int numeroEmpleados(){
+
+    public int numeroEmpleados() {
         PersonaDAO ad = new PersonaDAO();
         ListaSimple lista = ad.listarObjetos();
         return lista.tamanio();
     }
-    
-    public String[] ObtenerRoles(){
-        RolDAO r = new  RolDAO();
+
+    public String[] ObtenerRoles() {
+        RolDAO r = new RolDAO();
         ListaSimple rol = r.listarObjetos();
-        String[] roles = new String[rol.tamanio()];        
-        for(int i = 0 ; i < rol.tamanio() ; i++){
-            roles[i] = ((RolModelo)rol.buscarPorPosicion(i)).toString();            
+        String[] roles = new String[rol.tamanio()];
+        for (int i = 0; i < rol.tamanio(); i++) {
+            roles[i] = ((RolModelo) rol.buscarPorPosicion(i)).toString();
         }
         return roles;
     }
-    
-    public int obtenerID(int i){
-        RolDAO r = new  RolDAO();
+
+    public int obtenerID(int i) {
+        RolDAO r = new RolDAO();
         ListaSimple rol = r.listarObjetos();
-        
-        return ((RolModelo)rol.buscarPorPosicion(i)).getId();
+
+        return ((RolModelo) rol.buscarPorPosicion(i)).getId();
     }
-    
-    public ListaSimple obtenerListaCuentas(){
+
+    public ListaSimple obtenerListaCuentas() {
         CuentaDAO adc = new CuentaDAO();
         return adc.listarObjetos();
     }
-    
-    public ListaSimple obtenerListaEmpleados(){
+
+    public ListaSimple obtenerListaEmpleados() {
         PersonaDAO ad = new PersonaDAO();
         return ad.listarObjetos();
     }
-    
-    public boolean validarUsuarioClave(){
-        CuentaModelo aux = (CuentaModelo)UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(cuenta, "id", obtenerListaCuentas());
-        if(aux != null){
+
+    public boolean validarUsuarioClave() {
+        CuentaModelo aux = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(cuenta, "id", obtenerListaCuentas());
+        if (aux != null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

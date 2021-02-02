@@ -3,6 +3,7 @@ package controlador.DAO;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import com.thoughtworks.xstream.io.json.JsonHierarchicalStreamDriver;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 
 public class ConexionDAO {
 
@@ -92,6 +93,10 @@ public class ConexionDAO {
     public void instanciarObjetoXStream() {
         xstream = new XStream(new JettisonMappedXmlDriver());
         //xstream = new XStream(new JsonHierarchicalStreamDriver());
+        //xstream.addPermission(NoTypePermission.NONE);
+        xstream.addPermission(AnyTypePermission.ANY);
+        //XStream.setupDefaultSecurity(xstream);
+
         xstream.setMode(XStream.NO_REFERENCES);
     }
 

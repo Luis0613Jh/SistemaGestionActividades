@@ -48,4 +48,8 @@ public class RolServicio {
     public Boolean darDeBajaRol (String dato, String atributo, ListaSimple lista) {
         return rolDAO.darDeBajaRol(dato, atributo, lista);
     }
+    
+    public int obtenerIdRol(ListaSimple lista, Object dato, String atributo) {
+        return rolDAO.obtenerIdRol(lista, dato, atributo);
+    }
 }

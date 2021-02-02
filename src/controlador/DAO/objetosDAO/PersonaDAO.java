@@ -40,7 +40,7 @@ public class PersonaDAO extends AdaptadorDAO {
         return lista;
     }
 
-    public PersonaModelo buscarPersona(String dato, String atributo, ListaSimple lista) {
+    public PersonaModelo buscarPersona(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarPersonas(lista, atributo);
         PersonaModelo cuenta = (PersonaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -68,5 +68,15 @@ public class PersonaDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el persona: " + e);
             return false;
         }
+    }
+    
+    public ListaSimple listarPersonasCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        ordenarPersonas(lista, atributo);
+        return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    public int obtenerIdPersona(ListaSimple lista, Object dato, String atributo) {
+        PersonaModelo persona = buscarPersona(dato, atributo, lista);
+        return persona.getId();
     }
 }

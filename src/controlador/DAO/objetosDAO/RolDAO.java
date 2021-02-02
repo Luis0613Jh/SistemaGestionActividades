@@ -41,7 +41,7 @@ public class RolDAO extends AdaptadorDAO {
         return lista;
     }
 
-    public RolModelo buscarRol(String dato, String atributo, ListaSimple lista) {
+    public RolModelo buscarRol(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarRoles(lista, atributo);
         RolModelo cuenta = (RolModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -58,7 +58,7 @@ public class RolDAO extends AdaptadorDAO {
             administradorRol.setActivo(true);
             administradorRol.setExternal_id(654984);
             administradorRol.setId(1);
-            administradorRol.setRol("Administrador");
+            administradorRol.setTipo("Administrador");
             setRol(administradorRol);
             bandera = guardarRol();
             
@@ -66,7 +66,7 @@ public class RolDAO extends AdaptadorDAO {
             jefeProyectoRol.setActivo(true);
             jefeProyectoRol.setExternal_id(3657);
             jefeProyectoRol.setId(2);
-            jefeProyectoRol.setRol("Jefe de Proyecto");
+            jefeProyectoRol.setTipo("Jefe de Proyecto");
             setRol(jefeProyectoRol);
             bandera = guardarRol();
             
@@ -74,7 +74,7 @@ public class RolDAO extends AdaptadorDAO {
             encargadoRol.setActivo(true);
             encargadoRol.setExternal_id(1234);
             encargadoRol.setId(3);
-            encargadoRol.setRol("Encargado");
+            encargadoRol.setTipo("Encargado");
             setRol(encargadoRol);
             bandera = guardarRol();
             
@@ -82,7 +82,7 @@ public class RolDAO extends AdaptadorDAO {
             personalRol.setActivo(true);
             personalRol.setExternal_id(13254);
             personalRol.setId(4);
-            personalRol.setRol("Personal");
+            personalRol.setTipo("Personal");
             setRol(personalRol);
             bandera = guardarRol();
             
@@ -114,5 +114,10 @@ public class RolDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el rol: " + e);
             return false;
         }
+    }
+    
+    public int obtenerIdRol(ListaSimple lista, Object dato, String atributo) {
+        RolModelo rol = buscarRol(dato, atributo, lista);
+        return rol.getId();
     }
 }

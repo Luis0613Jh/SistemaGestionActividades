@@ -5,16 +5,6 @@ import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
 import modelo.RolModelo;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * 
- * @author Patricio
- */
 public class ControladorRol {
     private RolModelo rol = new RolModelo();
 
@@ -29,7 +19,6 @@ public class ControladorRol {
         this.rol = rol;
     }
     
-    
     public void obtenerRolPorId(int id){
         RolDAO leer = new RolDAO();
         ListaSimple temp = leer.listarObjetos();
@@ -38,7 +27,7 @@ public class ControladorRol {
             if(aux.getId() == id){
                 rol.setExternal_id(aux.getExternal_id());
                 rol.setId(aux.getId());
-                rol.setRol(aux.getRol());
+                rol.setTipo(aux.getTipo());
                 break;
             }
         }

@@ -1,6 +1,7 @@
 package controlador.DAO;
 
 import controlador.listaSimple.ListaSimple;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -12,9 +13,13 @@ public class AdaptadorDAO implements InterfazDAO {
     private String carpeta;
 
     /**
-     * Construye un objeto AdaptadorDAO, indicando: conexionDAO, claseObjeto, carpeta.
-     * @param conexionDAO Objeto que conecta el objeto XStream con el AdaptadorDAO.
-     * @param claseObjeto Objeto que contiene toda la inforamción de la clase de un objeto.
+     * Construye un objeto AdaptadorDAO, indicando: conexionDAO, claseObjeto,
+     * carpeta.
+     *
+     * @param conexionDAO Objeto que conecta el objeto XStream con el
+     * AdaptadorDAO.
+     * @param claseObjeto Objeto que contiene toda la inforamción de la clase de
+     * un objeto.
      * @param carpeta Indica el nombre de la carpeta a crear, es de tipo string.
      */
     public AdaptadorDAO(ConexionDAO conexionDAO, Class claseObjeto, String carpeta) {
@@ -76,7 +81,23 @@ public class AdaptadorDAO implements InterfazDAO {
             System.out.println("ERROR al listar: " + e.getMessage());
         }
     }
-    
+
+    @Override
+    public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        ListaSimple listaTemporal = new ListaSimple();
+
+        while (lista.tamanio() > 0) {
+            Object objeto = UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+            if (objeto != null) {
+                listaTemporal.insertarFinal(objeto);
+                lista.eliminarPorObjeto(objeto);
+            } else {
+                break;
+            }
+        }
+        return listaTemporal;
+    }
+
     public boolean verificarRutaArchivo() {
         boolean bandera = false;
         File carpetaContenedora = new File(conexionDAO.getCARPETA_CONTENEDORA());

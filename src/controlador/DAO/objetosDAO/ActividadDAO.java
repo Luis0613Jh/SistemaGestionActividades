@@ -35,13 +35,13 @@ public class ActividadDAO extends AdaptadorDAO {
         }
     }
 
-    public ListaSimple ordenarActividads(ListaSimple lista, String atributo) {
+    public ListaSimple ordenarActividades(ListaSimple lista, String atributo) {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
     }
 
-    public ActividadModelo buscarActividad(String dato, String atributo, ListaSimple lista) {
-        lista = ordenarActividads(lista, atributo);
+    public ActividadModelo buscarActividad(Object dato, String atributo, ListaSimple lista) {
+        lista = ordenarActividades(lista, atributo);
         ActividadModelo cuenta = (ActividadModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
     }
@@ -57,7 +57,7 @@ public class ActividadDAO extends AdaptadorDAO {
         }
     }
     
-    public Boolean darDeBajaActividad(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaActividad(Object dato, String atributo, ListaSimple lista) {
         ActividadModelo actividad = buscarActividad(dato, atributo, lista);
         actividad.setActivo(false);
         try {
@@ -68,5 +68,15 @@ public class ActividadDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el actividad: " + e);
             return false;
         }
+    }
+    
+    public ListaSimple listarActividadesCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        ordenarActividades(lista, atributo);
+        return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    public int obtenerIdActividad(ListaSimple lista, Object dato, String atributo) {
+        ActividadModelo actividad = buscarActividad(dato, atributo, lista);
+        return actividad.getId();
     }
 }

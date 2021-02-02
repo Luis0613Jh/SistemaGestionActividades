@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ActividadModelo {
 
-    private String id;
+    private int id;
     private String nombre;
     private Date fechaInicio;
     private Date fechaEntrega;
@@ -12,13 +12,14 @@ public class ActividadModelo {
     private String prioridad;
     private boolean activo;
     private int external_id;
+    private int proyecto_id;
 
     /**
      * Metodo obtener id
      *
      * @return Un string correspondiente a id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -27,7 +28,7 @@ public class ActividadModelo {
      *
      * @param id
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -157,5 +158,12 @@ public class ActividadModelo {
         this.external_id = external_id;
     }
 
+    public int getProyecto_id() {
+        return proyecto_id;
+    }
+
+    public void setProyecto_id(int proyecto_id) {
+        this.proyecto_id = proyecto_id;
+    }
     
 }

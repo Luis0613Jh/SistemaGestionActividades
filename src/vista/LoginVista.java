@@ -28,7 +28,7 @@ public class LoginVista extends javax.swing.JFrame {
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getRol());
+            autorizarVista(sesion.getRol().getTipo());
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }

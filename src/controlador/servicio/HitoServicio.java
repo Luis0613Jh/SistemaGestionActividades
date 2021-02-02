@@ -32,11 +32,15 @@ public class HitoServicio {
         return hitoDAO.listarObjetos();
     }
 
+    public ListaSimple listarHitosCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        return hitoDAO.listarHitosCoincidentes(lista, dato, atributo);
+    }
+    
     public ListaSimple ordenarListadoHitos(String atributo) {
         return hitoDAO.ordenarHitos(hitoDAO.listarObjetos(), atributo);
     }
 
-    public HitoModelo buscarHito(String dato, String atributo) {
+    public HitoModelo buscarHito(Object dato, String atributo) {
         return hitoDAO.buscarHito(dato, atributo, listarHitos());
     }
     
@@ -44,8 +48,12 @@ public class HitoServicio {
         return hitoDAO.modificarHito(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaHito (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaHito (Object dato, String atributo, ListaSimple lista) {
         return hitoDAO.darDeBajaHito(dato, atributo, lista);
+    }
+    
+    public int obtenerIdHito(ListaSimple lista, Object dato, String atributo) {
+        return hitoDAO.obtenerIdHito(lista, dato, atributo);
     }
 
 }

@@ -40,7 +40,7 @@ public class DepartamentoDAO extends AdaptadorDAO {
         return lista;
     }
 
-    public DepartamentoModelo buscarDepartamento(String dato, String atributo, ListaSimple lista) {
+    public DepartamentoModelo buscarDepartamento(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarDepartamentos(lista, atributo);
         DepartamentoModelo cuenta = (DepartamentoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -57,7 +57,7 @@ public class DepartamentoDAO extends AdaptadorDAO {
         }
     }
     
-    public Boolean darDeBajaDepartamento(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaDepartamento(Object dato, String atributo, ListaSimple lista) {
         DepartamentoModelo departamento = buscarDepartamento(dato, atributo, lista);
         departamento.setActivo(false);
         try {
@@ -68,5 +68,15 @@ public class DepartamentoDAO extends AdaptadorDAO {
             System.out.println("Error en modificar el departamento: " + e);
             return false;
         }
+    }
+    
+    public ListaSimple listarDepartamentosCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        ordenarDepartamentos(lista, atributo);
+        return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    public int obtenerIdDepartamento(ListaSimple lista, Object dato, String atributo) {
+        DepartamentoModelo departamento = buscarDepartamento(dato, atributo, lista);
+        return departamento.getId();
     }
 }

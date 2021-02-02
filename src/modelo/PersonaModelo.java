@@ -183,4 +183,9 @@ public class PersonaModelo {
         this.activo = activo;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " - " + id_rol;
+    }
+
 }
