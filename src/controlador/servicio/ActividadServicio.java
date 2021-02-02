@@ -51,4 +51,8 @@ public class ActividadServicio {
     public Boolean darDeBajaActividad (Object dato, String atributo, ListaSimple lista) {
         return actividadDAO.darDeBajaActividad(dato, atributo, lista);
     }
+    
+    public int obtenerIdActividad(ListaSimple lista, Object dato, String atributo) {
+        return actividadDAO.obtenerIdActividad(lista, dato, atributo);
+    }
 }

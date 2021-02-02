@@ -27,7 +27,7 @@ public class ControladorRol {
             if(aux.getId() == id){
                 rol.setExternal_id(aux.getExternal_id());
                 rol.setId(aux.getId());
-                rol.setRol(aux.getRol());
+                rol.setTipo(aux.getTipo());
                 break;
             }
         }

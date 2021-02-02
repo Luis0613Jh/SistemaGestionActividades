@@ -50,4 +50,8 @@ public class ProyectoServicio {
     public Boolean darDeBajaProyecto (Object dato, String atributo, ListaSimple lista) {
         return proyectoDAO.darDeBajaProyecto(dato, atributo, lista);
     }
+    
+    public int obtenerIdProyecto(ListaSimple lista, Object dato, String atributo) {
+        return proyectoDAO.obtenerIdProyecto(lista, dato, atributo);
+    }
 }

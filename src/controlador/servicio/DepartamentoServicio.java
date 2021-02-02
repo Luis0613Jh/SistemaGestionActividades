@@ -29,6 +29,10 @@ public class DepartamentoServicio {
     public ListaSimple listarDepartamentos() {
         return departamentoDAO.listarObjetos();
     }
+    
+    public ListaSimple listarsCoincidencias(ListaSimple lista, Object dato, String atributo) {
+        return departamentoDAO.listarDepartamentosCoincidentes(lista, dato, atributo);
+    }
 
     public ListaSimple ordenarListadoDepartamentos(String atributo) {
         return departamentoDAO.ordenarDepartamentos(departamentoDAO.listarObjetos(), atributo);
@@ -44,5 +48,9 @@ public class DepartamentoServicio {
     
     public Boolean darDeBajaDepartamento (String dato, String atributo, ListaSimple lista) {
         return departamentoDAO.darDeBajaDepartamento(dato, atributo, lista);
+    }
+    
+    public int obtenerIdDepartamento(ListaSimple lista, Object dato, String atributo) {
+        return departamentoDAO.obtenerIdDepartamento(lista, dato, atributo);
     }
 }

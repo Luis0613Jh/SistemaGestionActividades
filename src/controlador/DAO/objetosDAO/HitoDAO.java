@@ -74,4 +74,9 @@ public class HitoDAO extends AdaptadorDAO {
         ordenarHitos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
     }
+    
+    public int obtenerIdHito(ListaSimple lista, Object dato, String atributo) {
+        HitoModelo hito = buscarHito(dato, atributo, lista);
+        return hito.getId();
+    }
 }

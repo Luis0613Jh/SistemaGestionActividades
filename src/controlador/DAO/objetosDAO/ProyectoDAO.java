@@ -74,4 +74,9 @@ public class ProyectoDAO extends AdaptadorDAO {
         ordenarProyectos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
     }
+    
+    public int obtenerIdProyecto(ListaSimple lista, Object dato, String atributo) {
+        ProyectoModelo proyecto = buscarProyecto(dato, atributo, lista);
+        return proyecto.getId();
+    }
 }

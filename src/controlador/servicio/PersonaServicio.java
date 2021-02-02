@@ -53,4 +53,8 @@ public class PersonaServicio {
     public Boolean darDeBajaPersona (String dato, String atributo, ListaSimple lista) {
         return personaDAO.darDeBajaPersona(dato, atributo, lista);
     }
+    
+    public int obtenerIdPersona(ListaSimple lista, Object dato, String atributo) {
+        return personaDAO.obtenerIdPersona(lista, dato, atributo);
+    }
 }

@@ -75,4 +75,8 @@ public class PersonaDAO extends AdaptadorDAO {
         return listarCoincidencias(lista, dato, atributo);
     }
     
+    public int obtenerIdPersona(ListaSimple lista, Object dato, String atributo) {
+        PersonaModelo persona = buscarPersona(dato, atributo, lista);
+        return persona.getId();
+    }
 }

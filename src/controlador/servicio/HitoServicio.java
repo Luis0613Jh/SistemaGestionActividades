@@ -51,5 +51,9 @@ public class HitoServicio {
     public Boolean darDeBajaHito (Object dato, String atributo, ListaSimple lista) {
         return hitoDAO.darDeBajaHito(dato, atributo, lista);
     }
+    
+    public int obtenerIdHito(ListaSimple lista, Object dato, String atributo) {
+        return hitoDAO.obtenerIdHito(lista, dato, atributo);
+    }
 
 }

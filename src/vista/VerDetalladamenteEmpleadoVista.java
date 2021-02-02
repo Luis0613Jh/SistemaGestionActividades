@@ -42,7 +42,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         jLabel12.setText(controlador.getPersona().getCorreo());
         jLabel13.setText(controlador.getPersona().getTelefono());
         controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
-        jLabel14.setText(controladorRol.getRol().getRol());
+        jLabel14.setText(controladorRol.getRol().getTipo());
         controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
         jLabel15.setText(controladorCuenta.getCuenta().getUsuario());
         jLabel9.setText(controladorCuenta.getCuenta().getClave());

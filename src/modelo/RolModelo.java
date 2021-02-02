@@ -12,7 +12,7 @@ public class RolModelo {
      *
      * @return Un String correspondiente a id
      */
-    public String getRol() {
+    public String getTipo() {
         return tipo;
     }
 
@@ -21,8 +21,8 @@ public class RolModelo {
      *
      * @param Rol
      */
-    public void setRol(String Rol) {
-        this.tipo = Rol;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     /**

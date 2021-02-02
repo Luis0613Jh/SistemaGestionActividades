@@ -74,4 +74,9 @@ public class ActividadDAO extends AdaptadorDAO {
         ordenarActividades(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
     }
+    
+    public int obtenerIdActividad(ListaSimple lista, Object dato, String atributo) {
+        ActividadModelo actividad = buscarActividad(dato, atributo, lista);
+        return actividad.getId();
+    }
 }

@@ -150,7 +150,7 @@ public class ControladorPersona {
         RolModelo aux = new RolModelo();
         aux.setExternal_id(persona.getExternal_id());
         aux.setId(persona.getId());
-        aux.setRol(rol.getRol());
+        aux.setTipo(rol.getTipo());
         return aux;
     }
 

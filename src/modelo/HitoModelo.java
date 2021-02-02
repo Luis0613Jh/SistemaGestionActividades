@@ -12,6 +12,7 @@ public class HitoModelo {
     private PersonaModelo responsable;
     private boolean activo;
     private int external_id;
+    private int actividad_id;
 
     /**
      * Metodo obtener id
@@ -155,6 +156,14 @@ public class HitoModelo {
      */
     public void setExternal_id(int external_id) {
         this.external_id = external_id;
+    }
+
+    public int getActividad_id() {
+        return actividad_id;
+    }
+
+    public void setActividad_id(int actividad_id) {
+        this.actividad_id = actividad_id;
     }
 
 }
