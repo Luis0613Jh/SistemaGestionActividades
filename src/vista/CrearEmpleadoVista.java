@@ -29,9 +29,9 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     ControladorPersona controladorEmp = new ControladorPersona();
 
     public CrearEmpleadoVista() {
-        initComponents();        
+        initComponents();
         this.setLocationRelativeTo(this);
-        UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
+        //UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
     }
 
     /**
@@ -48,7 +48,15 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         }
     }
 
-    
+    public void limpiar() {
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+        jTextField6.setText(null);
+        jTextField7.setText(null);
+        lblFoto.setDisabledIcon(null);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -191,6 +199,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jTextField7);
         jTextField7.setBounds(250, 260, 310, 30);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal", "Administrador" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -260,6 +269,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getCuenta().setClave(jTextField1.getText());
             if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+                limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
             }

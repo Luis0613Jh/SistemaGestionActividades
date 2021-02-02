@@ -6,6 +6,7 @@ import controlador.DAO.objetosDAO.CuentaDAO;
 import controlador.DAO.objetosDAO.PersonaDAO;
 import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
+import controlador.servicio.PersonaServicio;
 import controlador.utilidades.UtilidadesControlador;
 import javax.swing.JOptionPane;
 import modelo.CuentaModelo;
@@ -88,6 +89,7 @@ public class ControladorPersona {
         aux.setCedula(persona.getCedula());
         aux.setCorreo(persona.getCorreo());
         aux.setExternal_id(UtilidadesControlador.generarId());
+        System.out.println("external "+aux.getExternal_id());
         persona.setExternal_id(aux.getExternal_id());
         aux.setId(numeroEmpleados() + 1);
         persona.setId(aux.getId());
@@ -98,6 +100,7 @@ public class ControladorPersona {
         aux.setNombre(persona.getNombre());
         aux.setPath_imagen(persona.getPath_imagen());
         aux.setTelefono(persona.getTelefono());
+        aux.setActivo(true);
         return aux;
     }
 
@@ -165,7 +168,8 @@ public class ControladorPersona {
         ListaSimple rol = r.listarObjetos();
         String[] roles = new String[rol.tamanio()];
         for (int i = 0; i < rol.tamanio(); i++) {
-            roles[i] = ((RolModelo) rol.buscarPorPosicion(i)).toString();
+            RolModelo aux = (RolModelo)rol.buscarPorPosicion(i);
+            roles[i] = aux.getTipo();
         }
         return roles;
     }

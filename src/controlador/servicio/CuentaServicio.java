@@ -4,6 +4,7 @@ package controlador.servicio;
 import controlador.DAO.objetosDAO.CuentaDAO;
 import controlador.listaSimple.ListaSimple;
 import modelo.CuentaModelo;
+import modelo.PersonaModelo;
 
 public class CuentaServicio {
     public static String IDENTIFICADOR = "id";
@@ -29,5 +30,11 @@ public class CuentaServicio {
     
     public Boolean darDeBajaCuenta (String dato, String atributo, ListaSimple lista) {
         return cuentaDAO.darDeBajaCuenta(dato, atributo, lista);
+    }
+    public ListaSimple listarCuentas() {
+        return cuentaDAO .listarObjetos();
+    }
+    public CuentaModelo buscarCuenta(String dato, String atributo) {
+        return cuentaDAO.buscarCuenta(dato, atributo,listarCuentas());
     }
 }

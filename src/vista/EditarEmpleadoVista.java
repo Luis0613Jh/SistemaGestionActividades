@@ -1,9 +1,10 @@
 package vista;
 
-
 import controlador.ControladorCuenta;
 import controlador.ControladorPersona;
 import controlador.ControladorRol;
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.awt.Image;
 import java.io.File;
@@ -24,18 +25,19 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     ControladorPersona controlador;
     ControladorRol controladorRol = new ControladorRol();
     ControladorCuenta controladorCuenta = new ControladorCuenta();
+    PersonaServicio perSer = new PersonaServicio();
+    CuentaServicio cuentSer = new CuentaServicio();
 
     public EditarEmpleadoVista(ControladorPersona controlador) {
         initComponents();
         this.setLocationRelativeTo(this);
         this.controlador = controlador;
         llenarDatos();
-        
 
     }
 
     private EditarEmpleadoVista() {
-        
+
     }
 
     public void llenarDatos() {
@@ -44,11 +46,11 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jTextField4.setText(controlador.getPersona().getCorreo());
         jTextField7.setText(controlador.getPersona().getTelefono());
         controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
-        jTextField5.setText(controladorRol.getRol().getRol());
+        jTextField5.setText(controladorRol.getRol().getTipo());
         controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
         jTextField6.setText(controladorCuenta.getCuenta().getUsuario());
         jTextField1.setText(controladorCuenta.getCuenta().getClave());
-        cargarImagen(controlador.getPersona().getPath());
+        cargarImagen(controlador.getPersona().getPath_imagen());
     }
 
     public boolean camposEnBlanco() {
@@ -275,7 +277,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
-            controlador.getPersona().setPath(fc.getSelectedFile().toString());
+            controlador.getPersona().setPath_imagen(fc.getSelectedFile().toString());
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
@@ -286,19 +288,25 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             controlador.getPersona().setCorreo(jTextField4.getText());
             controlador.getPersona().setNombre(jTextField2.getText());
             controlador.getPersona().setTelefono(jTextField7.getText());
-            controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
+            controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId());
+            controladorCuenta.getCuenta().setClave(jTextField1.getText());
+            controladorCuenta.getCuenta().setUsuario(jTextField6.getText());
             //UtilidadesControlador.
-            AdministradorVista admin = new AdministradorVista();
-            this.dispose();
-            admin.setLocationRelativeTo(null);
-            admin.setVisible(true);
+            if (perSer.modificarPersona(controlador.getPersona(), "id", perSer.listarPersonas()) && cuentSer.modificarCuenta(controladorCuenta.getCuenta(),"id",cuentSer.listarCuentas())) {
+                JOptionPane.showMessageDialog(null, "Se edito correctamente");
+                dispose();
+                AdministradorVista admin = new AdministradorVista();                
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo editar");
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
         }
 
-        
-        
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

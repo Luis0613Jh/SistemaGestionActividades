@@ -18,6 +18,7 @@ public class Frm_CambioRol extends javax.swing.JDialog {
      * Creates new form Frm_CambioRol
      */
     ControladorPersona controlador;
+    
     public Frm_CambioRol(java.awt.Frame parent, boolean modal , ControladorPersona controlador) {
         super(parent, modal);
         initComponents();
@@ -29,6 +30,7 @@ public class Frm_CambioRol extends javax.swing.JDialog {
     public Frm_CambioRol(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        llenar();
     }
     
     

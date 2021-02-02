@@ -2,6 +2,10 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import javax.swing.JOptionPane;
 import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
 
@@ -16,11 +20,14 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
      */
     tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     ControladorPersona controlador = new ControladorPersona();
+    PersonaServicio perSer = new PersonaServicio();
+    CuentaServicio cuentSer = new CuentaServicio ();
+    RolServicio rolSer = new RolServicio();
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(controlador.obtenerListaEmpleados());
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),rolSer.obtenerIdRol(rolSer.listarRoles(),"Personal", "tipo"),"id_rol"));
         rSTableMetro1.setModel(tabla);
         rSTableMetro1.updateUI();
 
@@ -287,7 +294,12 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        int seleccion = rSTableMetro1.getSelectedRow();
+        if(perSer.darDeBajaPersona(String.valueOf(seleccion+1),"id",perSer.listarPersonas())){
+            JOptionPane.showMessageDialog(null,"Se elimino correctamente el empleado\nde la lista");
+        }else{
+            JOptionPane.showMessageDialog(null,"No se pudo eliminar");
+        }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     /**

@@ -52,13 +52,12 @@ public class RolDAO extends AdaptadorDAO {
         File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ROLES());
         
         if (!archivo.exists()) {
-            System.out.println("Se han creado roles");
-            
+            System.out.println("Se han creado roles");            
             RolModelo administradorRol = new RolModelo();
             administradorRol.setActivo(true);
             administradorRol.setExternal_id(654984);
             administradorRol.setId(1);
-            administradorRol.setTipo("Administrador");
+            administradorRol.setTipo("Personal");
             setRol(administradorRol);
             bandera = guardarRol();
             
@@ -66,7 +65,7 @@ public class RolDAO extends AdaptadorDAO {
             jefeProyectoRol.setActivo(true);
             jefeProyectoRol.setExternal_id(3657);
             jefeProyectoRol.setId(2);
-            jefeProyectoRol.setTipo("Jefe de Proyecto");
+            jefeProyectoRol.setTipo("Administrador");
             setRol(jefeProyectoRol);
             bandera = guardarRol();
             
@@ -82,13 +81,14 @@ public class RolDAO extends AdaptadorDAO {
             personalRol.setActivo(true);
             personalRol.setExternal_id(13254);
             personalRol.setId(4);
-            personalRol.setTipo("Personal");
+            personalRol.setTipo("Jefe de Proyecto");
             setRol(personalRol);
             bandera = guardarRol();
             
         } else {
             System.out.println("Roles ya creados");
         }
+        System.out.println("Se creo los roles : "+bandera);
         return bandera;
     }
 

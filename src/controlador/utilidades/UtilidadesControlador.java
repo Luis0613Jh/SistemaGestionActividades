@@ -211,16 +211,16 @@ public class UtilidadesControlador {
         for(int i = 0 ; i < dato.tamanio() ; i++){
             PersonaModelo aux = (PersonaModelo)dato.buscarPorPosicion(i);
             RolModelo aux2 = rol.obtenerRolPor_Id(aux.getId_rol());
-            if(!aux2.getRol().equalsIgnoreCase("Administrador") && aux2.getRol() != null){
+            if(!aux2.getTipo().equalsIgnoreCase("Administrador") && aux2.getTipo() != null){
                 cdx.addItem(aux.getNombre());
             }            
         }
     }
     public static void inicioRoles() throws Exception{
         
-        RolModelo rol1 = new RolModelo(1,generarId(),"Administrador");
-        RolModelo rol2 = new RolModelo(2,generarId(),"Encargado");
-        RolModelo rol3 = new RolModelo(3,generarId(),"Personal");        
+        RolModelo rol1 = new RolModelo(1,generarId(),"Personal");
+        RolModelo rol2 = new RolModelo(2,generarId(),"Administrador");
+        RolModelo rol3 = new RolModelo(3,generarId(),"Encargado");        
         RolDAO r = new RolDAO();
         r.guardarObjeto(rol1);
         r.guardarObjeto(rol2);
