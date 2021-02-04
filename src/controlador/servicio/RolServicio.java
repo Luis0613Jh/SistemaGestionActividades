@@ -29,6 +29,14 @@ public class RolServicio {
         return rolDAO.listarObjetos();
     }
 
+    public ListaSimple listarRolesActivos(ListaSimple lista) {
+        return rolDAO.listarRolesActivos(lista);
+    }
+
+    public ListaSimple listarRolesInactivos(ListaSimple lista) {
+        return rolDAO.listarRolesInactivos(lista);
+    }
+    
     public ListaSimple ordenarListadoRoles(String atributo) {
         return rolDAO.ordenarRoles(rolDAO.listarObjetos(), atributo);
     }

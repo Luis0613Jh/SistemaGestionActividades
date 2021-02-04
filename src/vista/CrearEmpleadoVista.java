@@ -249,6 +249,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setCorreo(jTextField4.getText());
             controladorEmp.getPersona().setTelefono(jTextField7.getText());
             controladorEmp.getPersona().setId_rol(controladorEmp.obtenerID(jComboBox1.getSelectedIndex()));
+            controladorEmp.getPersona().setEstado("activo");
             controladorEmp.getCuenta().setUsuario(jTextField6.getText());
             controladorEmp.getCuenta().setClave(jTextField1.getText());
             if (controladorEmp.guardarEmpleado()) {

@@ -5,7 +5,7 @@ public class RolModelo {
     private int id;
     private int external_id;
     private String tipo;
-    private boolean activo;
+    private String estado;
 
     /**
      * Metodo obtener tipo
@@ -61,17 +61,29 @@ public class RolModelo {
         this.external_id = external_id;
     }
     
-    public boolean getActivo() {
-        return activo;
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
+    /**
+     * Método que convierte el objeto RolModelo en un string.
+     * @return Devuelve un string con el tipo de rol.
+     */
     @Override
     public String toString() {
-        return tipo; 
+        return tipo;
     }
     
 }

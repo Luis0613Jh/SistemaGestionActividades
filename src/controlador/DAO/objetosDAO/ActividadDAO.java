@@ -59,7 +59,7 @@ public class ActividadDAO extends AdaptadorDAO {
     
     public Boolean darDeBajaActividad(Object dato, String atributo, ListaSimple lista) {
         ActividadModelo actividad = buscarActividad(dato, atributo, lista);
-        actividad.setActivo(false);
+        actividad.setEstado("inactivo");
         try {
             // Se modifica
             modificarActividad(actividad, atributo, lista);
@@ -73,6 +73,26 @@ public class ActividadDAO extends AdaptadorDAO {
     public ListaSimple listarActividadesCoincidentes(ListaSimple lista, Object dato, String atributo) {
         ordenarActividades(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    /**
+     * Método que busca las actividades con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las actividades con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarActividadesActivos(ListaSimple lista) {
+        ordenarActividades(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca las actividades con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las actividades con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarActividadesInactivos(ListaSimple lista) {
+        ordenarActividades(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
     
     public int obtenerIdActividad(ListaSimple lista, Object dato, String atributo) {

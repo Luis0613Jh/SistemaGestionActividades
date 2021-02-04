@@ -36,6 +36,14 @@ public class ActividadServicio {
         return actividadDAO.listarActividadesCoincidentes(lista, dato, atributo);
     }
 
+    public ListaSimple listarActividadesActivos(ListaSimple lista) {
+        return actividadDAO.listarActividadesActivos(lista);
+    }
+
+    public ListaSimple listarActividadesInactivos(ListaSimple lista) {
+        return actividadDAO.listarActividadesInactivos(lista);
+    }
+    
     public ListaSimple ordenarListadoActividads(String atributo) {
         return actividadDAO.ordenarActividades(actividadDAO.listarObjetos(), atributo);
     }

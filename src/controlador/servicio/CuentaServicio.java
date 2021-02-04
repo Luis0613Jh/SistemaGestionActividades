@@ -30,4 +30,12 @@ public class CuentaServicio {
     public Boolean darDeBajaCuenta (String dato, String atributo, ListaSimple lista) {
         return cuentaDAO.darDeBajaCuenta(dato, atributo, lista);
     }
+    
+    public ListaSimple listarCuentasActivas(ListaSimple lista) {
+        return cuentaDAO.listarCuentasActivas(lista);
+    }
+
+    public ListaSimple listarCuentasInactivas(ListaSimple lista) {
+        return cuentaDAO.listarCuentasInactivas(lista);
+    }
 }

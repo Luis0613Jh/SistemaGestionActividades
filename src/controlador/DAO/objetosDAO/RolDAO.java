@@ -55,7 +55,7 @@ public class RolDAO extends AdaptadorDAO {
             System.out.println("Se han creado roles");
             
             RolModelo administradorRol = new RolModelo();
-            administradorRol.setActivo(true);
+            administradorRol.setEstado("activo");
             administradorRol.setExternal_id(654984);
             administradorRol.setId(1);
             administradorRol.setTipo("Administrador");
@@ -63,7 +63,7 @@ public class RolDAO extends AdaptadorDAO {
             bandera = guardarRol();
             
             RolModelo jefeProyectoRol = new RolModelo();
-            jefeProyectoRol.setActivo(true);
+            jefeProyectoRol.setEstado("activo");
             jefeProyectoRol.setExternal_id(3657);
             jefeProyectoRol.setId(2);
             jefeProyectoRol.setTipo("Jefe de Proyecto");
@@ -71,7 +71,7 @@ public class RolDAO extends AdaptadorDAO {
             bandera = guardarRol();
             
             RolModelo encargadoRol = new RolModelo();
-            encargadoRol.setActivo(true);
+            encargadoRol.setEstado("activo");
             encargadoRol.setExternal_id(1234);
             encargadoRol.setId(3);
             encargadoRol.setTipo("Encargado");
@@ -79,7 +79,7 @@ public class RolDAO extends AdaptadorDAO {
             bandera = guardarRol();
             
             RolModelo personalRol = new RolModelo();
-            personalRol.setActivo(true);
+            personalRol.setEstado("activo");
             personalRol.setExternal_id(13254);
             personalRol.setId(4);
             personalRol.setTipo("Personal");
@@ -103,9 +103,29 @@ public class RolDAO extends AdaptadorDAO {
         }
     }
 
+    /**
+     * Método que busca los roles con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los roles con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarRolesActivos(ListaSimple lista) {
+        ordenarRoles(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca los roles con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los roles con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarRolesInactivos(ListaSimple lista) {
+        ordenarRoles(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
+    }
+    
     public Boolean darDeBajaRol(String dato, String atributo, ListaSimple lista) {
         RolModelo rol = buscarRol(dato, atributo, lista);
-        rol.setActivo(false);
+        rol.setEstado("inactivo");
         try {
             // Se modifica
             modificarRol(rol, atributo, lista);

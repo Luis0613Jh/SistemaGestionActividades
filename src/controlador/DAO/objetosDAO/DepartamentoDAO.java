@@ -59,7 +59,7 @@ public class DepartamentoDAO extends AdaptadorDAO {
     
     public Boolean darDeBajaDepartamento(Object dato, String atributo, ListaSimple lista) {
         DepartamentoModelo departamento = buscarDepartamento(dato, atributo, lista);
-        departamento.setActivo(false);
+        departamento.setEstado("inactivo");
         try {
             // Se modifica
             modificarDepartamento(departamento, atributo, lista);
@@ -73,6 +73,26 @@ public class DepartamentoDAO extends AdaptadorDAO {
     public ListaSimple listarDepartamentosCoincidentes(ListaSimple lista, Object dato, String atributo) {
         ordenarDepartamentos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    /**
+     * Método que busca los departamentos con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los departamentos con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarDepartamentosActivos(ListaSimple lista) {
+        ordenarDepartamentos(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca los departamentos con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los departamentos con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarDepartamentosInactivos(ListaSimple lista) {
+        ordenarDepartamentos(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
     
     public int obtenerIdDepartamento(ListaSimple lista, Object dato, String atributo) {
