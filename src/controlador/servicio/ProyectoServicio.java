@@ -35,6 +35,14 @@ public class ProyectoServicio {
         return proyectoDAO.listarProyectosCoincidentes(lista, dato, atributo);
     }
 
+    public ListaSimple listarProyectosActivos(ListaSimple lista) {
+        return proyectoDAO.listarProyectosActivos(lista);
+    }
+
+    public ListaSimple listarProyectosInactivos(ListaSimple lista) {
+        return proyectoDAO.listarProyectosInactivos(lista);
+    }
+    
     public ListaSimple ordenarListadoProyectos(String atributo) {
         return proyectoDAO.ordenarProyectos(proyectoDAO.listarObjetos(), atributo);
     }

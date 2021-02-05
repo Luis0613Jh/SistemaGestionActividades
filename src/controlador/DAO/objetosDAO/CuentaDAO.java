@@ -72,7 +72,7 @@ public class CuentaDAO extends AdaptadorDAO {
     
     public Boolean darDeBajaCuenta(String dato, String atributo, ListaSimple lista) {
         CuentaModelo cuenta = buscarCuenta(dato, atributo, lista);
-        cuenta.setActivo(false);
+        cuenta.setEstado("inactivo");
         try {
             // Se modifica
             modificarCuenta(cuenta, atributo, lista);
@@ -81,5 +81,25 @@ public class CuentaDAO extends AdaptadorDAO {
             System.out.println("Error en dar de baja el cuenta: " + e);
             return false;
         }
+    }
+    
+    /**
+     * Método que busca las cuentas con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las cuentas con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarCuentasActivas(ListaSimple lista) {
+        ordenarCuentas(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca las cuentas con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las cuentas con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarCuentasInactivas(ListaSimple lista) {
+        ordenarCuentas(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
 }

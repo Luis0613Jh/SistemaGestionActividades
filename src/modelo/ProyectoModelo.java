@@ -6,11 +6,12 @@ public class ProyectoModelo {
 
     private int id;
     private PersonaModelo jefeProyecto;
+    private String nombreProyecto;
     private Date fechaInicio;
     private Date fechaFinal;
     private int external_id;
     private String codigo;
-    private boolean activo;
+    private String estado;
     
     /**
      * Metodo obtenr id
@@ -120,12 +121,37 @@ public class ProyectoModelo {
         this.codigo = codigo;
     }
 
-    public boolean getActivo() {
-        return activo;
+    public String getNombreProyecto() {
+        return nombreProyecto;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
+    }
+
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Método que convierte el objeto ProyectoModelo en un string.
+     * @return Devuelve un string con el nombre del proyecto.
+     */
+    @Override
+    public String toString() {
+        return nombreProyecto;
     }
 
 }

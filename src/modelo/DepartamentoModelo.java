@@ -7,7 +7,7 @@ public class DepartamentoModelo {
     private int id;
     private int external_id;
     private String descripcion;
-    private boolean activo;
+    private String estado;
 
     /**
      * Metodo obtener nombreDepartamento
@@ -99,12 +99,29 @@ public class DepartamentoModelo {
         this.descripcion = descripcion;
     }
 
-    public boolean getActivo() {
-        return activo;
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Método que convierte el objeto DepartamentoModelo en un string.
+     * @return Devuelve un string con el nombre del departamento.
+     */
+    @Override
+    public String toString() {
+        return nombreDepartamento;
     }
 
 }

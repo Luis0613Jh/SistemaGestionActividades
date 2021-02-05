@@ -11,7 +11,7 @@ public class PersonaModelo {
     private int id_cuenta;
     private int id_rol;
     private String path_imagen;
-    private boolean activo;
+    private String estado;
 
     /**
      * Metodo obtener id
@@ -175,12 +175,29 @@ public class PersonaModelo {
         this.path_imagen = path_imagen;
     }
 
-    public boolean getEstaDespedido() {
-        return activo;
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Método que convierte el objeto PersonaModelo en un string.
+     * @return Devuelve un string con el nombre
+     */
+    @Override
+    public String toString() {
+        return nombre;
     }
 
     @Override

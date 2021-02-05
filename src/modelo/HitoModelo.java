@@ -10,7 +10,7 @@ public class HitoModelo {
     private Date fechaInicio;
     private String prioridad;
     private PersonaModelo responsable;
-    private boolean activo;
+    private String estado;
     private int external_id;
     private int actividad_id;
 
@@ -123,24 +123,6 @@ public class HitoModelo {
     }
 
     /**
-     * Metodo obtener estado con boolean activo
-     *
-     * @return Un boolean correspondiente a activo
-     */
-    public boolean getActivo() {
-        return activo;
-    }
-
-    /**
-     * Metodo enviar activo
-     *
-     * @param activo
-     */
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    /**
      * Metodo obtener external_id
      *
      * @return Un String correspondiente a external_id
@@ -166,4 +148,28 @@ public class HitoModelo {
         this.actividad_id = actividad_id;
     }
 
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Método que convierte el objeto HitoModelo en un string.
+     * @return Devuelve un string con el nombre del hito.
+     */
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

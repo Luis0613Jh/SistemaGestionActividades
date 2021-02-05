@@ -15,7 +15,7 @@ public class PersonaServicio {
     public static String ID_CUENTA = "id_cuenta";
     public static String ID_ROL = "id_rol";
     public static String PATH_IMAGEN = "path_imagen";
-    public static String ACTIVO = "activo";
+    public static String ESTADO = "estado";
     private PersonaDAO personaDAO = new PersonaDAO();
 
     public PersonaModelo getPersona() {
@@ -36,6 +36,14 @@ public class PersonaServicio {
     
     public ListaSimple listarPersonasCoincidencias(ListaSimple lista, Object dato, String atributo) {
         return personaDAO.listarPersonasCoincidentes(lista, dato, atributo);
+    }
+    
+    public ListaSimple listarPersonasActivas(ListaSimple lista) {
+        return personaDAO.listarPersonasActivas(lista);
+    }
+
+    public ListaSimple listarPersonasInactivas(ListaSimple lista) {
+        return personaDAO.listarPersonasInactivas(lista);
     }
 
     public ListaSimple ordenarListadoPersonas(String atributo) {

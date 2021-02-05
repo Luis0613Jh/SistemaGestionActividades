@@ -34,6 +34,14 @@ public class DepartamentoServicio {
         return departamentoDAO.listarDepartamentosCoincidentes(lista, dato, atributo);
     }
 
+    public ListaSimple listarDepartamentosActivos(ListaSimple lista) {
+        return departamentoDAO.listarDepartamentosActivos(lista);
+    }
+
+    public ListaSimple listarDepartamentosInactivos(ListaSimple lista) {
+        return departamentoDAO.listarDepartamentosInactivos(lista);
+    }
+    
     public ListaSimple ordenarListadoDepartamentos(String atributo) {
         return departamentoDAO.ordenarDepartamentos(departamentoDAO.listarObjetos(), atributo);
     }

@@ -36,6 +36,14 @@ public class HitoServicio {
         return hitoDAO.listarHitosCoincidentes(lista, dato, atributo);
     }
     
+    public ListaSimple listarHitosActivos(ListaSimple lista) {
+        return hitoDAO.listarHitosActivos(lista);
+    }
+
+    public ListaSimple listarHitosInactivos(ListaSimple lista) {
+        return hitoDAO.listarHitosInactivos(lista);
+    }
+    
     public ListaSimple ordenarListadoHitos(String atributo) {
         return hitoDAO.ordenarHitos(hitoDAO.listarObjetos(), atributo);
     }

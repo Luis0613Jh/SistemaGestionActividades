@@ -59,7 +59,7 @@ public class ProyectoDAO extends AdaptadorDAO {
     
     public Boolean darDeBajaProyecto(Object dato, String atributo, ListaSimple lista) {
         ProyectoModelo proyecto = buscarProyecto(dato, atributo, lista);
-        proyecto.setActivo(false);
+        proyecto.setEstado("inactivo");
         try {
             // Se modifica
             modificarProyecto(proyecto, atributo, lista);
@@ -73,6 +73,26 @@ public class ProyectoDAO extends AdaptadorDAO {
     public ListaSimple listarProyectosCoincidentes(ListaSimple lista, Object dato, String atributo) {
         ordenarProyectos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    /**
+     * Método que busca los proyectos con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los proyectos con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarProyectosActivos(ListaSimple lista) {
+        ordenarProyectos(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca los proyectos con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los proyectos con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarProyectosInactivos(ListaSimple lista) {
+        ordenarProyectos(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
     
     public int obtenerIdProyecto(ListaSimple lista, Object dato, String atributo) {

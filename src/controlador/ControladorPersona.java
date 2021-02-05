@@ -101,6 +101,7 @@ public class ControladorPersona {
         aux.setPath_imagen(persona.getPath_imagen());
         aux.setTelefono(persona.getTelefono());
         aux.setActivo(true);
+        aux.setEstado(persona.getEstado());
         return aux;
     }
 

@@ -59,7 +59,7 @@ public class HitoDAO extends AdaptadorDAO {
     
     public Boolean darDeBajaHito(Object dato, String atributo, ListaSimple lista) {
         HitoModelo hito = buscarHito(dato, atributo, lista);
-        hito.setActivo(false);
+        hito.setEstado("inactivo");
         try {
             // Se modifica
             modificarHito(hito, atributo, lista);
@@ -73,6 +73,26 @@ public class HitoDAO extends AdaptadorDAO {
     public ListaSimple listarHitosCoincidentes(ListaSimple lista, Object dato, String atributo) {
         ordenarHitos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
+    }
+    
+    /**
+     * Método que busca los hitos con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los hitos con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarHitosActivos(ListaSimple lista) {
+        ordenarHitos(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca los hitos con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas los hitos con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarHitosInactivos(ListaSimple lista) {
+        ordenarHitos(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
     
     public int obtenerIdHito(ListaSimple lista, Object dato, String atributo) {

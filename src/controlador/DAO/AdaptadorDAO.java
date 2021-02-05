@@ -17,10 +17,10 @@ public class AdaptadorDAO implements InterfazDAO {
      * carpeta.
      *
      * @param conexionDAO Objeto que conecta el objeto XStream con el
-     * AdaptadorDAO.
-     * @param claseObjeto Objeto que contiene toda la inforamción de la clase de
-     * un objeto.
-     * @param carpeta Indica el nombre de la carpeta a crear, es de tipo string.
+     * AdaptadorDAO, es de tipo ConexionDAO.
+     * @param claseObjeto Objeto que contiene toda la información de la clase de
+     * un objeto, es de tipo class.
+     * @param carpeta String que indica el nombre de la carpeta a crear.
      */
     public AdaptadorDAO(ConexionDAO conexionDAO, Class claseObjeto, String carpeta) {
         this.conexionDAO = conexionDAO;
@@ -34,6 +34,10 @@ public class AdaptadorDAO implements InterfazDAO {
     public AdaptadorDAO() {
     }
 
+    /**
+     * Método que permite recuperar todos los objetos de un archivo especificado.
+     * @return Una lista con todos los objetos almacenados en el archivo a buscar.
+     */
     @Override
     public ListaSimple listarObjetos() {
         ListaSimple listaAux = new ListaSimple();
@@ -49,6 +53,10 @@ public class AdaptadorDAO implements InterfazDAO {
         return listaAux;
     }
 
+    /**
+     * Método que permite guardar un objeto en un archivo especificado.
+     * @param objeto Objeto a guardar en el archivo especificado.
+     */
     @Override
     public void guardarObjeto(Object objeto) throws Exception {
         if (verificarRutaArchivo()) {
@@ -70,6 +78,10 @@ public class AdaptadorDAO implements InterfazDAO {
         }
     }
 
+    /**
+     * Método que permite modificar los objetos almacenados en un archivo especificado.
+     * @param lista Lista que contiene todos los objetos ya modificados, es de tipo ListaSimple.
+     */
     @Override
     public void modificarObjetos(ListaSimple lista) {
         File archivo = new File(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json");
@@ -82,6 +94,13 @@ public class AdaptadorDAO implements InterfazDAO {
         }
     }
 
+    /**
+     * Método que permite buscar objetos en una lista, mediante el dato indicado.
+     * @param lista Lista en donde se van a buscar las coincidencias indicadas.
+     * @param dato Dato a buscar en la lista, es de tipo Object.
+     * @param atributo Atributo que especifica el nombre de la variable que contiene el dato a buscar (variable instanciada en el modelo), es de tipo String.
+     * @return Retorna una lista con todos los objetos que coinciden con el dato a buscar, es de tipo ListaSimple.
+     */
     @Override
     public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo) {
         ListaSimple listaTemporal = new ListaSimple();
@@ -97,7 +116,11 @@ public class AdaptadorDAO implements InterfazDAO {
         }
         return listaTemporal;
     }
-
+    
+    /**
+     * Método que verifica si la ruta del archivo especificado exxiste.
+     * @return Retorna true si la ruta especificada existe, o false en caso de que no exista, es de tipo boolean.
+     */
     public boolean verificarRutaArchivo() {
         boolean bandera = false;
         File carpetaContenedora = new File(conexionDAO.getCARPETA_CONTENEDORA());
@@ -116,6 +139,9 @@ public class AdaptadorDAO implements InterfazDAO {
         return bandera;
     }
 
+    /**
+     * Método que crea la ruta de archivo especificada.
+     */
     public void crearRutaArchivo() {
         File carpetaContenedora = new File(conexionDAO.getCARPETA_CONTENEDORA());
         if (carpetaContenedora.exists()) {
