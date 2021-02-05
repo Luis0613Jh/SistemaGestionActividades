@@ -27,7 +27,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),rolSer.obtenerIdRol(rolSer.listarRoles(),"Personal", "tipo"),"id_rol"));
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),true,"activo"));
         rSTableMetro1.setModel(tabla);
         rSTableMetro1.updateUI();
 

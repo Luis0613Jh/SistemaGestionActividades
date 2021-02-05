@@ -19,8 +19,10 @@
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorRol.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/objetosDAO/RolDAO.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/InstructivoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/servicio/PersonaServicio.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/DepartamentoModelo.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/ConexionDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarEmpleadosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/Frm_CambioRol.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/utilidades/UtilidadesControlador.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearDepartamentoVista.java</file>
@@ -44,6 +46,7 @@
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/PersonaModelo.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearEmpleadoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/tabla/tabla_GestionarEmpleado.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/servicio/CuentaServicio.java</file>
         </group>
     </open-files>
 </project-private>
