@@ -28,7 +28,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
     }
 
     public void llenarDepartamentos() {
-        UtilidadesControlador.cargarComboBoxDias(jComboBox2, controladorDeapartamento.departamentos());
+        UtilidadesControlador.cargarComboBoxDias(cbxDepartamento, controladorDeapartamento.departamentos());
     }
 
     /**

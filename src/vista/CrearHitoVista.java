@@ -28,7 +28,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
     }
 
     public void llenarJefesProyecto() {
-        UtilidadesControlador.cargarComboBoxDias(jComboBox3, controladorPersona.ObtenerPersonas());
+        UtilidadesControlador.cargarComboBoxDias(cbxResponsable, controladorPersona.ObtenerPersonas());
     }
 
     /**

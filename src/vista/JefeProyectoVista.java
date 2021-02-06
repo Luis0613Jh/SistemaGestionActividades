@@ -17,7 +17,7 @@ public class JefeProyectoVista extends javax.swing.JFrame {
     public JefeProyectoVista(String path) {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnGestionarProyectos.setSelected(true);
+        this.btnProyectosAsignados.setSelected(true);
         cargarImagen(path);
     }
     public void cargarImagen(String path) {
@@ -26,7 +26,7 @@ public class JefeProyectoVista extends javax.swing.JFrame {
             Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
             lblFoto.setIcon(fondo1);
         } else {
-            lblFoto.setText("Empeado sin \n foto cargada");
+            lblFoto.setText("Empleado sin \n foto cargada");
         }
     }
     /**

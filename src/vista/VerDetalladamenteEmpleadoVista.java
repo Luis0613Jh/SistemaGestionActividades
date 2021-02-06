@@ -37,15 +37,15 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     }
 
     public void llenarDatos() {
-        jLabel10.setText(controlador.getPersona().getNombre());
-        jLabel11.setText(controlador.getPersona().getCedula());
-        jLabel12.setText(controlador.getPersona().getCorreo());
-        jLabel13.setText(controlador.getPersona().getTelefono());
+        lblNombre.setText(controlador.getPersona().getNombre());
+        lblCedula.setText(controlador.getPersona().getCedula());
+        lblCorreoElectronico.setText(controlador.getPersona().getCorreo());
+        lblTelefono.setText(controlador.getPersona().getTelefono());
         controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
-        jLabel14.setText(controladorRol.getRol().getTipo());
+        lblRol.setText(controladorRol.getRol().getTipo());
         controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
-        jLabel15.setText(controladorCuenta.getCuenta().getUsuario());
-        jLabel9.setText(controladorCuenta.getCuenta().getClave());
+        lblUsuario.setText(controladorCuenta.getCuenta().getUsuario());
+        lblContrasenia.setText(controladorCuenta.getCuenta().getClave());
         cargarImagen(controlador.getPersona().getPath_imagen());
     }
 
@@ -85,7 +85,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         lblCedula = new javax.swing.JLabel();
         lblCorreoElectronico = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
-        lblDepartamento = new javax.swing.JLabel();
+        lblRol = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -187,10 +187,10 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(lblTelefono);
         lblTelefono.setBounds(250, 260, 310, 30);
 
-        lblDepartamento.setForeground(new java.awt.Color(255, 255, 255));
-        lblDepartamento.setOpaque(true);
-        jPanel2.add(lblDepartamento);
-        lblDepartamento.setBounds(250, 300, 310, 30);
+        lblRol.setForeground(new java.awt.Color(255, 255, 255));
+        lblRol.setOpaque(true);
+        jPanel2.add(lblRol);
+        lblRol.setBounds(250, 300, 310, 30);
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setOpaque(true);
@@ -321,9 +321,9 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblContrasenia;
     private javax.swing.JLabel lblCorreoElectronico;
-    private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRol;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables

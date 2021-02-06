@@ -8,6 +8,7 @@ package vista;
 import controlador.ControladorPersona;
 import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
+import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,9 +30,13 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      */
     ControladorPersona controladorEmp = new ControladorPersona();
     RolServicio serRol = new RolServicio();
+
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
+        Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+        lblFoto.setIcon(fondoImagen);
         //UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
     }
 
@@ -41,7 +46,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      * @return Un boolean correspondiente a si esta vacia
      */
     public boolean vacios() {
-        if (jTextField1.getText().length() > 0 && jTextField2.getText().length() > 0 && jTextField3.getText().length() > 0 && jTextField4.getText().length() > 0 && jTextField6.getText().length() > 0 && jTextField7.getText().length() > 0) {
+        if (txtCedulaPersonal.getText().length() > 0 && txtContraseniaPersonal.getText().length() > 0 && txtCorreoElectronicoPersonal.getText().length() > 0 && txtNombrePersonal.getText().length() > 0 && txtTelefonoPersonal.getText().length() > 0 && txtUsuarioPersonal.getText().length() > 0) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
@@ -50,13 +55,16 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }
 
     public void limpiar() {
-        jTextField1.setText(null);
-        jTextField2.setText(null);
-        jTextField3.setText(null);
-        jTextField4.setText(null);
-        jTextField6.setText(null);
-        jTextField7.setText(null);
+        txtCedulaPersonal.setText(null);
+        txtContraseniaPersonal.setText(null);
+        txtCorreoElectronicoPersonal.setText(null);
+        txtNombrePersonal.setText(null);
+        txtTelefonoPersonal.setText(null);
+        txtUsuarioPersonal.setText(null);
         lblFoto.setDisabledIcon(null);
+        ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
+        Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+        lblFoto.setIcon(fondoImagen);
     }
 
     /**
@@ -264,7 +272,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setNombre(txtNombrePersonal.getText());
             controladorEmp.getPersona().setCorreo(txtCorreoElectronicoPersonal.getText());
             controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
-            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),(String)cbxRol.getSelectedItem(),"tipo"));
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), (String) cbxRol.getSelectedItem(), "tipo"));
             controladorEmp.getPersona().setEstado("activo");
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());

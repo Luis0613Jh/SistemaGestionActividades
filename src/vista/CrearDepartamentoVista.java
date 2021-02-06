@@ -31,7 +31,7 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     }
     public void llenarEmpleados(){
         if(contper.obtenerListaEmpleados() != null){
-            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(jComboBox1, contper.obtenerListaEmpleados());
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado, contper.obtenerListaEmpleados());
         }else{
             JOptionPane.showMessageDialog(null, "No hay empleados");
             dispose();
@@ -39,7 +39,7 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         
     };
     public boolean camposVacios(){
-        if(jTextField1.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
+        if(txtDescripcion.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
             return true;
         }else{
             return false;

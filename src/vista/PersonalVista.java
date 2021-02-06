@@ -18,7 +18,7 @@ public class PersonalVista extends javax.swing.JFrame {
     public PersonalVista(String path) {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnGestionarProyectos.setSelected(true);
+        this.btnHitosAsignados.setSelected(true);
         cargarImagen(path);
     }
     public void cargarImagen(String path) {

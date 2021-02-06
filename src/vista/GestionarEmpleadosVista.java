@@ -28,8 +28,8 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
         tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),true,"activo"));
-        rSTableMetro1.setModel(tabla);
-        rSTableMetro1.updateUI();
+        tbtGestionarEmpleados.setModel(tabla);
+        tbtGestionarEmpleados.updateUI();
 
     }
 
@@ -268,7 +268,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        int eleccion = rSTableMetro1.getSelectedRow();
+        int eleccion = tbtGestionarEmpleados.getSelectedRow();
         controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
         EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
         this.dispose();
@@ -294,7 +294,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        int seleccion = rSTableMetro1.getSelectedRow();
+        int seleccion = tbtGestionarEmpleados.getSelectedRow();
         if(perSer.darDeBajaPersona(String.valueOf(seleccion+1),"id",perSer.listarPersonas())){
             JOptionPane.showMessageDialog(null,"Se elimino correctamente el empleado\nde la lista");
         }else{

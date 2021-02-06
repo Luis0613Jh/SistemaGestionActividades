@@ -5,6 +5,7 @@ import controlador.ControladorProyecto;
 import controlador.servicio.PersonaServicio;
 import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,15 +27,15 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         llenarJefesProyecto();
-        jComboBox1.setSelectedItem(null);
+        cbxJefeProyecto.setSelectedItem(null);
     }
 
     public void llenarJefesProyecto() {
-        UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorPersona.ObtenerPersonas());
+        UtilidadesControlador.cargarComboBoxDias(cbxJefeProyecto, controladorPersona.ObtenerPersonas());
     }
 
     public boolean camposVacios() {
-        if (jComboBox1.getSelectedItem().equals(null) && jDateChooser2.getDate().equals(null) && jDateChooser1.getDate().equals(null)) {
+        if (cbxJefeProyecto.getSelectedItem().equals(null) && dateChooserFechaInicio.getDate().equals(null) && dateChooserFechaEntrega.getDate().equals(null)) {
             return false;
         } else {
             return true;
@@ -95,7 +96,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(40, 100, 130, 30);
+        jLabel3.setBounds(30, 100, 130, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +129,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(30, 140, 130, 30);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 100, 310, 24);
+        jTextField1.setBounds(250, 100, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 640, 280);
@@ -170,7 +171,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProyectoActionPerformed
         if (camposVacios()) {
             controladorProyecto.getProyecto().setEstado("activo");
             controladorProyecto.getProyecto().setExternal_id(UtilidadesControlador.generarId());
@@ -194,7 +195,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Tienes campos vacios");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnGuardarProyectoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarProyectosVista gps = new GestionarProyectosVista();
