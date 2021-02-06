@@ -46,7 +46,7 @@ public class DepartamentoServicio {
         return departamentoDAO.ordenarDepartamentos(departamentoDAO.listarObjetos(), atributo);
     }
 
-    public DepartamentoModelo buscarDepartamento(String dato, String atributo) {
+    public DepartamentoModelo buscarDepartamento(Object dato, String atributo) {
         return departamentoDAO.buscarDepartamento(dato, atributo, listarDepartamentos());
     }
 

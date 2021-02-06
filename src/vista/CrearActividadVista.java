@@ -1,22 +1,34 @@
-
 package vista;
 
+import controlador.ControladorActividad;
+import controlador.ControladorDepartamento;
+import controlador.servicio.DepartamentoServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 public class CrearActividadVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorActividad controladorActividad = new ControladorActividad();
+    ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
+    DepartamentoServicio serDepa = new DepartamentoServicio();
+
     public CrearActividadVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarDepartamentos();
+    }
+
+    public void llenarDepartamentos() {
+        UtilidadesControlador.cargarComboBoxDias(jComboBox2, controladorDeapartamento.departamentos());
     }
 
     /**
@@ -91,7 +103,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jPanel2.add(jLabel5);
         jLabel5.setBounds(30, 350, 190, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
         jPanel2.add(jComboBox1);
         jComboBox1.setBounds(250, 300, 310, 30);
         jPanel2.add(jTextField1);
@@ -166,10 +178,26 @@ public class CrearActividadVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        controladorActividad.getActividad().setDescripcion(jTextField1.getText());
+        controladorActividad.getActividad().setEstado("activo");
+        controladorActividad.getActividad().setExternal_id(UtilidadesControlador.generarId());
+        controladorActividad.getActividad().setFechaEntrega(jDateChooser1.getDate());
+        controladorActividad.getActividad().setFechaInicio(jDateChooser2.getDate());
+        controladorActividad.getActividad().setId(UtilidadesControlador.generarId());
+        controladorActividad.getActividad().setNombre(jTextField2.getText());
+        controladorActividad.getActividad().setPrioridad((String) jComboBox1.getSelectedItem());
+        controladorActividad.getActividad().setProyecto_id(7);
+        controladorDeapartamento.setDepatamento(serDepa.buscarDepartamento((String) jComboBox2.getSelectedItem(), "nombreDepartamento"));
+        controladorActividad.getActividad().setDepartamento_id(serDepa.obtenerIdDepartamento(serDepa.listarDepartamentos(), controladorDeapartamento.getDepatamento(), "id"));
+        if (controladorActividad.guardarActividad()) {
+            JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+            AdministradorVista admin = new AdministradorVista();
+            this.dispose();
+            admin.setLocationRelativeTo(null);
+            admin.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se logro guardar");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

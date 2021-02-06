@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
 
 /**
@@ -18,7 +19,7 @@ public class Frm_CambioRol extends javax.swing.JDialog {
      * Creates new form Frm_CambioRol
      */
     ControladorPersona controlador;
-    
+    RolServicio serRol = new RolServicio();
     public Frm_CambioRol(java.awt.Frame parent, boolean modal , ControladorPersona controlador) {
         super(parent, modal);
         initComponents();
@@ -96,7 +97,7 @@ public class Frm_CambioRol extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controlador.getPersona().setId_rol(controlador.obtenerID(jComboBox1.getSelectedIndex()));
+        controlador.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),(String)jComboBox1.getSelectedItem(),"tipo"));        
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

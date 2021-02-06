@@ -6,6 +6,8 @@
 package controlador;
 
 import controlador.DAO.objetosDAO.DepartamentoDAO;
+import controlador.listaSimple.ListaSimple;
+import controlador.servicio.DepartamentoServicio;
 import modelo.DepartamentoModelo;
 
 /**
@@ -52,5 +54,15 @@ public class ControladorDepartamento {
         } catch (Exception e) {
             return false;
         }
+    }
+    public String[] departamentos(){
+        DepartamentoServicio servicio = new DepartamentoServicio();
+        ListaSimple lista = servicio.listarDepartamentosActivos(servicio.listarDepartamentos());
+        String[] arreglo = new String[lista.tamanio()];
+        for(int i = 0 ; i < lista.tamanio() ; i++){
+            DepartamentoModelo aux = (DepartamentoModelo)lista.buscarPorPosicion(i);
+            arreglo[i]=aux.getNombreDepartamento();
+        }
+        return arreglo;
     }
 }

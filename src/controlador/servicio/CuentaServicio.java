@@ -38,4 +38,7 @@ public class CuentaServicio {
     public ListaSimple listarCuentasInactivas(ListaSimple lista) {
         return cuentaDAO.listarCuentasInactivas(lista);
     }
+    public ListaSimple listarCuentas() {
+        return cuentaDAO.listarObjetos();
+    }
 }

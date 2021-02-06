@@ -99,4 +99,5 @@ public class PersonaDAO extends AdaptadorDAO {
         PersonaModelo persona = buscarPersona(dato, atributo, lista);
         return persona.getId();
     }
+    
 }

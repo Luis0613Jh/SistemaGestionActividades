@@ -3,6 +3,8 @@ package vista;
 
 import controlador.ControladorDepartamento;
 import controlador.ControladorPersona;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
@@ -20,6 +22,8 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
      */
     ControladorPersona contper =  new ControladorPersona();
     ControladorDepartamento contdep = new ControladorDepartamento();
+    PersonaServicio serPer = new PersonaServicio();
+    RolServicio rolSer = new RolServicio();
     public CrearDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -41,7 +45,6 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
             return false;
         }
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -159,11 +162,24 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(camposVacios()){
             contdep.getDepatamento().setNombreDepartamento(txtNombreDepartamento.getText());
+            contdep.getDepatamento().setEstado("activo");
+            contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)jComboBox1.getSelectedItem(),"nombre"));
+            contdep.getDepatamento().setDescripcion(jTextField1.getText());
+            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
+            contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
+            contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
+            boolean guardar = serPer.modificarPersona(contper.getPersona(),"id",serPer.listarPersonas());
             //contdep.getDepatamento().setEncargado(encargado);
-            AdministradorVista admin = new AdministradorVista();
-            this.dispose();
-            admin.setLocationRelativeTo(null);
-            admin.setVisible(true);
+            if(contdep.guardarDepartamento() && guardar){
+                JOptionPane.showMessageDialog(null, "El departamento se guardo correctamente");
+                AdministradorVista admin = new AdministradorVista();    
+                this.dispose();
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al guardar departamento");
+            }            
         }else{
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
         }

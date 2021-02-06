@@ -13,6 +13,15 @@ public class ActividadModelo {
     private String estado;
     private int external_id;
     private int proyecto_id;
+    private int departamento_id;
+
+    public int getDepartamento_id() {
+        return departamento_id;
+    }
+
+    public void setDepartamento_id(int departamento_id) {
+        this.departamento_id = departamento_id;
+    }
 
     /**
      * Metodo obtener id

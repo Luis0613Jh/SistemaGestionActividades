@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
@@ -27,7 +28,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      * Creates new form CrearAdministrador
      */
     ControladorPersona controladorEmp = new ControladorPersona();
-
+    RolServicio serRol = new RolServicio();
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -264,7 +265,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setNombre(jTextField2.getText());
             controladorEmp.getPersona().setCorreo(jTextField4.getText());
             controladorEmp.getPersona().setTelefono(jTextField7.getText());
-            controladorEmp.getPersona().setId_rol(controladorEmp.obtenerID(jComboBox1.getSelectedIndex()));
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),(String)jComboBox1.getSelectedItem(),"tipo"));
             controladorEmp.getPersona().setEstado("activo");
             controladorEmp.getCuenta().setUsuario(jTextField6.getText());
             controladorEmp.getCuenta().setClave(jTextField1.getText());

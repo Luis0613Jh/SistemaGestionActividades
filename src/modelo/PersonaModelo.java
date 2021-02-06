@@ -200,9 +200,4 @@ public class PersonaModelo {
         return nombre;
     }
 
-    @Override
-    public String toString() {
-        return nombre + " - " + id_rol;
-    }
-
 }

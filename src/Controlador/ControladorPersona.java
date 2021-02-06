@@ -7,6 +7,7 @@ import controlador.DAO.objetosDAO.PersonaDAO;
 import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
 import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
 import javax.swing.JOptionPane;
 import modelo.CuentaModelo;
@@ -100,7 +101,6 @@ public class ControladorPersona {
         aux.setNombre(persona.getNombre());
         aux.setPath_imagen(persona.getPath_imagen());
         aux.setTelefono(persona.getTelefono());
-        aux.setActivo(true);
         aux.setEstado(persona.getEstado());
         return aux;
     }
@@ -199,5 +199,16 @@ public class ControladorPersona {
         } else {
             return false;
         }
+    }
+    public String[] ObtenerPersonas() {
+        PersonaDAO r = new PersonaDAO();
+        RolServicio serRol = new RolServicio();
+        ListaSimple rol = r.listarPersonasActivas(r.listarCoincidencias(r.listarObjetos(),serRol.obtenerIdRol(serRol.listarRoles(),"Personal","tipo"), "id_rol"));
+        String[] roles = new String[rol.tamanio()];
+        for (int i = 0; i < rol.tamanio(); i++) {
+            PersonaModelo aux = (PersonaModelo)rol.buscarPorPosicion(i);
+            roles[i] = aux.getNombre();
+        }
+        return roles;
     }
 }

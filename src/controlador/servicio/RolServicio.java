@@ -45,7 +45,7 @@ public class RolServicio {
         return rolDAO.crearRoles();
     }
     
-    public RolModelo buscarRol(String dato, String atributo) {
+    public RolModelo buscarRol(Object dato, String atributo) {
         return rolDAO.buscarRol(dato, atributo, listarRoles());
     }
     

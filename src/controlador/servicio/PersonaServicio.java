@@ -50,7 +50,7 @@ public class PersonaServicio {
         return personaDAO.ordenarPersonas(personaDAO.listarObjetos(), atributo);
     }
 
-    public PersonaModelo buscarPersona(String dato, String atributo) {
+    public PersonaModelo buscarPersona(Object dato, String atributo) {
         return personaDAO.buscarPersona(dato, atributo, listarPersonas());
     }
 
