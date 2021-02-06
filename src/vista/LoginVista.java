@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  * @author juana
  */
 import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
 import controlador.utilidades.Sesion;
 import javax.swing.JOptionPane;
 
@@ -27,21 +28,23 @@ public class LoginVista extends javax.swing.JFrame {
 
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
+            PersonaServicio serPer = new PersonaServicio();
+            String path = (serPer.buscarPersona(sesion.getCuenta().getId(),"id")).getPath_imagen();            
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getTipo());
+            autorizarVista(sesion.getRol().getTipo(),path);
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void autorizarVista(String rolNombre) {
+    public void autorizarVista(String rolNombre,String path) {
         System.out.println("---------ROL: " + rolNombre);
 
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
                 this.dispose();
-                AdministradorVista av = new AdministradorVista();
+                AdministradorVista av = new AdministradorVista(path);
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
@@ -59,7 +62,7 @@ public class LoginVista extends javax.swing.JFrame {
             case "Personal":
                 System.out.println("Es un Personal");
                 this.dispose();
-                PersonalVista pv = new PersonalVista();
+                PersonalVista pv = new PersonalVista(path);
                 pv.setVisible(true);
                 break;
         }

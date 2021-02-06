@@ -1,6 +1,10 @@
 
 package vista;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 public class PersonalVista extends javax.swing.JFrame {
 
     /**
@@ -11,7 +15,21 @@ public class PersonalVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnGestionarProyectos.setSelected(true);
     }
-
+    public PersonalVista(String path) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.btnGestionarProyectos.setSelected(true);
+        cargarImagen(path);
+    }
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+            lblFoto.setIcon(fondo1);
+        } else {
+            lblFoto.setText("Empeado sin \n foto cargada");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

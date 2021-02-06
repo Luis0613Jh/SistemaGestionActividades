@@ -38,8 +38,8 @@ public class Sesion {
     }
     
     public void obtenerDatos () {
-        persona = new PersonaServicio().buscarPersona(String.valueOf(cuenta.getId()), PersonaServicio.ID_CUENTA);
-        rol = new RolServicio().buscarRol(String.valueOf(persona.getId_rol()), RolServicio.IDENTIFICADOR);
+        persona = new PersonaServicio().buscarPersona(cuenta.getId(), PersonaServicio.ID_CUENTA);
+        rol = new RolServicio().buscarRol(persona.getId_rol(), RolServicio.IDENTIFICADOR);
     }
     
 }

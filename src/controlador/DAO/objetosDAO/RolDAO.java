@@ -49,8 +49,7 @@ public class RolDAO extends AdaptadorDAO {
 
     public Boolean crearRoles(){
         boolean bandera = false;
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ROLES());
-        
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ROLES() + RolModelo.class.getSimpleName() + ".json");
         if (!archivo.exists()) {
             System.out.println("Se han creado roles");
             
