@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.Component;
+import java.awt.Label;
 import java.util.Scanner;
 import javax.swing.JPanel;
 
@@ -33,108 +35,145 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pnlSeis = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel7 = new javax.swing.JPanel();
+        panelSeis = new javax.swing.JPanel();
         jLabelNombreActividad24 = new javax.swing.JLabel();
-        jLabelNombreActividad30 = new javax.swing.JLabel();
-        jLabelNombreActividad18 = new javax.swing.JLabel();
         jTextPane5 = new javax.swing.JTextPane();
         btnCerrarSeis = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane28 = new javax.swing.JScrollPane();
         jTextPane29 = new javax.swing.JTextPane();
+        jLabelNombreActividad57 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlSeis = new javax.swing.JLabel();
+        jLabelNombreActividad58 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlSeis = new javax.swing.JLabel();
+        btnEditarSeis = new RSMaterialComponent.RSButtonIconUno();
         pnlTres = new rojeru_san.rspanel.RSPanelShadow();
         panelTres = new javax.swing.JPanel();
         jLabelNombreActividad21 = new javax.swing.JLabel();
-        jLabelNombreActividad27 = new javax.swing.JLabel();
-        jLabelNombreActividad15 = new javax.swing.JLabel();
         btnCerrarTres = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTextPane7 = new javax.swing.JTextPane();
+        jLabelNombreActividad51 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlTres = new javax.swing.JLabel();
+        lblHoraAlarmaPnlTres = new javax.swing.JLabel();
+        jLabelNombreActividad52 = new javax.swing.JLabel();
+        btnEditarTres = new RSMaterialComponent.RSButtonIconUno();
         pnlCuatro = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel5 = new javax.swing.JPanel();
+        panelCuatro = new javax.swing.JPanel();
         jLabelNombreActividad22 = new javax.swing.JLabel();
-        jLabelNombreActividad28 = new javax.swing.JLabel();
-        jLabelNombreActividad16 = new javax.swing.JLabel();
         btnCerrarCuatro = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane19 = new javax.swing.JScrollPane();
         jTextPane19 = new javax.swing.JTextPane();
+        jLabelNombreActividad53 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlCuatro = new javax.swing.JLabel();
+        jLabelNombreActividad54 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlCuatro = new javax.swing.JLabel();
+        btnEditarCuatro = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextPane8 = new javax.swing.JTextPane();
         pnlCinco = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel6 = new javax.swing.JPanel();
+        panelCinco = new javax.swing.JPanel();
         jLabelNombreActividad23 = new javax.swing.JLabel();
-        jLabelNombreActividad29 = new javax.swing.JLabel();
-        jLabelNombreActividad17 = new javax.swing.JLabel();
         btnCerrarCinco = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane20 = new javax.swing.JScrollPane();
         jTextPane20 = new javax.swing.JTextPane();
+        lblHoraAlarmaPnlCinco = new javax.swing.JLabel();
+        jLabelNombreActividad55 = new javax.swing.JLabel();
+        jLabelNombreActividad56 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlCinco = new javax.swing.JLabel();
+        btnEditarCinco = new RSMaterialComponent.RSButtonIconUno();
         pnlDos = new rojeru_san.rspanel.RSPanelShadow();
         panelDos = new javax.swing.JPanel();
-        jLabelNombreActividad20 = new javax.swing.JLabel();
-        jLabelNombreActividad26 = new javax.swing.JLabel();
-        jLabelNombreActividad14 = new javax.swing.JLabel();
+        lblNombreActividad2 = new javax.swing.JLabel();
+        btnCerrarDos = new RSMaterialComponent.RSButtonIconUno();
+        jLabelNombreActividad49 = new javax.swing.JLabel();
+        lblFecha2 = new javax.swing.JLabel();
+        lblHora2 = new javax.swing.JLabel();
+        jLabelNombreActividad50 = new javax.swing.JLabel();
+        btnEditarDos = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTextPane6 = new javax.swing.JTextPane();
-        btnCerrarDos = new RSMaterialComponent.RSButtonIconUno();
         pnlUno = new rojeru_san.rspanel.RSPanelShadow();
         panelUno = new javax.swing.JPanel();
-        jLabelNombreActividad19 = new javax.swing.JLabel();
+        lblNombreActividad1 = new javax.swing.JLabel();
         jLabelNombreActividad25 = new javax.swing.JLabel();
         jLabelNombreActividad13 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         jTextPane11 = new javax.swing.JTextPane();
         btnCerrarUno = new RSMaterialComponent.RSButtonIconUno();
-        jPanel8 = new javax.swing.JPanel();
+        lblHoraAlarmaPnlUno = new javax.swing.JLabel();
+        btnEditarUnoU = new RSMaterialComponent.RSButtonIconUno();
+        lblHora1 = new javax.swing.JLabel();
+        lblFecha1 = new javax.swing.JLabel();
+        panelTitulo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         pnlDoce = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel9 = new javax.swing.JPanel();
+        panelDoce = new javax.swing.JPanel();
         jLabelNombreActividad31 = new javax.swing.JLabel();
-        jLabelNombreActividad32 = new javax.swing.JLabel();
-        jLabelNombreActividad33 = new javax.swing.JLabel();
         jTextPane9 = new javax.swing.JTextPane();
         btnCerrarDoce = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane22 = new javax.swing.JScrollPane();
         jTextPane22 = new javax.swing.JTextPane();
+        jLabelNombreActividad69 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlDoce = new javax.swing.JLabel();
+        jLabelNombreActividad70 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlDoce = new javax.swing.JLabel();
+        btnEditarDoce = new RSMaterialComponent.RSButtonIconUno();
         pnlOnce = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel10 = new javax.swing.JPanel();
+        panelOnce = new javax.swing.JPanel();
         jLabelNombreActividad34 = new javax.swing.JLabel();
-        jLabelNombreActividad35 = new javax.swing.JLabel();
-        jLabelNombreActividad36 = new javax.swing.JLabel();
         btnCerrarOnce = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane23 = new javax.swing.JScrollPane();
         jTextPane23 = new javax.swing.JTextPane();
+        jLabelNombreActividad67 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlOnce = new javax.swing.JLabel();
+        jLabelNombreActividad68 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlOnce = new javax.swing.JLabel();
+        btnEditarOnce = new RSMaterialComponent.RSButtonIconUno();
         pnlOcho = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel11 = new javax.swing.JPanel();
+        panelOcho = new javax.swing.JPanel();
         jLabelNombreActividad37 = new javax.swing.JLabel();
-        jLabelNombreActividad38 = new javax.swing.JLabel();
-        jLabelNombreActividad39 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTextPane10 = new javax.swing.JTextPane();
         btnCerrarOcho = new RSMaterialComponent.RSButtonIconUno();
+        jLabelNombreActividad61 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlOcho = new javax.swing.JLabel();
+        jLabelNombreActividad62 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlUnoOcho = new javax.swing.JLabel();
+        btnEditarOcho = new RSMaterialComponent.RSButtonIconUno();
         pnlSiete = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel12 = new javax.swing.JPanel();
+        panelSiete = new javax.swing.JPanel();
         jLabelNombreActividad40 = new javax.swing.JLabel();
-        jLabelNombreActividad41 = new javax.swing.JLabel();
-        jLabelNombreActividad42 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         jTextPane12 = new javax.swing.JTextPane();
         btnCerrarSiete = new RSMaterialComponent.RSButtonIconUno();
+        jLabelNombreActividad59 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlSiete = new javax.swing.JLabel();
+        jLabelNombreActividad60 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlSiete = new javax.swing.JLabel();
+        btnEditarSiete = new RSMaterialComponent.RSButtonIconUno();
         pnlNueve = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel13 = new javax.swing.JPanel();
+        panelNueve = new javax.swing.JPanel();
         jLabelNombreActividad43 = new javax.swing.JLabel();
-        jLabelNombreActividad44 = new javax.swing.JLabel();
-        jLabelNombreActividad45 = new javax.swing.JLabel();
         btnCerrarNueve = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTextPane13 = new javax.swing.JTextPane();
+        jLabelNombreActividad63 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlNueve = new javax.swing.JLabel();
+        jLabelNombreActividad64 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlNueve = new javax.swing.JLabel();
+        btnEditarNueve = new RSMaterialComponent.RSButtonIconUno();
         pnlDiez = new rojeru_san.rspanel.RSPanelShadow();
-        jPanel14 = new javax.swing.JPanel();
+        panelDiez = new javax.swing.JPanel();
         jLabelNombreActividad46 = new javax.swing.JLabel();
-        jLabelNombreActividad47 = new javax.swing.JLabel();
-        jLabelNombreActividad48 = new javax.swing.JLabel();
         btnCerrarDiez = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane24 = new javax.swing.JScrollPane();
         jTextPane24 = new javax.swing.JTextPane();
+        jLabelNombreActividad65 = new javax.swing.JLabel();
+        lblHoraAlarmaPnlDiez = new javax.swing.JLabel();
+        jLabelNombreActividad66 = new javax.swing.JLabel();
+        lblFechaAlarmaPnlDiez = new javax.swing.JLabel();
+        btnEditarDiez = new RSMaterialComponent.RSButtonIconUno();
         jScrollPane14 = new javax.swing.JScrollPane();
         jTextPane14 = new javax.swing.JTextPane();
 
@@ -142,22 +181,12 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+        panelSeis.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabelNombreActividad24.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad24.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad24.setText("  Nombre actividad 6");
-
-        jLabelNombreActividad30.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad30.setText("Hora alarma:");
-
-        jLabelNombreActividad18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad18.setText("Fecha alarma:");
 
         jTextPane5.setBorder(null);
 
@@ -174,51 +203,87 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane29.setBorder(null);
         jScrollPane28.setViewportView(jTextPane29);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+        jLabelNombreActividad57.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad57.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad57.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad57.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlSeis.setOpaque(true);
+
+        jLabelNombreActividad58.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad58.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad58.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad58.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlSeis.setOpaque(true);
+
+        btnEditarSeis.setBackground(new java.awt.Color(102, 102, 102));
+        btnEditarSeis.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarSeis.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarSeis.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarSeis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarSeisActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelSeisLayout = new javax.swing.GroupLayout(panelSeis);
+        panelSeis.setLayout(panelSeisLayout);
+        panelSeisLayout.setHorizontalGroup(
+            panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSeisLayout.createSequentialGroup()
+                .addComponent(btnEditarSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad18)
-                    .addComponent(jLabelNombreActividad30))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane28)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSeisLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSeisLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlSeis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelSeisLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlSeis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelSeisLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jTextPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+        panelSeisLayout.setVerticalGroup(
+            panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSeisLayout.createSequentialGroup()
+                .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSeisLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad30, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad18, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addComponent(btnCerrarSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlSeis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad57, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlSeis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad58, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane28, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+            .addGroup(panelSeisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelSeisLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jTextPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pnlSeis.add(jPanel7, java.awt.BorderLayout.CENTER);
+        pnlSeis.add(panelSeis, java.awt.BorderLayout.CENTER);
 
         panelTres.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -226,16 +291,6 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jLabelNombreActividad21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad21.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad21.setText("  Nombre actividad 3");
-
-        jLabelNombreActividad27.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad27.setText("Hora alarma:");
-
-        jLabelNombreActividad15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad15.setText("Fecha alarma:");
 
         btnCerrarTres.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarTres.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -250,23 +305,54 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane7.setBorder(null);
         jScrollPane8.setViewportView(jTextPane7);
 
+        jLabelNombreActividad51.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad51.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad51.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlTres.setOpaque(true);
+
+        lblHoraAlarmaPnlTres.setOpaque(true);
+
+        jLabelNombreActividad52.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad52.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad52.setText("Hora alarma:");
+
+        btnEditarTres.setBackground(new java.awt.Color(255, 0, 0));
+        btnEditarTres.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarTres.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarTres.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarTres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarTresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelTresLayout = new javax.swing.GroupLayout(panelTres);
         panelTres.setLayout(panelTresLayout);
         panelTresLayout.setHorizontalGroup(
             panelTresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTresLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(btnEditarTres, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarTres, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
+            .addComponent(jScrollPane8)
             .addGroup(panelTresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad15)
-                    .addComponent(jLabelNombreActividad27))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane8)
+                    .addGroup(panelTresLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlTres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelTresLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad52)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlTres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelTresLayout.setVerticalGroup(
             panelTresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,33 +361,28 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
                     .addGroup(panelTresLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarTres, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad27, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad15, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarTres, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarTres, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelTresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlTres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad52, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelTresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlTres, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad51, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
 
         pnlTres.add(panelTres, java.awt.BorderLayout.CENTER);
 
-        jPanel5.setBackground(new java.awt.Color(102, 0, 0));
+        panelCuatro.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabelNombreActividad22.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad22.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad22.setText("  Nombre actividad 4");
-
-        jLabelNombreActividad28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad28.setText("Hora alarma:");
-
-        jLabelNombreActividad16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad16.setText("Fecha alarma:");
 
         btnCerrarCuatro.setBackground(new java.awt.Color(102, 0, 0));
         btnCerrarCuatro.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -316,63 +397,89 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane19.setBorder(null);
         jScrollPane19.setViewportView(jTextPane19);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+        jLabelNombreActividad53.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad53.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad53.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlCuatro.setOpaque(true);
+
+        jLabelNombreActividad54.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad54.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad54.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlCuatro.setOpaque(true);
+
+        btnEditarCuatro.setBackground(new java.awt.Color(102, 0, 0));
+        btnEditarCuatro.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarCuatro.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarCuatro.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarCuatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarCuatroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCuatroLayout = new javax.swing.GroupLayout(panelCuatro);
+        panelCuatro.setLayout(panelCuatroLayout);
+        panelCuatroLayout.setHorizontalGroup(
+            panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuatroLayout.createSequentialGroup()
+                .addComponent(btnEditarCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad16)
-                    .addComponent(jLabelNombreActividad28))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuatroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuatroLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad54)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlCuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelCuatroLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad53)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlCuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        panelCuatroLayout.setVerticalGroup(
+            panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuatroLayout.createSequentialGroup()
+                .addGroup(panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuatroLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad28, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad16, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlCuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad53, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelCuatroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlCuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad54, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
 
-        pnlCuatro.add(jPanel5, java.awt.BorderLayout.CENTER);
+        pnlCuatro.add(panelCuatro, java.awt.BorderLayout.CENTER);
 
         jTextPane8.setBorder(null);
         jScrollPane9.setViewportView(jTextPane8);
 
         pnlCuatro.add(jScrollPane9, java.awt.BorderLayout.LINE_START);
 
-        jPanel6.setBackground(new java.awt.Color(51, 51, 0));
+        panelCinco.setBackground(new java.awt.Color(51, 51, 0));
 
         jLabelNombreActividad23.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad23.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad23.setText("  Nombre actividad 5");
-
-        jLabelNombreActividad29.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad29.setText("Hora alarma:");
-
-        jLabelNombreActividad17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad17.setText("Fecha alarma:");
 
         btnCerrarCinco.setBackground(new java.awt.Color(51, 51, 0));
         btnCerrarCinco.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -387,63 +494,84 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane20.setBorder(null);
         jScrollPane20.setViewportView(jTextPane20);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreActividad17)
-                            .addComponent(jLabelNombreActividad29))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 24, Short.MAX_VALUE)
-                        .addComponent(jLabelNombreActividad23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCerrarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3))))
+        lblHoraAlarmaPnlCinco.setOpaque(true);
+
+        jLabelNombreActividad55.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad55.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad55.setText("Hora alarma:");
+
+        jLabelNombreActividad56.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad56.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad56.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlCinco.setOpaque(true);
+
+        btnEditarCinco.setBackground(new java.awt.Color(51, 51, 0));
+        btnEditarCinco.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarCinco.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarCinco.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarCinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarCincoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCincoLayout = new javax.swing.GroupLayout(panelCinco);
+        panelCinco.setLayout(panelCincoLayout);
+        panelCincoLayout.setHorizontalGroup(
+            panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCincoLayout.createSequentialGroup()
+                .addComponent(btnEditarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jLabelNombreActividad23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
             .addComponent(jScrollPane20)
+            .addGroup(panelCincoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCincoLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlCinco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelCincoLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlCinco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+        panelCincoLayout.setVerticalGroup(
+            panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCincoLayout.createSequentialGroup()
+                .addGroup(panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCincoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad29, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad17, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlCinco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad55, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlCinco, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad56, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
 
-        pnlCinco.add(jPanel6, java.awt.BorderLayout.CENTER);
+        pnlCinco.add(panelCinco, java.awt.BorderLayout.CENTER);
 
         panelDos.setBackground(new java.awt.Color(0, 153, 0));
 
-        jLabelNombreActividad20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad20.setText("  Nombre actividad 2");
-
-        jLabelNombreActividad26.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad26.setText("Hora alarma:");
-
-        jLabelNombreActividad14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad14.setText("Fecha alarma:");
-
-        jTextPane6.setBorder(null);
-        jScrollPane7.setViewportView(jTextPane6);
+        lblNombreActividad2.setBackground(new java.awt.Color(255, 255, 255));
+        lblNombreActividad2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblNombreActividad2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreActividad2.setText("  Nombre actividad 2");
 
         btnCerrarDos.setBackground(new java.awt.Color(0, 153, 0));
         btnCerrarDos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -455,22 +583,56 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             }
         });
 
+        jLabelNombreActividad49.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad49.setText("Fecha alarma:");
+
+        lblFecha2.setOpaque(true);
+
+        lblHora2.setOpaque(true);
+
+        jLabelNombreActividad50.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad50.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad50.setText("Hora alarma:");
+
+        btnEditarDos.setBackground(new java.awt.Color(0, 153, 0));
+        btnEditarDos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarDos.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarDos.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarDos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDosActionPerformed(evt);
+            }
+        });
+
+        jTextPane6.setBorder(null);
+        jScrollPane7.setViewportView(jTextPane6);
+
         javax.swing.GroupLayout panelDosLayout = new javax.swing.GroupLayout(panelDos);
         panelDos.setLayout(panelDosLayout);
         panelDosLayout.setHorizontalGroup(
             panelDosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDosLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabelNombreActividad20)
+                .addComponent(btnEditarDos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(lblNombreActividad2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarDos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(panelDosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad14)
-                    .addComponent(jLabelNombreActividad26))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDosLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad49)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFecha2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDosLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHora2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
             .addComponent(jScrollPane7)
         );
         panelDosLayout.setVerticalGroup(
@@ -479,14 +641,19 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
                 .addGroup(panelDosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDosLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelNombreActividad20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarDos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad26, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad14, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                        .addComponent(lblNombreActividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarDos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarDos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHora2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad50, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelDosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFecha2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad49, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
         );
 
         pnlDos.add(panelDos, java.awt.BorderLayout.CENTER);
@@ -495,10 +662,10 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
 
         panelUno.setBackground(new java.awt.Color(153, 0, 255));
 
-        jLabelNombreActividad19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad19.setText("  Nombre actividad 1");
+        lblNombreActividad1.setBackground(new java.awt.Color(255, 255, 255));
+        lblNombreActividad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblNombreActividad1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreActividad1.setText("  Nombre actividad 1");
 
         jLabelNombreActividad25.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -523,22 +690,46 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             }
         });
 
+        lblHoraAlarmaPnlUno.setOpaque(true);
+
+        btnEditarUnoU.setBackground(new java.awt.Color(153, 0, 255));
+        btnEditarUnoU.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarUnoU.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarUnoU.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarUnoU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarUnoUActionPerformed(evt);
+            }
+        });
+
+        lblHora1.setOpaque(true);
+
+        lblFecha1.setOpaque(true);
+
         javax.swing.GroupLayout panelUnoLayout = new javax.swing.GroupLayout(panelUno);
         panelUno.setLayout(panelUnoLayout);
         panelUnoLayout.setHorizontalGroup(
             panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUnoLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabelNombreActividad19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCerrarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
             .addGroup(panelUnoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelNombreActividad13)
-                    .addComponent(jLabelNombreActividad25))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelUnoLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlUno)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFecha1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUnoLayout.createSequentialGroup()
+                .addComponent(btnEditarUnoU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(lblNombreActividad1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
             .addComponent(jScrollPane12)
         );
         panelUnoLayout.setVerticalGroup(
@@ -547,19 +738,26 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
                 .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelUnoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelNombreActividad19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblNombreActividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarUnoU, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelNombreActividad25, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad13, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblHoraAlarmaPnlUno, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                        .addComponent(jLabelNombreActividad25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(panelUnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombreActividad13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
         );
 
         pnlUno.add(panelUno, java.awt.BorderLayout.PAGE_START);
 
-        jPanel8.setBackground(new java.awt.Color(0, 112, 192));
+        panelTitulo.setBackground(new java.awt.Color(0, 112, 192));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -575,43 +773,33 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelTituloLayout = new javax.swing.GroupLayout(panelTitulo);
+        panelTitulo.setLayout(panelTituloLayout);
+        panelTituloLayout.setHorizontalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(349, 349, 349)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(484, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        panelTituloLayout.setVerticalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
+        panelDoce.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabelNombreActividad31.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad31.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad31.setText("  Nombre actividad 12");
-
-        jLabelNombreActividad32.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad32.setText("Hora alarma:");
-
-        jLabelNombreActividad33.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad33.setText("Fecha alarma:");
 
         jTextPane9.setBorder(null);
 
@@ -628,68 +816,94 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane22.setBorder(null);
         jScrollPane22.setViewportView(jTextPane22);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+        jLabelNombreActividad69.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad69.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad69.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad69.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlDoce.setOpaque(true);
+
+        jLabelNombreActividad70.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad70.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad70.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad70.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlDoce.setOpaque(true);
+
+        btnEditarDoce.setBackground(new java.awt.Color(102, 102, 102));
+        btnEditarDoce.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarDoce.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarDoce.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarDoce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDoceActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelDoceLayout = new javax.swing.GroupLayout(panelDoce);
+        panelDoce.setLayout(panelDoceLayout);
+        panelDoceLayout.setHorizontalGroup(
+            panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDoceLayout.createSequentialGroup()
+                .addComponent(btnEditarDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad33)
-                    .addComponent(jLabelNombreActividad32))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane22)
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(panelDoceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDoceLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad70)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlDoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDoceLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad69)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlDoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDoceLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jTextPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+        panelDoceLayout.setVerticalGroup(
+            panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDoceLayout.createSequentialGroup()
+                .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDoceLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad31, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad32, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad33, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addComponent(btnCerrarDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlDoce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad69, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlDoce, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad70, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+            .addGroup(panelDoceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelDoceLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jTextPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pnlDoce.add(jPanel9, java.awt.BorderLayout.CENTER);
+        pnlDoce.add(panelDoce, java.awt.BorderLayout.CENTER);
 
-        jPanel10.setBackground(new java.awt.Color(51, 51, 0));
+        panelOnce.setBackground(new java.awt.Color(51, 51, 0));
 
         jLabelNombreActividad34.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad34.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad34.setText("  Nombre actividad 11");
-
-        jLabelNombreActividad35.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad35.setText("Hora alarma:");
-
-        jLabelNombreActividad36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad36.setText("Fecha alarma:");
 
         btnCerrarOnce.setBackground(new java.awt.Color(51, 51, 0));
         btnCerrarOnce.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -704,60 +918,84 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane23.setBorder(null);
         jScrollPane23.setViewportView(jTextPane23);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreActividad36)
-                            .addComponent(jLabelNombreActividad35))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
-                        .addComponent(jLabelNombreActividad34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCerrarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3))))
+        jLabelNombreActividad67.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad67.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad67.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad67.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlOnce.setOpaque(true);
+
+        jLabelNombreActividad68.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad68.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad68.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad68.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlOnce.setOpaque(true);
+
+        btnEditarOnce.setBackground(new java.awt.Color(51, 51, 0));
+        btnEditarOnce.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarOnce.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarOnce.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarOnce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarOnceActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelOnceLayout = new javax.swing.GroupLayout(panelOnce);
+        panelOnce.setLayout(panelOnceLayout);
+        panelOnceLayout.setHorizontalGroup(
+            panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOnceLayout.createSequentialGroup()
+                .addComponent(btnEditarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addComponent(jLabelNombreActividad34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3))
             .addComponent(jScrollPane23)
+            .addGroup(panelOnceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOnceLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad68)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlOnce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelOnceLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlOnce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
+        panelOnceLayout.setVerticalGroup(
+            panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOnceLayout.createSequentialGroup()
+                .addGroup(panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOnceLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad34, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad35, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad36, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlOnce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad67, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelOnceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlOnce, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad68, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane23, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
         );
 
-        pnlOnce.add(jPanel10, java.awt.BorderLayout.CENTER);
+        pnlOnce.add(panelOnce, java.awt.BorderLayout.CENTER);
 
-        jPanel11.setBackground(new java.awt.Color(0, 153, 0));
+        panelOcho.setBackground(new java.awt.Color(0, 153, 0));
 
         jLabelNombreActividad37.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad37.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad37.setText("  Nombre actividad 8");
-
-        jLabelNombreActividad38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad38.setText("Hora alarma:");
-
-        jLabelNombreActividad39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad39.setText("Fecha alarma:");
 
         jTextPane10.setBorder(null);
         jScrollPane10.setViewportView(jTextPane10);
@@ -772,60 +1010,86 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+        jLabelNombreActividad61.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad61.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad61.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad61.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlOcho.setOpaque(true);
+
+        jLabelNombreActividad62.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad62.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad62.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad62.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlUnoOcho.setOpaque(true);
+
+        btnEditarOcho.setBackground(new java.awt.Color(0, 153, 0));
+        btnEditarOcho.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarOcho.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarOcho.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarOcho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarOchoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelOchoLayout = new javax.swing.GroupLayout(panelOcho);
+        panelOcho.setLayout(panelOchoLayout);
+        panelOchoLayout.setHorizontalGroup(
+            panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOchoLayout.createSequentialGroup()
+                .addComponent(btnEditarOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad39)
-                    .addComponent(jLabelNombreActividad38))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane10)
+            .addGroup(panelOchoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOchoLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlUnoOcho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelOchoLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlOcho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
+        panelOchoLayout.setVerticalGroup(
+            panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOchoLayout.createSequentialGroup()
+                .addGroup(panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOchoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad37, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad38, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad39, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(btnCerrarOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlOcho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad61, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelOchoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlUnoOcho, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad62, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
         );
 
-        pnlOcho.add(jPanel11, java.awt.BorderLayout.CENTER);
+        pnlOcho.add(panelOcho, java.awt.BorderLayout.CENTER);
 
         pnlSiete.setBackground(new java.awt.Color(153, 0, 255));
 
-        jPanel12.setBackground(new java.awt.Color(153, 0, 255));
+        panelSiete.setBackground(new java.awt.Color(153, 0, 255));
 
         jLabelNombreActividad40.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad40.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad40.setText("  Nombre actividad 7");
-
-        jLabelNombreActividad41.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad41.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad41.setText("Hora alarma:");
-
-        jLabelNombreActividad42.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad42.setText("Fecha alarma:");
 
         jTextPane12.setBorder(null);
         jScrollPane13.setViewportView(jTextPane12);
@@ -840,58 +1104,84 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+        jLabelNombreActividad59.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad59.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad59.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad59.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlSiete.setOpaque(true);
+
+        jLabelNombreActividad60.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad60.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad60.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad60.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlSiete.setOpaque(true);
+
+        btnEditarSiete.setBackground(new java.awt.Color(153, 0, 255));
+        btnEditarSiete.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarSiete.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarSiete.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarSiete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarSieteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelSieteLayout = new javax.swing.GroupLayout(panelSiete);
+        panelSiete.setLayout(panelSieteLayout);
+        panelSieteLayout.setHorizontalGroup(
+            panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSieteLayout.createSequentialGroup()
+                .addComponent(btnEditarSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad40)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad42)
-                    .addComponent(jLabelNombreActividad41))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane13)
+            .addGroup(panelSieteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSieteLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlSiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelSieteLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad59)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlSiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
+        panelSieteLayout.setVerticalGroup(
+            panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSieteLayout.createSequentialGroup()
+                .addGroup(panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSieteLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad40, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelNombreActividad41, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad42, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlSiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad59, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelSieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlSiete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad60, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
         );
 
-        pnlSiete.add(jPanel12, java.awt.BorderLayout.PAGE_START);
+        pnlSiete.add(panelSiete, java.awt.BorderLayout.PAGE_START);
 
-        jPanel13.setBackground(new java.awt.Color(255, 0, 0));
+        panelNueve.setBackground(new java.awt.Color(255, 0, 0));
 
         jLabelNombreActividad43.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad43.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad43.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad43.setText("  Nombre actividad 9");
-
-        jLabelNombreActividad44.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad44.setText("Hora alarma:");
-
-        jLabelNombreActividad45.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad45.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad45.setText("Fecha alarma:");
 
         btnCerrarNueve.setBackground(new java.awt.Color(255, 0, 0));
         btnCerrarNueve.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -906,58 +1196,84 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane13.setBorder(null);
         jScrollPane11.setViewportView(jTextPane13);
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+        jLabelNombreActividad63.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad63.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad63.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad63.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlNueve.setOpaque(true);
+
+        jLabelNombreActividad64.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad64.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad64.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad64.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlNueve.setOpaque(true);
+
+        btnEditarNueve.setBackground(new java.awt.Color(255, 0, 0));
+        btnEditarNueve.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarNueve.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarNueve.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarNueve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarNueveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelNueveLayout = new javax.swing.GroupLayout(panelNueve);
+        panelNueve.setLayout(panelNueveLayout);
+        panelNueveLayout.setHorizontalGroup(
+            panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNueveLayout.createSequentialGroup()
+                .addComponent(btnEditarNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad43)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad45)
-                    .addComponent(jLabelNombreActividad44))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane11)
+            .addGroup(panelNueveLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNueveLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad64)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlNueve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelNueveLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlNueve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
+        panelNueveLayout.setVerticalGroup(
+            panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNueveLayout.createSequentialGroup()
+                .addGroup(panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNueveLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad43, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad44, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad45, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlNueve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad63, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelNueveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlNueve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad64, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
         );
 
-        pnlNueve.add(jPanel13, java.awt.BorderLayout.CENTER);
+        pnlNueve.add(panelNueve, java.awt.BorderLayout.CENTER);
 
-        jPanel14.setBackground(new java.awt.Color(102, 0, 0));
+        panelDiez.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabelNombreActividad46.setBackground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombreActividad46.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreActividad46.setText("  Nombre actividad 10");
-
-        jLabelNombreActividad47.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad47.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad47.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad47.setText("Hora alarma:");
-
-        jLabelNombreActividad48.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreActividad48.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombreActividad48.setText("Fecha alarma:");
 
         btnCerrarDiez.setBackground(new java.awt.Color(102, 0, 0));
         btnCerrarDiez.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLOSE);
@@ -972,41 +1288,77 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jTextPane24.setBorder(null);
         jScrollPane24.setViewportView(jTextPane24);
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+        jLabelNombreActividad65.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad65.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad65.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad65.setText("Hora alarma:");
+
+        lblHoraAlarmaPnlDiez.setOpaque(true);
+
+        jLabelNombreActividad66.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad66.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreActividad66.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreActividad66.setText("Fecha alarma:");
+
+        lblFechaAlarmaPnlDiez.setOpaque(true);
+
+        btnEditarDiez.setBackground(new java.awt.Color(102, 0, 0));
+        btnEditarDiez.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarDiez.setMaximumSize(new java.awt.Dimension(17, 45));
+        btnEditarDiez.setMinimumSize(new java.awt.Dimension(17, 45));
+        btnEditarDiez.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarDiezActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelDiezLayout = new javax.swing.GroupLayout(panelDiez);
+        panelDiez.setLayout(panelDiezLayout);
+        panelDiezLayout.setHorizontalGroup(
+            panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDiezLayout.createSequentialGroup()
+                .addComponent(btnEditarDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelNombreActividad46)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCerrarDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3))
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNombreActividad48)
-                    .addComponent(jLabelNombreActividad47))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane24)
+            .addGroup(panelDiezLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDiezLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad66)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFechaAlarmaPnlDiez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDiezLayout.createSequentialGroup()
+                        .addComponent(jLabelNombreActividad65)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHoraAlarmaPnlDiez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
+        panelDiezLayout.setVerticalGroup(
+            panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDiezLayout.createSequentialGroup()
+                .addGroup(panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDiezLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelNombreActividad46, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrarDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelNombreActividad47, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabelNombreActividad48, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoraAlarmaPnlDiez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombreActividad65, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panelDiezLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaAlarmaPnlDiez, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombreActividad66, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane24, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
         );
 
-        pnlDiez.add(jPanel14, java.awt.BorderLayout.CENTER);
+        pnlDiez.add(panelDiez, java.awt.BorderLayout.CENTER);
 
         jTextPane14.setBorder(null);
         jScrollPane14.setViewportView(jTextPane14);
@@ -1019,7 +1371,7 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1062,7 +1414,7 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlSeis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1079,7 +1431,7 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
                     .addComponent(pnlDiez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlOnce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlSiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1125,15 +1477,26 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         JPanel arreglo[] = arregloPaneles();
         for (int i = 0; i < tamanio; i++) {
             arreglo[i].setVisible(true);
+            cargarDatos(i);
         }
     }
+
+    public void cargarDatos(int posicion) {
+        String etiquetaHora = "lblHora"+ (posicion+1); 
+        //Label etiquetaTemporal = new Label(etiquetaHora);
+       // Label etiquetaTemporal = (Label) etiquetaHora;
+        //Component[] componente = panelUno.getComponents();
+        
+       //etiquetaTemporal.setText("55555555555555555555555");
+        
+    }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        /* EJEMPLO PARA CREAR LOS PANELES QUE NECISITAMOS MOSTRAR SEGUN LAS ACTIVIDADES.
+        //EJEMPLO PARA CREAR LOS PANELES QUE NECESITAMOS MOSTRAR SEGUN LAS ACTIVIDADES.
         System.out.println("Ingrese el tamanio de la lista: ");
         Scanner entra = new Scanner(System.in);
         int tamanio = entra.nextInt();
         panelesVisibles(tamanio);
-         */
+        
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCerrarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarUnoActionPerformed
@@ -1184,6 +1547,54 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
         pnlDiez.setVisible(false);
     }//GEN-LAST:event_btnCerrarDiezActionPerformed
 
+    private void btnEditarUnoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUnoUActionPerformed
+
+    }//GEN-LAST:event_btnEditarUnoUActionPerformed
+
+    private void btnEditarDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarDosActionPerformed
+
+    private void btnEditarTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarTresActionPerformed
+
+    private void btnEditarCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCuatroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarCuatroActionPerformed
+
+    private void btnEditarCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCincoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarCincoActionPerformed
+
+    private void btnEditarSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarSeisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarSeisActionPerformed
+
+    private void btnEditarSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarSieteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarSieteActionPerformed
+
+    private void btnEditarOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarOchoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarOchoActionPerformed
+
+    private void btnEditarNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNueveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarNueveActionPerformed
+
+    private void btnEditarDiezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDiezActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarDiezActionPerformed
+
+    private void btnEditarOnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarOnceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarOnceActionPerformed
+
+    private void btnEditarDoceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDoceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarDoceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1233,55 +1644,55 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
     private RSMaterialComponent.RSButtonIconUno btnCerrarSiete;
     private RSMaterialComponent.RSButtonIconUno btnCerrarTres;
     private RSMaterialComponent.RSButtonIconUno btnCerrarUno;
+    private RSMaterialComponent.RSButtonIconUno btnEditarCinco;
+    private RSMaterialComponent.RSButtonIconUno btnEditarCuatro;
+    private RSMaterialComponent.RSButtonIconUno btnEditarDiez;
+    private RSMaterialComponent.RSButtonIconUno btnEditarDoce;
+    private RSMaterialComponent.RSButtonIconUno btnEditarDos;
+    private RSMaterialComponent.RSButtonIconUno btnEditarNueve;
+    private RSMaterialComponent.RSButtonIconUno btnEditarOcho;
+    private RSMaterialComponent.RSButtonIconUno btnEditarOnce;
+    private RSMaterialComponent.RSButtonIconUno btnEditarSeis;
+    private RSMaterialComponent.RSButtonIconUno btnEditarSiete;
+    private RSMaterialComponent.RSButtonIconUno btnEditarTres;
+    private RSMaterialComponent.RSButtonIconUno btnEditarUnoU;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelNombreActividad13;
-    private javax.swing.JLabel jLabelNombreActividad14;
-    private javax.swing.JLabel jLabelNombreActividad15;
-    private javax.swing.JLabel jLabelNombreActividad16;
-    private javax.swing.JLabel jLabelNombreActividad17;
-    private javax.swing.JLabel jLabelNombreActividad18;
-    private javax.swing.JLabel jLabelNombreActividad19;
-    private javax.swing.JLabel jLabelNombreActividad20;
     private javax.swing.JLabel jLabelNombreActividad21;
     private javax.swing.JLabel jLabelNombreActividad22;
     private javax.swing.JLabel jLabelNombreActividad23;
     private javax.swing.JLabel jLabelNombreActividad24;
     private javax.swing.JLabel jLabelNombreActividad25;
-    private javax.swing.JLabel jLabelNombreActividad26;
-    private javax.swing.JLabel jLabelNombreActividad27;
-    private javax.swing.JLabel jLabelNombreActividad28;
-    private javax.swing.JLabel jLabelNombreActividad29;
-    private javax.swing.JLabel jLabelNombreActividad30;
     private javax.swing.JLabel jLabelNombreActividad31;
-    private javax.swing.JLabel jLabelNombreActividad32;
-    private javax.swing.JLabel jLabelNombreActividad33;
     private javax.swing.JLabel jLabelNombreActividad34;
-    private javax.swing.JLabel jLabelNombreActividad35;
-    private javax.swing.JLabel jLabelNombreActividad36;
     private javax.swing.JLabel jLabelNombreActividad37;
-    private javax.swing.JLabel jLabelNombreActividad38;
-    private javax.swing.JLabel jLabelNombreActividad39;
     private javax.swing.JLabel jLabelNombreActividad40;
-    private javax.swing.JLabel jLabelNombreActividad41;
-    private javax.swing.JLabel jLabelNombreActividad42;
     private javax.swing.JLabel jLabelNombreActividad43;
-    private javax.swing.JLabel jLabelNombreActividad44;
-    private javax.swing.JLabel jLabelNombreActividad45;
     private javax.swing.JLabel jLabelNombreActividad46;
-    private javax.swing.JLabel jLabelNombreActividad47;
-    private javax.swing.JLabel jLabelNombreActividad48;
+    private javax.swing.JLabel jLabelNombreActividad49;
+    private javax.swing.JLabel jLabelNombreActividad50;
+    private javax.swing.JLabel jLabelNombreActividad51;
+    private javax.swing.JLabel jLabelNombreActividad52;
+    private javax.swing.JLabel jLabelNombreActividad53;
+    private javax.swing.JLabel jLabelNombreActividad54;
+    private javax.swing.JLabel jLabelNombreActividad55;
+    private javax.swing.JLabel jLabelNombreActividad56;
+    private javax.swing.JLabel jLabelNombreActividad57;
+    private javax.swing.JLabel jLabelNombreActividad58;
+    private javax.swing.JLabel jLabelNombreActividad59;
+    private javax.swing.JLabel jLabelNombreActividad60;
+    private javax.swing.JLabel jLabelNombreActividad61;
+    private javax.swing.JLabel jLabelNombreActividad62;
+    private javax.swing.JLabel jLabelNombreActividad63;
+    private javax.swing.JLabel jLabelNombreActividad64;
+    private javax.swing.JLabel jLabelNombreActividad65;
+    private javax.swing.JLabel jLabelNombreActividad66;
+    private javax.swing.JLabel jLabelNombreActividad67;
+    private javax.swing.JLabel jLabelNombreActividad68;
+    private javax.swing.JLabel jLabelNombreActividad69;
+    private javax.swing.JLabel jLabelNombreActividad70;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -1312,7 +1723,44 @@ public class ActividadesPersonalesVista extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextPane jTextPane8;
     private javax.swing.JTextPane jTextPane9;
+    private javax.swing.JLabel lblFecha1;
+    private javax.swing.JLabel lblFecha2;
+    private javax.swing.JLabel lblFechaAlarmaPnlCinco;
+    private javax.swing.JLabel lblFechaAlarmaPnlCuatro;
+    private javax.swing.JLabel lblFechaAlarmaPnlDiez;
+    private javax.swing.JLabel lblFechaAlarmaPnlDoce;
+    private javax.swing.JLabel lblFechaAlarmaPnlNueve;
+    private javax.swing.JLabel lblFechaAlarmaPnlOnce;
+    private javax.swing.JLabel lblFechaAlarmaPnlSeis;
+    private javax.swing.JLabel lblFechaAlarmaPnlSiete;
+    private javax.swing.JLabel lblFechaAlarmaPnlTres;
+    private javax.swing.JLabel lblFechaAlarmaPnlUnoOcho;
+    private javax.swing.JLabel lblHora1;
+    private javax.swing.JLabel lblHora2;
+    private javax.swing.JLabel lblHoraAlarmaPnlCinco;
+    private javax.swing.JLabel lblHoraAlarmaPnlCuatro;
+    private javax.swing.JLabel lblHoraAlarmaPnlDiez;
+    private javax.swing.JLabel lblHoraAlarmaPnlDoce;
+    private javax.swing.JLabel lblHoraAlarmaPnlNueve;
+    private javax.swing.JLabel lblHoraAlarmaPnlOcho;
+    private javax.swing.JLabel lblHoraAlarmaPnlOnce;
+    private javax.swing.JLabel lblHoraAlarmaPnlSeis;
+    private javax.swing.JLabel lblHoraAlarmaPnlSiete;
+    private javax.swing.JLabel lblHoraAlarmaPnlTres;
+    private javax.swing.JLabel lblHoraAlarmaPnlUno;
+    private javax.swing.JLabel lblNombreActividad1;
+    private javax.swing.JLabel lblNombreActividad2;
+    private javax.swing.JPanel panelCinco;
+    private javax.swing.JPanel panelCuatro;
+    private javax.swing.JPanel panelDiez;
+    private javax.swing.JPanel panelDoce;
     private javax.swing.JPanel panelDos;
+    private javax.swing.JPanel panelNueve;
+    private javax.swing.JPanel panelOcho;
+    private javax.swing.JPanel panelOnce;
+    private javax.swing.JPanel panelSeis;
+    private javax.swing.JPanel panelSiete;
+    private javax.swing.JPanel panelTitulo;
     private javax.swing.JPanel panelTres;
     private javax.swing.JPanel panelUno;
     private rojeru_san.rspanel.RSPanelShadow pnlCinco;
