@@ -1,22 +1,44 @@
-
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 public class CrearProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona controladorPersona = new ControladorPersona();
+    ControladorProyecto controladorProyecto = new ControladorProyecto();
+    PersonaServicio serPer = new PersonaServicio();
+    RolServicio rolSer = new RolServicio();
     public CrearProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarJefesProyecto();
+        jComboBox1.setSelectedItem(null);
+    }
+
+    public void llenarJefesProyecto() {
+        UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorPersona.ObtenerPersonas());
+    }
+
+    public boolean camposVacios() {
+        if (jComboBox1.getSelectedItem().equals(null) && jDateChooser2.getDate().equals(null) && jDateChooser1.getDate().equals(null)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -38,6 +60,8 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         cbxJefeProyecto = new javax.swing.JComboBox<>();
         dateChooserFechaEntrega = new com.toedter.calendar.JDateChooser();
         dateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         btnGuardarProyecto = new javax.swing.JButton();
@@ -69,9 +93,9 @@ public class CrearProyectosVista extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Jefe proyecto:");
+        jLabel3.setText("Nombre");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(30, 140, 130, 30);
+        jLabel3.setBounds(40, 100, 130, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,12 +110,25 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         jLabel5.setBounds(30, 220, 190, 30);
 
         cbxJefeProyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxJefeProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(cbxJefeProyecto);
         cbxJefeProyecto.setBounds(250, 140, 310, 30);
         jPanel2.add(dateChooserFechaEntrega);
         dateChooserFechaEntrega.setBounds(250, 220, 310, 30);
         jPanel2.add(dateChooserFechaInicio);
         dateChooserFechaInicio.setBounds(250, 180, 310, 30);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Jefe proyecto:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(30, 140, 130, 30);
+        jPanel2.add(jTextField1);
+        jTextField1.setBounds(250, 100, 310, 24);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 640, 280);
@@ -133,12 +170,31 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProyectoActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
-    }//GEN-LAST:event_btnGuardarProyectoActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (camposVacios()) {
+            controladorProyecto.getProyecto().setEstado("activo");
+            controladorProyecto.getProyecto().setExternal_id(UtilidadesControlador.generarId());
+            controladorProyecto.getProyecto().setFechaFinal(dateChooserFechaEntrega.getDate());
+            controladorProyecto.getProyecto().setFechaInicio(dateChooserFechaInicio.getDate());
+            controladorProyecto.getProyecto().setId(UtilidadesControlador.generarId());
+            controladorProyecto.getProyecto().setId_jefeProyecto(serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
+            controladorProyecto.getProyecto().setNombreProyecto(jTextField1.getText());
+            controladorPersona.setPersona(serPer.buscarPersona(controladorProyecto.getProyecto().getId_jefeProyecto(),"id"));
+            controladorPersona.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Jefe de Proyecto","tipo"));
+            boolean guardar = serPer.modificarPersona(controladorPersona.getPersona(),"id",serPer.listarPersonas());
+            if (controladorProyecto.guardarProyecto() && guardar) {
+                JOptionPane.showMessageDialog(null, "Se guardo el proyecto");
+                AdministradorVista admin = new AdministradorVista();
+                this.dispose();
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo guardo el proyecto");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienes campos vacios");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarProyectosVista gps = new GestionarProyectosVista();
@@ -146,6 +202,10 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,9 +320,11 @@ public class CrearProyectosVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

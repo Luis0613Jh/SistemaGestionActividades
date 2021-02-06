@@ -1,10 +1,16 @@
 
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -14,11 +20,31 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona contper =  new ControladorPersona();
+    ControladorDepartamento contdep = new ControladorDepartamento();
+    PersonaServicio serPer = new PersonaServicio();
+    RolServicio rolSer = new RolServicio();
     public CrearDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarEmpleados();
     }
-
+    public void llenarEmpleados(){
+        if(contper.obtenerListaEmpleados() != null){
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(jComboBox1, contper.obtenerListaEmpleados());
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay empleados");
+            dispose();
+        }
+        
+    };
+    public boolean camposVacios(){
+        if(jTextField1.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,8 +61,8 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        cbxEncargado = new javax.swing.JComboBox<>();
-        txtDescripcion = new javax.swing.JTextField();
+cbxEncargado = new javax.swing.JComboBox<>();
+txtDescripcion = new javax.swing.JTextField();
         txtNombreDepartamento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
@@ -133,12 +159,32 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProyectoActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
-    }//GEN-LAST:event_btnGuardarProyectoActionPerformed
+    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(camposVacios()){
+            contdep.getDepatamento().setNombreDepartamento(txtNombreDepartamento.getText());
+            contdep.getDepatamento().setEstado("activo");
+            contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)cbxEncargado.getSelectedItem(),"nombre"));
+            contdep.getDepatamento().setDescripcion(txtDescripcion.getText());
+            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
+            contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
+            contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
+            boolean guardar = serPer.modificarPersona(contper.getPersona(),"id",serPer.listarPersonas());
+            //contdep.getDepatamento().setEncargado(encargado);
+            if(contdep.guardarDepartamento() && guardar){
+                JOptionPane.showMessageDialog(null, "El departamento se guardo correctamente");
+                AdministradorVista admin = new AdministradorVista();    
+                this.dispose();
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al guardar departamento");
+            }            
+        }else{
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarDepartamentosVista gp = new GestionarDepartamentosVista();

@@ -1,22 +1,34 @@
-
 package vista;
 
+import controlador.ControladorHito;
+import controlador.ControladorPersona;
+import controlador.servicio.PersonaServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 public class CrearHitoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona controladorPersona = new ControladorPersona();
+    ControladorHito controladorHito = new ControladorHito();
+    PersonaServicio perSer = new PersonaServicio();
+
     public CrearHitoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarJefesProyecto();
+    }
+
+    public void llenarJefesProyecto() {
+        UtilidadesControlador.cargarComboBoxDias(jComboBox3, controladorPersona.ObtenerPersonas());
     }
 
     /**
@@ -99,7 +111,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel5);
         jLabel5.setBounds(30, 360, 190, 30);
 
-        cbxPrioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxPrioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
         jPanel2.add(cbxPrioridad);
         cbxPrioridad.setBounds(250, 260, 310, 30);
         jPanel2.add(txtDescripcionHito);
@@ -124,6 +136,11 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jLabel7.setBounds(30, 210, 190, 30);
 
         cbxResponsable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxResponsable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(cbxResponsable);
         cbxResponsable.setBounds(250, 310, 310, 30);
 
@@ -173,12 +190,28 @@ public class CrearHitoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProyectoActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
-    }//GEN-LAST:event_btnGuardarProyectoActionPerformed
+    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        controladorHito.getHito().setActividad_id(ICONIFIED);
+        controladorHito.getHito().setDecripcion(txtDescripcionHito.getText());
+        controladorHito.getHito().setEstado("activo");
+        controladorHito.getHito().setExternal_id(UtilidadesControlador.generarId());
+        controladorHito.getHito().setFechaInicio(dateChooserFechaInicio.getDate());
+        controladorHito.getHito().setId(UtilidadesControlador.generarId());
+        controladorHito.getHito().setNombre(txtNombreHito.getText());
+        controladorHito.getHito().setPrioridad((String) cbxPrioridad.getSelectedItem());
+        controladorPersona.setPersona(perSer.buscarPersona((String) cbxResponsable.getSelectedItem(), "nombre"));
+        controladorHito.getHito().setResponsable(perSer.obtenerIdPersona(perSer.listarPersonas(), controladorPersona.getPersona(), "id"));
+        if (controladorHito.guardarHito()) {
+            JOptionPane.showMessageDialog(null, "Se guardo el hito correctmente");
+            AdministradorVista admin = new AdministradorVista();
+            this.dispose();
+            admin.setLocationRelativeTo(null);
+            admin.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar el hito");
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarHitosVista ghv = new GestionarHitosVista();
@@ -186,6 +219,10 @@ public class CrearHitoVista extends javax.swing.JFrame {
         ghv.setLocationRelativeTo(null);
         ghv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,22 +1,62 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
+/**
+ *
+ * @author juana
+ */
 public class CrearEmpleadoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona controladorEmp = new ControladorPersona();
+    RolServicio serRol = new RolServicio();
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        //UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
+    }
+
+    /**
+     * Metodo para saber si hay campos vacios
+     *
+     * @return Un boolean correspondiente a si esta vacia
+     */
+    public boolean vacios() {
+        if (jTextField1.getText().length() > 0 && jTextField2.getText().length() > 0 && jTextField3.getText().length() > 0 && jTextField4.getText().length() > 0 && jTextField6.getText().length() > 0 && jTextField7.getText().length() > 0) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+            return false;
+        }
+    }
+
+    public void limpiar() {
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+        jTextField6.setText(null);
+        jTextField7.setText(null);
+        lblFoto.setDisabledIcon(null);
     }
 
     /**
@@ -103,7 +143,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Rol:");
+        jLabel6.setText("Rol");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(30, 300, 130, 30);
 
@@ -144,7 +184,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 25);
+        btnElegirFoto.setBounds(640, 320, 230, 33);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +196,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(txtTelefonoPersonal);
         txtTelefonoPersonal.setBounds(250, 260, 310, 30);
 
-        cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal", "Administrador" }));
+        cbxRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         cbxRol.setBorder(null);
         jPanel2.add(cbxRol);
         cbxRol.setBounds(250, 300, 310, 30);
@@ -164,7 +209,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         txtContraseniaPersonal.setBounds(250, 380, 310, 30);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 930, 430);
+        jPanel2.setBounds(0, 0, 930, 460);
 
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
@@ -206,25 +251,42 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private void btnElegirFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElegirFotoActionPerformed
         JFileChooser fc = new JFileChooser();
         fc.setDialogTitle("Buscar foto o imagen");
-        if (fc.showOpenDialog(this)== JFileChooser.APPROVE_OPTION) {
+        if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
+            controladorEmp.getPersona().setPath_imagen(fc.getSelectedFile().toString());
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       AdministradorVista admin = new AdministradorVista();
-       this.dispose();
-       admin.setLocationRelativeTo(null);
-       admin.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (vacios()) {
+            controladorEmp.getPersona().setCedula(txtCedulaPersonal.getText());
+            controladorEmp.getPersona().setNombre(txtNombrePersonal.getText());
+            controladorEmp.getPersona().setCorreo(txtCorreoElectronicoPersonal.getText());
+            controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),(String)cbxRol.getSelectedItem(),"tipo"));
+            controladorEmp.getPersona().setEstado("activo");
+            controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
+            controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
+            if (controladorEmp.guardarEmpleado()) {
+                JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
-         this.dispose();
+        this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,6 +313,22 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CrearEmpleadoVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -1,21 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemagestionactividades;
 
-/**
- *
- * @author luis0
- */
+import controlador.listaSimple.ListaSimple;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+
 public class SistemaGestionActividades {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        //new BienvenidaVista().setVisible(true);
+        PersonaServicio ps = new PersonaServicio();
+        //        RolServicio rs = new RolServicio();
+        System.out.println("Personas:");
+        ListaSimple lista = ps.listarPersonas();
+        lista.imprimir();
+        
+        System.out.println("Personas Activas:");
+        ListaSimple listaActivas = ps.listarPersonasActivas(ps.listarPersonas());
+        listaActivas.imprimir();
+        
+        System.out.println("Personas Inactivas:");
+        ListaSimple listaInactivas = ps.listarPersonasInactivas(ps.listarPersonas());
+        listaInactivas.imprimir();
+//        //ListaSimple lista = ps.listarPersonasCoincidencias(ps.listarPersonas(), rs.obtenerIdRol(rs.listarRoles(), "Personal", RolServicio.TIPO), PersonaServicio.ID_ROL);
+//        ListaSimple lista = ps.listarPersonasCoincidencias(ps.listarPersonas(), "activo", PersonaServicio.ACTIVO);
+//        System.out.println("Consulta");
+//        lista.imprimir();
     }
-    
+
 }

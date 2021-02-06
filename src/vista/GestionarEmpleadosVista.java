@@ -1,15 +1,36 @@
 
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import javax.swing.JOptionPane;
+import modelo.PersonaModelo;
+import vista.tabla.tabla_GestionarEmpleado;
+
+/**
+ *
+ * @author juana
+ */
 public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
+    ControladorPersona controlador = new ControladorPersona();
+    PersonaServicio perSer = new PersonaServicio();
+    CuentaServicio cuentSer = new CuentaServicio ();
+    RolServicio rolSer = new RolServicio();
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),true,"activo"));
+        rSTableMetro1.setModel(tabla);
+        rSTableMetro1.updateUI();
+
     }
 
     /**
@@ -247,19 +268,23 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        EditarEmpleadoVista ee = new EditarEmpleadoVista();
+        int eleccion = rSTableMetro1.getSelectedRow();
+        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
+        EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
         this.dispose();
         ee.setLocationRelativeTo(null);
         ee.setVisible(true);
 
     }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
 
-    private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista();
-        this.dispose();
+    private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
+        int eleccion = tbtGestionarEmpleados.getSelectedRow();
+        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
+        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
         vde.setLocationRelativeTo(null);
-        vde.setVisible(true);
-    }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
+        vde.setVisible(true);        
+        this.dispose();
+    }//GEN-LAST:event_btnVerDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         AdministradorVista admin = new AdministradorVista();
@@ -269,7 +294,12 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        int seleccion = rSTableMetro1.getSelectedRow();
+        if(perSer.darDeBajaPersona(String.valueOf(seleccion+1),"id",perSer.listarPersonas())){
+            JOptionPane.showMessageDialog(null,"Se elimino correctamente el empleado\nde la lista");
+        }else{
+            JOptionPane.showMessageDialog(null,"No se pudo eliminar");
+        }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     /**

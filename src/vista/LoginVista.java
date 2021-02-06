@@ -1,14 +1,71 @@
-
 package vista;
 
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author juana
+ */
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.utilidades.Sesion;
+import javax.swing.JOptionPane;
 
 public class LoginVista extends javax.swing.JFrame {
+
+    private Sesion sesion = new Sesion();
+    private CuentaServicio cuentaServicio = new CuentaServicio();
 
     /**
      * Creates new form pms
      */
     public LoginVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+    }
+
+    public void iniciarSesion() {
+
+        sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
+        if (sesion.getCuenta() != null) {
+            PersonaServicio serPer = new PersonaServicio();
+            String path = (serPer.buscarPersona(sesion.getCuenta().getId(),"id")).getPath_imagen();            
+            sesion.obtenerDatos();
+            autorizarVista(sesion.getRol().getTipo(),path);
+        } else {
+            JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void autorizarVista(String rolNombre,String path) {
+        System.out.println("---------ROL: " + rolNombre);
+
+        switch (rolNombre) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                this.dispose();
+                AdministradorVista av = new AdministradorVista(path);
+                av.setVisible(true);
+                break;
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista();
+                jpv.setVisible(true);
+                break;
+            case "Encargado":
+                System.out.println("Es un Encargado");
+                this.dispose();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista();
+                edv.setVisible(true);
+                break;
+            case "Personal":
+                System.out.println("Es un Personal");
+                this.dispose();
+                PersonalVista pv = new PersonalVista(path);
+                pv.setVisible(true);
+                break;
+        }
     }
 
     /**
@@ -171,7 +228,7 @@ public class LoginVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        iniciarSesion();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
