@@ -276,6 +276,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setEstado("activo");
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
+            controladorEmp.getCuenta().setEstado("activo");
             if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
                 limpiar();

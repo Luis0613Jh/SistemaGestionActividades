@@ -1,16 +1,48 @@
 
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.servicio.ProyectoServicio;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import vista.tabla.tabla_Proyectos;
+
 
 public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    tabla_Proyectos tabla = new tabla_Proyectos();
+    private ControladorPersona controlador ;
+    private ProyectoServicio serProyect = new ProyectoServicio();
     public VisualizarProyectosJefeProyectoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
+        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(),controlador.getPersona().getId(),"id_jefeProyecto")));
+        rSTableMetro1.setModel(tabla);
+        rSTableMetro1.updateUI();
+    }
+    public VisualizarProyectosJefeProyectoVista(ControladorPersona controlador ) {
+        initComponents();
+        this.controlador =controlador;
+        this.setLocationRelativeTo(this);
+        this.btnGestionarActividades.setSelected(true);
+        cargarImagen(controlador.getPersona().getPath_imagen());
+        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(),controlador.getPersona().getId(),"id_jefeProyecto")));
+        rSTableMetro1.setModel(tabla);
+        rSTableMetro1.updateUI();
+    }
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+            jLabel1.setIcon(fondo1);
+        } else {
+            jLabel1.setText("Empleado sin \n foto cargada");
+        }
     }
 
     /**
@@ -49,7 +81,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -93,14 +125,14 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
         );
 
         btnGestionarActividades.setText("Gestionar actividades.");
@@ -124,21 +156,19 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlMenuLayout.createSequentialGroup()
-                        .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGestionarActividades, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnGestionarActividades, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(33, 33, 33)
                 .addComponent(btnGestionarActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +249,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGestionarActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActividadesActionPerformed
-        GestionarActividadesVista gac = new GestionarActividadesVista();
+        GestionarActividadesVista gac = new GestionarActividadesVista(controlador);
         this.dispose();
         gac.setLocationRelativeTo(null);
         gac.setVisible(true);
@@ -233,10 +263,10 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        JefeProyectoVista jpv = new JefeProyectoVista(controlador);
         this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        jpv.setLocationRelativeTo(null);
+        jpv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

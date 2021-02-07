@@ -58,7 +58,7 @@ public class PersonaServicio {
         return personaDAO.modificarPersona(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaPersona (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaPersona (Object dato, String atributo, ListaSimple lista) {
         return personaDAO.darDeBajaPersona(dato, atributo, lista);
     }
     

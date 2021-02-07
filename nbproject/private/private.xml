@@ -12,8 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearHitoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorPersona.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarEmpleadosVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/ActividadesPersonalesVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearDepartamentoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarDepartamentosVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/EditarEmpleadoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearActividadVista.java</file>
-            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/DAO/objetosDAO/RolDAO.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearProyectosVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearEmpleadoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/AdministradorVista.java</file>
         </group>
     </open-files>
 </project-private>

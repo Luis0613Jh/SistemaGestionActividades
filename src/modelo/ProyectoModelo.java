@@ -45,7 +45,7 @@ public class ProyectoModelo {
      *
      * @param jefeProyecto
      */
-    public void setId_jefeProyecto(int jefeProyecto) {
+    public void setId_jefeProyecto(int id_jefeProyecto) {
         this.id_jefeProyecto= id_jefeProyecto;
     }
 

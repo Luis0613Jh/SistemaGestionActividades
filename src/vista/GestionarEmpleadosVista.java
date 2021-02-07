@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.ControladorPersona;
@@ -21,13 +20,14 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     ControladorPersona controlador = new ControladorPersona();
     PersonaServicio perSer = new PersonaServicio();
-    CuentaServicio cuentSer = new CuentaServicio ();
+    CuentaServicio cuentSer = new CuentaServicio();
     RolServicio rolSer = new RolServicio();
+
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),true,"activo"));
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
         tbtGestionarEmpleados.setModel(tabla);
         tbtGestionarEmpleados.updateUI();
 
@@ -269,7 +269,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
         int eleccion = tbtGestionarEmpleados.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
+        controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
         EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
         this.dispose();
         ee.setLocationRelativeTo(null);
@@ -279,10 +279,10 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
         int eleccion = tbtGestionarEmpleados.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
+        controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
+        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);
         vde.setLocationRelativeTo(null);
-        vde.setVisible(true);        
+        vde.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
@@ -295,10 +295,16 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
         int seleccion = tbtGestionarEmpleados.getSelectedRow();
-        if(perSer.darDeBajaPersona(String.valueOf(seleccion+1),"id",perSer.listarPersonas())){
-            JOptionPane.showMessageDialog(null,"Se elimino correctamente el empleado\nde la lista");
-        }else{
-            JOptionPane.showMessageDialog(null,"No se pudo eliminar");
+        
+        boolean bajaCuenta = cuentSer.darDeBajaCuenta(((PersonaModelo)tabla.getLista().buscarPorPosicion(seleccion)).getId_cuenta(),"id",cuentSer.listarCuentas());
+        boolean bajaEmpleado = perSer.darDeBajaPersona(((PersonaModelo)tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", perSer.listarPersonas()); 
+        if (bajaCuenta && bajaEmpleado) {
+            tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+            tbtGestionarEmpleados.setModel(tabla);
+            tbtGestionarEmpleados.updateUI();
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente el empleado\nde la lista");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar");
         }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 

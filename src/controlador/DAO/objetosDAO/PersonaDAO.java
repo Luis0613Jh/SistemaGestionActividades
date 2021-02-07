@@ -49,6 +49,7 @@ public class PersonaDAO extends AdaptadorDAO {
     public Boolean modificarPersona(Object objeto, String atributo, ListaSimple lista) {
         try {
             lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            lista.imprimir();
             modificarObjetos(lista);
             return true;
         } catch (Exception e) {
@@ -57,7 +58,7 @@ public class PersonaDAO extends AdaptadorDAO {
         }
     }
 
-    public Boolean darDeBajaPersona(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaPersona(Object dato, String atributo, ListaSimple lista) {
         PersonaModelo persona = buscarPersona(dato, atributo, lista);
         persona.setEstado("inactivo");
         try {

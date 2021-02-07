@@ -1,14 +1,23 @@
 
 package vista;
 
+import controlador.ControladorPersona;
+
 
 public class GestionarActividadesVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    private ControladorPersona controlador ;
     public GestionarActividadesVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.btnCrearActividad.setSelected(true);
+    }
+    public GestionarActividadesVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador ;
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
     }
@@ -201,17 +210,17 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActividadActionPerformed
-        CrearActividadVista cav = new CrearActividadVista();
+        CrearActividadVista cav = new CrearActividadVista(controlador);
         this.dispose();
         cav.setLocationRelativeTo(null);
         cav.setVisible(true);
     }//GEN-LAST:event_btnCrearActividadActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        VisualizarProyectosJefeProyectoVista atras = new VisualizarProyectosJefeProyectoVista(controlador);
         this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        atras.setLocationRelativeTo(null);
+        atras.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

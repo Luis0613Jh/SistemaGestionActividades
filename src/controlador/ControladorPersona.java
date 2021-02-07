@@ -142,6 +142,7 @@ public class ControladorPersona {
         aux.setUsuario(cuenta.getUsuario());
         aux.setClave(cuenta.getClave());
         aux.setExternal_id(persona.getExternal_id());
+        aux.setEstado(cuenta.getEstado());
         return aux;
     }
 

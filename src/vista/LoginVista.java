@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ControladorPersona;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +16,7 @@ public class LoginVista extends javax.swing.JFrame {
 
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
-
+    private ControladorPersona controlador = new ControladorPersona();
     /**
      * Creates new form pms
      */
@@ -29,41 +30,41 @@ public class LoginVista extends javax.swing.JFrame {
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
             PersonaServicio serPer = new PersonaServicio();
-            String path = (serPer.buscarPersona(sesion.getCuenta().getId(),"id")).getPath_imagen();            
+            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(),"id"));           
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getTipo(),path);
+            autorizarVista(sesion.getRol().getTipo(),controlador);
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void autorizarVista(String rolNombre,String path) {
+    public void autorizarVista(String rolNombre,ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
 
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
                 this.dispose();
-                AdministradorVista av = new AdministradorVista(path);
+                AdministradorVista av = new AdministradorVista(controlador.getPersona().getPath_imagen());
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
                 System.out.println("Es un Jefe de Proyecto");
                 this.dispose();
-                JefeProyectoVista jpv = new JefeProyectoVista();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
                 jpv.setVisible(true);
                 break;
             case "Encargado":
-                System.out.println("Es un Encargado");
-                this.dispose();
-                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista();
-                edv.setVisible(true);
+//                System.out.println("Es un Encargado");
+//                this.dispose();
+//                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(path);
+//                edv.setVisible(true);
                 break;
             case "Personal":
                 System.out.println("Es un Personal");
                 this.dispose();
-                PersonalVista pv = new PersonalVista(path);
-                pv.setVisible(true);
+//                PersonalVista pv = new PersonalVista(path);
+//                pv.setVisible(true);
                 break;
         }
     }

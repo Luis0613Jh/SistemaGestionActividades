@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorActividad;
 import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
 import controlador.servicio.DepartamentoServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
@@ -20,9 +21,16 @@ public class CrearActividadVista extends javax.swing.JFrame {
     ControladorActividad controladorActividad = new ControladorActividad();
     ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
     DepartamentoServicio serDepa = new DepartamentoServicio();
-
+    ControladorPersona controlador;
     public CrearActividadVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        llenarDepartamentos();
+    }
+
+    CrearActividadVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         llenarDepartamentos();
     }

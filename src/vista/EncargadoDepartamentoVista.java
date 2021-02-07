@@ -1,5 +1,9 @@
 package vista;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 public class EncargadoDepartamentoVista extends javax.swing.JFrame {
 
     /**
@@ -9,6 +13,21 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarProyectos.setSelected(true);
+    }
+    public EncargadoDepartamentoVista(String path) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.btnGestionarProyectos.setSelected(true);
+        cargarImagen(path);
+    }
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+            lblFoto.setIcon(fondo1);
+        } else {
+            lblFoto.setText("Empleado sin \n foto cargada");
+        }
     }
 
     /**

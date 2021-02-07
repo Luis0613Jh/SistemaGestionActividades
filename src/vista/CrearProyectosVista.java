@@ -178,11 +178,18 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             controladorProyecto.getProyecto().setFechaFinal(dateChooserFechaEntrega.getDate());
             controladorProyecto.getProyecto().setFechaInicio(dateChooserFechaInicio.getDate());
             controladorProyecto.getProyecto().setId(UtilidadesControlador.generarId());
+            System.out.println("    ...............>"+(String) cbxJefeProyecto.getSelectedItem());
             controladorProyecto.getProyecto().setId_jefeProyecto(serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
+            System.out.println("id jefe proyecto "+serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
             controladorProyecto.getProyecto().setNombreProyecto(jTextField1.getText());
             controladorPersona.setPersona(serPer.buscarPersona(controladorProyecto.getProyecto().getId_jefeProyecto(),"id"));
+            System.out.println("id "+controladorProyecto.getProyecto().getId_jefeProyecto());
             controladorPersona.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Jefe de Proyecto","tipo"));
             boolean guardar = serPer.modificarPersona(controladorPersona.getPersona(),"id",serPer.listarPersonas());
+            System.out.println("id "+controladorPersona.getPersona().getId());
+            System.out.println("nombre "+controladorPersona.getPersona().getNombre());
+            System.out.println("nombre "+controladorPersona.getPersona().getId_rol());
+            System.out.println("guardar "+ guardar);
             if (controladorProyecto.guardarProyecto() && guardar) {
                 JOptionPane.showMessageDialog(null, "Se guardo el proyecto");
                 AdministradorVista admin = new AdministradorVista();

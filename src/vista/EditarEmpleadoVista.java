@@ -308,7 +308,8 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new Frm_CambioRol(this, true, controlador).setVisible(true);
-
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        txtRol.setText(controladorRol.getRol().getTipo());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
