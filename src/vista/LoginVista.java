@@ -2,12 +2,30 @@ package vista;
 
 import controlador.servicio.CuentaServicio;
 import controlador.utilidades.Sesion;
+import ds.desktop.notify.DesktopNotify;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class LoginVista extends javax.swing.JFrame {
 
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
+    private Timer timer;
+    private int segundos;
+    private ActionListener accion = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            segundos--;
+            System.out.println("Segundos: " + segundos);
+            if (segundos == 0) {
+                System.out.println("Se terminó el tiempo");
+                DesktopNotify.showDesktopMessage("Inicio en: 00:01:20", "La tarea ha terminado", DesktopNotify.INFORMATION);
+                timer.stop();
+            }
+        }
+    };
 
     /**
      * Creates new form pms
@@ -30,7 +48,9 @@ public class LoginVista extends javax.swing.JFrame {
 
     public void autorizarVista(String rolNombre) {
         System.out.println("---------ROL: " + rolNombre);
-
+        timer = new Timer(1000, accion);
+        iniciarTimer("00:01:20");
+        timer.start();
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
@@ -59,6 +79,22 @@ public class LoginVista extends javax.swing.JFrame {
         }
     }
 
+    public void iniciarTimer(String hora) {
+        // 01:50:36
+        String[] arrayHora = hora.split(":");
+        System.out.println("ARRAY");
+
+        int h = (Integer.parseInt(arrayHora[0]) * 3600);
+        System.out.println("Hora: " + h);
+        int m = (Integer.parseInt(arrayHora[1]) * 60);
+        System.out.println("Minuto: " + m);
+        int s = (Integer.parseInt(arrayHora[2]));
+        System.out.println("Segundo: " + s);
+        segundos = h + m + s;
+        System.out.println("Segundos Totales: " + segundos);
+        timer.start();
+        System.out.println("Se inició el timer");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

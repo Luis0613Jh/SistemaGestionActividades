@@ -248,4 +248,6 @@ public class UtilidadesControlador {
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
     }
+    
+    
 }
