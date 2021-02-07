@@ -53,9 +53,10 @@ public class AdministradorVista extends javax.swing.JFrame {
         btnGestionarProyectos = new rojeru_san.rsbutton.RSButtonMetro();
         btnGestionarEmpleados = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
-        btnGestionarDepartamentos1 = new rojeru_san.rsbutton.RSButtonMetro();
+        btnGestionarPersonalDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
+        btnActividadesPersonales = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
-        rSCalendar1 = new rojerusan.RSCalendar();
+        calendarioAdministrador = new rojerusan.RSCalendar();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -85,7 +86,7 @@ public class AdministradorVista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(966, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +101,8 @@ public class AdministradorVista extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 958;
-        gridBagConstraints.ipady = 7;
+        gridBagConstraints.ipady = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 1, 0, 0);
         jPanel1.add(jPanel2, gridBagConstraints);
 
         pnlMenu.setBackground(new java.awt.Color(204, 204, 204));
@@ -134,7 +134,7 @@ public class AdministradorVista extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,10 +167,17 @@ public class AdministradorVista extends javax.swing.JFrame {
             }
         });
 
-        btnGestionarDepartamentos1.setText("Actividades personales.");
-        btnGestionarDepartamentos1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarPersonalDepartamento.setText("Gestionar personal en departamento.");
+        btnGestionarPersonalDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarDepartamentos1ActionPerformed(evt);
+                btnGestionarPersonalDepartamentoActionPerformed(evt);
+            }
+        });
+
+        btnActividadesPersonales.setText("Actividades personales.");
+        btnActividadesPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActividadesPersonalesActionPerformed(evt);
             }
         });
 
@@ -178,73 +185,69 @@ public class AdministradorVista extends javax.swing.JFrame {
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlMenuLayout.createSequentialGroup()
-                        .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnGestionarDepartamentos1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnGestionarPersonalDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGestionarDepartamentos1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGestionarPersonalDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -11;
-        gridBagConstraints.ipady = 40;
+        gridBagConstraints.ipadx = 21;
+        gridBagConstraints.ipady = 31;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(pnlMenu, gridBagConstraints);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSCalendar1.setColorBackground(new java.awt.Color(0, 153, 0));
+        calendarioAdministrador.setColorBackground(new java.awt.Color(0, 153, 0));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rSCalendar1, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(calendarioAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rSCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addComponent(calendarioAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 508;
+        gridBagConstraints.ipadx = -13;
+        gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 28, 0, 0);
         jPanel1.add(jPanel6, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,7 +258,7 @@ public class AdministradorVista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, Short.MAX_VALUE)
         );
 
         pack();
@@ -264,9 +267,9 @@ public class AdministradorVista extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int posicion = this.pnlMenu.getX();
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -250, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -270, 2, 2, pnlMenu);
         } else {
-            Animacion.Animacion.mover_derecha(-250, 0, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_derecha(-270, 0, 2, 2, pnlMenu);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -299,9 +302,18 @@ public class AdministradorVista extends javax.swing.JFrame {
         lv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnGestionarDepartamentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDepartamentos1ActionPerformed
+    private void btnGestionarPersonalDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPersonalDepartamentoActionPerformed
+        AsignarPersonalDepartamentoVista apd = new AsignarPersonalDepartamentoVista();
+        apd.setLocationRelativeTo(null);
+        this.dispose();
+        apd.setVisible(true);
+    }//GEN-LAST:event_btnGestionarPersonalDepartamentoActionPerformed
 
-    }//GEN-LAST:event_btnGestionarDepartamentos1ActionPerformed
+    private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
+        ActividadesPersonalesVista apv = new ActividadesPersonalesVista();
+        apv.setLocationRelativeTo(null);
+        apv.setVisible(true);
+    }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,11 +358,13 @@ public class AdministradorVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.rsbutton.RSButtonMetro btnActividadesPersonales;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarDepartamentos;
-    private rojeru_san.rsbutton.RSButtonMetro btnGestionarDepartamentos1;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarEmpleados;
+    private rojeru_san.rsbutton.RSButtonMetro btnGestionarPersonalDepartamento;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarProyectos;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
+    private rojerusan.RSCalendar calendarioAdministrador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -360,7 +374,6 @@ public class AdministradorVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JPanel pnlMenu;
-    private rojerusan.RSCalendar rSCalendar1;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
     // End of variables declaration//GEN-END:variables
 }

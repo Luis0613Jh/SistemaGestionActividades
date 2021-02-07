@@ -34,11 +34,11 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
-        jButton3 = new javax.swing.JButton();
+        tblPersonal = new rojerusan.RSTableMetro();
+        btnInstructivo = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnCambiarEncargado = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -71,7 +71,7 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(30, 80, 270, 30);
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPersonal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,23 +82,23 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblPersonal.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tblPersonal);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(30, 120, 580, 250);
 
-        jButton3.setBackground(new java.awt.Color(255, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Instructivo.");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnInstructivo.setBackground(new java.awt.Color(255, 0, 0));
+        btnInstructivo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnInstructivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnInstructivo.setText("Instructivo.");
+        btnInstructivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnInstructivoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
-        jButton3.setBounds(460, 30, 160, 29);
+        jPanel2.add(btnInstructivo);
+        btnInstructivo.setBounds(460, 30, 160, 29);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 640, 380);
@@ -106,29 +106,29 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir.");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(30, 30, 70, 29);
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(30, 30, 70, 29);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cambiar encargado.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCambiarEncargado.setBackground(new java.awt.Color(0, 153, 0));
+        btnCambiarEncargado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCambiarEncargado.setForeground(new java.awt.Color(255, 255, 255));
+        btnCambiarEncargado.setText("Cambiar encargado.");
+        btnCambiarEncargado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCambiarEncargadoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton2);
-        jButton2.setBounds(410, 30, 190, 30);
+        jPanel5.add(btnCambiarEncargado);
+        btnCambiarEncargado.setBounds(410, 30, 190, 30);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 380, 640, 70);
@@ -140,23 +140,23 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCambiarEncargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarEncargadoActionPerformed
         AdministradorVista admin = new AdministradorVista();
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCambiarEncargadoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnInstructivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnInstructivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,9 +454,9 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCambiarEncargado;
+    private javax.swing.JButton btnInstructivo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -464,6 +464,6 @@ public class CambiarEncargadoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblPersonal;
     // End of variables declaration//GEN-END:variables
 }

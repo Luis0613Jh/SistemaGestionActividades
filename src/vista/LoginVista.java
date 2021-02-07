@@ -104,9 +104,15 @@ public class LoginVista extends javax.swing.JFrame {
 
         panelSesion.setBackground(new java.awt.Color(255, 255, 255));
 
+        rSLabelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
+
         txtUsuario.setPlaceholder("Ingrese su usuario");
 
         txtClave.setPlaceholder("Ingrese su contraseña");
+
+        rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
+
+        rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/password_userpassword_9564.png"))); // NOI18N
 
         lblIngreseUsuarioClave.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
         lblIngreseUsuarioClave.setForeground(new java.awt.Color(204, 0, 0));

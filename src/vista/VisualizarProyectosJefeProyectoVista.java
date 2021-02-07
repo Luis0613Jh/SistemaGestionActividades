@@ -10,7 +10,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
     public VisualizarProyectosJefeProyectoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.btnCrearProyecto.setSelected(true);
+        this.btnGestionarActividades.setSelected(true);
     }
 
     /**
@@ -30,12 +30,12 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         btnVerDetalladamente = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnCrearProyecto = new rojeru_san.rsbutton.RSButtonMetro();
+        btnGestionarActividades = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         rSTableMetro1 = new rojerusan.RSTableMetro();
-        jButton2 = new javax.swing.JButton();
+        btnGuardarCambios = new javax.swing.JButton();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -103,10 +103,10 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
                 .addComponent(jLabel1))
         );
 
-        btnCrearProyecto.setText("Gestionar actividades.");
-        btnCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarActividades.setText("Gestionar actividades.");
+        btnGestionarActividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearProyectoActionPerformed(evt);
+                btnGestionarActividadesActionPerformed(evt);
             }
         });
 
@@ -127,7 +127,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCrearProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(btnGestionarActividades, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -139,7 +139,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addComponent(btnCrearProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGestionarActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(138, 138, 138)
@@ -165,10 +165,10 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar cambios.");
+        btnGuardarCambios.setBackground(new java.awt.Color(0, 153, 0));
+        btnGuardarCambios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambios.setText("Guardar cambios.");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -180,7 +180,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -189,7 +189,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -218,12 +218,12 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProyectoActionPerformed
+    private void btnGestionarActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActividadesActionPerformed
         GestionarActividadesVista gac = new GestionarActividadesVista();
         this.dispose();
         gac.setLocationRelativeTo(null);
         gac.setVisible(true);
-    }//GEN-LAST:event_btnCrearProyectoActionPerformed
+    }//GEN-LAST:event_btnGestionarActividadesActionPerformed
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
         VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista();
@@ -306,11 +306,11 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnCrearProyecto;
+    private rojeru_san.rsbutton.RSButtonMetro btnGestionarActividades;
+    private javax.swing.JButton btnGuardarCambios;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojeru_san.rsbutton.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

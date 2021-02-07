@@ -92,7 +92,7 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -125,7 +125,7 @@
                                   <Component id="btnEditarEmpleado" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnEliminarEmpleado" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnSalir" pref="210" max="32767" attributes="0"/>
-                                  <Component id="btnVerDatos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnVerDetalladamente" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -146,7 +146,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnEliminarEmpleado" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnVerDatos" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="btnVerDetalladamente" min="-2" pref="55" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -227,12 +227,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
               </Events>
             </Component>
-            <Component class="rojerusan.RSButtonMetro" name="btnVerDatos">
+            <Component class="rojerusan.RSButtonMetro" name="btnVerDetalladamente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver detalladamente."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDatosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDetalladamenteActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -258,7 +258,7 @@
                           <Component id="jScrollPane1" pref="810" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="161" max="-2" attributes="0"/>
+                              <Component id="btnGuardarCambios" min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -271,7 +271,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="btnGuardarCambios" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -285,7 +285,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="rojerusan.RSTableMetro" name="rSTableMetro1">
+                <Component class="rojerusan.RSTableMetro" name="tbtGestionarEmpleados">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -302,7 +302,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnGuardarCambios">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="0" type="rgb"/>

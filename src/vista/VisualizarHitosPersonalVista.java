@@ -32,7 +32,7 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        tblVisualizarHitos = new rojerusan.RSTableMetro();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -126,7 +126,7 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVisualizarHitos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -137,8 +137,8 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblVisualizarHitos.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tblVisualizarHitos);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -490,6 +490,6 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlMenu;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblVisualizarHitos;
     // End of variables declaration//GEN-END:variables
 }

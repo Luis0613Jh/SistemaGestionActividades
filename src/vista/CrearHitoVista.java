@@ -28,7 +28,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
     }
 
     public void llenarJefesProyecto() {
-        UtilidadesControlador.cargarComboBoxDias(jComboBox3, controladorPersona.ObtenerPersonas());
+        UtilidadesControlador.cargarComboBoxDias(cbxResponsable, controladorPersona.ObtenerPersonas());
     }
 
     /**
@@ -49,18 +49,18 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        cbxPrioridad = new javax.swing.JComboBox<>();
+        txtDescripcionHito = new javax.swing.JTextField();
+        txtNombreHito = new javax.swing.JTextField();
+        dateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
+        dateChooserFechaEntrega = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbxResponsable = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnGuardarProyecto = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -95,7 +95,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nombre de la actividad:");
+        jLabel3.setText("Nombre del hito:");
         jPanel2.add(jLabel3);
         jLabel3.setBounds(30, 100, 210, 30);
 
@@ -111,17 +111,17 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel5);
         jLabel5.setBounds(30, 360, 190, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(250, 260, 310, 30);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 360, 310, 70);
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(250, 100, 310, 30);
-        jPanel2.add(jDateChooser2);
-        jDateChooser2.setBounds(250, 150, 310, 30);
-        jPanel2.add(jDateChooser1);
-        jDateChooser1.setBounds(250, 210, 310, 30);
+        cbxPrioridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
+        jPanel2.add(cbxPrioridad);
+        cbxPrioridad.setBounds(250, 260, 310, 30);
+        jPanel2.add(txtDescripcionHito);
+        txtDescripcionHito.setBounds(250, 360, 310, 70);
+        jPanel2.add(txtNombreHito);
+        txtNombreHito.setBounds(250, 100, 310, 30);
+        jPanel2.add(dateChooserFechaInicio);
+        dateChooserFechaInicio.setBounds(250, 150, 310, 30);
+        jPanel2.add(dateChooserFechaEntrega);
+        dateChooserFechaEntrega.setBounds(250, 210, 310, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,14 +135,14 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel7);
         jLabel7.setBounds(30, 210, 190, 30);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        cbxResponsable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox3);
-        jComboBox3.setBounds(250, 310, 310, 30);
+        jPanel2.add(cbxResponsable);
+        cbxResponsable.setBounds(250, 310, 310, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,29 +156,29 @@ public class CrearHitoVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir.");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(20, 40, 70, 29);
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(20, 40, 70, 29);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar proyecto.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarProyecto.setBackground(new java.awt.Color(0, 153, 0));
+        btnGuardarProyecto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarProyecto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarProyecto.setText("Guardar proyecto.");
+        btnGuardarProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGuardarProyectoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton2);
-        jButton2.setBounds(410, 40, 190, 30);
+        jPanel5.add(btnGuardarProyecto);
+        btnGuardarProyecto.setBounds(410, 40, 190, 30);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 450, 640, 90);
@@ -190,16 +190,16 @@ public class CrearHitoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         controladorHito.getHito().setActividad_id(ICONIFIED);
-        controladorHito.getHito().setDecripcion(jTextField1.getText());
+        controladorHito.getHito().setDecripcion(txtDescripcionHito.getText());
         controladorHito.getHito().setEstado("activo");
         controladorHito.getHito().setExternal_id(UtilidadesControlador.generarId());
-        controladorHito.getHito().setFechaInicio(jDateChooser2.getDate());
+        controladorHito.getHito().setFechaInicio(dateChooserFechaInicio.getDate());
         controladorHito.getHito().setId(UtilidadesControlador.generarId());
-        controladorHito.getHito().setNombre(jTextField2.getText());
-        controladorHito.getHito().setPrioridad((String) jComboBox1.getSelectedItem());
-        controladorPersona.setPersona(perSer.buscarPersona((String) jComboBox3.getSelectedItem(), "nombre"));
+        controladorHito.getHito().setNombre(txtNombreHito.getText());
+        controladorHito.getHito().setPrioridad((String) cbxPrioridad.getSelectedItem());
+        controladorPersona.setPersona(perSer.buscarPersona((String) cbxResponsable.getSelectedItem(), "nombre"));
         controladorHito.getHito().setResponsable(perSer.obtenerIdPersona(perSer.listarPersonas(), controladorPersona.getPersona(), "id"));
         if (controladorHito.guardarHito()) {
             JOptionPane.showMessageDialog(null, "Se guardo el hito correctmente");
@@ -213,12 +213,12 @@ public class CrearHitoVista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarHitosVista ghv = new GestionarHitosVista();
         this.dispose();
         ghv.setLocationRelativeTo(null);
         ghv.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
@@ -776,13 +776,13 @@ public class CrearHitoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnGuardarProyecto;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbxPrioridad;
+    private javax.swing.JComboBox<String> cbxResponsable;
+    private com.toedter.calendar.JDateChooser dateChooserFechaEntrega;
+    private com.toedter.calendar.JDateChooser dateChooserFechaInicio;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -795,7 +795,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtDescripcionHito;
+    private javax.swing.JTextField txtNombreHito;
     // End of variables declaration//GEN-END:variables
 }
