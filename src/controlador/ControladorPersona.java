@@ -52,7 +52,7 @@ public class ControladorPersona {
     /**
      * Metodo enviar cuenta
      *
-     * @param cuenta
+     * @param cuenta recibe un objeto de tipo CuentaModelo
      */
     public void setCuenta(CuentaModelo cuenta) {
         this.cuenta = cuenta;
@@ -158,13 +158,19 @@ public class ControladorPersona {
         aux.setTipo(rol.getTipo());
         return aux;
     }
-
+    /**
+     * Metodo retorna en numero de empleados
+     * @return 
+     */
     public int numeroEmpleados() {
         PersonaDAO ad = new PersonaDAO();
         ListaSimple lista = ad.listarObjetos();
         return lista.tamanio();
     }
-
+    /**
+     * Metodo que retorna un arreglo con el tipo de rol existente
+     * @return  arreglo con los roles
+     */
     public String[] ObtenerRoles() {
         RolDAO r = new RolDAO();
         ListaSimple rol = r.listarObjetos();
@@ -175,24 +181,37 @@ public class ControladorPersona {
         }
         return roles;
     }
-
+    /**
+     * Metodo para obtener el id
+     * @param i recibe la posicion
+     * @return retorna el RolModelo de la posicion solicitada
+     */
     public int obtenerID(int i) {
         RolDAO r = new RolDAO();
         ListaSimple rol = r.listarObjetos();
 
         return ((RolModelo) rol.buscarPorPosicion(i)).getId();
     }
-
+    /**
+     * Metodo para obtener la lista de cuentas
+     * @return la lista de cuentas
+     */
     public ListaSimple obtenerListaCuentas() {
         CuentaDAO adc = new CuentaDAO();
         return adc.listarObjetos();
     }
-
+    /**
+     * Metodo para obtener la lista de empleados
+     * @return lista empleados
+     */
     public ListaSimple obtenerListaEmpleados() {
         PersonaDAO ad = new PersonaDAO();
         return ad.listarObjetos();
     }
-
+    /**
+     * Metodo validar Usuario y clave
+     * @return true en caso se encuentra parametros en a lista caso contrario false
+     */
     public boolean validarUsuarioClave() {
         CuentaModelo aux = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(cuenta, "id", obtenerListaCuentas());
         if (aux != null) {
@@ -201,6 +220,10 @@ public class ControladorPersona {
             return false;
         }
     }
+    /**
+     * Metodo obtener personas
+     * @return array de personas
+     */    
     public String[] ObtenerPersonas() {
         PersonaDAO r = new PersonaDAO();
         RolServicio serRol = new RolServicio();
