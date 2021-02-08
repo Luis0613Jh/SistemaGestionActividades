@@ -35,22 +35,71 @@ public class CuentaDAO extends AdaptadorDAO {
         }
     }
 
-//    public CuentaModelo iniciarSesion(String usuario, String clave) {
-//        ListaSimple cuentas = listarObjetos();
-//
-//        UtilidadesControlador.ordenarQuicksort(0, cuentas.tamanio() - 1, cuentas, "usuario");
-//        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(usuario, "usuario", cuentas);
-//        
-//        if (cuenta != null) {
-//            if (!cuenta.getClave().equals(clave)) {
-//                cuenta = null;
-//            }
-//        }
-//        return cuenta;
-//    }
+    public CuentaModelo iniciarSesion(String usuario, String clave) {
+        ListaSimple listaCuentas = listarObjetos();
 
-    public ListaSimple ordenar(ListaSimple lista, String atributo) {
+        CuentaModelo cuenta = buscarCuenta(usuario, "usuario", listaCuentas);
+        
+        if (cuenta != null) {
+            if (!cuenta.getClave().equals(clave)) {
+                cuenta = null;
+            }
+        }
+        return cuenta;
+    }
+
+    public ListaSimple ordenarCuentas(ListaSimple lista, String atributo) {
         UtilidadesControlador.ordenarQuicksort(0, lista.tamanio() - 1, lista, atributo);
         return lista;
+    }
+    
+    public CuentaModelo buscarCuenta(Object dato, String atributo, ListaSimple lista) {
+        lista = ordenarCuentas(lista, atributo);
+        CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return cuenta;
+    }
+    
+    public Boolean modificarCuenta (Object objeto, String atributo, ListaSimple lista) {
+        try {
+            lista.editarPorDato(UtilidadesControlador.extraerDato(objeto, atributo), atributo, objeto);
+            modificarObjetos(lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en modificar cuenta: " + e);
+            return false;
+        }
+    }
+    
+    public Boolean darDeBajaCuenta(Object dato, String atributo, ListaSimple lista) {
+        CuentaModelo cuenta = buscarCuenta(dato, atributo, lista);
+        cuenta.setEstado("inactivo");
+        try {
+            // Se modifica
+            modificarCuenta(cuenta, atributo, lista);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error en dar de baja el cuenta: " + e);
+            return false;
+        }
+    }
+    
+    /**
+     * Método que busca las cuentas con estado "activo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las cuentas con estado "activo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarCuentasActivas(ListaSimple lista) {
+        ordenarCuentas(lista, "estado");
+        return listarCoincidencias(lista, "activo", "estado");
+    }
+    
+    /**
+     * Método que busca las cuentas con estado "inactivo" en el archivo contenedor.
+     * @param lista ListaSimple en donde se va a buscar las coincidencias.
+     * @return Retorna una lista con todas las cuentas con estado "inactivo", en caso de no existir coincidencias, retorna una lista vacía.
+     */
+    public ListaSimple listarCuentasInactivas(ListaSimple lista) {
+        ordenarCuentas(lista, "estado");
+        return listarCoincidencias(lista, "inactivo", "estado");
     }
 }

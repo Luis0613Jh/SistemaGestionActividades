@@ -5,13 +5,24 @@ public class RolModelo {
     private int id;
     private int external_id;
     private String tipo;
+    private String estado;
+
+    public RolModelo(int id, int external_id, String tipo) {
+        this.id = id;
+        this.external_id = external_id;
+        this.tipo = tipo;
+    }
+
+    public RolModelo() {
+       
+    }
 
     /**
      * Metodo obtener tipo
      *
      * @return Un String correspondiente a id
      */
-    public String getRol() {
+    public String getTipo() {
         return tipo;
     }
 
@@ -20,8 +31,8 @@ public class RolModelo {
      *
      * @param Rol
      */
-    public void setRol(String Rol) {
-        this.tipo = Rol;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     /**
@@ -59,5 +70,30 @@ public class RolModelo {
     public void setExternal_id(int external_id) {
         this.external_id = external_id;
     }
+    
+    /**
+     * Método que obtiene el dato almacenado en estado.
+     * @return Retrona una string correspondiente a estado
+     */
+    public String getEstado() {
+        return estado;
+    }
 
+    /**
+     * Método que sobreescribe el dato almacenado en estado.
+     * @param estado String que va reemplazar el dato en estado.
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * Método que convierte el objeto RolModelo en un string.
+     * @return Devuelve un string con el tipo de rol.
+     */
+    @Override
+    public String toString() {
+        return tipo;
+    }
+    
 }

@@ -1,31 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author juana
- */
+
 public class CrearDepartamentoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    ControladorPersona contper =  new ControladorPersona();
+    ControladorDepartamento contdep = new ControladorDepartamento();
+    PersonaServicio serPer = new PersonaServicio();
+    RolServicio rolSer = new RolServicio();
     public CrearDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        llenarEmpleados();
     }
-
+    public void llenarEmpleados(){
+        if(contper.obtenerListaEmpleados() != null){
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado, contper.obtenerListaEmpleados());
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay empleados");
+            dispose();
+        }
+        
+    };
+    public boolean camposVacios(){
+        if(txtDescripcion.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,12 +61,12 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+cbxEncargado = new javax.swing.JComboBox<>();
+txtDescripcion = new javax.swing.JTextField();
         txtNombreDepartamento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnGuardarProyecto = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -92,11 +111,11 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel5);
         jLabel5.setBounds(30, 230, 190, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(250, 180, 310, 30);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 230, 310, 70);
+        cbxEncargado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cbxEncargado);
+        cbxEncargado.setBounds(250, 180, 310, 30);
+        jPanel2.add(txtDescripcion);
+        txtDescripcion.setBounds(250, 230, 310, 70);
         jPanel2.add(txtNombreDepartamento);
         txtNombreDepartamento.setBounds(250, 140, 310, 30);
 
@@ -106,29 +125,29 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir.");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(30, 30, 70, 29);
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(30, 30, 70, 29);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar proyecto.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarProyecto.setBackground(new java.awt.Color(0, 153, 0));
+        btnGuardarProyecto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarProyecto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarProyecto.setText("Guardar proyecto.");
+        btnGuardarProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGuardarProyectoActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton2);
-        jButton2.setBounds(410, 30, 190, 30);
+        jPanel5.add(btnGuardarProyecto);
+        btnGuardarProyecto.setBounds(410, 30, 190, 30);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 310, 640, 80);
@@ -140,19 +159,39 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+    private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(camposVacios()){
+            contdep.getDepatamento().setNombreDepartamento(txtNombreDepartamento.getText());
+            contdep.getDepatamento().setEstado("activo");
+            contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)cbxEncargado.getSelectedItem(),"nombre"));
+            contdep.getDepatamento().setDescripcion(txtDescripcion.getText());
+            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
+            contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
+            contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
+            boolean guardar = serPer.modificarPersona(contper.getPersona(),"id",serPer.listarPersonas());
+            //contdep.getDepatamento().setEncargado(encargado);
+            if(contdep.guardarDepartamento() && guardar){
+                JOptionPane.showMessageDialog(null, "El departamento se guardo correctamente");
+                AdministradorVista admin = new AdministradorVista();    
+                this.dispose();
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al guardar departamento");
+            }            
+        }else{
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,134 +346,6 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -450,9 +361,9 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnGuardarProyecto;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbxEncargado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -461,7 +372,7 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtNombreDepartamento;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,6 @@
 package controlador.listaSimple;
 
+import controlador.utilidades.UtilidadesControlador;
 import javax.swing.JOptionPane;
 
 public class ListaSimple {
@@ -216,6 +217,23 @@ public class ListaSimple {
         }
     }
 
+    public void editarPorDato(Object dato, String atributo, Object objeto) {
+        Nodo temporal = cabecera;
+        System.out.println("dato "+dato+" atributo "+atributo+" objeto "+objeto);
+        while (temporal != null) {
+            System.out.println("entre al while");
+            int num = UtilidadesControlador.compararObjetoDato(temporal.getObjeto(), dato, atributo);
+            System.out.println("numero metodo "+num);
+            if (num == 0) {
+                temporal.setObjeto(objeto);
+                System.out.println("entre");
+                break;
+            } else {
+                temporal = temporal.getSiguiente();
+            }
+        }
+    }
+
     /**
      * Método para imprimir toda la lista
      */
@@ -242,6 +260,19 @@ public class ListaSimple {
         } else {
             Nodo aux = cabecera;
             while (!((aux.getSiguiente().getObjeto().equals(dato)))) {
+                aux = aux.getSiguiente();
+            }
+            Nodo siguiente = aux.getSiguiente().getSiguiente();
+            aux.setSiguiente(siguiente);
+        }
+    }
+    
+    public void eliminarPorObjeto(Object objeto) {
+        if (cabecera.getObjeto().equals(objeto)) {
+            cabecera = cabecera.getSiguiente();
+        } else {
+            Nodo aux = cabecera;
+            while (!((aux.getSiguiente().getObjeto().equals(objeto)))) {
                 aux = aux.getSiguiente();
             }
             Nodo siguiente = aux.getSiguiente().getSiguiente();

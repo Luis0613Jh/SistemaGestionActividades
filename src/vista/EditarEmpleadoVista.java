@@ -1,29 +1,73 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
+import controlador.ControladorCuenta;
+import controlador.ControladorPersona;
+import controlador.ControladorRol;
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.utilidades.UtilidadesControlador;
+import java.awt.Image;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author juana
- */
 public class EditarEmpleadoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
-    public EditarEmpleadoVista() {
+    ControladorPersona controlador;
+    ControladorRol controladorRol = new ControladorRol();
+    ControladorCuenta controladorCuenta = new ControladorCuenta();
+    PersonaServicio perSer = new PersonaServicio();
+    CuentaServicio cuentSer = new CuentaServicio();
+
+    public EditarEmpleadoVista(ControladorPersona controlador) {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        llenarDatos();
+
+    }
+
+    private EditarEmpleadoVista() {
+
+    }
+
+    public void llenarDatos() {
+        txtNombreEmpleado.setText(controlador.getPersona().getNombre());        
+        txtCorreoElectronico.setText(controlador.getPersona().getCorreo());
+        txtTelefono.setText(controlador.getPersona().getTelefono());
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        txtRol.setText(controladorRol.getRol().getTipo());
+        controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
+        txtUsuario.setText(controladorCuenta.getCuenta().getUsuario());
+        txtContrasenia.setText(controladorCuenta.getCuenta().getClave());
+        cargarImagen(controlador.getPersona().getPath_imagen());
+    }
+
+    public boolean camposEnBlanco() {
+        if (txtContrasenia.getText().length() > 0 && txtCorreoElectronico.getText().length() > 0 && txtTelefono.getText().length() > 0 && txtRol.getText().length() > 0 && txtRol.getText().length() > 0 && txtUsuario.getText().length() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void cargarImagen(String path) {
+        if (path != null) {
+            ImageIcon foto = new ImageIcon(path);
+            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+            lblFoto.setIcon(fondo1);
+        } else {
+            lblFoto.setText("Empeado sin \n foto cargada");
+        }
     }
 
     /**
@@ -41,20 +85,19 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JTextField();
+        txtNombreEmpleado = new javax.swing.JTextField();
+        txtCorreoElectronico = new javax.swing.JTextField();
+        txtRol = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -82,7 +125,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Contraseña:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 380, 130, 30);
+        jLabel1.setBounds(30, 340, 130, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,21 +139,15 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(30, 140, 130, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Cédula:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 180, 130, 30);
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Correo electrónico:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(30, 220, 190, 30);
+        jLabel5.setBounds(30, 180, 190, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Departamento:");
+        jLabel6.setText("Rol :");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(30, 300, 130, 30);
 
@@ -118,31 +155,32 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Usuario:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(30, 340, 130, 30);
+        jLabel7.setBounds(30, 260, 130, 30);
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(250, 380, 310, 30);
+        txtContrasenia.setBorder(null);
+        jPanel2.add(txtContrasenia);
+        txtContrasenia.setBounds(250, 340, 310, 30);
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(250, 140, 310, 30);
+        txtNombreEmpleado.setBorder(null);
+        jPanel2.add(txtNombreEmpleado);
+        txtNombreEmpleado.setBounds(250, 140, 310, 30);
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(250, 180, 310, 30);
+        txtCorreoElectronico.setBorder(null);
+        jPanel2.add(txtCorreoElectronico);
+        txtCorreoElectronico.setBounds(250, 180, 310, 30);
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(250, 220, 310, 30);
+        txtRol.setBorder(null);
+        txtRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRolActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtRol);
+        txtRol.setBounds(250, 300, 310, 30);
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(250, 300, 310, 30);
-
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(250, 340, 310, 30);
+        txtUsuario.setBorder(null);
+        jPanel2.add(txtUsuario);
+        txtUsuario.setBounds(250, 260, 310, 30);
 
         lblFoto.setBackground(new java.awt.Color(255, 255, 255));
         lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -165,11 +203,20 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Teléfono:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(30, 260, 130, 30);
+        jLabel8.setBounds(30, 220, 130, 30);
 
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(250, 260, 310, 30);
+        txtTelefono.setBorder(null);
+        jPanel2.add(txtTelefono);
+        txtTelefono.setBounds(250, 220, 310, 30);
+
+        jButton3.setText("Cambiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(150, 300, 90, 23);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -187,7 +234,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(30, 50, 70, 29);
+        jButton1.setBounds(30, 30, 70, 29);
 
         jButton2.setBackground(new java.awt.Color(0, 153, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -199,7 +246,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton2);
-        jButton2.setBounds(760, 50, 140, 30);
+        jButton2.setBounds(760, 30, 140, 30);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 430, 930, 110);
@@ -217,14 +264,35 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
             rsscalelabel.RSScaleLabel.setScaleLabel(lblFoto, fc.getSelectedFile().toString());
+            controlador.getPersona().setPath_imagen(fc.getSelectedFile().toString());
         }
     }//GEN-LAST:event_btnElegirFotoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+
+        if (camposEnBlanco()) {
+            controlador.getPersona().setCorreo(txtCorreoElectronico.getText());
+            controlador.getPersona().setNombre(txtNombreEmpleado.getText());
+            controlador.getPersona().setTelefono(txtTelefono.getText());
+            controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId());
+            controladorCuenta.getCuenta().setClave(txtContrasenia.getText());
+            controladorCuenta.getCuenta().setUsuario(txtUsuario.getText());
+            //UtilidadesControlador.
+            if (perSer.modificarPersona(controlador.getPersona(), "id", perSer.listarPersonas()) && cuentSer.modificarCuenta(controladorCuenta.getCuenta(),"id",cuentSer.listarCuentas())) {
+                JOptionPane.showMessageDialog(null, "Se edito correctamente");
+                dispose();
+                AdministradorVista admin = new AdministradorVista();                
+                admin.setLocationRelativeTo(null);
+                admin.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo editar");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -233,6 +301,16 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRolActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new Frm_CambioRol(this, true, controlador).setVisible(true);
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        txtRol.setText(controladorRol.getRol().getTipo());
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,38 +369,6 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -341,10 +387,10 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -353,13 +399,12 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JTextField txtContrasenia;
+    private javax.swing.JTextField txtCorreoElectronico;
+    private javax.swing.JTextField txtNombreEmpleado;
+    private javax.swing.JTextField txtRol;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
