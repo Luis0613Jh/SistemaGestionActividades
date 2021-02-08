@@ -1,23 +1,111 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
+
+import controlador.ControladorPersona;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author juana
  */
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.utilidades.Sesion;
+import ds.desktop.notify.DesktopNotify;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 public class LoginVista extends javax.swing.JFrame {
+
+    private ControladorPersona controlador = new ControladorPersona();
+    private Sesion sesion = new Sesion();
+    private CuentaServicio cuentaServicio = new CuentaServicio();
+    private Timer timer;
+    private int segundos;
+    private ActionListener accion = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            segundos--;
+            System.out.println("Segundos: " + segundos);
+            if (segundos == 0) {
+                System.out.println("Se terminó el tiempo");
+                DesktopNotify.showDesktopMessage("Inicio en: 00:01:20", "La tarea ha terminado", DesktopNotify.INFORMATION);
+                timer.stop();
+            }
+        }
+    };
 
     /**
      * Creates new form pms
      */
     public LoginVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
+    public void iniciarSesion() {
+
+        sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
+        if (sesion.getCuenta() != null) {
+            PersonaServicio serPer = new PersonaServicio();
+            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(),"id"));           
+            sesion.obtenerDatos();
+            autorizarVista(sesion.getRol().getTipo(),controlador);
+        } else {
+            JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void autorizarVista(String rolNombre,ControladorPersona controlador) {
+        System.out.println("---------ROL: " + rolNombre);
+        timer = new Timer(1000, accion);
+        iniciarTimer("00:01:20");
+        timer.start();
+        switch (rolNombre) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                this.dispose();
+                AdministradorVista av = new AdministradorVista(controlador.getPersona().getPath_imagen());
+                av.setVisible(true);
+                break;
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+                jpv.setVisible(true);
+                break;
+            case "Encargado":
+//                System.out.println("Es un Encargado");
+//                this.dispose();
+//                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(path);
+//                edv.setVisible(true);
+                break;
+            case "Personal":
+                System.out.println("Es un Personal");
+                this.dispose();
+//                PersonalVista pv = new PersonalVista(path);
+//                pv.setVisible(true);
+                break;
+        }
+    }
+
+    public void iniciarTimer(String hora) {
+        // 01:50:36
+        String[] arrayHora = hora.split(":");
+        System.out.println("ARRAY");
+
+        int h = (Integer.parseInt(arrayHora[0]) * 3600);
+        System.out.println("Hora: " + h);
+        int m = (Integer.parseInt(arrayHora[1]) * 60);
+        System.out.println("Minuto: " + m);
+        int s = (Integer.parseInt(arrayHora[2]));
+        System.out.println("Segundo: " + s);
+        segundos = h + m + s;
+        System.out.println("Segundos Totales: " + segundos);
+        timer.start();
+        System.out.println("Se inició el timer");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +126,7 @@ public class LoginVista extends javax.swing.JFrame {
         rSLabelImage1 = new rojeru_san.rslabel.RSLabelImage();
         rSLabelImage3 = new rojeru_san.rslabel.RSLabelImage();
         lblIngreseUsuarioClave = new javax.swing.JLabel();
-        btnIniciarSesion2 = new rojeru_san.RSButtonRiple();
+        btnIniciarSesion = new rojeru_san.RSButtonRiple();
         btnSalir = new rojeru_san.RSButtonRiple();
 
         btnIniciarSesion1.setText("Iniciar Sesión");
@@ -54,29 +142,34 @@ public class LoginVista extends javax.swing.JFrame {
 
         panelSesion.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSLabelImage2.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\user_customer_person_13976.png")); // NOI18N
+        rSLabelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
 
         txtUsuario.setPlaceholder("Ingrese su usuario");
 
         txtClave.setPlaceholder("Ingrese su contraseña");
 
-        rSLabelImage1.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\user_customer_person_13976.png")); // NOI18N
+        rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
 
-        rSLabelImage3.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Documentos\\Imagenes proyecto final\\password_userpassword_9564.png")); // NOI18N
+        rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/password_userpassword_9564.png"))); // NOI18N
 
         lblIngreseUsuarioClave.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
         lblIngreseUsuarioClave.setForeground(new java.awt.Color(204, 0, 0));
         lblIngreseUsuarioClave.setText("Ingrese el usuario y contraseña.");
 
-        btnIniciarSesion2.setText("Iniciar Sesión");
-        btnIniciarSesion2.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesion2ActionPerformed(evt);
+                btnIniciarSesionActionPerformed(evt);
             }
         });
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelSesionLayout = new javax.swing.GroupLayout(panelSesion);
         panelSesion.setLayout(panelSesionLayout);
@@ -98,7 +191,7 @@ public class LoginVista extends javax.swing.JFrame {
                             .addGroup(panelSesionLayout.createSequentialGroup()
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(panelSesionLayout.createSequentialGroup()
                         .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -129,7 +222,7 @@ public class LoginVista extends javax.swing.JFrame {
                 .addComponent(lblIngreseUsuarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(panelSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -172,9 +265,13 @@ public class LoginVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
 
-    private void btnIniciarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIniciarSesion2ActionPerformed
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        iniciarSesion();
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,10 +302,6 @@ public class LoginVista extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -219,8 +312,8 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.RSButtonRiple btnIniciarSesion;
     private rojeru_san.RSButtonRiple btnIniciarSesion1;
-    private rojeru_san.RSButtonRiple btnIniciarSesion2;
     private rojeru_san.RSButtonRiple btnSalir;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblIngreseUsuarioClave;

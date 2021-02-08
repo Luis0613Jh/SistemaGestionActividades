@@ -1,8 +1,16 @@
 package controlador.utilidades;
 
+import controlador.ControladorRol;
+import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import modelo.PersonaModelo;
+import modelo.RolModelo;
+import vista.EditarEmpleadoVista;
 
 public class UtilidadesControlador {
 
@@ -70,10 +78,21 @@ public class UtilidadesControlador {
             if (objetoString != null && datoString != null) {
                 i = objetoString.toUpperCase().compareTo(datoString.toUpperCase());
             }
+        } else if (dato instanceof Boolean) {
+            Boolean objetoBoolean = (Boolean) extraerDatoDeObjeto(objeto, atributoClase);
+            Boolean datoBoolean = (Boolean) dato;
+
+            if (objetoBoolean != null && datoBoolean != null) {
+                i = objetoBoolean.compareTo(datoBoolean);
+            }
         }
         return i;
     }
 
+    public static Object extraerDato (Object objeto, String atributoClase) {
+        return extraerDatoDeObjeto(objeto, atributoClase);
+    }
+    
     /**
      * Método que extrae la información de un objeto según su atributo de clase especificado.
      * @param objeto Objeto a extraer su información, es de tipo Object.
@@ -185,4 +204,80 @@ public class UtilidadesControlador {
     public static int generarId(){
         return (int)Math.random()*1000;
     }
+    public static void cargarComboBoxDias(JComboBox cdx ,String[] dato){
+        cdx.removeAllItems(); 
+        for(int i = 0 ; i < dato.length ; i++){
+            cdx.addItem(dato[i]);
+        }
+        
+       
+    }
+        public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx ,ListaSimple dato){
+        cdx.removeAllItems();     
+        ControladorRol rol = new ControladorRol();
+        for(int i = 0 ; i < dato.tamanio() ; i++){
+            PersonaModelo aux = (PersonaModelo)dato.buscarPorPosicion(i);
+            RolModelo aux2 = rol.obtenerRolPor_Id(aux.getId_rol());
+            if(!aux2.getTipo().equalsIgnoreCase("Administrador") && aux2.getTipo() != null){
+                cdx.addItem(aux.getNombre());
+            }            
+        }
+    }
+    public static void inicioRoles() throws Exception{
+        
+        RolModelo rol1 = new RolModelo(1,generarId(),"Personal");
+        RolModelo rol2 = new RolModelo(2,generarId(),"Administrador");
+        RolModelo rol3 = new RolModelo(3,generarId(),"Encargado");        
+        RolDAO r = new RolDAO();
+        r.guardarObjeto(rol1);
+        r.guardarObjeto(rol2);
+        r.guardarObjeto(rol3);
+    }
+    
+    /**
+     * Método que valida una string para comprobar si es un número entero (positivo o negativo).
+     * @param numero String a verificar
+     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     */
+    public static boolean validarNumeroEntero(String numero) {
+        return numero.matches("^[-]?[0-9]+$");
+    }
+    
+    /**
+     * Método que valida una string para comprobar si es un número con o sin decimales (positivo o negativo).
+     * @param numero String a verificar
+     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     */
+    public static boolean validarNumeroConDecimal(String numero) {
+        return numero.matches("^[-]?[0-9]+([.][0-9]+)?$");
+    }
+    
+    /**
+     * Método que valida una string para comprobar si es una cadena solo alfabetica (solo letras).
+     * @param numero String a verificar
+     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     */
+    public static boolean validarCadenaSoloLetras(String cadena) {
+        return cadena.matches("^([A-Za-z]+[ ]?)+$");
+    }
+    
+    /**
+     * Método que valida una string para comprobar si es un nombre válido (sin números o caracteres especiales), admite espacios para el apellido.
+     * @param numero String a verificar
+     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     */
+    public static boolean validarNombre(String nombre) {
+        return nombre.matches("^(([A-Za-z]{1})?[a-z]+[ ]?)+$");
+    }
+
+    /**
+     * Método que valida una string para comprobar si cumple con el número de dígitos de una cédula.
+     * @param numero String a verificar
+     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     */
+    public static boolean validarCedula(String cedula) {
+        return cedula.matches("^[0-9]{10}$");
+    }
+    
+    
 }

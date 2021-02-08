@@ -65,7 +65,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="211" max="-2" attributes="0"/>
@@ -88,8 +88,6 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnIniciarSesion1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnContinuar" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -113,10 +111,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="46" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnIniciarSesion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnContinuar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -126,7 +121,7 @@
         <Component class="rojerusan.RSLabelImage" name="rSLabelImage4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\juana\OneDrive\Escritorio\Tercer Ciclo\Estructura de datos\Proyecto final\images.jpg"/>
+              <Image iconType="3" name="/imagenes/bienvenida.jpeg"/>
             </Property>
           </Properties>
         </Component>
@@ -194,17 +189,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnContinuarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="rojeru_san.RSButtonRiple" name="btnIniciarSesion1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Soy administrador."/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

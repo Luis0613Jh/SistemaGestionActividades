@@ -5,10 +5,6 @@ import controlador.listaSimple.ListaSimple;
 
 public interface InterfazDAO {
     
-    /**
-     * Método que guarda un objeto.
-     * @param objeto Objeto a guardar
-     */
     public void guardarObjeto(Object objeto) throws Exception;
     
     /**
@@ -16,4 +12,6 @@ public interface InterfazDAO {
      * @return Retorna la lista con toda la información recuperada.
      */
     public ListaSimple listarObjetos();  
+    public void modificarObjetos(ListaSimple lista);  
+    public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo);  
 }
