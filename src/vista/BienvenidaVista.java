@@ -50,7 +50,7 @@ public class BienvenidaVista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 112, 192));
 
-        rSLabelImage4.setIcon(new javax.swing.ImageIcon("C:\\Users\\juana\\OneDrive\\Escritorio\\Tercer Ciclo\\Estructura de datos\\Proyecto final\\images.jpg")); // NOI18N
+        rSLabelImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bienvenida.jpeg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
