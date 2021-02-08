@@ -219,11 +219,14 @@ public class ListaSimple {
 
     public void editarPorDato(Object dato, String atributo, Object objeto) {
         Nodo temporal = cabecera;
-
+        System.out.println("dato "+dato+" atributo "+atributo+" objeto "+objeto);
         while (temporal != null) {
+            System.out.println("entre al while");
             int num = UtilidadesControlador.compararObjetoDato(temporal.getObjeto(), dato, atributo);
+            System.out.println("numero metodo "+num);
             if (num == 0) {
                 temporal.setObjeto(objeto);
+                System.out.println("entre");
                 break;
             } else {
                 temporal = temporal.getSiguiente();

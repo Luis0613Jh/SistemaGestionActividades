@@ -1,9 +1,16 @@
 package controlador.utilidades;
 
+import controlador.ControladorRol;
+import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import modelo.PersonaModelo;
+import modelo.RolModelo;
+import vista.EditarEmpleadoVista;
 
 public class UtilidadesControlador {
 
@@ -198,10 +205,33 @@ public class UtilidadesControlador {
         return (int)Math.random()*1000;
     }
     public static void cargarComboBoxDias(JComboBox cdx ,String[] dato){
-        cdx.removeAllItems();               
+        cdx.removeAllItems(); 
         for(int i = 0 ; i < dato.length ; i++){
             cdx.addItem(dato[i]);
         }
+        
+       
+    }
+        public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx ,ListaSimple dato){
+        cdx.removeAllItems();     
+        ControladorRol rol = new ControladorRol();
+        for(int i = 0 ; i < dato.tamanio() ; i++){
+            PersonaModelo aux = (PersonaModelo)dato.buscarPorPosicion(i);
+            RolModelo aux2 = rol.obtenerRolPor_Id(aux.getId_rol());
+            if(!aux2.getTipo().equalsIgnoreCase("Administrador") && aux2.getTipo() != null){
+                cdx.addItem(aux.getNombre());
+            }            
+        }
+    }
+    public static void inicioRoles() throws Exception{
+        
+        RolModelo rol1 = new RolModelo(1,generarId(),"Personal");
+        RolModelo rol2 = new RolModelo(2,generarId(),"Administrador");
+        RolModelo rol3 = new RolModelo(3,generarId(),"Encargado");        
+        RolDAO r = new RolDAO();
+        r.guardarObjeto(rol1);
+        r.guardarObjeto(rol2);
+        r.guardarObjeto(rol3);
     }
     
     /**

@@ -3,7 +3,7 @@ package modelo;
 public class DepartamentoModelo {
 
     private String nombreDepartamento;
-    private PersonaModelo encargado;
+    private int id_encargado;
     private int id;
     private int external_id;
     private String descripcion;
@@ -32,17 +32,17 @@ public class DepartamentoModelo {
      *
      * @return Un PersonaModelo correspondinete a encargado
      */
-    public PersonaModelo getEncargado() {
-        return encargado;
+    public int getId_Encargado() {
+        return id_encargado;
     }
 
     /**
      * Metodo enviar encargado
      *
-     * @param encargado
+     * @param id_encargado
      */
-    public void setEncargado(PersonaModelo encargado) {
-        this.encargado = encargado;
+    public void setId_Encargado(int id_encargado) {
+        this.id_encargado = id_encargado;
     }
 
     /**

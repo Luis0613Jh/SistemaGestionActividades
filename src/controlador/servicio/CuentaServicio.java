@@ -27,7 +27,7 @@ public class CuentaServicio {
         return cuentaDAO.modificarCuenta(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaCuenta (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaCuenta (Object dato, String atributo, ListaSimple lista) {
         return cuentaDAO.darDeBajaCuenta(dato, atributo, lista);
     }
     
@@ -37,5 +37,8 @@ public class CuentaServicio {
 
     public ListaSimple listarCuentasInactivas(ListaSimple lista) {
         return cuentaDAO.listarCuentasInactivas(lista);
+    }
+    public ListaSimple listarCuentas() {
+        return cuentaDAO.listarObjetos();
     }
 }

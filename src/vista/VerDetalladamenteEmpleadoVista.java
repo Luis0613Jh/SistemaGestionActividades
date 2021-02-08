@@ -37,15 +37,15 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     }
 
     public void llenarDatos() {
-        jLabel10.setText(controlador.getPersona().getNombre());
-        jLabel11.setText(controlador.getPersona().getCedula());
-        jLabel12.setText(controlador.getPersona().getCorreo());
-        jLabel13.setText(controlador.getPersona().getTelefono());
+        lblNombre.setText(controlador.getPersona().getNombre());
+        lblCedula.setText(controlador.getPersona().getCedula());
+        lblCorreoElectronico.setText(controlador.getPersona().getCorreo());
+        lblTelefono.setText(controlador.getPersona().getTelefono());
         controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
-        jLabel14.setText(controladorRol.getRol().getTipo());
+        lblRol.setText(controladorRol.getRol().getTipo());
         controladorCuenta.obtenerCuentaPorId(controlador.getPersona().getId_cuenta());
-        jLabel15.setText(controladorCuenta.getCuenta().getUsuario());
-        jLabel9.setText(controladorCuenta.getCuenta().getClave());
+        lblUsuario.setText(controladorCuenta.getCuenta().getUsuario());
+        lblContrasenia.setText(controladorCuenta.getCuenta().getClave());
         cargarImagen(controlador.getPersona().getPath_imagen());
     }
 
@@ -80,13 +80,13 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lblContrasenia = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblCorreoElectronico = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        lblRol = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
@@ -162,33 +162,40 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel8);
         jLabel8.setBounds(30, 260, 130, 30);
 
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(250, 380, 310, 30);
+        lblContrasenia.setForeground(new java.awt.Color(255, 255, 255));
+        lblContrasenia.setOpaque(true);
+        jPanel2.add(lblContrasenia);
+        lblContrasenia.setBounds(250, 380, 310, 30);
 
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(250, 140, 310, 30);
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setOpaque(true);
+        jPanel2.add(lblNombre);
+        lblNombre.setBounds(250, 140, 310, 30);
 
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel11);
-        jLabel11.setBounds(250, 180, 310, 30);
+        lblCedula.setForeground(new java.awt.Color(255, 255, 255));
+        lblCedula.setOpaque(true);
+        jPanel2.add(lblCedula);
+        lblCedula.setBounds(250, 180, 310, 30);
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel12);
-        jLabel12.setBounds(250, 220, 310, 30);
+        lblCorreoElectronico.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreoElectronico.setOpaque(true);
+        jPanel2.add(lblCorreoElectronico);
+        lblCorreoElectronico.setBounds(250, 220, 310, 30);
 
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel13);
-        jLabel13.setBounds(250, 260, 310, 30);
+        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        lblTelefono.setOpaque(true);
+        jPanel2.add(lblTelefono);
+        lblTelefono.setBounds(250, 260, 310, 30);
 
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel14);
-        jLabel14.setBounds(250, 300, 310, 30);
+        lblRol.setForeground(new java.awt.Color(255, 255, 255));
+        lblRol.setOpaque(true);
+        jPanel2.add(lblRol);
+        lblRol.setBounds(250, 300, 310, 30);
 
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel15);
-        jLabel15.setBounds(250, 340, 310, 30);
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setOpaque(true);
+        jPanel2.add(lblUsuario);
+        lblUsuario.setBounds(250, 340, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -300,12 +307,6 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -313,11 +314,17 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblContrasenia;
+    private javax.swing.JLabel lblCorreoElectronico;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRol;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

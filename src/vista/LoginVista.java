@@ -1,6 +1,14 @@
 package vista;
 
+import controlador.ControladorPersona;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author juana
+ */
 import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
 import controlador.utilidades.Sesion;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.event.ActionEvent;
@@ -10,6 +18,7 @@ import javax.swing.Timer;
 
 public class LoginVista extends javax.swing.JFrame {
 
+    private ControladorPersona controlador = new ControladorPersona();
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
     private Timer timer;
@@ -39,14 +48,16 @@ public class LoginVista extends javax.swing.JFrame {
 
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
+            PersonaServicio serPer = new PersonaServicio();
+            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(),"id"));           
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getTipo());
+            autorizarVista(sesion.getRol().getTipo(),controlador);
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void autorizarVista(String rolNombre) {
+    public void autorizarVista(String rolNombre,ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
         timer = new Timer(1000, accion);
         iniciarTimer("00:01:20");
@@ -55,26 +66,26 @@ public class LoginVista extends javax.swing.JFrame {
             case "Administrador":
                 System.out.println("Es un Administrador");
                 this.dispose();
-                AdministradorVista av = new AdministradorVista();
+                AdministradorVista av = new AdministradorVista(controlador.getPersona().getPath_imagen());
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
                 System.out.println("Es un Jefe de Proyecto");
                 this.dispose();
-                JefeProyectoVista jpv = new JefeProyectoVista();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
                 jpv.setVisible(true);
                 break;
             case "Encargado":
-                System.out.println("Es un Encargado");
-                this.dispose();
-                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista();
-                edv.setVisible(true);
+//                System.out.println("Es un Encargado");
+//                this.dispose();
+//                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(path);
+//                edv.setVisible(true);
                 break;
             case "Personal":
                 System.out.println("Es un Personal");
                 this.dispose();
-                PersonalVista pv = new PersonalVista();
-                pv.setVisible(true);
+//                PersonalVista pv = new PersonalVista(path);
+//                pv.setVisible(true);
                 break;
         }
     }
@@ -131,9 +142,15 @@ public class LoginVista extends javax.swing.JFrame {
 
         panelSesion.setBackground(new java.awt.Color(255, 255, 255));
 
+        rSLabelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
+
         txtUsuario.setPlaceholder("Ingrese su usuario");
 
         txtClave.setPlaceholder("Ingrese su contraseña");
+
+        rSLabelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user_customer_person_13976.png"))); // NOI18N
+
+        rSLabelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/password_userpassword_9564.png"))); // NOI18N
 
         lblIngreseUsuarioClave.setFont(new java.awt.Font("Tw Cen MT", 3, 24)); // NOI18N
         lblIngreseUsuarioClave.setForeground(new java.awt.Color(204, 0, 0));

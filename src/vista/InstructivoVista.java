@@ -32,8 +32,8 @@ public class InstructivoVista extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnCerrarInstructivo = new javax.swing.JButton();
+        txtInstructivo = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -60,19 +60,19 @@ public class InstructivoVista extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(30, 20, 190, 30);
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cerrar instructivo.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrarInstructivo.setBackground(new java.awt.Color(255, 0, 0));
+        btnCerrarInstructivo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCerrarInstructivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrarInstructivo.setText("Cerrar instructivo.");
+        btnCerrarInstructivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCerrarInstructivoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(200, 210, 200, 29);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(30, 80, 530, 110);
+        jPanel2.add(btnCerrarInstructivo);
+        btnCerrarInstructivo.setBounds(200, 210, 200, 29);
+        jPanel2.add(txtInstructivo);
+        txtInstructivo.setBounds(30, 80, 530, 110);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 600, 280);
@@ -84,9 +84,9 @@ public class InstructivoVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCerrarInstructivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarInstructivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCerrarInstructivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4224,11 +4224,11 @@ public class InstructivoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCerrarInstructivo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtInstructivo;
     // End of variables declaration//GEN-END:variables
 }

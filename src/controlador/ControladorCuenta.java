@@ -41,4 +41,14 @@ public class ControladorCuenta {
             }
         }
     }
+//    public void obtenerIdDeTipo(String tipo){
+//        CuentaDAO c = new CuentaDAO();
+//        ListaSimple lista = c.listarObjetos();
+//        for(int i = 0; i < lista.tamanio() ; i++){
+//            CuentaModelo aux = (CuentaModelo)lista.buscarPorPosicion(i);
+//            if(aux.g){
+//                
+//            }
+//        }
+//    }
 }

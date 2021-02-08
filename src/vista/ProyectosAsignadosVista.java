@@ -34,11 +34,11 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
-        jButton2 = new javax.swing.JButton();
+        tblProyectos = new rojerusan.RSTableMetro();
+        btnInstructivo = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnGestionarActividades = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -75,7 +75,7 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(30, 20, 390, 44);
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProyectos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,23 +86,23 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tblProyectos.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tblProyectos);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(30, 120, 580, 250);
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Instructivo.");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInstructivo.setBackground(new java.awt.Color(255, 0, 0));
+        btnInstructivo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnInstructivo.setForeground(new java.awt.Color(255, 255, 255));
+        btnInstructivo.setText("Instructivo.");
+        btnInstructivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInstructivoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(430, 30, 160, 29);
+        jPanel2.add(btnInstructivo);
+        btnInstructivo.setBounds(430, 30, 160, 29);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 640, 380);
@@ -110,29 +110,29 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Gestionar actividades.");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionarActividades.setBackground(new java.awt.Color(0, 153, 0));
+        btnGestionarActividades.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGestionarActividades.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarActividades.setText("Gestionar actividades.");
+        btnGestionarActividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGestionarActividadesActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1);
-        jButton1.setBounds(400, 30, 210, 29);
+        jPanel5.add(btnGestionarActividades);
+        btnGestionarActividades.setBounds(400, 30, 210, 29);
 
-        jButton4.setBackground(new java.awt.Color(255, 0, 0));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Salir.");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir.");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton4);
-        jButton4.setBounds(30, 30, 70, 29);
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(30, 30, 70, 29);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 380, 640, 70);
@@ -144,24 +144,24 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGestionarActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActividadesActionPerformed
         GestionarProyectosVista gp = new GestionarProyectosVista();
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGestionarActividadesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnInstructivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnInstructivoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2251,16 +2251,16 @@ public class ProyectosAsignadosVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnGestionarActividades;
+    private javax.swing.JButton btnInstructivo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tblProyectos;
     // End of variables declaration//GEN-END:variables
 }

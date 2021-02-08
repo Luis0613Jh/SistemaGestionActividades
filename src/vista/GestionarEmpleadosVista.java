@@ -1,10 +1,17 @@
-
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.servicio.CuentaServicio;
+import controlador.servicio.PersonaServicio;
+import controlador.servicio.RolServicio;
+import javax.swing.JOptionPane;
 import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
 
+/**
+ *
+ * @author juana
+ */
 public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     /**
@@ -12,13 +19,17 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
      */
     tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     ControladorPersona controlador = new ControladorPersona();
+    PersonaServicio perSer = new PersonaServicio();
+    CuentaServicio cuentSer = new CuentaServicio();
+    RolServicio rolSer = new RolServicio();
+
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(controlador.obtenerListaEmpleados());
-        rSTableMetro1.setModel(tabla);
-        rSTableMetro1.updateUI();
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+        tbtGestionarEmpleados.setModel(tabla);
+        tbtGestionarEmpleados.updateUI();
 
     }
 
@@ -42,11 +53,11 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         btnEditarEmpleado = new rojeru_san.rsbutton.RSButtonMetro();
         btnCrearEmpleado = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
-        btnVerDatos = new rojerusan.RSButtonMetro();
+        btnVerDetalladamente = new rojerusan.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
-        jButton2 = new javax.swing.JButton();
+        tbtGestionarEmpleados = new rojerusan.RSTableMetro();
+        btnGuardarCambios = new javax.swing.JButton();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -136,10 +147,10 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
             }
         });
 
-        btnVerDatos.setText("Ver detalladamente.");
-        btnVerDatos.addActionListener(new java.awt.event.ActionListener() {
+        btnVerDetalladamente.setText("Ver detalladamente.");
+        btnVerDetalladamente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerDatosActionPerformed(evt);
+                btnVerDetalladamenteActionPerformed(evt);
             }
         });
 
@@ -156,7 +167,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                             .addComponent(btnEditarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnVerDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -172,7 +183,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnVerDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -182,7 +193,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        tbtGestionarEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -193,13 +204,13 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        tbtGestionarEmpleados.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setViewportView(tbtGestionarEmpleados);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar cambios.");
+        btnGuardarCambios.setBackground(new java.awt.Color(0, 153, 0));
+        btnGuardarCambios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambios.setText("Guardar cambios.");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -211,7 +222,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -220,7 +231,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -257,19 +268,21 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        EditarEmpleadoVista ee = new EditarEmpleadoVista();
+        int eleccion = tbtGestionarEmpleados.getSelectedRow();
+        controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
+        EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
         this.dispose();
         ee.setLocationRelativeTo(null);
         ee.setVisible(true);
 
     }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
 
-    private void btnVerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
-        int eleccion = rSTableMetro1.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
+    private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
+        int eleccion = tbtGestionarEmpleados.getSelectedRow();
+        controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
+        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);
         vde.setLocationRelativeTo(null);
-        vde.setVisible(true);        
+        vde.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
@@ -281,7 +294,18 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        int seleccion = tbtGestionarEmpleados.getSelectedRow();
+        
+        boolean bajaCuenta = cuentSer.darDeBajaCuenta(((PersonaModelo)tabla.getLista().buscarPorPosicion(seleccion)).getId_cuenta(),"id",cuentSer.listarCuentas());
+        boolean bajaEmpleado = perSer.darDeBajaPersona(((PersonaModelo)tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", perSer.listarPersonas()); 
+        if (bajaCuenta && bajaEmpleado) {
+            tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+            tbtGestionarEmpleados.setModel(tabla);
+            tbtGestionarEmpleados.updateUI();
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente el empleado\nde la lista");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+        }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     /**
@@ -330,10 +354,10 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonMetro btnCrearEmpleado;
     private rojeru_san.rsbutton.RSButtonMetro btnEditarEmpleado;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarEmpleado;
+    private javax.swing.JButton btnGuardarCambios;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
-    private rojerusan.RSButtonMetro btnVerDatos;
+    private rojerusan.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -342,6 +366,6 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlMenu;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro tbtGestionarEmpleados;
     // End of variables declaration//GEN-END:variables
 }

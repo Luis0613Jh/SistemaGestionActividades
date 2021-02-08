@@ -5,7 +5,7 @@ import java.util.Date;
 public class ProyectoModelo {
 
     private int id;
-    private PersonaModelo jefeProyecto;
+    private int id_jefeProyecto;
     private String nombreProyecto;
     private Date fechaInicio;
     private Date fechaFinal;
@@ -36,8 +36,8 @@ public class ProyectoModelo {
      *
      * @return Un PersonaModelo correspondiente a jefeProyecto
      */
-    public PersonaModelo getJefeProyecto() {
-        return jefeProyecto;
+    public int getId_jefeProyecto() {
+        return id_jefeProyecto;
     }
 
     /**
@@ -45,8 +45,8 @@ public class ProyectoModelo {
      *
      * @param jefeProyecto
      */
-    public void setJefeProyecto(PersonaModelo jefeProyecto) {
-        this.jefeProyecto = jefeProyecto;
+    public void setId_jefeProyecto(int id_jefeProyecto) {
+        this.id_jefeProyecto= id_jefeProyecto;
     }
 
     /**

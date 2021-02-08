@@ -9,7 +9,7 @@ public class HitoModelo {
     private String decripcion;
     private Date fechaInicio;
     private String prioridad;
-    private PersonaModelo responsable;
+    private int id_responsable;
     private String estado;
     private int external_id;
     private int actividad_id;
@@ -109,17 +109,17 @@ public class HitoModelo {
      *
      * @return Un PersonaModelo correspondiente a responsable
      */
-    public PersonaModelo getResponsable() {
-        return responsable;
+    public int getResponsable() {
+        return id_responsable;
     }
 
     /**
      * Metodo enviar responsable
      *
-     * @param responsable
+     * @param id_responsable
      */
-    public void setResponsable(PersonaModelo responsable) {
-        this.responsable = responsable;
+    public void setResponsable(int id_responsable) {
+        this.id_responsable = id_responsable;
     }
 
     /**
