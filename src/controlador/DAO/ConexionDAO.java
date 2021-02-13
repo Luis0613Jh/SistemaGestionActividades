@@ -14,6 +14,7 @@ public class ConexionDAO {
     private final String CARPETA_PROYECTOS = "Proyectos";
     private final String CARPETA_ACTIVIDADES = "Actividades";
     private final String CARPETA_DEPARTAMENTOS = "Departamentos";
+    private final String CARPETA_ACTIVIDADES_PERSONALES = "Actividades Personales";
     private XStream xstream;
 
     /**
@@ -85,6 +86,10 @@ public class ConexionDAO {
      */
     public String getCARPETA_DEPARTAMENTOS() {
         return CARPETA_DEPARTAMENTOS;
+    }
+
+    public String getCARPETA_ACTIVIDADES_PERSONALES() {
+        return CARPETA_ACTIVIDADES_PERSONALES;
     }
     
     /**

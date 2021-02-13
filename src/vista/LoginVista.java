@@ -1,15 +1,13 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.cola.Cola;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author juana
- */
 import controlador.servicio.CuentaServicio;
 import controlador.servicio.PersonaServicio;
 import controlador.utilidades.Sesion;
+import controlador.utilidades.UtilidadesControlador;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +21,7 @@ public class LoginVista extends javax.swing.JFrame {
     private CuentaServicio cuentaServicio = new CuentaServicio();
     private Timer timer;
     private int segundos;
+    private Cola colaActividadesPersonales = new Cola();
     
     private ActionListener accion = new ActionListener() {
         @Override
@@ -61,8 +60,8 @@ public class LoginVista extends javax.swing.JFrame {
     public void autorizarVista(String rolNombre,ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
         timer = new Timer(1000, accion);
-        iniciarTimer("00:01:20");
         timer.start();
+        
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
@@ -91,7 +90,7 @@ public class LoginVista extends javax.swing.JFrame {
         }
     }
 
-    public void iniciarTimer(String hora) {
+    public void determinarSegundosTotales(String hora) {
         // 01:50:36
         String[] arrayHora = hora.split(":");
         System.out.println("ARRAY");
@@ -104,9 +103,8 @@ public class LoginVista extends javax.swing.JFrame {
         System.out.println("Segundo: " + s);
         segundos = h + m + s;
         System.out.println("Segundos Totales: " + segundos);
-        timer.start();
-        System.out.println("Se inició el timer");
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
