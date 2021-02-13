@@ -6,6 +6,8 @@
 
 package controlador;
 
+import controlador.listaSimple.ListaSimple;
+import controlador.servicio.ActividadPersonalServicio;
 import controlador.servicio.ActividadServicio;
 import modelo.ActividadModelo;
 
@@ -44,6 +46,12 @@ public class ControladorActividad {
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    public int numeroActividades() {
+        ActividadServicio guardar = new ActividadServicio();
+        ListaSimple lista = guardar.listarActividads();
+        return lista.tamanio();
     }
     
 }

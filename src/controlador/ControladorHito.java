@@ -45,4 +45,8 @@ public class ControladorHito {
             return false;
         }
     }
+    public int numeroHitos(){
+        HitoServicio  guardar = new HitoServicio();
+        return guardar.listarHitos().tamanio();
+    }
 }

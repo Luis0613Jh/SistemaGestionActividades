@@ -45,4 +45,9 @@ public class ControladorProyecto {
             return false;
         }
     }
+    
+    public int numeroProyectos(){
+        ProyectoServicio controlador = new ProyectoServicio();
+        return controlador.listarProyectos().tamanio();
+    }
 }

@@ -177,7 +177,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             controladorProyecto.getProyecto().setExternal_id(UtilidadesControlador.generarId());
             controladorProyecto.getProyecto().setFechaFinal(dateChooserFechaEntrega.getDate());
             controladorProyecto.getProyecto().setFechaInicio(dateChooserFechaInicio.getDate());
-            controladorProyecto.getProyecto().setId(UtilidadesControlador.generarId());
+            controladorProyecto.getProyecto().setId(controladorProyecto.numeroProyectos()+1);
             System.out.println("    ...............>"+(String) cbxJefeProyecto.getSelectedItem());
             controladorProyecto.getProyecto().setId_jefeProyecto(serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
             System.out.println("id jefe proyecto "+serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));

@@ -69,4 +69,10 @@ public class ControladorDepartamento {
         }
         return arreglo;
     }
+    
+    public int numeroDepartamentos() {
+        DepartamentoServicio servicio = new DepartamentoServicio();
+        ListaSimple lista = servicio.listarDepartamentos();
+        return lista.tamanio();
+    }
 }

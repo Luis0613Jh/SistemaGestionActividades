@@ -205,7 +205,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
         controladorHito.getHito().setEstado("activo");
         controladorHito.getHito().setExternal_id(UtilidadesControlador.generarId());
         controladorHito.getHito().setFechaInicio(dateChooserFechaInicio.getDate());
-        controladorHito.getHito().setId(UtilidadesControlador.generarId());
+        controladorHito.getHito().setId(controladorHito.numeroHitos()+1);
         controladorHito.getHito().setNombre(txtNombreHito.getText());
         controladorHito.getHito().setPrioridad((String) cbxPrioridad.getSelectedItem());
         controladorPersona.setPersona(perSer.buscarPersona((String) cbxResponsable.getSelectedItem(), "nombre"));

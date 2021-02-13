@@ -165,7 +165,7 @@ txtDescripcion = new javax.swing.JTextField();
             contdep.getDepatamento().setEstado("activo");
             contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)cbxEncargado.getSelectedItem(),"nombre"));
             contdep.getDepatamento().setDescripcion(txtDescripcion.getText());
-            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setId(contdep.numeroDepartamentos()+1);
             contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
             contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
             contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
