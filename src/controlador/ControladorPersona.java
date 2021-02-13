@@ -1,20 +1,14 @@
 package controlador;
 
-import controlador.DAO.AdaptadorDAO;
-import controlador.DAO.InterfazDAO;
 import controlador.DAO.objetosDAO.CuentaDAO;
 import controlador.DAO.objetosDAO.PersonaDAO;
 import controlador.DAO.objetosDAO.RolDAO;
 import controlador.listaSimple.ListaSimple;
-import controlador.servicio.PersonaServicio;
 import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesControlador;
-import javax.swing.JOptionPane;
 import modelo.CuentaModelo;
-import modelo.DepartamentoModelo;
 import modelo.PersonaModelo;
 import modelo.RolModelo;
-import modelo.RolProyectoModelo;
 
 public class ControladorPersona {
 
@@ -102,6 +96,7 @@ public class ControladorPersona {
         aux.setPath_imagen(persona.getPath_imagen());
         aux.setTelefono(persona.getTelefono());
         aux.setEstado(persona.getEstado());
+        aux.setId_departamento(persona.getId_departamento());
         return aux;
     }
 
@@ -235,4 +230,5 @@ public class ControladorPersona {
         }
         return roles;
     }
+   
 }

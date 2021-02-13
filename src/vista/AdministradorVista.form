@@ -40,7 +40,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" pref="698" max="32767" attributes="0"/>
+          <Component id="jPanel1" pref="722" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -125,28 +125,32 @@
                   <Component id="btnGestionarPersonalDepartamento" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnGestionarDepartamentos" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnGestionarProyectos" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnGestionarEmpleados" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanel4" max="32767" attributes="0"/>
                   <Component id="btnActividadesPersonales" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnGestionarEmpleados" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnGestionarEmpleados" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnGestionarProyectos" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnGestionarDepartamentos" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnGestionarPersonalDepartamento" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="btnActividadesPersonales" min="-2" pref="54" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -181,7 +185,7 @@
                                   <Component id="lblFoto" min="-2" pref="153" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="81" max="32767" attributes="0"/>
+                          <EmptySpace pref="80" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -248,7 +252,7 @@
             </Component>
             <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnGestionarPersonalDepartamento">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestionar personal en departamento."/>
+                <Property name="text" type="java.lang.String" value="*************************** eliminame "/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarPersonalDepartamentoActionPerformed"/>

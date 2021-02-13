@@ -31,7 +31,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
     }
 
     public void llenarJefesProyecto() {
-        UtilidadesControlador.cargarComboBoxDias(cbxJefeProyecto, controladorPersona.ObtenerPersonas());
+        UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxJefeProyecto,UtilidadesControlador.unirDosListas(serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),-3,"id_departamento")),serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),rolSer.obtenerIdRol(rolSer.listarRoles(),"Jefe de Proyecto","tipo"),"id_rol"))));
     }
 
     public boolean camposVacios() {
@@ -184,6 +184,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             controladorProyecto.getProyecto().setNombreProyecto(jTextField1.getText());
             controladorPersona.setPersona(serPer.buscarPersona(controladorProyecto.getProyecto().getId_jefeProyecto(),"id"));
             System.out.println("id "+controladorProyecto.getProyecto().getId_jefeProyecto());
+            controladorPersona.getPersona().setId_departamento(-2);
             controladorPersona.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Jefe de Proyecto","tipo"));
             boolean guardar = serPer.modificarPersona(controladorPersona.getPersona(),"id",serPer.listarPersonas());
             System.out.println("id "+controladorPersona.getPersona().getId());

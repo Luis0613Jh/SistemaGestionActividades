@@ -212,6 +212,14 @@ public class UtilidadesControlador {
         
        
     }
+    public static void cargarComboBoxEmpleados(JComboBox cdx ,ListaSimple dato){
+        cdx.removeAllItems(); 
+        for(int i = 0 ; i < dato.tamanio() ; i++){
+            cdx.addItem(((PersonaModelo)dato.buscarPorPosicion(i)).getNombre());
+        }
+        
+       
+    }
         public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx ,ListaSimple dato){
         cdx.removeAllItems();     
         ControladorRol rol = new ControladorRol();
@@ -277,5 +285,15 @@ public class UtilidadesControlador {
      */
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
+    }
+    public static ListaSimple unirDosListas(ListaSimple l1 , ListaSimple l2) {
+        ListaSimple aux = new ListaSimple(); 
+        for(int i = 0 ; i < l1.tamanio() ; i++){
+            aux.insertarFinal(l1.buscarPorPosicion(i));
+        }
+        for(int i = 0 ; i < l2.tamanio() ; i++){
+            aux.insertarFinal(l2.buscarPorPosicion(i));
+        }
+        return aux;
     }
 }

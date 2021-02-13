@@ -54,7 +54,7 @@ public class DepartamentoServicio {
         return departamentoDAO.modificarDepartamento(objeto, atributo, lista);
     }
     
-    public Boolean darDeBajaDepartamento (String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaDepartamento (Object dato, String atributo, ListaSimple lista) {
         return departamentoDAO.darDeBajaDepartamento(dato, atributo, lista);
     }
     

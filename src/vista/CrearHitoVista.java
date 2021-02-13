@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ControladorActividad;
 import controlador.ControladorHito;
 import controlador.ControladorPersona;
 import controlador.servicio.PersonaServicio;
@@ -20,15 +21,23 @@ public class CrearHitoVista extends javax.swing.JFrame {
     ControladorPersona controladorPersona = new ControladorPersona();
     ControladorHito controladorHito = new ControladorHito();
     PersonaServicio perSer = new PersonaServicio();
-
+    ControladorActividad controladorActividad;
     public CrearHitoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         llenarJefesProyecto();
     }
 
+    public CrearHitoVista(ControladorPersona controladorPersona, ControladorActividad controladorActividad) {
+        initComponents();
+        this.controladorPersona = controladorPersona;
+        this.controladorActividad = controladorActividad;
+        this.setLocationRelativeTo(this);
+        llenarJefesProyecto();
+    }
+
     public void llenarJefesProyecto() {
-        UtilidadesControlador.cargarComboBoxDias(cbxResponsable, controladorPersona.ObtenerPersonas());
+        UtilidadesControlador.cargarComboBoxEmpleados(cbxResponsable,perSer.listarPersonasActivas(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),controladorPersona.getPersona().getId_departamento(),"id_departamento")));
     }
 
     /**
@@ -191,7 +200,7 @@ public class CrearHitoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        controladorHito.getHito().setActividad_id(ICONIFIED);
+        controladorHito.getHito().setActividad_id(controladorActividad.getActividad().getId());
         controladorHito.getHito().setDecripcion(txtDescripcionHito.getText());
         controladorHito.getHito().setEstado("activo");
         controladorHito.getHito().setExternal_id(UtilidadesControlador.generarId());
@@ -203,10 +212,10 @@ public class CrearHitoVista extends javax.swing.JFrame {
         controladorHito.getHito().setResponsable(perSer.obtenerIdPersona(perSer.listarPersonas(), controladorPersona.getPersona(), "id"));
         if (controladorHito.guardarHito()) {
             JOptionPane.showMessageDialog(null, "Se guardo el hito correctmente");
-            AdministradorVista admin = new AdministradorVista();
+            CrearHitoVista chv = new CrearHitoVista(controladorPersona, controladorActividad);
             this.dispose();
-            admin.setLocationRelativeTo(null);
-            admin.setVisible(true);
+            chv.setLocationRelativeTo(null);
+            chv.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "No se pudo guardar el hito");
         }
