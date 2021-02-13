@@ -1,18 +1,29 @@
-
 package vista;
 
-import vista.tabla.tabla_GestionarEmpleado;
+import controlador.ControladorProyecto;
+import controlador.servicio.ProyectoServicio;
+import javax.swing.JOptionPane;
+import modelo.ProyectoModelo;
+import vista.tabla.tabla_Proyectos;
 
 public class GestionarProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
-     */  
+     */
+    private tabla_Proyectos tabla = new tabla_Proyectos();
+    private ProyectoServicio serPro = new ProyectoServicio();
+
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearProyecto.setSelected(true);
-        
+        tabla.setLista(serPro.listarProyectosActivos(serPro.listarProyectos()));
+        if (tabla.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No hay proyectos activos");
+        }
+        tblGestionarProyectosVista.setModel(tabla);
+        tblGestionarProyectosVista.updateUI();
     }
 
     /**
@@ -52,7 +63,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -107,6 +118,11 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         );
 
         btnEliminarProyecto.setText("Eliminar proyecto.");
+        btnEliminarProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProyectoActionPerformed(evt);
+            }
+        });
 
         btnCrearProyecto.setText("Crear proyecto.");
         btnCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
@@ -234,10 +250,19 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearProyectoActionPerformed
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
-        VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista();
-        this.dispose();
-        vdp.setLocationRelativeTo(null);
-        vdp.setVisible(true);
+        int seleccion = -1;
+        seleccion = tblGestionarProyectosVista.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto de la tabla");
+        } else {
+            ControladorProyecto aux = new ControladorProyecto();
+            aux.setProyecto((ProyectoModelo) tabla.getLista().buscarPorPosicion(seleccion));
+            VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista(aux);
+            this.dispose();
+            vdp.setLocationRelativeTo(null);
+            vdp.setVisible(true);
+        }
+
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -246,6 +271,21 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnEliminarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProyectoActionPerformed
+        int seleccion = -1;
+        seleccion = tblGestionarProyectosVista.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto de la tabla");
+        } else {
+            boolean eliminar = serPro.darDeBajaProyecto(((ProyectoModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", serPro.listarProyectos());
+            if (eliminar) {
+                JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se logro eliminar");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarProyectoActionPerformed
 
     /**
      * @param args the command line arguments
