@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ControladorActividadPersonal;
 import controlador.ControladorPersona;
 import controlador.cola.Cola;
 import javax.swing.JOptionPane;
@@ -19,6 +20,7 @@ public class LoginVista extends javax.swing.JFrame {
     private ControladorPersona controlador = new ControladorPersona();
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
+    private ControladorActividadPersonal cap = new ControladorActividadPersonal();
     private Timer timer;
     private int segundos;
     private Cola colaActividadesPersonales = new Cola();
@@ -32,6 +34,13 @@ public class LoginVista extends javax.swing.JFrame {
                 System.out.println("Se terminó el tiempo");
                 DesktopNotify.showDesktopMessage("Inicio en: 00:01:20", "La tarea ha terminado", DesktopNotify.INFORMATION);
                 timer.stop();
+                colaActividadesPersonales.dequeue();
+                if (colaActividadesPersonales.tamanio() > 0) {
+                    segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+                    timer.start();
+                } else {
+                    DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
+                }
             }
         }
     };
@@ -59,7 +68,9 @@ public class LoginVista extends javax.swing.JFrame {
 
     public void autorizarVista(String rolNombre,ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
+        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
         timer = new Timer(1000, accion);
+        segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
         timer.start();
         
         switch (rolNombre) {
@@ -90,20 +101,8 @@ public class LoginVista extends javax.swing.JFrame {
         }
     }
 
-    public void determinarSegundosTotales(String hora) {
-        // 01:50:36
-        String[] arrayHora = hora.split(":");
-        System.out.println("ARRAY");
-
-        int h = (Integer.parseInt(arrayHora[0]) * 3600);
-        System.out.println("Hora: " + h);
-        int m = (Integer.parseInt(arrayHora[1]) * 60);
-        System.out.println("Minuto: " + m);
-        int s = (Integer.parseInt(arrayHora[2]));
-        System.out.println("Segundo: " + s);
-        segundos = h + m + s;
-        System.out.println("Segundos Totales: " + segundos);
-    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
