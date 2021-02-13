@@ -6,11 +6,16 @@ import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ActividadPersonalServicio;
 import modelo.ActividadPersonalModelo;
 import modelo.PersonaModelo;
+import controlador.DAO.objetosDAO.PersonaDAO;
+import javax.swing.JOptionPane;
 
 public class ControladorActividadPersonal {
-    private ActividadPersonalModelo actividadPersonal = new ActividadPersonalModelo();
+    private ActividadPersonalModelo actividadPersonal;
 
     public ActividadPersonalModelo getActividadPersonal() {
+        if(actividadPersonal == null){
+            actividadPersonal = new ActividadPersonalModelo();
+        }
         return actividadPersonal;
     }
 
@@ -42,4 +47,26 @@ public class ControladorActividadPersonal {
         ActividadPersonalModelo ap = (ActividadPersonalModelo) cola.buscarPorPosicion(0);
         return ap.getHora();
     }
+
+    public boolean guardarActividadPersonal(){
+        try {
+            ActividadPersonalServicio servicio = new ActividadPersonalServicio();
+            servicio.setActividadPersonal(actividadPersonal);
+            if(servicio.guardarActividadPersonal()){
+                return true;
+            }else{
+                return false;
+            }            
+        } catch (Exception e) {
+            System.out.println(" Error al insertar ");
+            return false;
+        }
+    }
+    public int numeroEmpleados() {
+        ActividadPersonalServicio servicio = new ActividadPersonalServicio();
+        ListaSimple lista = servicio.listarActividadesPersonales();
+        return lista.tamanio();
+    }
+
 }
+
