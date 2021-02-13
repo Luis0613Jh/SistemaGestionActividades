@@ -204,6 +204,7 @@ public class UtilidadesControlador {
     public static int generarId(){
         return (int)Math.random()*1000;
     }
+    
     public static void cargarComboBoxDias(JComboBox cdx ,String[] dato){
         cdx.removeAllItems(); 
         for(int i = 0 ; i < dato.length ; i++){

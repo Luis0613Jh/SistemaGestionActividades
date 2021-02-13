@@ -8,7 +8,6 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
      */
     public CrearActividadPersonal() {
         initComponents();
-        panelNotificar.setVisible(false);
         panelDescripcion.setVisible(false);
     }
 
@@ -35,14 +34,14 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         cbxMinutos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         cbxSegundos = new javax.swing.JComboBox<>();
-        checkBtnNotificar = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
         panelDescripcion = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
         checkBtnDescripcion = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -97,7 +96,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Minutos:");
         panelNotificar.add(jLabel4);
-        jLabel4.setBounds(230, 20, 70, 30);
+        jLabel4.setBounds(220, 20, 70, 30);
 
         cbxMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53 ", "54", "55", "56", "57", "58", "59" }));
         cbxMinutos.addActionListener(new java.awt.event.ActionListener() {
@@ -106,32 +105,26 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
             }
         });
         panelNotificar.add(cbxMinutos);
-        cbxMinutos.setBounds(300, 20, 110, 30);
+        cbxMinutos.setBounds(290, 20, 110, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Segundos:");
         panelNotificar.add(jLabel5);
-        jLabel5.setBounds(440, 20, 80, 30);
+        jLabel5.setBounds(420, 20, 80, 30);
 
         cbxSegundos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53 ", "54", "55", "56", "57", "58", "59" }));
         panelNotificar.add(cbxSegundos);
-        cbxSegundos.setBounds(520, 20, 110, 30);
+        cbxSegundos.setBounds(500, 20, 110, 30);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("*");
+        panelNotificar.add(jLabel8);
+        jLabel8.setBounds(620, 20, 20, 30);
 
         jPanel2.add(panelNotificar);
-        panelNotificar.setBounds(0, 210, 650, 60);
-
-        checkBtnNotificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        checkBtnNotificar.setForeground(new java.awt.Color(255, 255, 255));
-        checkBtnNotificar.setText("Notificar.");
-        checkBtnNotificar.setOpaque(false);
-        checkBtnNotificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBtnNotificarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(checkBtnNotificar);
-        checkBtnNotificar.setBounds(20, 180, 110, 23);
+        panelNotificar.setBounds(0, 180, 650, 60);
 
         panelDescripcion.setBackground(new java.awt.Color(0, 112, 192));
         panelDescripcion.setLayout(null);
@@ -149,14 +142,13 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         checkBtnDescripcion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         checkBtnDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         checkBtnDescripcion.setText("Descripción.");
-        checkBtnDescripcion.setOpaque(false);
         checkBtnDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBtnDescripcionActionPerformed(evt);
             }
         });
         jPanel2.add(checkBtnDescripcion);
-        checkBtnDescripcion.setBounds(20, 280, 110, 23);
+        checkBtnDescripcion.setBounds(20, 250, 110, 19);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,17 +156,17 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(20, 70, 330, 15);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("*");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(550, 140, 20, 30);
-
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("*");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(550, 100, 20, 30);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("*");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(550, 140, 20, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 650, 430);
@@ -215,14 +207,6 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(668, 526));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void checkBtnNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnNotificarActionPerformed
-        if (checkBtnNotificar.isSelected()) {
-            panelNotificar.setVisible(true);
-        } else {
-            panelNotificar.setVisible(false);
-        }
-    }//GEN-LAST:event_checkBtnNotificarActionPerformed
 
     private void checkBtnDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnDescripcionActionPerformed
          if (checkBtnDescripcion.isSelected()) {
@@ -288,8 +272,8 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxMinutos;
     private javax.swing.JComboBox<String> cbxSegundos;
     private javax.swing.JCheckBox checkBtnDescripcion;
-    private javax.swing.JCheckBox checkBtnNotificar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

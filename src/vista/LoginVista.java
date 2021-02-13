@@ -23,6 +23,7 @@ public class LoginVista extends javax.swing.JFrame {
     private CuentaServicio cuentaServicio = new CuentaServicio();
     private Timer timer;
     private int segundos;
+    
     private ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
