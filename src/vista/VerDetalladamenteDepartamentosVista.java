@@ -1,12 +1,16 @@
 
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.servicio.PersonaServicio;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import vista.tabla.tabla_GestionarEmpleado;
 
 
 public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
@@ -14,9 +18,23 @@ public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
+    private ControladorDepartamento controlador = new ControladorDepartamento();
+    private tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
+    private PersonaServicio serPer = new PersonaServicio();
     public VerDetalladamenteDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+    }
+    public VerDetalladamenteDepartamentosVista(ControladorDepartamento controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        tabla.setLista(serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),controlador.getDepatamento().getId(),"id_departamento")));
+        if(tabla.getLista().tamanio() < 1){
+            JOptionPane.showMessageDialog(null,"No hay personal en este departamento");
+        }
+        tblDetalleDepartamento.setModel(tabla);
+        tblDetalleDepartamento.updateUI();
     }
 
     /**

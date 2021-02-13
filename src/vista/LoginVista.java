@@ -67,7 +67,7 @@ public class LoginVista extends javax.swing.JFrame {
             case "Administrador":
                 System.out.println("Es un Administrador");
                 this.dispose();
-                AdministradorVista av = new AdministradorVista(controlador.getPersona().getPath_imagen());
+                AdministradorVista av = new AdministradorVista(controlador);
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
@@ -77,16 +77,16 @@ public class LoginVista extends javax.swing.JFrame {
                 jpv.setVisible(true);
                 break;
             case "Encargado":
-//                System.out.println("Es un Encargado");
-//                this.dispose();
-//                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(path);
-//                edv.setVisible(true);
+                System.out.println("Es un Encargado");
+                this.dispose();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
+                edv.setVisible(true);
                 break;
             case "Personal":
                 System.out.println("Es un Personal");
                 this.dispose();
-//                PersonalVista pv = new PersonalVista(path);
-//                pv.setVisible(true);
+                PersonalVista pv = new PersonalVista(controlador);
+                pv.setVisible(true);
                 break;
         }
     }

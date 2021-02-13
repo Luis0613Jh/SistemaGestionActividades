@@ -7,16 +7,16 @@
 package vista.tabla;
 
 import controlador.listaSimple.ListaSimple;
-import java.util.Date;
+import controlador.servicio.PersonaServicio;
 import javax.swing.table.AbstractTableModel;
+import modelo.DepartamentoModelo;
 import modelo.PersonaModelo;
-import modelo.ProyectoModelo;
 
 /**
  * 
  * @author Patricio
  */
-public class tabla_Proyectos extends AbstractTableModel{
+public class tabla_Departamento extends AbstractTableModel{
     ListaSimple lista = new ListaSimple();
     
     public ListaSimple getLista() {
@@ -37,37 +37,26 @@ public class tabla_Proyectos extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int i, int i1) {        
-        ProyectoModelo proyecto = (ProyectoModelo)lista.buscarPorPosicion(i);
-        if(proyecto == null) {
+        DepartamentoModelo departamento = (DepartamentoModelo)lista.buscarPorPosicion(i);
+        if(departamento == null) {
               return "vacio";              
         } 
         switch(i1){
-            case 0 : return (String)proyecto.getNombreProyecto();
-            case 1 : return (String)proyecto.getFechaInicio().toString();
-            case 2 : return (String)proyecto.getFechaFinal().toString();
-            
+            case 0 : return departamento.getNombreDepartamento();
+            case 1 : PersonaServicio s = new PersonaServicio();                    
+                     return ((PersonaModelo)s.buscarPersona(departamento.getId_Encargado(),"id")).getNombre();
+            case 2 : return departamento.getDescripcion();
             default: return null;
         }
     }
     @Override
     public String getColumnName(int titulo) {
         switch (titulo) {
-            case 0:
-                return "nombreProyecto";
-            case 1:
-                return "fechaInicio";
-            case 2:
-                return "fechaFinal";            
+            case 0 : return "Nombre Departamento";
+            case 1 : return "Nombre de encargado";
+            case 2 : return "Descripcion";
             default:
                 return null;
         }
     }
-//    private int id;
-//    private int id_jefeProyecto;
-//    private String nombreProyecto;
-//    private Date fechaInicio;
-//    private Date fechaFinal;
-//    private int external_id;
-//    private String codigo;
-//    private String estado;
 }

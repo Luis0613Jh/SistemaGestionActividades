@@ -31,7 +31,7 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     }
     public void llenarEmpleados(){
         if(contper.obtenerListaEmpleados() != null){
-            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado, contper.obtenerListaEmpleados());
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado,serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),-3,"id_departamento")));
         }else{
             JOptionPane.showMessageDialog(null, "No hay empleados");
             dispose();
@@ -169,6 +169,7 @@ txtDescripcion = new javax.swing.JTextField();
             contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
             contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
             contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
+            contper.getPersona().setId_departamento(contdep.getDepatamento().getId());
             boolean guardar = serPer.modificarPersona(contper.getPersona(),"id",serPer.listarPersonas());
             //contdep.getDepatamento().setEncargado(encargado);
             if(contdep.guardarDepartamento() && guardar){

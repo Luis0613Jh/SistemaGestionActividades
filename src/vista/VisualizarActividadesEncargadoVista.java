@@ -1,16 +1,47 @@
-
 package vista;
 
+import controlador.ControladorActividad;
+import controlador.ControladorPersona;
+import controlador.servicio.ActividadServicio;
+import controlador.servicio.DepartamentoServicio;
+import controlador.utilidades.UtilidadesVistas;
+import javax.swing.JOptionPane;
+import modelo.ActividadModelo;
+import vista.tabla.tabla_Actividad;
 
 public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    private tabla_Actividad tablaActividades = new tabla_Actividad();
+    private ControladorPersona controlador = new ControladorPersona();
+    private ActividadServicio serAct = new ActividadServicio();
+    private DepartamentoServicio serDepa = new DepartamentoServicio();
+
     public VisualizarActividadesEncargadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarHitos.setSelected(true);
+    }
+
+    public VisualizarActividadesEncargadoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        this.btnGestionarHitos.setSelected(true);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
+        int id = (serDepa.buscarDepartamento(controlador.getPersona().getId(), "id_encargado")).getId();
+        tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), id, "departamento_id")));
+        if (tablaActividades.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No tiene actividades asignadas");
+            dispose();
+            EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
+            edv.setVisible(true);
+        } else {
+            tblActividadEncargadoVista.setModel(tablaActividades);
+            tblActividadEncargadoVista.updateUI();
+        }
     }
 
     /**
@@ -47,7 +78,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -88,9 +119,10 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnGestionarHitos.setText("Gestionar hitos");
@@ -195,17 +227,25 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
-        this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        dispose();
+        EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
+        edv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnGestionarHitosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarHitosActionPerformed
-        GestionarHitosVista cav = new GestionarHitosVista();
-        this.dispose();
-        cav.setLocationRelativeTo(null);
-        cav.setVisible(true);
+        int eleccion = -1;
+        eleccion = tblActividadEncargadoVista.getSelectedRow();
+        if (eleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Elija una actividad de la tabla");
+        } else {
+            ControladorActividad actividad = new ControladorActividad();
+            actividad.setActividad((ActividadModelo)tablaActividades.getLista().buscarPorPosicion(eleccion));
+            GestionarHitosVista cav = new GestionarHitosVista(controlador,actividad);
+            this.dispose();
+            cav.setLocationRelativeTo(null);
+            cav.setVisible(true);
+        }
+
     }//GEN-LAST:event_btnGestionarHitosActionPerformed
 
     /**

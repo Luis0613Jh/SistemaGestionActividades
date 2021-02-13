@@ -252,7 +252,7 @@ public class JefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnProyectosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProyectosAsignadosActionPerformed
-        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista();
+        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);

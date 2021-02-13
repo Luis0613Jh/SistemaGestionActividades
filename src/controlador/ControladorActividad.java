@@ -15,17 +15,27 @@ import modelo.ActividadModelo;
  */
 public class ControladorActividad {
     private ActividadModelo actividad = new ActividadModelo();
-
+    /**
+     * Metodo para obtener la ActividadModelo de la clase
+     * @return un objeto de tipo ActividadModelo de la clase
+     */
     public ActividadModelo getActividad() {
         if(actividad == null){
             actividad = new ActividadModelo();
         }
         return actividad;
     }
-
+    /**
+     * Metodo para enviar una ActividadModelo a la clase
+     * @param actividad un objeto de tipo ActividadModelo
+     */
     public void setActividad(ActividadModelo actividad) {
         this.actividad = actividad;
     }
+    /**
+     * Metodo para guardar actividad
+     * @return un true en caso de que se guardo correctamente en caso contrario false
+     */
     public boolean guardarActividad(){
         try {
             ActividadServicio guardar = new ActividadServicio();

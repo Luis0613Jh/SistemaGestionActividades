@@ -1,6 +1,8 @@
 
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.utilidades.UtilidadesVistas;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -10,26 +12,20 @@ public class PersonalVista extends javax.swing.JFrame {
     /**
      * Creates new form PruebaModificado
      */
+    private ControladorPersona controlador;
     public PersonalVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnHitosAsignados.setSelected(true);
     }
-    public PersonalVista(String path) {
+    public PersonalVista(ControladorPersona controlador) {
         initComponents();
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         this.btnHitosAsignados.setSelected(true);
-        cargarImagen(path);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),lblFoto);
     }
-    public void cargarImagen(String path) {
-        if (path != null) {
-            ImageIcon foto = new ImageIcon(path);
-            Icon fondo1 = new ImageIcon(foto.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
-            lblFoto.setIcon(fondo1);
-        } else {
-            lblFoto.setText("Empeado sin \n foto cargada");
-        }
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -250,7 +246,7 @@ public class PersonalVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnHitosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitosAsignadosActionPerformed
-        VisualizarHitosPersonalVista gps = new VisualizarHitosPersonalVista();
+        VisualizarHitosPersonalVista gps = new VisualizarHitosPersonalVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);

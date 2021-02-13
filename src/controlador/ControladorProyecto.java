@@ -15,17 +15,27 @@ import modelo.ProyectoModelo;
  */
 public class ControladorProyecto {
     ProyectoModelo proyecto = new ProyectoModelo();
-
+    /**
+     * Metodo para obtener el ProyectoModelo
+     * @return el proyectoModelo de la clase
+     */
     public ProyectoModelo getProyecto() {
         if(proyecto == null){
             proyecto = new ProyectoModelo();
         }
         return proyecto;
     }
-
+    /**
+     * Metodo para enviar un ProyectoModelo a la clase
+     * @param proyecto un objeto de tipo ProyectoModelo
+     */
     public void setProyecto(ProyectoModelo proyecto) {
         this.proyecto = proyecto;
     }
+    /**
+     * Metodo para guardar el proyecto
+     * @return true en caso de guardar exitosamente false de lo contrario
+     */
     public boolean guardarProyecto(){
         try {
             ProyectoServicio controlador = new ProyectoServicio();

@@ -5,6 +5,13 @@
  */
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
+import controlador.servicio.PersonaServicio;
+import javax.swing.JOptionPane;
+import modelo.PersonaModelo;
+import vista.tabla.tabla_GestionarEmpleado;
+
 /**
  *
  * @author juana
@@ -14,10 +21,37 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     /**
      * Creates new form AsignarPersonalDepartamentoVista
      */
+    private ControladorDepartamento controlador;
+    private PersonaServicio sePer = new PersonaServicio();
+    private tabla_GestionarEmpleado tabla1 = new tabla_GestionarEmpleado();
+    private tabla_GestionarEmpleado tabla2 = new tabla_GestionarEmpleado();
+
     public AsignarPersonalDepartamentoVista() {
         initComponents();
     }
 
+    public AsignarPersonalDepartamentoVista(ControladorDepartamento controlador) {
+        initComponents();
+        this.controlador = controlador;
+        tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
+        tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
+        actualizar();
+    }
+    
+    public void actualizar(){
+        tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
+        tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
+        if (tabla1.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No hay empleados sin departamento designado");
+        }
+        if (tabla2.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No hay empleados designado para este departamento");
+        }
+        tblPersonalDisponible.setModel(tabla1);
+        tblPersonalDisponible.updateUI();
+        tbtPersonalEnDepartamento.setModel(tabla2);
+        tbtPersonalEnDepartamento.updateUI();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,6 +125,11 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         btnDelegarPersonal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelegarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnDelegarPersonal.setText("Delegar");
+        btnDelegarPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelegarPersonalActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnDelegarPersonal);
         btnDelegarPersonal.setBounds(690, 240, 153, 40);
 
@@ -157,6 +196,11 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         btnRevocarPersonal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRevocarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnRevocarPersonal.setText("Revocar");
+        btnRevocarPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRevocarPersonalActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnRevocarPersonal);
         btnRevocarPersonal.setBounds(690, 240, 153, 40);
 
@@ -170,11 +214,41 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
         this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        gp.setLocationRelativeTo(null);
+        gp.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnDelegarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelegarPersonalActionPerformed
+        int seleccion = -1;
+        seleccion = tblPersonalDisponible.getSelectedRow();
+        if(seleccion == -1){
+            JOptionPane.showMessageDialog(null, "Elija un empleado de la tabla de empleados sin departamento asignado");
+        }else{
+            ControladorPersona aux = new ControladorPersona();
+            aux.setPersona((PersonaModelo)tabla1.getLista().buscarPorPosicion(seleccion));
+            aux.getPersona().setId_departamento(controlador.getDepatamento().getId());
+            sePer.modificarPersona(aux.getPersona(),"id",sePer.listarPersonas());
+            actualizar();
+            JOptionPane.showMessageDialog(null, "Pesona asignada a este departamento");
+        }
+    }//GEN-LAST:event_btnDelegarPersonalActionPerformed
+
+    private void btnRevocarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevocarPersonalActionPerformed
+        int seleccion = -1;
+        seleccion = tblPersonalDisponible.getSelectedRow();
+        if(seleccion == -1){
+            JOptionPane.showMessageDialog(null, "Elija un empleado de la tabla de empleados sin departamento asignado");
+        }else{
+            ControladorPersona aux = new ControladorPersona();
+            aux.setPersona((PersonaModelo)tabla1.getLista().buscarPorPosicion(seleccion));
+            aux.getPersona().setId_departamento(-3);
+            sePer.modificarPersona(aux.getPersona(),"id",sePer.listarPersonas());
+            actualizar();
+            JOptionPane.showMessageDialog(null, "Pesona asignada a este departamento");
+        }
+    }//GEN-LAST:event_btnRevocarPersonalActionPerformed
 
     /**
      * @param args the command line arguments

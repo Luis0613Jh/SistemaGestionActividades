@@ -55,6 +55,10 @@ public class ControladorDepartamento {
             return false;
         }
     }
+    /**
+     * Metodo para obtener un array de departamentos
+     * @return  un arreglo de departamentos
+     */
     public String[] departamentos(){
         DepartamentoServicio servicio = new DepartamentoServicio();
         ListaSimple lista = servicio.listarDepartamentosActivos(servicio.listarDepartamentos());
