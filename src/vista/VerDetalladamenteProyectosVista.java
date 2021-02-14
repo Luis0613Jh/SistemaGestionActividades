@@ -1,21 +1,66 @@
-
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.servicio.ActividadServicio;
+import controlador.servicio.ProyectoServicio;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import vista.tabla.tabla_Actividad;
 
 public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    private ControladorPersona controlador;
+    private ControladorProyecto controladorProyecto = new ControladorProyecto();
+    private tabla_Actividad tablaActividad = new tabla_Actividad();
+    private ActividadServicio serAct = new ActividadServicio();
+
     public VerDetalladamenteProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+    }
+
+    public VerDetalladamenteProyectosVista(ControladorPersona controlador, ControladorProyecto controladorProyecto) {
+        initComponents();
+        this.controlador = controlador;
+        this.controladorProyecto = controladorProyecto;
+        this.setLocationRelativeTo(this);
+        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
+        if (tablaActividad.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+            this.dispose();
+            JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+            jpv.setVisible(true);
+        } else {
+            tbtDetalleProyecto.setModel(tablaActividad);
+            tbtDetalleProyecto.updateUI();
+        }
+    }
+
+    public VerDetalladamenteProyectosVista(ControladorProyecto controladorProyecto) {
+        initComponents();
+        this.controladorProyecto = controladorProyecto;
+        this.setLocationRelativeTo(this);
+        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
+        if (tablaActividad.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+            this.dispose();
+            GestionarProyectosVista gps = new GestionarProyectosVista();
+            this.dispose();
+            gps.setLocationRelativeTo(null);
+            gps.setVisible(true);
+        } else {
+            tbtDetalleProyecto.setModel(tablaActividad);
+            tbtDetalleProyecto.updateUI();
+        }
     }
 
     /**
@@ -107,10 +152,9 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarProyectosVista gp = new GestionarProyectosVista();
         this.dispose();
-        gp.setLocationRelativeTo(null);
-        gp.setVisible(true);
+        JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+        jpv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

@@ -1,20 +1,49 @@
 package vista;
 
+import controlador.ControladorActividadPersonal;
+import controlador.ControladorPersona;
+import controlador.cola.Cola;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author juana
- */
 import controlador.servicio.CuentaServicio;
 import controlador.servicio.PersonaServicio;
 import controlador.utilidades.Sesion;
+import controlador.utilidades.UtilidadesControlador;
+import ds.desktop.notify.DesktopNotify;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class LoginVista extends javax.swing.JFrame {
 
+    private ControladorPersona controlador = new ControladorPersona();
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
+    private ControladorActividadPersonal cap = new ControladorActividadPersonal();
+    private Timer timer;
+    private int segundos;
+    private Cola colaActividadesPersonales = new Cola();
+    
+    private ActionListener accion = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            segundos--;
+            System.out.println("Segundos: " + segundos);
+            if (segundos == 0) {
+                System.out.println("Se terminó el tiempo");
+                DesktopNotify.showDesktopMessage("Inicio en: 00:01:20", "La tarea ha terminado", DesktopNotify.INFORMATION);
+                timer.stop();
+                colaActividadesPersonales.dequeue();
+                if (colaActividadesPersonales.tamanio() > 0) {
+                    segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+                    timer.start();
+                } else {
+                    DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
+                }
+            }
+        }
+    };
 
     /**
      * Creates new form pms
@@ -29,45 +58,52 @@ public class LoginVista extends javax.swing.JFrame {
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
             PersonaServicio serPer = new PersonaServicio();
-            String path = (serPer.buscarPersona(sesion.getCuenta().getId(),"id")).getPath_imagen();            
+            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(),"id"));           
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getTipo(),path);
+            autorizarVista(sesion.getRol().getTipo(),controlador);
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void autorizarVista(String rolNombre,String path) {
+    public void autorizarVista(String rolNombre,ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
-
+        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
+        timer = new Timer(1000, accion);
+        segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+        timer.start();
+        
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
                 this.dispose();
-                AdministradorVista av = new AdministradorVista(path);
+                AdministradorVista av = new AdministradorVista(controlador);
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
                 System.out.println("Es un Jefe de Proyecto");
                 this.dispose();
-                JefeProyectoVista jpv = new JefeProyectoVista();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
                 jpv.setVisible(true);
                 break;
             case "Encargado":
                 System.out.println("Es un Encargado");
                 this.dispose();
-                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
                 edv.setVisible(true);
                 break;
             case "Personal":
                 System.out.println("Es un Personal");
                 this.dispose();
-                PersonalVista pv = new PersonalVista(path);
+                PersonalVista pv = new PersonalVista(controlador);
                 pv.setVisible(true);
                 break;
         }
     }
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

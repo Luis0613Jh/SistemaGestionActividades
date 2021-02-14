@@ -104,7 +104,7 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Cursor Por defecto"/>
                 </Property>
               </Properties>
               <Events>
@@ -150,12 +150,14 @@
                           <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnSalir" min="-2" pref="210" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="btnVerDetalladamente" alignment="0" pref="187" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnVerDetalladamente" alignment="0" pref="232" max="32767" attributes="0"/>
                                       <Component id="btnEliminarDepartamento" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="btnCambiarEncargado" alignment="0" max="32767" attributes="0"/>
                                       <Component id="btnCrearDepartamento" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnVerDetalladamente1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnSalir" alignment="0" pref="210" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -170,17 +172,17 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="btnCrearDepartamento" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnCambiarEncargado" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnEliminarDepartamento" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnVerDetalladamente" min="-2" pref="55" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnEliminarDepartamento" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="btnVerDetalladamente" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnVerDetalladamente1" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -207,7 +209,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -231,14 +233,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnCambiarEncargado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cambiar encargado."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCambiarEncargadoActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnCrearDepartamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear departamento."/>
@@ -264,6 +258,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDetalladamenteActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="rojerusan.RSButtonMetro" name="btnVerDetalladamente1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gestionar Personal"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerDetalladamente1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

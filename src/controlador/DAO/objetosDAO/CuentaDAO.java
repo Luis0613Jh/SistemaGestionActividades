@@ -53,7 +53,7 @@ public class CuentaDAO extends AdaptadorDAO {
         return lista;
     }
     
-    public CuentaModelo buscarCuenta(String dato, String atributo, ListaSimple lista) {
+    public CuentaModelo buscarCuenta(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarCuentas(lista, atributo);
         CuentaModelo cuenta = (CuentaModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
         return cuenta;
@@ -70,7 +70,7 @@ public class CuentaDAO extends AdaptadorDAO {
         }
     }
     
-    public Boolean darDeBajaCuenta(String dato, String atributo, ListaSimple lista) {
+    public Boolean darDeBajaCuenta(Object dato, String atributo, ListaSimple lista) {
         CuentaModelo cuenta = buscarCuenta(dato, atributo, lista);
         cuenta.setEstado("inactivo");
         try {

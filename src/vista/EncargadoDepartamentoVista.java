@@ -1,14 +1,25 @@
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.utilidades.UtilidadesVistas;
+
 public class EncargadoDepartamentoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    ControladorPersona controlador;
     public EncargadoDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarProyectos.setSelected(true);
+    }
+    public EncargadoDepartamentoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        this.btnGestionarProyectos.setSelected(true);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),lblFoto);
     }
 
     /**
@@ -231,7 +242,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGestionarProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProyectosActionPerformed
-        VisualizarActividadesEncargadoVista vae = new VisualizarActividadesEncargadoVista();
+        VisualizarActividadesEncargadoVista vae = new VisualizarActividadesEncargadoVista(controlador);
         vae.setLocationRelativeTo(null);
         vae.setVisible(true);
     }//GEN-LAST:event_btnGestionarProyectosActionPerformed

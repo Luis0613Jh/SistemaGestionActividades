@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ControladorPersona;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -9,16 +10,18 @@ public class JefeProyectoVista extends javax.swing.JFrame {
     /**
      * Creates new form PruebaModificado
      */
+    private ControladorPersona controlador ;
     public JefeProyectoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnProyectosAsignados.setSelected(true);
     }
-    public JefeProyectoVista(String path) {
+    public JefeProyectoVista(ControladorPersona controlador) {
         initComponents();
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         this.btnProyectosAsignados.setSelected(true);
-        cargarImagen(path);
+        cargarImagen(controlador.getPersona().getPath_imagen());
     }
     public void cargarImagen(String path) {
         if (path != null) {
@@ -249,7 +252,7 @@ public class JefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnProyectosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProyectosAsignadosActionPerformed
-        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista();
+        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);

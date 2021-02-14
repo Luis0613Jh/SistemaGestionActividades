@@ -23,6 +23,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
      * Creates new form CrearAdministrador
      */
     ControladorPersona controlador;
+    ControladorPersona temp;
     ControladorRol controladorRol = new ControladorRol();
     ControladorCuenta controladorCuenta = new ControladorCuenta();
     PersonaServicio perSer = new PersonaServicio();
@@ -32,6 +33,14 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.controlador = controlador;
+        llenarDatos();
+
+    }
+    public EditarEmpleadoVista(ControladorPersona controlador , ControladorPersona temp) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        this.temp = temp;
         llenarDatos();
 
     }
@@ -281,7 +290,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             if (perSer.modificarPersona(controlador.getPersona(), "id", perSer.listarPersonas()) && cuentSer.modificarCuenta(controladorCuenta.getCuenta(),"id",cuentSer.listarCuentas())) {
                 JOptionPane.showMessageDialog(null, "Se edito correctamente");
                 dispose();
-                AdministradorVista admin = new AdministradorVista();                
+                AdministradorVista admin = new AdministradorVista(temp);                
                 admin.setLocationRelativeTo(null);
                 admin.setVisible(true);
             } else {
@@ -296,7 +305,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
+        GestionarEmpleadosVista ge = new GestionarEmpleadosVista(temp);
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
@@ -308,7 +317,8 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new Frm_CambioRol(this, true, controlador).setVisible(true);
-
+        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
+        txtRol.setText(controladorRol.getRol().getTipo());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

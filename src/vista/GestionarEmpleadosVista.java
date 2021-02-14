@@ -1,10 +1,10 @@
-
 package vista;
 
 import controlador.ControladorPersona;
 import controlador.servicio.CuentaServicio;
 import controlador.servicio.PersonaServicio;
 import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesVistas;
 import javax.swing.JOptionPane;
 import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
@@ -21,15 +21,27 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     ControladorPersona controlador = new ControladorPersona();
     PersonaServicio perSer = new PersonaServicio();
-    CuentaServicio cuentSer = new CuentaServicio ();
+    CuentaServicio cuentSer = new CuentaServicio();
     RolServicio rolSer = new RolServicio();
+    ControladorPersona temp;
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(),true,"activo"));
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
         tbtGestionarEmpleados.setModel(tabla);
         tbtGestionarEmpleados.updateUI();
+
+    }
+    public GestionarEmpleadosVista(ControladorPersona temp) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.temp = temp;
+        this.btnCrearEmpleado.setSelected(true);
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+        tbtGestionarEmpleados.setModel(tabla);
+        tbtGestionarEmpleados.updateUI();
+        UtilidadesVistas.cargarImagen(temp.getPersona().getPath_imagen(),jLabel1);
 
     }
 
@@ -71,7 +83,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -115,14 +127,14 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnEditarEmpleado.setText("Editar empleado.");
@@ -261,29 +273,38 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
-        CrearEmpleadoVista ce = new CrearEmpleadoVista();
+        CrearEmpleadoVista ce = new CrearEmpleadoVista(temp);
         this.dispose();
         ce.setLocationRelativeTo(null);
         ce.setVisible(true);
     }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
 
     private void btnEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEmpleadoActionPerformed
-        int eleccion = tbtGestionarEmpleados.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador);
-        this.dispose();
-        ee.setLocationRelativeTo(null);
-        ee.setVisible(true);
-
+        int eleccion = -1;
+        eleccion = tbtGestionarEmpleados.getSelectedRow();
+        if (eleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Elija Empleado de la tabla");
+        } else {
+            controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
+            EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador,temp);
+            this.dispose();
+            ee.setLocationRelativeTo(null);
+            ee.setVisible(true);
+        }
     }//GEN-LAST:event_btnEditarEmpleadoActionPerformed
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDatosActionPerformed
-        int eleccion = tbtGestionarEmpleados.getSelectedRow();
-        controlador.setPersona((PersonaModelo)tabla.getLista().buscarPorPosicion(eleccion));
-        VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);        
-        vde.setLocationRelativeTo(null);
-        vde.setVisible(true);        
-        this.dispose();
+        int eleccion = -1;
+        eleccion = tbtGestionarEmpleados.getSelectedRow();
+        if (eleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Elija Empleado de la tabla");
+        } else {
+            controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
+            VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);
+            vde.setLocationRelativeTo(null);
+            vde.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -294,12 +315,23 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        int seleccion = tbtGestionarEmpleados.getSelectedRow();
-        if(perSer.darDeBajaPersona(String.valueOf(seleccion+1),"id",perSer.listarPersonas())){
-            JOptionPane.showMessageDialog(null,"Se elimino correctamente el empleado\nde la lista");
-        }else{
-            JOptionPane.showMessageDialog(null,"No se pudo eliminar");
+        int seleccion = -1;
+        seleccion = tbtGestionarEmpleados.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Elija Empleado de la tabla");
+        } else {
+            boolean bajaCuenta = cuentSer.darDeBajaCuenta(((PersonaModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId_cuenta(), "id", cuentSer.listarCuentas());
+            boolean bajaEmpleado = perSer.darDeBajaPersona(((PersonaModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", perSer.listarPersonas());
+            if (bajaCuenta && bajaEmpleado) {
+                tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+                tbtGestionarEmpleados.setModel(tabla);
+                tbtGestionarEmpleados.updateUI();
+                JOptionPane.showMessageDialog(null, "Se elimino correctamente el empleado\nde la lista");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo eliminar");
+            }
         }
+
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     /**

@@ -36,11 +36,11 @@ public class AdaptadorDAO implements InterfazDAO {
 
     /**
      * Método que permite recuperar todos los objetos de un archivo especificado.
-     * @return Una lista con todos los objetos almacenados en el archivo a buscar.
+     * @return Una lista con todos los objetos almacenados en el archivo a buscar, en caso de que no existan objetos, retorna null.
      */
     @Override
     public ListaSimple listarObjetos() {
-        ListaSimple listaAux = new ListaSimple();
+        ListaSimple listaAux = null;
         File archivo = new File(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json");
         try {
             if (archivo.exists()) {
@@ -99,15 +99,16 @@ public class AdaptadorDAO implements InterfazDAO {
      * @param lista Lista en donde se van a buscar las coincidencias indicadas.
      * @param dato Dato a buscar en la lista, es de tipo Object.
      * @param atributo Atributo que especifica el nombre de la variable que contiene el dato a buscar (variable instanciada en el modelo), es de tipo String.
-     * @return Retorna una lista con todos los objetos que coinciden con el dato a buscar, es de tipo ListaSimple.
+     * @return Retorna una lista con todos los objetos que coinciden con el dato a buscar, es de tipo ListaSimple, en caso de no existir coincidencias, retorna null.
      */
     @Override
     public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo) {
-        ListaSimple listaTemporal = new ListaSimple();
+        ListaSimple listaTemporal = null;
 
         while (lista.tamanio() > 0) {
             Object objeto = UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
             if (objeto != null) {
+                listaTemporal = new ListaSimple();
                 listaTemporal.insertarFinal(objeto);
                 lista.eliminarPorObjeto(objeto);
             } else {

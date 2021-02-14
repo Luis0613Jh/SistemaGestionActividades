@@ -28,9 +28,9 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona controladorEmp = new ControladorPersona();
-    RolServicio serRol = new RolServicio();
-
+    private ControladorPersona controladorEmp = new ControladorPersona();
+    private RolServicio serRol = new RolServicio();
+    private ControladorPersona temp ;
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -39,6 +39,15 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         lblFoto.setIcon(fondoImagen);
         //UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
     }
+    public CrearEmpleadoVista(ControladorPersona temp) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
+        Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+        lblFoto.setIcon(fondoImagen);
+        
+    }
+
 
     /**
      * Metodo para saber si hay campos vacios
@@ -274,8 +283,14 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
             controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), (String) cbxRol.getSelectedItem(), "tipo"));
             controladorEmp.getPersona().setEstado("activo");
+            if(((String) cbxRol.getSelectedItem()).equals("Administrador")){
+                controladorEmp.getPersona().setId_departamento(-1);
+            }else{
+                controladorEmp.getPersona().setId_departamento(-3);
+            }            
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
+            controladorEmp.getCuenta().setEstado("activo");
             if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
                 limpiar();
@@ -286,7 +301,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
+        GestionarEmpleadosVista ge = new GestionarEmpleadosVista(temp);
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
