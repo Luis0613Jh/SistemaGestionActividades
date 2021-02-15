@@ -51,7 +51,11 @@ public class ControladorActividad {
     public int numeroActividades() {
         ActividadServicio guardar = new ActividadServicio();
         ListaSimple lista = guardar.listarActividads();
-        return lista.tamanio();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
     }
     
 }

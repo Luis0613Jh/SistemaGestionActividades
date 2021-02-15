@@ -4,6 +4,7 @@ import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
 import controlador.servicio.ActividadServicio;
 import controlador.servicio.ProyectoServicio;
+import controlador.servicio.RolServicio;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -153,8 +154,24 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
-        JefeProyectoVista jpv = new JefeProyectoVista(controlador);
-        jpv.setVisible(true);
+        RolServicio serRol = new RolServicio();
+        switch (serRol.buscarRol(controlador.getPersona().getId_rol(), "id").getTipo()) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                this.dispose();
+                GestionarProyectosVista av = new GestionarProyectosVista(controlador);
+                av.setVisible(true);
+                break;
+
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+                jpv.setVisible(true);
+                break;
+
+        }
+
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

@@ -3,9 +3,6 @@ package vista;
 
 import controlador.ControladorPersona;
 import controlador.utilidades.UtilidadesVistas;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
 public class PersonalVista extends javax.swing.JFrame {
 
@@ -253,7 +250,7 @@ public class PersonalVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHitosAsignadosActionPerformed
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
-        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista();
+        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);        
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed

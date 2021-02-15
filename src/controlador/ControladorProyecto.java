@@ -6,6 +6,7 @@
 
 package controlador;
 
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ProyectoServicio;
 import modelo.ProyectoModelo;
 
@@ -48,6 +49,11 @@ public class ControladorProyecto {
     
     public int numeroProyectos(){
         ProyectoServicio controlador = new ProyectoServicio();
-        return controlador.listarProyectos().tamanio();
+        ListaSimple lista = controlador.listarProyectos();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
     }
 }

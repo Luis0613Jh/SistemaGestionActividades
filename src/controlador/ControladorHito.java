@@ -6,6 +6,7 @@
 
 package controlador;
 
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.HitoServicio;
 import modelo.HitoModelo;
 
@@ -47,6 +48,11 @@ public class ControladorHito {
     }
     public int numeroHitos(){
         HitoServicio  guardar = new HitoServicio();
-        return guardar.listarHitos().tamanio();
+        ListaSimple lista = guardar.listarHitos();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
     }
 }

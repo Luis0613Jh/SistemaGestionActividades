@@ -103,8 +103,8 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtTelefonoPersonal = new javax.swing.JTextField();
-        cbxRol = new javax.swing.JComboBox<>();
         txtContraseniaPersonal = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
@@ -212,18 +212,13 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         txtTelefonoPersonal.setBorder(null);
         jPanel2.add(txtTelefonoPersonal);
         txtTelefonoPersonal.setBounds(250, 260, 310, 30);
-
-        cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal", "Administrador" }));
-        cbxRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        cbxRol.setBorder(null);
-        jPanel2.add(cbxRol);
-        cbxRol.setBounds(250, 300, 310, 30);
         jPanel2.add(txtContraseniaPersonal);
         txtContraseniaPersonal.setBounds(250, 380, 310, 30);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setText("Personal");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(250, 310, 100, 24);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 460);
@@ -279,18 +274,18 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         if (vacios()) {
             controladorEmp.getPersona().setCedula(txtCedulaPersonal.getText());
             controladorEmp.getPersona().setNombre(txtNombrePersonal.getText());
+            controladorEmp.getPersona().setId(controladorEmp.numeroEmpleados()+1);
+            controladorEmp.getPersona().setId_cuenta(controladorEmp.numeroEmpleados()+1);
             controladorEmp.getPersona().setCorreo(txtCorreoElectronicoPersonal.getText());
             controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
-            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), (String) cbxRol.getSelectedItem(), "tipo"));
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),"Personal", "tipo"));
             controladorEmp.getPersona().setEstado("activo");
-            if(((String) cbxRol.getSelectedItem()).equals("Administrador")){
-                controladorEmp.getPersona().setId_departamento(-1);
-            }else{
-                controladorEmp.getPersona().setId_departamento(-3);
-            }            
+            controladorEmp.getPersona().setId_departamento(-3);                        
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
             controladorEmp.getCuenta().setEstado("activo");
+            controladorEmp.getCuenta().setExternal_id(0);
+            controladorEmp.getCuenta().setId(controladorEmp.getPersona().getId_cuenta());
             if (controladorEmp.guardarEmpleado()) {
                 JOptionPane.showMessageDialog(null, "Se guardo correctamente");
                 limpiar();
@@ -306,10 +301,6 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,7 +377,6 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cbxRol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -395,6 +385,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
