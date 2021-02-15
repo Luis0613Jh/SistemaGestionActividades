@@ -8,12 +8,11 @@ public class ActividadPersonalServicio {
 
     public static String IDENTIFICADOR = "id";
     public static String NOMBRE = "nombre";
-    public static String FECHA_INICIO = "fechaInicio";
     public static String FECHA_ENTREGA = "fechaEntrega";
-    public static String EXTERNAL_ID = "external_id";
     public static String DESCRIPCION = "descripcion";
-    public static String PRIORIDAD = "prioridad";
-    public static String ACTIVO = "activo";
+    public static String HORA = "hora";
+    public static String ESTADO = "estado";
+    public static String ID_PERSONA = "id_persona";
     private ActividadPersonalDAO actividadPersonalDAO = new ActividadPersonalDAO();
 
     /**
