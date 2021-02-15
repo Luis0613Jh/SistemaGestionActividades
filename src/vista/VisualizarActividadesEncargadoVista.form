@@ -92,7 +92,7 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -120,11 +120,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnGestionarHitos" alignment="0" pref="199" max="32767" attributes="0"/>
-                                  <Component id="btnSalir" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="btnGestionarHitos" min="-2" pref="199" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnRegresar" min="-2" pref="199" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -138,9 +139,9 @@
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
                       <Component id="btnGestionarHitos" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace pref="244" max="32767" attributes="0"/>
+                      <Component id="btnRegresar" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -191,15 +192,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarHitosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnSalir">
+            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnRegresar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salir."/>
+                <Property name="text" type="java.lang.String" value="Regresar."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegresarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

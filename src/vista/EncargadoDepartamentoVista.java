@@ -43,7 +43,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         btnGestionarProyectos = new rojeru_san.rsbutton.RSButtonMetro();
-        btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
+        btnCerrarSesion = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         calendarioEncargado = new rojerusan.RSCalendar();
 
@@ -61,7 +61,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -142,11 +142,11 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 0, 0));
+        btnCerrarSesion.setText("Cerrar sesión.");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnCerrarSesionActionPerformed(evt);
             }
         });
 
@@ -161,7 +161,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                            .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -175,7 +175,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -253,12 +253,12 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         apv.setVisible(true);
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         LoginVista lv = new LoginVista();
         this.dispose();
         lv.setLocationRelativeTo(null);
         lv.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,8 +328,8 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.rsbutton.RSButtonMetro btnActividadesPersonales;
+    private rojeru_san.rsbutton.RSButtonMetro btnCerrarSesion;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarProyectos;
-    private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojerusan.RSCalendar calendarioEncargado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;

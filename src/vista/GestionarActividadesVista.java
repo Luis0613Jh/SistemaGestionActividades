@@ -78,7 +78,8 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnEliminarActividad = new rojeru_san.rsbutton.RSButtonMetro();
         btnCrearActividad = new rojeru_san.rsbutton.RSButtonMetro();
-        btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
+        btnRegresar = new rojeru_san.rsbutton.RSButtonMetro();
+        btnRegresar1 = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblActividades = new rojerusan.RSTableMetro();
@@ -153,11 +154,19 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
+        btnRegresar1.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar1.setText("Regresar.");
+        btnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar1ActionPerformed(evt);
             }
         });
 
@@ -172,7 +181,8 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnCrearActividad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(btnEliminarActividad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -186,7 +196,9 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnEliminarActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(180, 180, 180)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -257,12 +269,12 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         cav.setVisible(true);
     }//GEN-LAST:event_btnCrearActividadActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         VisualizarProyectosJefeProyectoVista atras = new VisualizarProyectosJefeProyectoVista(controlador);
         this.dispose();
         atras.setLocationRelativeTo(null);
         atras.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnEliminarActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActividadActionPerformed
         int seleccion = -1;
@@ -277,6 +289,10 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione una actividad de la tabla");
         }
     }//GEN-LAST:event_btnEliminarActividadActionPerformed
+
+    private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,7 +363,8 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.rsbutton.RSButtonMetro btnCrearActividad;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarActividad;
-    private rojeru_san.rsbutton.RSButtonMetro btnSalir;
+    private rojeru_san.rsbutton.RSButtonMetro btnRegresar;
+    private rojeru_san.rsbutton.RSButtonMetro btnRegresar1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

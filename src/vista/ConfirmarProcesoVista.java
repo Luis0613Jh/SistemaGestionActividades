@@ -64,14 +64,14 @@ public class ConfirmarProcesoVista extends javax.swing.JFrame {
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
+        btnSalir.setText("Regresar.");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
         jPanel2.add(btnSalir);
-        btnSalir.setBounds(30, 140, 70, 29);
+        btnSalir.setBounds(30, 140, 130, 29);
 
         btnAceptar.setBackground(new java.awt.Color(0, 153, 0));
         btnAceptar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -105,7 +105,7 @@ public class ConfirmarProcesoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

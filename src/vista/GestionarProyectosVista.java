@@ -45,7 +45,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnEliminarProyecto = new rojeru_san.rsbutton.RSButtonMetro();
         btnCrearProyecto = new rojeru_san.rsbutton.RSButtonMetro();
-        btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
+        btnRegresar = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGestionarProyectosVista = new rojerusan.RSTableMetro();
@@ -131,11 +131,11 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -151,7 +151,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
                             .addComponent(btnCrearProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnEliminarProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -167,7 +167,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -265,12 +265,12 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         AdministradorVista admin = new AdministradorVista();
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnEliminarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProyectoActionPerformed
         int seleccion = -1;
@@ -341,7 +341,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonMetro btnCrearProyecto;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarProyecto;
     private javax.swing.JButton btnGuardarCambios;
-    private rojeru_san.rsbutton.RSButtonMetro btnSalir;
+    private rojeru_san.rsbutton.RSButtonMetro btnRegresar;
     private rojeru_san.rsbutton.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

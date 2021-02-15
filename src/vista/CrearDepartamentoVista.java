@@ -61,8 +61,8 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-cbxEncargado = new javax.swing.JComboBox<>();
-txtDescripcion = new javax.swing.JTextField();
+        cbxEncargado = new javax.swing.JComboBox<>();
+        txtDescripcion = new javax.swing.JTextField();
         txtNombreDepartamento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
@@ -128,14 +128,14 @@ txtDescripcion = new javax.swing.JTextField();
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
+        btnSalir.setText("Regresar.");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
         jPanel5.add(btnSalir);
-        btnSalir.setBounds(30, 30, 70, 29);
+        btnSalir.setBounds(30, 30, 140, 29);
 
         btnGuardarProyecto.setBackground(new java.awt.Color(0, 153, 0));
         btnGuardarProyecto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

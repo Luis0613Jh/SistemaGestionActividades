@@ -52,7 +52,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnCrearDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
-        btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
+        btnRegresar = new rojeru_san.rsbutton.RSButtonMetro();
         btnVerDetalladamente = new rojerusan.RSButtonMetro();
         btnVerDetalladamente1 = new rojerusan.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
@@ -160,11 +160,11 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -197,7 +197,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                                 .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btnVerDetalladamente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -215,7 +215,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnVerDetalladamente1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -326,12 +326,12 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         AdministradorVista admin = new AdministradorVista();
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnEliminarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDepartamentoActionPerformed
         int seleccion = -1;
@@ -411,7 +411,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarDepartamento;
     private javax.swing.JButton btnGuardarCambios;
     private javax.swing.JButton btnInstructivo;
-    private rojeru_san.rsbutton.RSButtonMetro btnSalir;
+    private rojeru_san.rsbutton.RSButtonMetro btnRegresar;
     private rojerusan.RSButtonMetro btnVerDetalladamente;
     private rojerusan.RSButtonMetro btnVerDetalladamente1;
     private javax.swing.JButton jButton1;

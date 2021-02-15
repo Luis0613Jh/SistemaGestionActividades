@@ -57,26 +57,34 @@ public class Frm_CambioRol extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1.setBackground(new java.awt.Color(0, 112, 192));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cambiar el rol del empleado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 20, 340, 32);
+        jLabel1.setBounds(40, 20, 340, 29);
 
+        jPanel2.setBackground(new java.awt.Color(0, 112, 192));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setForeground(new java.awt.Color(255, 255, 0));
         jPanel2.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Rol   : ");
         jPanel2.add(jLabel2);
         jLabel2.setBounds(20, 40, 60, 30);
 
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(80, 40, 180, 26);
+        jComboBox1.setBounds(80, 40, 200, 30);
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,15 +92,15 @@ public class Frm_CambioRol extends javax.swing.JDialog {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(270, 40, 75, 32);
+        jButton1.setBounds(300, 40, 100, 30);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(30, 70, 370, 110);
+        jPanel2.setBounds(10, 70, 420, 110);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 420, 220);
+        jPanel1.setBounds(0, 0, 440, 220);
 
-        setSize(new java.awt.Dimension(438, 263));
+        setSize(new java.awt.Dimension(456, 263));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

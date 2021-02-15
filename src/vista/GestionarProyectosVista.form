@@ -92,7 +92,7 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -124,7 +124,7 @@
                                   <Component id="btnCrearProyecto" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnEliminarProyecto" pref="210" max="32767" attributes="0"/>
                                   <Component id="btnVerDetalladamente" pref="210" max="32767" attributes="0"/>
-                                  <Component id="btnSalir" pref="210" max="32767" attributes="0"/>
+                                  <Component id="btnRegresar" pref="210" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -145,7 +145,7 @@
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="btnVerDetalladamente" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnRegresar" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -213,15 +213,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearProyectoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnSalir">
+            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnRegresar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salir."/>
+                <Property name="text" type="java.lang.String" value="Regresar."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegresarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

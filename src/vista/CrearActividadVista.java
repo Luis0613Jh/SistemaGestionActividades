@@ -76,7 +76,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cbxDepartamento = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnGuardarProyecto = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -162,17 +162,17 @@ public class CrearActividadVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSalir);
-        btnSalir.setBounds(20, 40, 70, 29);
+        jPanel5.add(btnRegresar);
+        btnRegresar.setBounds(20, 40, 130, 29);
 
         btnGuardarProyecto.setBackground(new java.awt.Color(0, 153, 0));
         btnGuardarProyecto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -219,12 +219,12 @@ public class CrearActividadVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         GestionarActividadesVista gac = new GestionarActividadesVista(controlador, controladorProyecto);
         this.dispose();
         gac.setLocationRelativeTo(null);
         gac.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -523,7 +523,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarProyecto;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbxDepartamento;
     private javax.swing.JComboBox<String> cbxPrioridad;
     private com.toedter.calendar.JDateChooser dateChooserFechaEntrega;

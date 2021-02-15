@@ -56,7 +56,6 @@ public class AdministradorVista extends javax.swing.JFrame {
         btnGestionarProyectos = new rojeru_san.rsbutton.RSButtonMetro();
         btnGestionarEmpleados = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
-        btnGestionarPersonalDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         btnActividadesPersonales = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         calendarioAdministrador = new rojerusan.RSCalendar();
@@ -137,7 +136,7 @@ public class AdministradorVista extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,17 +162,10 @@ public class AdministradorVista extends javax.swing.JFrame {
         });
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("Salir.");
+        btnSalir.setText("Cerrar sesión.");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
-            }
-        });
-
-        btnGestionarPersonalDepartamento.setText("*************************** eliminame ");
-        btnGestionarPersonalDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarPersonalDepartamentoActionPerformed(evt);
             }
         });
 
@@ -189,29 +181,23 @@ public class AdministradorVista extends javax.swing.JFrame {
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnGestionarPersonalDepartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(68, 68, 68)
                 .addComponent(btnGestionarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnGestionarProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGestionarDepartamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnGestionarPersonalDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
                 .addComponent(btnActividadesPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,13 +294,6 @@ public class AdministradorVista extends javax.swing.JFrame {
         lv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnGestionarPersonalDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPersonalDepartamentoActionPerformed
-        AsignarPersonalDepartamentoVista apd = new AsignarPersonalDepartamentoVista();
-        apd.setLocationRelativeTo(null);
-        this.dispose();
-        apd.setVisible(true);
-    }//GEN-LAST:event_btnGestionarPersonalDepartamentoActionPerformed
-
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
         GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista();
         apv.setLocationRelativeTo(null);
@@ -367,7 +346,6 @@ public class AdministradorVista extends javax.swing.JFrame {
     private rojeru_san.rsbutton.RSButtonMetro btnActividadesPersonales;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarDepartamentos;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarEmpleados;
-    private rojeru_san.rsbutton.RSButtonMetro btnGestionarPersonalDepartamento;
     private rojeru_san.rsbutton.RSButtonMetro btnGestionarProyectos;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojerusan.RSCalendar calendarioAdministrador;

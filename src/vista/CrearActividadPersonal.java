@@ -1,4 +1,3 @@
-
 package vista;
 
 public class CrearActividadPersonal extends javax.swing.JFrame {
@@ -148,7 +147,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(checkBtnDescripcion);
-        checkBtnDescripcion.setBounds(20, 250, 110, 19);
+        checkBtnDescripcion.setBounds(20, 250, 110, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,14 +188,14 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
+        btnSalir.setText("Regresar.");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
         jPanel3.add(btnSalir);
-        btnSalir.setBounds(20, 10, 70, 29);
+        btnSalir.setBounds(20, 10, 130, 29);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 430, 650, 60);
@@ -209,7 +208,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBtnDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnDescripcionActionPerformed
-         if (checkBtnDescripcion.isSelected()) {
+        if (checkBtnDescripcion.isSelected()) {
             panelDescripcion.setVisible(true);
         } else {
             panelDescripcion.setVisible(false);
@@ -221,7 +220,9 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
+        JefeProyectoVista jpv = new JefeProyectoVista();
+        jpv.setLocationRelativeTo(null);
+        jpv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void cbxMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMinutosActionPerformed

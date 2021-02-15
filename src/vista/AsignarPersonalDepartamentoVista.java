@@ -73,7 +73,7 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbtPersonalEnDepartamento = new rojerusan.RSTableMetro();
-        btnSalir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnRevocarPersonal = new javax.swing.JButton();
@@ -168,17 +168,17 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(30, 70, 650, 210);
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnSalir);
-        btnSalir.setBounds(30, 300, 153, 40);
+        jPanel3.add(btnRegresar);
+        btnRegresar.setBounds(30, 300, 153, 40);
 
         jPanel6.setBackground(new java.awt.Color(0, 112, 192));
         jPanel6.setLayout(null);
@@ -213,12 +213,12 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         setBounds(0, 0, 877, 692);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnDelegarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelegarPersonalActionPerformed
         int seleccion = -1;
@@ -287,8 +287,8 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelegarPersonal;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnRevocarPersonal;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

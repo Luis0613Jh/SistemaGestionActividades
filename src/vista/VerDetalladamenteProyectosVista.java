@@ -4,6 +4,7 @@ import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
 import controlador.servicio.ActividadServicio;
 import controlador.servicio.ProyectoServicio;
+import controlador.servicio.RolServicio;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,7 +80,7 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbtDetalleProyecto = new rojerusan.RSTableMetro();
         jPanel5 = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -129,17 +130,17 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSalir);
-        btnSalir.setBounds(30, 30, 70, 29);
+        jPanel5.add(btnRegresar);
+        btnRegresar.setBounds(30, 30, 110, 29);
 
         jPanel1.add(jPanel5);
         jPanel5.setBounds(0, 380, 640, 70);
@@ -151,11 +152,9 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        this.dispose();
-        JefeProyectoVista jpv = new JefeProyectoVista(controlador);
-        jpv.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+      
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -709,7 +708,7 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

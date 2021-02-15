@@ -64,7 +64,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnGuardarProyecto = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -137,17 +137,17 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSalir);
-        btnSalir.setBounds(30, 50, 70, 29);
+        jPanel5.add(btnRegresar);
+        btnRegresar.setBounds(30, 50, 110, 29);
 
         btnGuardarProyecto.setBackground(new java.awt.Color(0, 153, 0));
         btnGuardarProyecto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -205,12 +205,12 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarProyectoActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         GestionarProyectosVista gps = new GestionarProyectosVista();
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -321,7 +321,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarProyecto;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbxJefeProyecto;
     private com.toedter.calendar.JDateChooser dateChooserFechaEntrega;
     private com.toedter.calendar.JDateChooser dateChooserFechaInicio;

@@ -123,7 +123,7 @@
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="btnCrearActividad" alignment="0" pref="199" max="32767" attributes="0"/>
                                   <Component id="btnEliminarActividad" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnSalir" max="32767" attributes="0"/>
+                                  <Component id="btnRegresar" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -142,7 +142,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnEliminarActividad" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnSalir" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnRegresar" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -198,15 +198,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearActividadActionPerformed"/>
               </Events>
             </Component>
-            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnSalir">
+            <Component class="rojeru_san.rsbutton.RSButtonMetro" name="btnRegresar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salir."/>
+                <Property name="text" type="java.lang.String" value="Regresar."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegresarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

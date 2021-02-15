@@ -103,10 +103,10 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtTelefonoPersonal = new javax.swing.JTextField();
-        cbxRol = new javax.swing.JComboBox<>();
         txtContraseniaPersonal = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -201,7 +201,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 33);
+        btnElegirFoto.setBounds(640, 320, 230, 25);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,18 +212,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         txtTelefonoPersonal.setBorder(null);
         jPanel2.add(txtTelefonoPersonal);
         txtTelefonoPersonal.setBounds(250, 260, 310, 30);
-
-        cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal", "Administrador" }));
-        cbxRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        cbxRol.setBorder(null);
-        jPanel2.add(cbxRol);
-        cbxRol.setBounds(250, 300, 310, 30);
         jPanel2.add(txtContraseniaPersonal);
         txtContraseniaPersonal.setBounds(250, 380, 310, 30);
+
+        jLabel9.setText("Personal");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(250, 300, 310, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 460);
@@ -231,17 +225,17 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
         jPanel5.setLayout(null);
 
-        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir.");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 0, 0));
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar.");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnSalir);
-        btnSalir.setBounds(30, 50, 70, 29);
+        jPanel5.add(btnRegresar);
+        btnRegresar.setBounds(30, 60, 130, 29);
 
         btnRegistrar.setBackground(new java.awt.Color(0, 153, 0));
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -292,7 +286,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
             controladorEmp.getCuenta().setEstado("activo");
             if (controladorEmp.guardarEmpleado()) {
-                JOptionPane.showMessageDialog(null, "Se guardo correctamente");
+                JOptionPane.showMessageDialog(null, "Se guardo correctamente");  
                 limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
@@ -300,16 +294,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         GestionarEmpleadosVista ge = new GestionarEmpleadosVista(temp);
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,8 +375,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cbxRol;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -395,6 +384,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
