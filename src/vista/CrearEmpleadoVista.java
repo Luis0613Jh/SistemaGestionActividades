@@ -30,7 +30,8 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      */
     private ControladorPersona controladorEmp = new ControladorPersona();
     private RolServicio serRol = new RolServicio();
-    private ControladorPersona temp ;
+    private ControladorPersona temp;
+
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -39,15 +40,15 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         lblFoto.setIcon(fondoImagen);
         //UtilidadesControlador.cargarComboBoxDias(jComboBox1, controladorEmp.ObtenerRoles());
     }
+
     public CrearEmpleadoVista(ControladorPersona temp) {
         initComponents();
         this.setLocationRelativeTo(this);
         ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
         Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
         lblFoto.setIcon(fondoImagen);
-        
-    }
 
+    }
 
     /**
      * Metodo para saber si hay campos vacios
@@ -273,25 +274,26 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         if (vacios()) {
             controladorEmp.getPersona().setCedula(txtCedulaPersonal.getText());
             controladorEmp.getPersona().setNombre(txtNombrePersonal.getText());
+            controladorEmp.getPersona().setId(controladorEmp.numeroEmpleados() + 1);
+            controladorEmp.getPersona().setId_cuenta(controladorEmp.numeroEmpleados() + 1);
             controladorEmp.getPersona().setCorreo(txtCorreoElectronicoPersonal.getText());
             controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
-            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), (String) cbxRol.getSelectedItem(), "tipo"));
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), "Personal", "tipo"));
             controladorEmp.getPersona().setEstado("activo");
-            if(((String) cbxRol.getSelectedItem()).equals("Administrador")){
-                controladorEmp.getPersona().setId_departamento(-1);
-            }else{
-                controladorEmp.getPersona().setId_departamento(-3);
-            }            
+            controladorEmp.getPersona().setId_departamento(-3);
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
             controladorEmp.getCuenta().setEstado("activo");
+            controladorEmp.getCuenta().setExternal_id(0);
+            controladorEmp.getCuenta().setId(controladorEmp.getPersona().getId_cuenta());
             if (controladorEmp.guardarEmpleado()) {
-                JOptionPane.showMessageDialog(null, "Se guardo correctamente");  
+                JOptionPane.showMessageDialog(null, "Se guardo correctamente");
                 limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "NO SE PUDO GUARDAR");
             }
         }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
