@@ -2,11 +2,10 @@
 package vista;
 
 import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
 import controlador.servicio.PersonaServicio;
-import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -21,13 +20,15 @@ public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
     private ControladorDepartamento controlador = new ControladorDepartamento();
     private tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     private PersonaServicio serPer = new PersonaServicio();
+    private ControladorPersona controladorUsuario;
     public VerDetalladamenteDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
     }
-    public VerDetalladamenteDepartamentosVista(ControladorDepartamento controlador) {
+    public VerDetalladamenteDepartamentosVista(ControladorDepartamento controlador , ControladorPersona controladorUsuario) {
         initComponents();
         this.controlador = controlador;
+        this.controladorUsuario = controladorUsuario;
         this.setLocationRelativeTo(this);
         tabla.setLista(serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),controlador.getDepatamento().getId(),"id_departamento")));
         if(tabla.getLista().tamanio() < 1){
@@ -126,7 +127,7 @@ public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controladorUsuario);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);

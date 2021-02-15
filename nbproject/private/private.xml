@@ -6,9 +6,11 @@
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/CrearHitoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorPersona.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/JefeProyectoVista.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/tabla/tabla_ActividadPersonal.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarProyectosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorRol.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/servicio/PersonaServicio.java</file>
+            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarActividadesPersonalesVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorHito.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/VisualizarProyectosJefeProyectoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/DepartamentoModelo.java</file>
@@ -34,7 +36,6 @@
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/EncargadoDepartamentoVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/AdministradorVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/controlador/ControladorProyecto.java</file>
-            <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/ActividadesPersonalesVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/ProyectosAsignadosVista.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/modelo/ActividadPersonalModelo.java</file>
             <file>file:/C:/Users/Patricio/Documents/NetBeansProjects/ClonCodigoClase/SistemaGestionActividades/src/vista/GestionarDepartamentosVista.java</file>

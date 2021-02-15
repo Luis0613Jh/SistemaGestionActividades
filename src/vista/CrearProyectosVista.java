@@ -19,12 +19,20 @@ public class CrearProyectosVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona controladorPersona = new ControladorPersona();
-    ControladorProyecto controladorProyecto = new ControladorProyecto();
-    PersonaServicio serPer = new PersonaServicio();
-    RolServicio rolSer = new RolServicio();
+    private ControladorPersona controlador;
+    private ControladorPersona controladorPersona = new ControladorPersona();
+    private ControladorProyecto controladorProyecto = new ControladorProyecto();
+    private PersonaServicio serPer = new PersonaServicio();
+    private RolServicio rolSer = new RolServicio();
     public CrearProyectosVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        llenarJefesProyecto();
+        cbxJefeProyecto.setSelectedItem(null);
+    }
+    public CrearProyectosVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador; 
         this.setLocationRelativeTo(this);
         llenarJefesProyecto();
         cbxJefeProyecto.setSelectedItem(null);
@@ -206,7 +214,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarProyectoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarProyectosVista gps = new GestionarProyectosVista();
+        GestionarProyectosVista gps = new GestionarProyectosVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);

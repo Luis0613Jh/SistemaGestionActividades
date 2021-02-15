@@ -20,12 +20,19 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona contper =  new ControladorPersona();
-    ControladorDepartamento contdep = new ControladorDepartamento();
-    PersonaServicio serPer = new PersonaServicio();
-    RolServicio rolSer = new RolServicio();
+    private ControladorPersona contper =  new ControladorPersona();
+    private ControladorDepartamento contdep = new ControladorDepartamento();
+    private PersonaServicio serPer = new PersonaServicio();
+    private RolServicio rolSer = new RolServicio();
+    private ControladorPersona controlador;
     public CrearDepartamentoVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        llenarEmpleados();
+    }
+    public CrearDepartamentoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         llenarEmpleados();
     }
@@ -188,7 +195,7 @@ txtDescripcion = new javax.swing.JTextField();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controlador);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);

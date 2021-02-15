@@ -235,13 +235,13 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(camposLlenos()){
-            controladorActividadPersonal.getActividad().setNombre(txtNombre.getText());
-            controladorActividadPersonal.getActividad().setDescripcion(txtDescripcion.getText());
-            controladorActividadPersonal.getActividad().setEstado("activo");
-            controladorActividadPersonal.getActividad().setFechaEntrega(DateChooserFecha.getDate());
-            controladorActividadPersonal.getActividad().setId(controladorActividadPersonal.numeroEmpleados()+1);
-            controladorActividadPersonal.getActividad().setHora(((String)cbxHora.getSelectedItem())+":"+((String)cbxHora.getSelectedItem())+":"+((String)cbxSegundos.getSelectedItem()));
-            controladorActividadPersonal.getActividad().setPersona_id(controlador.getPersona().getId());
+            controladorActividadPersonal.getActividadPersonal().setNombre(txtNombre.getText());
+            controladorActividadPersonal.getActividadPersonal().setDescripcion(txtDescripcion.getText());
+            controladorActividadPersonal.getActividadPersonal().setEstado("activo");
+            controladorActividadPersonal.getActividadPersonal().setFechaEntrega(DateChooserFecha.getDate());
+            controladorActividadPersonal.getActividadPersonal().setId(controladorActividadPersonal.numeroEmpleados()+1);
+            controladorActividadPersonal.getActividadPersonal().setHora(((String)cbxHora.getSelectedItem())+":"+((String)cbxHora.getSelectedItem())+":"+((String)cbxSegundos.getSelectedItem()));
+            controladorActividadPersonal.getActividadPersonal().setPersona_id(controlador.getPersona().getId());
             if(controladorActividadPersonal.guardarActividadPersonal()){
                 JOptionPane.showMessageDialog(null,"Se guardo alarma correctamente");
             }else{
@@ -253,7 +253,9 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
+        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
+        apv.setLocationRelativeTo(null);
+        apv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed

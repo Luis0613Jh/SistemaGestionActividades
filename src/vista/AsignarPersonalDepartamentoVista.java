@@ -25,14 +25,15 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     private PersonaServicio sePer = new PersonaServicio();
     private tabla_GestionarEmpleado tabla1 = new tabla_GestionarEmpleado();
     private tabla_GestionarEmpleado tabla2 = new tabla_GestionarEmpleado();
-
+    private ControladorPersona controladorUsuario;
     public AsignarPersonalDepartamentoVista() {
         initComponents();
     }
 
-    public AsignarPersonalDepartamentoVista(ControladorDepartamento controlador) {
+    public AsignarPersonalDepartamentoVista(ControladorDepartamento controlador , ControladorPersona controladorUsuario) {
         initComponents();
         this.controlador = controlador;
+        this.controladorUsuario = controladorUsuario;
         tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
         tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
         actualizar();
@@ -214,7 +215,7 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controladorUsuario);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);

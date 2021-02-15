@@ -5,6 +5,14 @@
  */
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.servicio.ActividadPersonalServicio;
+import controlador.servicio.RolServicio;
+import controlador.utilidades.UtilidadesVistas;
+import javax.swing.JOptionPane;
+import modelo.ActividadPersonalModelo;
+import vista.tabla.tabla_ActividadPersonal;
+
 /**
  *
  * @author juana
@@ -14,10 +22,31 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
     /**
      * Creates new form PruebaModificado
      */
+    private tabla_ActividadPersonal tabla = new tabla_ActividadPersonal();
+    private ControladorPersona controlador;
+    private ActividadPersonalServicio serAct = new ActividadPersonalServicio();
     public GestionarActividadesPersonalesVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
+    }
+    public GestionarActividadesPersonalesVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        this.btnCrearActividad.setSelected(true);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),jLabel1);
+        listarTabla();
+        
+        
+    }
+    public void listarTabla(){
+        tabla.setLista(serAct.listarActividadesPersonalesActivas(serAct.listarActividadesPersonalesCoincidencias(serAct.listarActividadesPersonales(),controlador.getPersona().getId(),"persona_id")));
+        if(tabla.getLista().tamanio()<1){
+            JOptionPane.showMessageDialog(null,"No tiene actividades personales");
+        }
+        rSTableMetro1.setModel(tabla);
+        rSTableMetro1.updateUI();
     }
 
     /**
@@ -55,7 +84,7 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -96,12 +125,18 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnEliminarActividad.setText("Eliminar actividad personal.");
+        btnEliminarActividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActividadActionPerformed(evt);
+            }
+        });
 
         btnCrearActividad.setText("Crear actividad personal.");
         btnCrearActividad.addActionListener(new java.awt.event.ActionListener() {
@@ -208,15 +243,57 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActividadActionPerformed
-        CrearActividadPersonal cap = new CrearActividadPersonal();
+        CrearActividadPersonal cap = new CrearActividadPersonal(controlador);
         cap.setLocationRelativeTo(null);
         cap.setVisible(true);
-        
+        dispose();
     }//GEN-LAST:event_btnCrearActividadActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
+        RolServicio serRol = new RolServicio();        
+        switch (serRol.buscarRol(controlador.getPersona().getId_rol(),"id").getTipo()) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                this.dispose();
+                AdministradorVista av = new AdministradorVista(controlador);
+                av.setVisible(true);
+                break;
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+                jpv.setVisible(true);
+                break;
+            case "Encargado":
+                System.out.println("Es un Encargado");
+                this.dispose();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
+                edv.setVisible(true);
+                break;
+            case "Personal":
+                System.out.println("Es un Personal");
+                this.dispose();
+                PersonalVista pv = new PersonalVista(controlador);
+                pv.setVisible(true);
+                break;
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnEliminarActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActividadActionPerformed
+        int seleccion = -1;
+        seleccion = rSTableMetro1.getSelectedRow();
+        if(seleccion == -1){
+            JOptionPane.showMessageDialog(null,"Seleccione una actividad personal de la tabla");
+        }else{
+            boolean eliminar = serAct.darDeBajaActividadPersonal(((ActividadPersonalModelo)tabla.getLista().buscarPorPosicion(seleccion)).getId(),"id",serAct.listarActividadesPersonales());
+            if(eliminar){
+                listarTabla();
+                JOptionPane.showMessageDialog(null,"Se elimino actividad personal correctamente");
+            }else{
+                JOptionPane.showMessageDialog(null,"No se pudo eliminar");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActividadActionPerformed
 
     /**
      * @param args the command line arguments
