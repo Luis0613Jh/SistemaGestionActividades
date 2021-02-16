@@ -29,6 +29,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         llenarJefesProyecto();
         cbxJefeProyecto.setSelectedItem(null);
+        System.out.println("lucho");
     }
     public CrearProyectosVista(ControladorPersona controlador) {
         initComponents();
