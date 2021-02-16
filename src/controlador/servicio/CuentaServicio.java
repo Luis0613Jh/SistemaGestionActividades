@@ -19,6 +19,14 @@ public class CuentaServicio {
         return cuentaDAO.getCuenta();
     }
 
+    /**
+     * Método que permite guardar un objeto de tipo CuentaModelo en su archivo contenedor.
+     * @return Retorna true en caso de que se haya guardado con éxito la cuenta, caso contrario, retorna false.
+     */
+    public Boolean guardarCuenta() {
+        return cuentaDAO.guardarCuenta();
+    }
+    
     public CuentaModelo inicarSesion(String usuario, String clave) {
         return cuentaDAO.iniciarSesion(usuario, clave);
     }

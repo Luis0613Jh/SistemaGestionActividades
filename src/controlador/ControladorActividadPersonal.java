@@ -24,7 +24,8 @@ public class ControladorActividadPersonal {
     }
     
     public ListaSimple obtenerListaActividadesPersonales(PersonaModelo persona) {
-        ListaSimple lista = new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), "id");
+        ListaSimple lista = null;
+        lista = new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), "id");
         return lista;
     }
     

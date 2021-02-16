@@ -246,10 +246,10 @@ public class PersonalVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnHitosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitosAsignadosActionPerformed
-        VisualizarHitosPersonalVista gps = new VisualizarHitosPersonalVista(controlador);
+        VisualizarHitosPersonalVista visualizarHitos = new VisualizarHitosPersonalVista(controlador);
         this.dispose();
-        gps.setLocationRelativeTo(null);
-        gps.setVisible(true);
+        visualizarHitos.setLocationRelativeTo(null);
+        visualizarHitos.setVisible(true);
     }//GEN-LAST:event_btnHitosAsignadosActionPerformed
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed

@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorActividadPersonal;
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.cola.Cola;
 import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ActividadPersonalServicio;
@@ -14,6 +15,7 @@ import controlador.utilidades.UtilidadesControlador;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import modelo.ActividadPersonalModelo;
@@ -33,7 +35,8 @@ public class LoginVista extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             ListaSimple actividadesPersonalesActivas = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales());
-            if (colaActividadesPersonales.tamanio() == actividadesPersonalesActivas.tamanio()) {
+            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesCoincidencias(actividadesPersonalesActivas, controlador.getPersona().getId(), new ActividadPersonalServicio().ID_PERSONA);
+            if (colaActividadesPersonales.tamanio() == actividadesPersonales.tamanio()) {
                 segundos--;
                 System.out.println("Segundos: " + segundos);
                 if (segundos == 0) {
@@ -81,7 +84,13 @@ public class LoginVista extends javax.swing.JFrame {
 
     public void autorizarVista(String rolNombre, ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
-        iniciarReloj();
+
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            iniciarReloj();
+        } else {
+            System.out.println("No existe el archivo actividades personales");
+        }
 
         switch (rolNombre) {
             case "Administrador":
@@ -112,11 +121,17 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     public void iniciarReloj() {
+
         colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
-        timer = new Timer(1000, accion);
-        segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
-        timer.start();
+        if (colaActividadesPersonales != null) {
+            timer = new Timer(1000, accion);
+            segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+            timer.start();
+        } else{
+            System.out.println("Persona sin actividades personales");
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

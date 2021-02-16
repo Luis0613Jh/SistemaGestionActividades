@@ -201,7 +201,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 33);
+        btnElegirFoto.setBounds(640, 320, 230, 23);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,12 +214,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         txtTelefonoPersonal.setBounds(250, 260, 310, 30);
 
         cbxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal", "Administrador" }));
+        cbxRol.setBorder(null);
         cbxRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        cbxRol.setBorder(null);
         jPanel2.add(cbxRol);
         cbxRol.setBounds(250, 300, 310, 30);
         jPanel2.add(txtContraseniaPersonal);

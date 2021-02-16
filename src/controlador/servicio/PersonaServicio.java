@@ -89,6 +89,10 @@ public class PersonaServicio {
         return personaDAO.ordenarPersonas(personaDAO.listarObjetos(), atributo);
     }
 
+    public Boolean crearAdministrador() {
+        return personaDAO.crearAdministrador();
+    }
+    
     /**
      * Método que permite buscar un objeto de tipo PersonaModelo según el dato indicado.
      * @param dato Dato mediante el cual se va a realizar la búsqueda en la lista.
