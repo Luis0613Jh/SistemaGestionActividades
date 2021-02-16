@@ -30,6 +30,7 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
     }
+    
     public GestionarActividadesPersonalesVista(ControladorPersona controlador) {
         initComponents();
         this.controlador = controlador;
@@ -37,9 +38,8 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         this.btnCrearActividad.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),jLabel1);
         listarTabla();
-        
-        
     }
+    
     public void listarTabla(){
         tabla.setLista(serAct.listarActividadesPersonalesActivas(serAct.listarActividadesPersonalesCoincidencias(serAct.listarActividadesPersonales(),controlador.getPersona().getId(),"persona_id")));
         if(tabla.getLista().tamanio()<1){

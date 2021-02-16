@@ -136,4 +136,8 @@ public class PersonaServicio {
     public int obtenerIdPersona(ListaSimple lista, Object dato, String atributo) {
         return personaDAO.obtenerIdPersona(lista, dato, atributo);
     }
+    
+    public ListaSimple excluirAdministrador(ListaSimple lista) {
+        return personaDAO.excluirAdministrador(lista);
+    }
 }

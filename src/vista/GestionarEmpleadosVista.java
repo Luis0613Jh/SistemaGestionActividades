@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.CuentaServicio;
 import controlador.servicio.PersonaServicio;
 import controlador.servicio.RolServicio;
@@ -9,10 +10,6 @@ import javax.swing.JOptionPane;
 import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
 
-/**
- *
- * @author juana
- */
 public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     /**
@@ -29,8 +26,8 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
         cargarTabla();
-
     }
+    
     public GestionarEmpleadosVista(ControladorPersona temp) {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -331,12 +328,12 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         System.out.println("Personas");
         perSer.listarPersonas().imprimir();
         System.out.println("Personas activas");
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
-//        perSer.listarPersonasActivas(perSer.listarPersonas()).imprimir();
-//        tabla.setLista(perSer.listarPersonasActivas(perSer.listarPersonas()));
+//        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+        perSer.listarPersonasActivas(perSer.excluirAdministrador(perSer.listarPersonas())).imprimir();
+        tabla.setLista(perSer.listarPersonasActivas(perSer.excluirAdministrador(perSer.listarPersonas())));
         System.out.println("EN LA TABLA");
         tabla.getLista().imprimir();
-        tabla.getLista().eliminarPorPosicion(0);
+        //tabla.getLista().eliminarPorObjeto(perSer.buscarPersona(1, PersonaServicio.IDENTIFICADOR));
         System.out.println("Sin administrador");
         tabla.getLista().imprimir();
         tbtGestionarEmpleados.setModel(tabla);

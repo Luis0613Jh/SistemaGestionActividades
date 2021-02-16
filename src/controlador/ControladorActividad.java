@@ -50,7 +50,7 @@ public class ControladorActividad {
     
     public int numeroActividades() {
         ActividadServicio guardar = new ActividadServicio();
-        ListaSimple lista = guardar.listarActividads();
+        ListaSimple lista = guardar.listarActividades();
         if(lista == null){
             return 0;
         }else{

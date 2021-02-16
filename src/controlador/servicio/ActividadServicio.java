@@ -44,7 +44,7 @@ public class ActividadServicio {
      * Método que permite obtener todos los objetos de tipo ActividadModelo almacenados en su archivo contenedor.
      * @return Retorna una lista con todos los objetos de tipo ActividadModelo encontrados, en caso de no existir actividads, retorna null.
      */
-    public ListaSimple listarActividads() {
+    public ListaSimple listarActividades() {
         return actividadDAO.listarObjetos();
     }
     
@@ -95,7 +95,7 @@ public class ActividadServicio {
      * @return Retorna un objeto de tipo ActividadModelo con toda la información de la actividad encontrada, en caso de no existir coincidencia, retorna null.
      */
     public ActividadModelo buscarActividad(Object dato, String atributo) {
-        return actividadDAO.buscarActividad(dato, atributo, listarActividads());
+        return actividadDAO.buscarActividad(dato, atributo, listarActividades());
     }
 
     /**
