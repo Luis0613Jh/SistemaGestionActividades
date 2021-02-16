@@ -12,7 +12,7 @@ public class ActividadPersonalServicio {
     public static String DESCRIPCION = "descripcion";
     public static String HORA = "hora";
     public static String ESTADO = "estado";
-    public static String ID_PERSONA = "id_persona";
+    public static String PERSONA_ID = "persona_id";
     private ActividadPersonalDAO actividadPersonalDAO = new ActividadPersonalDAO();
 
     /**

@@ -144,7 +144,7 @@ public class ListaSimple {
         boolean estaIniciada = false;
 
         if (estaVacia()) {
-            JOptionPane.showMessageDialog(null, "La lista se encuentra vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("La lista se encuentra vacía.");
         } else {
             Nodo iterador = cabecera;
             int cont = 0;

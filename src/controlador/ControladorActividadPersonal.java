@@ -7,6 +7,7 @@ import controlador.servicio.ActividadPersonalServicio;
 import modelo.ActividadPersonalModelo;
 import modelo.PersonaModelo;
 import controlador.DAO.objetosDAO.PersonaDAO;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 public class ControladorActividadPersonal {
@@ -24,23 +25,37 @@ public class ControladorActividadPersonal {
     }
     
     public ListaSimple obtenerListaActividadesPersonales(PersonaModelo persona) {
-        System.out.println("Persona: " + persona.getNombre());
-        return new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), new ActividadPersonalServicio().ID_PERSONA);
+        ActividadPersonalServicio aps = new ActividadPersonalServicio();
+        ListaSimple listaCoincidencias = aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), persona.getId(), ActividadPersonalServicio.PERSONA_ID);
+        ListaSimple listaCoincidenciasActivas = aps.listarActividadesPersonalesActivas(listaCoincidencias);
+        System.out.println("Actividades");
+        listaCoincidenciasActivas.imprimir();
+        return listaCoincidenciasActivas;
     }
     
-    public int determinarSegundosTotales(String hora) {
-        String[] arrayHora = hora.split(":");
-        System.out.println("ARRAY");
+    public int determinarSegundosTotales(String horaF) {
+        // Hora en la que finaliza la actividad personal
+        String[] arrayHora = horaF.split(":");
 
-        int h = (Integer.parseInt(arrayHora[0]) * 3600);
-        System.out.println("Hora: " + h);
-        int m = (Integer.parseInt(arrayHora[1]) * 60);
-        System.out.println("Minuto: " + m);
-        int s = (Integer.parseInt(arrayHora[2]));
-        System.out.println("Segundo: " + s);
-        int segundos = h + m + s;
-        System.out.println("Segundos Totales: " + segundos);
-        return segundos;
+        int hF = (Integer.parseInt(arrayHora[0]) * 3600);
+        int mF = (Integer.parseInt(arrayHora[1]) * 60);
+        int sF = (Integer.parseInt(arrayHora[2]));
+        int segundosF = hF + mF + sF;
+        System.out.println("Segundos Totales F: " + segundosF);
+        
+        // Hora actual del sistema
+        LocalDateTime locaDate = LocalDateTime.now();
+        int hA = locaDate.getHour() * 3600;
+        int mA = locaDate.getMinute() * 60;
+        int sA = locaDate.getSecond();        
+        int segundosA = hA + mA + sA;
+        
+        System.out.println("Segundos Totales A: " + segundosA);
+        
+        int segundosTotales = segundosF - segundosA;
+        System.out.println("Segundos Totales: " + segundosTotales);
+        
+        return segundosTotales;
     }
     
     public String determinarHora(Cola cola) {

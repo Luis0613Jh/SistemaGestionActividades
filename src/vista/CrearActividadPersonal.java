@@ -51,7 +51,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cbxHora = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        c = new javax.swing.JComboBox<>();
+        cbxMinutos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         cbxSegundos = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -118,14 +118,14 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         panelNotificar.add(jLabel4);
         jLabel4.setBounds(220, 20, 70, 30);
 
-        c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53 ", "54", "55", "56", "57", "58", "59" }));
-        c.addActionListener(new java.awt.event.ActionListener() {
+        cbxMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53 ", "54", "55", "56", "57", "58", "59" }));
+        cbxMinutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cActionPerformed(evt);
+                cbxMinutosActionPerformed(evt);
             }
         });
-        panelNotificar.add(c);
-        c.setBounds(290, 20, 110, 30);
+        panelNotificar.add(cbxMinutos);
+        cbxMinutos.setBounds(290, 20, 110, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +168,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(checkBtnDescripcion);
-        checkBtnDescripcion.setBounds(20, 250, 110, 24);
+        checkBtnDescripcion.setBounds(20, 250, 110, 19);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,7 +243,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
             controladorActividadPersonal.getActividadPersonal().setEstado("activo");
             controladorActividadPersonal.getActividadPersonal().setFechaEntrega(DateChooserFecha.getDate());
             controladorActividadPersonal.getActividadPersonal().setId(controladorActividadPersonal.numeroEmpleados() + 1);
-            controladorActividadPersonal.getActividadPersonal().setHora(((String) cbxHora.getSelectedItem()) + ":" + ((String) cbxHora.getSelectedItem()) + ":" + ((String) cbxSegundos.getSelectedItem()));
+            controladorActividadPersonal.getActividadPersonal().setHora(((String) cbxHora.getSelectedItem()) + ":" + ((String) cbxMinutos.getSelectedItem()) + ":" + ((String) cbxSegundos.getSelectedItem()));
             controladorActividadPersonal.getActividadPersonal().setPersona_id(controlador.getPersona().getId());
             if (controladorActividadPersonal.guardarActividadPersonal()) {
                 JOptionPane.showMessageDialog(null, "Se guardo alarma correctamente");
@@ -265,9 +265,9 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
         apv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
+    private void cbxMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMinutosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cActionPerformed
+    }//GEN-LAST:event_cbxMinutosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,8 +309,8 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateChooserFecha;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> c;
     private javax.swing.JComboBox<String> cbxHora;
+    private javax.swing.JComboBox<String> cbxMinutos;
     private javax.swing.JComboBox<String> cbxSegundos;
     private javax.swing.JCheckBox checkBtnDescripcion;
     private javax.swing.JLabel jLabel1;

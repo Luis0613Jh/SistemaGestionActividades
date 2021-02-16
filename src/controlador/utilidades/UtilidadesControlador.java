@@ -6,6 +6,7 @@ import controlador.cola.Cola;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -336,48 +337,53 @@ public class UtilidadesControlador {
         return aux;
     }
 
-    public static int determinarSegundosTotales(String hora) {
-        String[] arrayHora = hora.split(":");
-        System.out.println("ARRAY");
+    public static int determinarSegundosTotales(String horaF) {
+        // Hora en la que finaliza la actividad personal
+        System.out.println("Hora: " + horaF);
+        String[] arrayHora = horaF.split(":");
 
-        int h = (Integer.parseInt(arrayHora[0]) * 3600);
-        System.out.println("Hora: " + h);
-        int m = (Integer.parseInt(arrayHora[1]) * 60);
-        System.out.println("Minuto: " + m);
-        int s = (Integer.parseInt(arrayHora[2]));
-        System.out.println("Segundo: " + s);
-        int segundos = h + m + s;
-        System.out.println("Segundos Totales: " + segundos);
-        return segundos;
+        int hF = (Integer.parseInt(arrayHora[0]) * 3600);
+        int mF = (Integer.parseInt(arrayHora[1]) * 60);
+        int sF = (Integer.parseInt(arrayHora[2]));
+        int segundosF = hF + mF + sF;
+        System.out.println("Segundos Totales F: " + segundosF);
+
+        return segundosF;
     }
 
-    public static Cola obtenerNotificacionesActividadesPersonal(ListaSimple lista) {
-        if (lista != null) {
-            System.out.println("No soy null");
-        } else {
-            System.out.println("Soy null");
-        }
+    public static Cola obtenerActividadesPersonalesPendientes(ListaSimple lista) {
         Cola cola = null;
-        double tiempo;
-        double auxTiempo = -99.00;
-        int auxIndice = -1;
-        ActividadPersonalModelo actividadPersonal;
+        int tiempo;
+        int auxTiempo = 999999999;
+        int pos = -1; 
+        ActividadPersonalModelo actividadPersonal = new ActividadPersonalModelo();
+        
         if (lista != null) {
             cola = new Cola();
             while (!lista.estaVacia()) {
                 for (int i = 0; i < lista.tamanio(); i++) {
                     actividadPersonal = (ActividadPersonalModelo) lista.buscarPorPosicion(i);
                     tiempo = determinarSegundosTotales(actividadPersonal.getHora());
+                    System.out.println("===================================");
+                    System.out.println("Tiempo: " + tiempo);
+                    System.out.println("Aux Tiempo: " + auxTiempo);
+                    System.out.println("===================================");
 
-                    if (auxTiempo < tiempo) {
+                    if (tiempo < auxTiempo) {
+                        System.out.println("Entré al if");
                         auxTiempo = tiempo;
-                        auxIndice = i;
+                        pos = i;
                     }
                 }
-                cola.queue(lista.buscarPorPosicion(auxIndice));
-                lista.eliminarPorPosicion(auxIndice);
+                System.out.println("/////////////////");
+                System.out.println("Pos: " + pos);
+                System.out.println("/////////////////");
+                cola.queue(lista.buscarPorPosicion(pos));
+                lista.eliminarPorPosicion(pos);
             }
         }
+        System.out.println("Cola");
+        cola.imprimir();
         return cola;
     }
 }

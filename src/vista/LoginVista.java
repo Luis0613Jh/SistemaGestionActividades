@@ -6,7 +6,6 @@ import controlador.DAO.ConexionDAO;
 import controlador.cola.Cola;
 import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ActividadPersonalServicio;
-import javax.swing.JOptionPane;
 
 import controlador.servicio.CuentaServicio;
 import controlador.servicio.PersonaServicio;
@@ -34,25 +33,23 @@ public class LoginVista extends javax.swing.JFrame {
     private ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-//            ListaSimple actividadesPersonalesActivas = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales());
-//            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesCoincidencias(actividadesPersonalesActivas, controlador.getPersona().getId(), new ActividadPersonalServicio().ID_PERSONA);
             ListaSimple actividadesPersonales = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), controlador.getPersona().getId(), "persona_id"));
             if (colaActividadesPersonales.tamanio() == actividadesPersonales.tamanio()) {
                 segundos--;
                 System.out.println("Segundos: " + segundos);
                 if (segundos == 0) {
+                    timer.stop();
                     System.out.println("Se terminó el tiempo");
                     cap.setActividadPersonal((ActividadPersonalModelo) colaActividadesPersonales.buscarPorPosicion(0));
                     DesktopNotify.showDesktopMessage("La tarea " + cap.getActividadPersonal().getNombre() + " ha finalizado a las: " + cap.getActividadPersonal().getHora(), "Tarea Finalizada", DesktopNotify.INFORMATION);
                     aps.darDeBajaActividadPersonal(cap.getActividadPersonal().getId(), ActividadPersonalServicio.IDENTIFICADOR, aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales()));
                     cap.setActividadPersonal(null);
-                    timer.stop();
                     colaActividadesPersonales.dequeue();
+                    System.out.println("Luego de haber parado el tiempo");
+                    colaActividadesPersonales.imprimir();
                     if (colaActividadesPersonales.tamanio() > 0) {
                         segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
                         timer.start();
-                    } else {
-                        DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
                     }
                 }
             } else {
@@ -122,20 +119,14 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     public void iniciarReloj() {
-
-        ListaSimple lista = cap.obtenerListaActividadesPersonales(controlador.getPersona());
-        if (lista != null) {
-            System.out.println("En reloj no soy null");
-        } else {
-            System.out.println("En reloj soy null");
-        }
-        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(lista);
-        if (colaActividadesPersonales != null) {
+        if (cap.obtenerListaActividadesPersonales(controlador.getPersona()).tamanio() > 0) {
+            colaActividadesPersonales = UtilidadesControlador.obtenerActividadesPersonalesPendientes(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
             timer = new Timer(1000, accion);
             segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
             timer.start();
         } else {
             System.out.println("Persona sin actividades personales");
+            DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
         }
     }
 
