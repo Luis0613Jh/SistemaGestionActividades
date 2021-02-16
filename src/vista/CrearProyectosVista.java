@@ -201,10 +201,10 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             System.out.println("guardar "+ guardar);
             if (controladorProyecto.guardarProyecto() && guardar) {
                 JOptionPane.showMessageDialog(null, "Se guardo el proyecto");
-                AdministradorVista admin = new AdministradorVista();
+                GestionarProyectosVista gestionProyectos = new GestionarProyectosVista(controladorPersona);
                 this.dispose();
-                admin.setLocationRelativeTo(null);
-                admin.setVisible(true);
+                gestionProyectos.setLocationRelativeTo(null);
+                gestionProyectos.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo guardo el proyecto");
             }

@@ -271,8 +271,9 @@ public class ListaSimple {
         if (cabecera.getObjeto().equals(objeto)) {
             cabecera = cabecera.getSiguiente();
         } else {
+            
             Nodo aux = cabecera;
-            while (!((aux.getSiguiente().getObjeto().equals(objeto)))) {
+            while (!(aux.getSiguiente().getObjeto().equals(objeto))) {
                 aux = aux.getSiguiente();
             }
             Nodo siguiente = aux.getSiguiente().getSiguiente();

@@ -34,15 +34,16 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.controlador = controlador;
         llenarDatos();
-
+        txtRol.setEnabled(false);
     }
-    public EditarEmpleadoVista(ControladorPersona controlador , ControladorPersona temp) {
+
+    public EditarEmpleadoVista(ControladorPersona controlador, ControladorPersona temp) {
         initComponents();
         this.setLocationRelativeTo(this);
         this.controlador = controlador;
         this.temp = temp;
         llenarDatos();
-
+        txtRol.setEnabled(false);
     }
 
     private EditarEmpleadoVista() {
@@ -50,7 +51,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     }
 
     public void llenarDatos() {
-        txtNombreEmpleado.setText(controlador.getPersona().getNombre());        
+        txtNombreEmpleado.setText(controlador.getPersona().getNombre());
         txtCorreoElectronico.setText(controlador.getPersona().getCorreo());
         txtTelefono.setText(controlador.getPersona().getTelefono());
         controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
@@ -106,7 +107,6 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         btnElegirFoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -206,7 +206,7 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 25);
+        btnElegirFoto.setBounds(640, 320, 230, 23);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,15 +217,6 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
         txtTelefono.setBorder(null);
         jPanel2.add(txtTelefono);
         txtTelefono.setBounds(250, 220, 310, 30);
-
-        jButton3.setText("Cambiar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton3);
-        jButton3.setBounds(150, 300, 90, 23);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 430);
@@ -287,12 +278,13 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
             controladorCuenta.getCuenta().setClave(txtContrasenia.getText());
             controladorCuenta.getCuenta().setUsuario(txtUsuario.getText());
             //UtilidadesControlador.
-            if (perSer.modificarPersona(controlador.getPersona(), "id", perSer.listarPersonas()) && cuentSer.modificarCuenta(controladorCuenta.getCuenta(),"id",cuentSer.listarCuentas())) {
+            if (perSer.modificarPersona(controlador.getPersona(), "id", perSer.listarPersonas()) && cuentSer.modificarCuenta(controladorCuenta.getCuenta(), "id", cuentSer.listarCuentas())) {
                 JOptionPane.showMessageDialog(null, "Se edito correctamente");
                 dispose();
-                AdministradorVista admin = new AdministradorVista(temp);                
-                admin.setLocationRelativeTo(null);
-                admin.setVisible(true);
+                GestionarEmpleadosVista ge = new GestionarEmpleadosVista(temp);
+                this.dispose();
+                ge.setLocationRelativeTo(null);
+                ge.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo editar");
             }
@@ -314,12 +306,6 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private void txtRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRolActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new Frm_CambioRol(this, true, controlador).setVisible(true);
-        controladorRol.obtenerRolPorId(controlador.getPersona().getId_rol());
-        txtRol.setText(controladorRol.getRol().getTipo());
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,7 +382,6 @@ public class EditarEmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

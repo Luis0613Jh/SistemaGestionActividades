@@ -32,7 +32,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         this.btnGestionarHitos.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
         int id = (serDepa.buscarDepartamento(controlador.getPersona().getId(), "id_encargado")).getId();
-        tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), id, "departamento_id")));
+        tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), id, "departamento_id")));
         if (tablaActividades.getLista().tamanio() < 1) {
             JOptionPane.showMessageDialog(null, "No tiene actividades asignadas");
             dispose();

@@ -274,5 +274,10 @@ public class PersonaDAO extends AdaptadorDAO {
         PersonaModelo persona = buscarPersona(dato, atributo, lista);
         return (persona != null) ? persona.getId() : -1;
     }
+    
+    public ListaSimple excluirAdministrador(ListaSimple lista) {
+        lista.eliminarPorPosicion(0);
+        return lista;
+    }
 
 }
