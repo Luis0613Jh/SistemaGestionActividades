@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.ControladorActividadPersonal;
@@ -12,22 +11,26 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
      */
     private ControladorPersona controlador;
     private ControladorActividadPersonal controladorActividadPersonal = new ControladorActividadPersonal();
+
     public CrearActividadPersonal() {
         initComponents();
         panelDescripcion.setVisible(false);
     }
+
     public CrearActividadPersonal(ControladorPersona controlador) {
         initComponents();
         this.controlador = controlador;
         panelDescripcion.setVisible(false);
     }
-    private boolean camposLlenos(){
-        if(txtNombre.getText().length()<0 && DateChooserFecha.getDate().equals(null)){
+
+    private boolean camposLlenos() {
+        if (txtNombre.getText().length() < 0 && DateChooserFecha.getDate().equals(null)) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -226,7 +229,7 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBtnDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnDescripcionActionPerformed
-         if (checkBtnDescripcion.isSelected()) {
+        if (checkBtnDescripcion.isSelected()) {
             panelDescripcion.setVisible(true);
         } else {
             panelDescripcion.setVisible(false);
@@ -234,21 +237,25 @@ public class CrearActividadPersonal extends javax.swing.JFrame {
     }//GEN-LAST:event_checkBtnDescripcionActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if(camposLlenos()){
+        if (camposLlenos()) {
             controladorActividadPersonal.getActividadPersonal().setNombre(txtNombre.getText());
             controladorActividadPersonal.getActividadPersonal().setDescripcion(txtDescripcion.getText());
             controladorActividadPersonal.getActividadPersonal().setEstado("activo");
             controladorActividadPersonal.getActividadPersonal().setFechaEntrega(DateChooserFecha.getDate());
-            controladorActividadPersonal.getActividadPersonal().setId(controladorActividadPersonal.numeroEmpleados()+1);
-            controladorActividadPersonal.getActividadPersonal().setHora(((String)cbxHora.getSelectedItem())+":"+((String)cbxHora.getSelectedItem())+":"+((String)cbxSegundos.getSelectedItem()));
+            controladorActividadPersonal.getActividadPersonal().setId(controladorActividadPersonal.numeroEmpleados() + 1);
+            controladorActividadPersonal.getActividadPersonal().setHora(((String) cbxHora.getSelectedItem()) + ":" + ((String) cbxHora.getSelectedItem()) + ":" + ((String) cbxSegundos.getSelectedItem()));
             controladorActividadPersonal.getActividadPersonal().setPersona_id(controlador.getPersona().getId());
-            if(controladorActividadPersonal.guardarActividadPersonal()){
-                JOptionPane.showMessageDialog(null,"Se guardo alarma correctamente");
-            }else{
-                JOptionPane.showMessageDialog(null,"No se pudo guardar");
+            if (controladorActividadPersonal.guardarActividadPersonal()) {
+                JOptionPane.showMessageDialog(null, "Se guardo alarma correctamente");
+                this.dispose();
+                GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
+                apv.setLocationRelativeTo(null);
+                apv.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar");
             }
-        }else{
-            JOptionPane.showMessageDialog(null,"Tiene campos vacios");
+        } else {
+            JOptionPane.showMessageDialog(null, "Tiene campos vacios");
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 

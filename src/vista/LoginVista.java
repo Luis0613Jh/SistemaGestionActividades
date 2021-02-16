@@ -34,8 +34,9 @@ public class LoginVista extends javax.swing.JFrame {
     private ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ListaSimple actividadesPersonalesActivas = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales());
-            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesCoincidencias(actividadesPersonalesActivas, controlador.getPersona().getId(), new ActividadPersonalServicio().ID_PERSONA);
+//            ListaSimple actividadesPersonalesActivas = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales());
+//            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesCoincidencias(actividadesPersonalesActivas, controlador.getPersona().getId(), new ActividadPersonalServicio().ID_PERSONA);
+            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), controlador.getPersona().getId(), "persona_id"));
             if (colaActividadesPersonales.tamanio() == actividadesPersonales.tamanio()) {
                 segundos--;
                 System.out.println("Segundos: " + segundos);
@@ -43,7 +44,7 @@ public class LoginVista extends javax.swing.JFrame {
                     System.out.println("Se terminó el tiempo");
                     cap.setActividadPersonal((ActividadPersonalModelo) colaActividadesPersonales.buscarPorPosicion(0));
                     DesktopNotify.showDesktopMessage("La tarea " + cap.getActividadPersonal().getNombre() + " ha finalizado a las: " + cap.getActividadPersonal().getHora(), "Tarea Finalizada", DesktopNotify.INFORMATION);
-                    aps.darDeBajaActividadPersonal(cap.getActividadPersonal().getId(), ActividadPersonalServicio.IDENTIFICADOR, actividadesPersonalesActivas);
+                    aps.darDeBajaActividadPersonal(cap.getActividadPersonal().getId(), ActividadPersonalServicio.IDENTIFICADOR, aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales()));
                     cap.setActividadPersonal(null);
                     timer.stop();
                     colaActividadesPersonales.dequeue();
@@ -122,12 +123,18 @@ public class LoginVista extends javax.swing.JFrame {
 
     public void iniciarReloj() {
 
-        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
+        ListaSimple lista = cap.obtenerListaActividadesPersonales(controlador.getPersona());
+        if (lista != null) {
+            System.out.println("En reloj no soy null");
+        } else {
+            System.out.println("En reloj soy null");
+        }
+        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(lista);
         if (colaActividadesPersonales != null) {
             timer = new Timer(1000, accion);
             segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
             timer.start();
-        } else{
+        } else {
             System.out.println("Persona sin actividades personales");
         }
     }

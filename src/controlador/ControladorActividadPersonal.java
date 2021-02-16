@@ -24,9 +24,8 @@ public class ControladorActividadPersonal {
     }
     
     public ListaSimple obtenerListaActividadesPersonales(PersonaModelo persona) {
-        ListaSimple lista = null;
-        lista = new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), "id");
-        return lista;
+        System.out.println("Persona: " + persona.getNombre());
+        return new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), new ActividadPersonalServicio().ID_PERSONA);
     }
     
     public int determinarSegundosTotales(String hora) {

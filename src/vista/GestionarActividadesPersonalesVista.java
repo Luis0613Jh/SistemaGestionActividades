@@ -6,22 +6,17 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.ActividadPersonalServicio;
 import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesVistas;
+import java.io.File;
 import javax.swing.JOptionPane;
 import modelo.ActividadPersonalModelo;
 import vista.tabla.tabla_ActividadPersonal;
 
-/**
- *
- * @author juana
- */
 public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PruebaModificado
-     */
     private tabla_ActividadPersonal tabla = new tabla_ActividadPersonal();
     private ControladorPersona controlador;
     private ActividadPersonalServicio serAct = new ActividadPersonalServicio();
@@ -41,14 +36,20 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
     }
     
     public void listarTabla(){
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "No posee actividades");
+        }        
+    }
+
+    public void cargarTabla() {
         tabla.setLista(serAct.listarActividadesPersonalesActivas(serAct.listarActividadesPersonalesCoincidencias(serAct.listarActividadesPersonales(),controlador.getPersona().getId(),"persona_id")));
-        if(tabla.getLista().tamanio()<1){
-            JOptionPane.showMessageDialog(null,"No tiene actividades personales");
-        }
         rSTableMetro1.setModel(tabla);
         rSTableMetro1.updateUI();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,13 +189,13 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         rSTableMetro1.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
@@ -243,10 +244,10 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActividadActionPerformed
+        this.dispose();
         CrearActividadPersonal cap = new CrearActividadPersonal(controlador);
         cap.setLocationRelativeTo(null);
         cap.setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnCrearActividadActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

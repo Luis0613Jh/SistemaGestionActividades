@@ -15,7 +15,7 @@ public class ActividadPersonalDAO extends AdaptadorDAO {
      * la clase del objeto de tipo ActividadPersonalModelo y una String con la carpeta contenedora "Archivos".  
      */
     public ActividadPersonalDAO() {
-        super(new ConexionDAO(), ActividadPersonalModelo.class, new ConexionDAO().getCARPETA_PROYECTOS());
+        super(new ConexionDAO(), ActividadPersonalModelo.class, new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES());
     }
 
     /**
@@ -122,7 +122,7 @@ public class ActividadPersonalDAO extends AdaptadorDAO {
      */
     public ListaSimple listarActividadPersonalesCoincidentes(ListaSimple lista, Object dato, String atributo) {
         ordenarActividadesPersonales(lista, atributo);
-        return listarCoincidencias(lista, dato, atributo);
+         return listarCoincidencias(lista, dato, atributo);
     }
     
     /**

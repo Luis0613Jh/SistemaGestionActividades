@@ -8,9 +8,6 @@ import javax.swing.ImageIcon;
 
 public class AdministradorVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PruebaModificado
-     */
     ControladorPersona controlador;
     public AdministradorVista() {
         initComponents();
@@ -314,6 +311,7 @@ public class AdministradorVista extends javax.swing.JFrame {
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
         GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
+        this.dispose();
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed

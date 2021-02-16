@@ -352,6 +352,11 @@ public class UtilidadesControlador {
     }
 
     public static Cola obtenerNotificacionesActividadesPersonal(ListaSimple lista) {
+        if (lista != null) {
+            System.out.println("No soy null");
+        } else {
+            System.out.println("Soy null");
+        }
         Cola cola = null;
         double tiempo;
         double auxTiempo = -99.00;
