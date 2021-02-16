@@ -33,7 +33,7 @@ public class GestionarHitosVista extends javax.swing.JFrame {
         this.cotroladorActividad = cotroladorActividad;
         this.setLocationRelativeTo(this);
         this.btnCrearHito.setSelected(true);
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + HitoModelo.class.getSimpleName() + ".json");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_HITOS() + File.separatorChar + HitoModelo.class.getSimpleName() + ".json");
         if (archivo.exists()) {
             tablaHitos.setLista(serHito.listarHitosActivos(serHito.listarHitosCoincidencias(serHito.listarHitos(), controlador.getPersona().getId(), "id_responsable")));
             if (tablaHitos.getLista().tamanio() < 1) {

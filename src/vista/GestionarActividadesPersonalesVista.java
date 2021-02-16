@@ -40,7 +40,7 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),jLabel1);
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json"); 
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json"); 
         if (archivo.exists()) {
             listarTabla();
         } else {

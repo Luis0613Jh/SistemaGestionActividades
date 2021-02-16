@@ -44,7 +44,7 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES()+ File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
         if (archivo.exists()) {
             tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controlador.getPersona().getId_departamento(), "departamento_id")));
             if (tablaActividad.getLista().tamanio() < 1) {
