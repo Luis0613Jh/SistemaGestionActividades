@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.ActividadServicio;
 import controlador.servicio.ProyectoServicio;
 import controlador.servicio.RolServicio;
@@ -12,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import modelo.ActividadModelo;
 import vista.tabla.tabla_Actividad;
 
 public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
@@ -34,15 +36,13 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         this.controlador = controlador;
         this.controladorProyecto = controladorProyecto;
         this.setLocationRelativeTo(this);
-        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
-        if (tablaActividad.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
-            this.dispose();
-            JefeProyectoVista jpv = new JefeProyectoVista(controlador);
-            jpv.setVisible(true);
-        } else {
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
             tbtDetalleProyecto.setModel(tablaActividad);
             tbtDetalleProyecto.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
         }
     }
 
@@ -50,17 +50,34 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         initComponents();
         this.controladorProyecto = controladorProyecto;
         this.setLocationRelativeTo(this);
-        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
-        if (tablaActividad.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
-            this.dispose();
-            GestionarProyectosVista gps = new GestionarProyectosVista();
-            this.dispose();
-            gps.setLocationRelativeTo(null);
-            gps.setVisible(true);
-        } else {
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
             tbtDetalleProyecto.setModel(tablaActividad);
             tbtDetalleProyecto.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+        }
+    }
+
+    public void determinarRol() {
+        RolServicio serRol = new RolServicio();
+        switch (serRol.buscarRol(controlador.getPersona().getId_rol(), "id").getTipo()) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                //this.dispose();
+                GestionarProyectosVista av = new GestionarProyectosVista(controlador);
+                
+                av.setVisible(true);
+                break;
+
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                //this.dispose();
+                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+//                this.dispose();
+                jpv.setVisible(true);
+                break;
         }
     }
 
@@ -109,13 +126,13 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
 
         tbtDetalleProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tbtDetalleProyecto.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
@@ -152,9 +169,10 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-      
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+        determinarRol();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments

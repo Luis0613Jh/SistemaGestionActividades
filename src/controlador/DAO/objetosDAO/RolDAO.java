@@ -111,12 +111,12 @@ public class RolDAO extends AdaptadorDAO {
             setRol(encargadoRol);
             bandera = guardarRol();
             
-            RolModelo rollRol = new RolModelo();
-            rollRol.setEstado("activo");
-            rollRol.setExternal_id(13254);
-            rollRol.setId(4);
-            rollRol.setTipo("Roll");
-            setRol(rollRol);
+            RolModelo personalRol = new RolModelo();
+            personalRol.setEstado("activo");
+            personalRol.setExternal_id(13254);
+            personalRol.setId(4);
+            personalRol.setTipo("Personal");
+            setRol(personalRol);
             bandera = guardarRol();
             
         } else {

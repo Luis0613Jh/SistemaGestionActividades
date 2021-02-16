@@ -19,12 +19,20 @@ public class CrearProyectosVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona controladorPersona = new ControladorPersona();
-    ControladorProyecto controladorProyecto = new ControladorProyecto();
-    PersonaServicio serPer = new PersonaServicio();
-    RolServicio rolSer = new RolServicio();
+    private ControladorPersona controlador;
+    private ControladorPersona controladorPersona = new ControladorPersona();
+    private ControladorProyecto controladorProyecto = new ControladorProyecto();
+    private PersonaServicio serPer = new PersonaServicio();
+    private RolServicio rolSer = new RolServicio();
     public CrearProyectosVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        llenarJefesProyecto();
+        cbxJefeProyecto.setSelectedItem(null);
+    }
+    public CrearProyectosVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador; 
         this.setLocationRelativeTo(this);
         llenarJefesProyecto();
         cbxJefeProyecto.setSelectedItem(null);
@@ -177,7 +185,7 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             controladorProyecto.getProyecto().setExternal_id(UtilidadesControlador.generarId());
             controladorProyecto.getProyecto().setFechaFinal(dateChooserFechaEntrega.getDate());
             controladorProyecto.getProyecto().setFechaInicio(dateChooserFechaInicio.getDate());
-            controladorProyecto.getProyecto().setId(UtilidadesControlador.generarId());
+            controladorProyecto.getProyecto().setId(controladorProyecto.numeroProyectos()+1);
             System.out.println("    ...............>"+(String) cbxJefeProyecto.getSelectedItem());
             controladorProyecto.getProyecto().setId_jefeProyecto(serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
             System.out.println("id jefe proyecto "+serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxJefeProyecto.getSelectedItem(), "nombre"));
@@ -193,10 +201,10 @@ public class CrearProyectosVista extends javax.swing.JFrame {
             System.out.println("guardar "+ guardar);
             if (controladorProyecto.guardarProyecto() && guardar) {
                 JOptionPane.showMessageDialog(null, "Se guardo el proyecto");
-                AdministradorVista admin = new AdministradorVista();
+                GestionarProyectosVista gestionProyectos = new GestionarProyectosVista(controladorPersona);
                 this.dispose();
-                admin.setLocationRelativeTo(null);
-                admin.setVisible(true);
+                gestionProyectos.setLocationRelativeTo(null);
+                gestionProyectos.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo guardo el proyecto");
             }
@@ -205,8 +213,8 @@ public class CrearProyectosVista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarProyectoActionPerformed
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        GestionarProyectosVista gps = new GestionarProyectosVista();
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        GestionarProyectosVista gps = new GestionarProyectosVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);

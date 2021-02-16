@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
 import controlador.ControladorDepartamento;
@@ -12,10 +8,6 @@ import javax.swing.JOptionPane;
 import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
 
-/**
- *
- * @author juana
- */
 public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
 
     /**
@@ -25,14 +17,16 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     private PersonaServicio sePer = new PersonaServicio();
     private tabla_GestionarEmpleado tabla1 = new tabla_GestionarEmpleado();
     private tabla_GestionarEmpleado tabla2 = new tabla_GestionarEmpleado();
-
+    private ControladorPersona controladorUsuario;
     public AsignarPersonalDepartamentoVista() {
         initComponents();
     }
 
-    public AsignarPersonalDepartamentoVista(ControladorDepartamento controlador) {
+    public AsignarPersonalDepartamentoVista(ControladorDepartamento controlador , ControladorPersona controladorUsuario) {
         initComponents();
         this.controlador = controlador;
+        this.controladorUsuario = controladorUsuario;
+        lblNombreDepartamento.setText(controlador.getDepatamento().getNombreDepartamento());
         tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
         tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
         actualizar();
@@ -75,7 +69,8 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         tbtPersonalEnDepartamento = new rojerusan.RSTableMetro();
         btnRegresar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblNombreDepartamento = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         btnRevocarPersonal = new javax.swing.JButton();
 
         jPanel5.setBackground(new java.awt.Color(0, 112, 192));
@@ -183,11 +178,16 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(0, 112, 192));
         jPanel6.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Personal en \"nombre departamento\".");
-        jPanel6.add(jLabel1);
-        jLabel1.setBounds(230, 10, 370, 30);
+        lblNombreDepartamento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombreDepartamento.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(lblNombreDepartamento);
+        lblNombreDepartamento.setBounds(350, 10, 370, 30);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Personal en ");
+        jPanel6.add(jLabel3);
+        jLabel3.setBounds(230, 10, 120, 30);
 
         jPanel3.add(jPanel6);
         jPanel6.setBounds(0, 0, 860, 60);
@@ -290,8 +290,8 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnRevocarPersonal;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -300,6 +300,7 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblNombreDepartamento;
     private rojerusan.RSTableMetro tblPersonalDisponible;
     private rojerusan.RSTableMetro tbtPersonalEnDepartamento;
     // End of variables declaration//GEN-END:variables

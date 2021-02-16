@@ -352,26 +352,27 @@ public class UtilidadesControlador {
     }
 
     public static Cola obtenerNotificacionesActividadesPersonal(ListaSimple lista) {
-        Cola cola = new Cola();
+        Cola cola = null;
         double tiempo;
         double auxTiempo = -99.00;
         int auxIndice = -1;
         ActividadPersonalModelo actividadPersonal;
-        
-        while (!lista.estaVacia()) {
-            for (int i = 0; i < lista.tamanio(); i++) {
-                actividadPersonal = (ActividadPersonalModelo) lista.buscarPorPosicion(i);
-                tiempo = determinarSegundosTotales(actividadPersonal.getHora());
+        if (lista != null) {
+            cola = new Cola();
+            while (!lista.estaVacia()) {
+                for (int i = 0; i < lista.tamanio(); i++) {
+                    actividadPersonal = (ActividadPersonalModelo) lista.buscarPorPosicion(i);
+                    tiempo = determinarSegundosTotales(actividadPersonal.getHora());
 
-                if (auxTiempo < tiempo) {
-                    auxTiempo = tiempo;
-                    auxIndice = i;
+                    if (auxTiempo < tiempo) {
+                        auxTiempo = tiempo;
+                        auxIndice = i;
+                    }
                 }
+                cola.queue(lista.buscarPorPosicion(auxIndice));
+                lista.eliminarPorPosicion(auxIndice);
             }
-            cola.queue(lista.buscarPorPosicion(auxIndice));
-            lista.eliminarPorPosicion(auxIndice);
         }
-        
         return cola;
     }
 }

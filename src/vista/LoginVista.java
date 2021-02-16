@@ -2,7 +2,10 @@ package vista;
 
 import controlador.ControladorActividadPersonal;
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.cola.Cola;
+import controlador.listaSimple.ListaSimple;
+import controlador.servicio.ActividadPersonalServicio;
 import javax.swing.JOptionPane;
 
 import controlador.servicio.CuentaServicio;
@@ -12,8 +15,10 @@ import controlador.utilidades.UtilidadesControlador;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import modelo.ActividadPersonalModelo;
 
 public class LoginVista extends javax.swing.JFrame {
 
@@ -21,27 +26,38 @@ public class LoginVista extends javax.swing.JFrame {
     private Sesion sesion = new Sesion();
     private CuentaServicio cuentaServicio = new CuentaServicio();
     private ControladorActividadPersonal cap = new ControladorActividadPersonal();
+    private ActividadPersonalServicio aps = new ActividadPersonalServicio();
     private Timer timer;
     private int segundos;
     private Cola colaActividadesPersonales = new Cola();
-    
+
     private ActionListener accion = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            segundos--;
-            System.out.println("Segundos: " + segundos);
-            if (segundos == 0) {
-                System.out.println("Se terminó el tiempo");
-                DesktopNotify.showDesktopMessage("Inicio en: 00:01:20", "La tarea ha terminado", DesktopNotify.INFORMATION);
-                timer.stop();
-                colaActividadesPersonales.dequeue();
-                if (colaActividadesPersonales.tamanio() > 0) {
-                    segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
-                    timer.start();
-                } else {
-                    DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
+            ListaSimple actividadesPersonalesActivas = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales());
+            ListaSimple actividadesPersonales = aps.listarActividadesPersonalesCoincidencias(actividadesPersonalesActivas, controlador.getPersona().getId(), new ActividadPersonalServicio().ID_PERSONA);
+            if (colaActividadesPersonales.tamanio() == actividadesPersonales.tamanio()) {
+                segundos--;
+                System.out.println("Segundos: " + segundos);
+                if (segundos == 0) {
+                    System.out.println("Se terminó el tiempo");
+                    cap.setActividadPersonal((ActividadPersonalModelo) colaActividadesPersonales.buscarPorPosicion(0));
+                    DesktopNotify.showDesktopMessage("La tarea " + cap.getActividadPersonal().getNombre() + " ha finalizado a las: " + cap.getActividadPersonal().getHora(), "Tarea Finalizada", DesktopNotify.INFORMATION);
+                    aps.darDeBajaActividadPersonal(cap.getActividadPersonal().getId(), ActividadPersonalServicio.IDENTIFICADOR, actividadesPersonalesActivas);
+                    cap.setActividadPersonal(null);
+                    timer.stop();
+                    colaActividadesPersonales.dequeue();
+                    if (colaActividadesPersonales.tamanio() > 0) {
+                        segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+                        timer.start();
+                    } else {
+                        DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
+                    }
                 }
+            } else {
+                iniciarReloj();
             }
+
         }
     };
 
@@ -58,21 +74,24 @@ public class LoginVista extends javax.swing.JFrame {
         sesion.setCuenta(cuentaServicio.inicarSesion(txtUsuario.getText(), txtClave.getText()));
         if (sesion.getCuenta() != null) {
             PersonaServicio serPer = new PersonaServicio();
-            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(),"id"));           
+            controlador.setPersona(serPer.buscarPersona(sesion.getCuenta().getId(), "id"));
             sesion.obtenerDatos();
-            autorizarVista(sesion.getRol().getTipo(),controlador);
+            autorizarVista(sesion.getRol().getTipo(), controlador);
         } else {
             JOptionPane.showMessageDialog(this, "Credenciales inválidas", "Error en inicio de sesión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void autorizarVista(String rolNombre,ControladorPersona controlador) {
+    public void autorizarVista(String rolNombre, ControladorPersona controlador) {
         System.out.println("---------ROL: " + rolNombre);
-        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
-        timer = new Timer(1000, accion);
-        segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
-        timer.start();
-        
+
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            iniciarReloj();
+        } else {
+            System.out.println("No existe el archivo actividades personales");
+        }
+
         switch (rolNombre) {
             case "Administrador":
                 System.out.println("Es un Administrador");
@@ -101,9 +120,18 @@ public class LoginVista extends javax.swing.JFrame {
         }
     }
 
-    
-    
-    
+    public void iniciarReloj() {
+
+        colaActividadesPersonales = UtilidadesControlador.obtenerNotificacionesActividadesPersonal(cap.obtenerListaActividadesPersonales(controlador.getPersona()));
+        if (colaActividadesPersonales != null) {
+            timer = new Timer(1000, accion);
+            segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
+            timer.start();
+        } else{
+            System.out.println("Persona sin actividades personales");
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

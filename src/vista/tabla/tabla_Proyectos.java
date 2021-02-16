@@ -42,9 +42,9 @@ public class tabla_Proyectos extends AbstractTableModel{
               return "vacio";              
         } 
         switch(i1){
-            case 0 : return (String)proyecto.getNombreProyecto();
-            case 1 : return (String)proyecto.getFechaInicio().toString();
-            case 2 : return (String)proyecto.getFechaFinal().toString();
+            case 0 : return proyecto.getNombreProyecto();
+            case 1 : return proyecto.getFechaInicio().getDay() + "/" + (proyecto.getFechaInicio().getMonth() + 1) + "/" + (proyecto.getFechaInicio().getYear() + 1900);
+            case 2 : return proyecto.getFechaFinal().getDay() + "/" + (proyecto.getFechaFinal().getMonth() + 1) + "/" + (proyecto.getFechaFinal().getYear() + 1900);
             
             default: return null;
         }

@@ -1,4 +1,3 @@
-
 package vista;
 
 import controlador.ControladorDepartamento;
@@ -14,37 +13,49 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
 public class CrearDepartamentoVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona contper =  new ControladorPersona();
-    ControladorDepartamento contdep = new ControladorDepartamento();
-    PersonaServicio serPer = new PersonaServicio();
-    RolServicio rolSer = new RolServicio();
+    private ControladorPersona contper = new ControladorPersona();
+    private ControladorDepartamento contdep = new ControladorDepartamento();
+    private PersonaServicio serPer = new PersonaServicio();
+    private RolServicio rolSer = new RolServicio();
+    private ControladorPersona controlador;
+
     public CrearDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         llenarEmpleados();
     }
-    public void llenarEmpleados(){
-        if(contper.obtenerListaEmpleados() != null){
-            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado,serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),-3,"id_departamento")));
-        }else{
+
+    public CrearDepartamentoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        llenarEmpleados();
+    }
+
+    public void llenarEmpleados() {
+        if (contper.obtenerListaEmpleados() != null) {
+            UtilidadesControlador.cargarComboBoxEmpleadosParaDepartamento(cbxEncargado, serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(), -3, "id_departamento")));
+        } else {
             JOptionPane.showMessageDialog(null, "No hay empleados");
             dispose();
         }
-        
-    };
-    public boolean camposVacios(){
-        if(txtDescripcion.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0){
+
+    }
+
+    ;
+    public boolean camposVacios() {
+        if (txtDescripcion.getText().length() > 0 && txtNombreDepartamento.getText().length() > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,35 +171,35 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(camposVacios()){
+        if (camposVacios()) {
             contdep.getDepatamento().setNombreDepartamento(txtNombreDepartamento.getText());
             contdep.getDepatamento().setEstado("activo");
-            contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)cbxEncargado.getSelectedItem(),"nombre"));
+            contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(), (String) cbxEncargado.getSelectedItem(), "nombre"));
             contdep.getDepatamento().setDescripcion(txtDescripcion.getText());
-            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setId(contdep.numeroDepartamentos() + 1);
             contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
-            contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
-            contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
+            contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(), "id"));
+            contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(), "Encargado", "tipo"));
             contper.getPersona().setId_departamento(contdep.getDepatamento().getId());
-            boolean guardar = serPer.modificarPersona(contper.getPersona(),"id",serPer.listarPersonas());
+            boolean guardar = serPer.modificarPersona(contper.getPersona(), "id", serPer.listarPersonas());
             //contdep.getDepatamento().setEncargado(encargado);
-            if(contdep.guardarDepartamento() && guardar){
+            if (contdep.guardarDepartamento() && guardar) {
                 JOptionPane.showMessageDialog(null, "El departamento se guardo correctamente");
-                AdministradorVista admin = new AdministradorVista();    
+                GestionarDepartamentosVista gestionarDepartamentos = new GestionarDepartamentosVista(controlador);
                 this.dispose();
-                admin.setLocationRelativeTo(null);
-                admin.setVisible(true);
-            }else{
+                gestionarDepartamentos.setLocationRelativeTo(null);
+                gestionarDepartamentos.setVisible(true);
+            } else {
                 JOptionPane.showMessageDialog(null, "Error al guardar departamento");
-            }            
-        }else{
+            }
+        } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controlador);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);

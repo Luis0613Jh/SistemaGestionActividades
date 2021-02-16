@@ -24,7 +24,8 @@ public class ControladorActividadPersonal {
     }
     
     public ListaSimple obtenerListaActividadesPersonales(PersonaModelo persona) {
-        ListaSimple lista = new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), "id");
+        ListaSimple lista = null;
+        lista = new ActividadPersonalServicio().listarActividadesPersonalesCoincidencias(new ActividadPersonalServicio().listarActividadesPersonales(), persona.getId(), "id");
         return lista;
     }
     
@@ -65,7 +66,11 @@ public class ControladorActividadPersonal {
     public int numeroEmpleados() {
         ActividadPersonalServicio servicio = new ActividadPersonalServicio();
         ListaSimple lista = servicio.listarActividadesPersonales();
-        return lista.tamanio();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
     }
 
 }

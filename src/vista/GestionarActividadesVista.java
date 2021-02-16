@@ -41,7 +41,7 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividads(), controlador.getPersona().getId_departamento(), "departamento_id")));
+        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controlador.getPersona().getId_departamento(), "departamento_id")));
         if (tablaActividad.getLista().tamanio() < 1) {
             JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
         }
@@ -280,7 +280,7 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         int seleccion = -1;
         seleccion = tblActividades.getSelectedRow();
         if (seleccion > -1) {
-            if (serAct.darDeBajaActividad(((ActividadModelo) tablaActividad.getLista().buscarPorPosicion(seleccion)).getId(), "id", serAct.listarActividads())) {
+            if (serAct.darDeBajaActividad(((ActividadModelo) tablaActividad.getLista().buscarPorPosicion(seleccion)).getId(), "id", serAct.listarActividades())) {
                 JOptionPane.showMessageDialog(null, "Se elimino actividad");
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo eliminar actividad");

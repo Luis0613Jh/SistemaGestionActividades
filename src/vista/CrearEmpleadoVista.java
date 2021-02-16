@@ -30,8 +30,8 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      */
     private ControladorPersona controladorEmp = new ControladorPersona();
     private RolServicio serRol = new RolServicio();
-    private ControladorPersona temp;
-
+    private ControladorPersona temp ;
+    private JFileChooser fc = new JFileChooser();
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -43,10 +43,12 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
 
     public CrearEmpleadoVista(ControladorPersona temp) {
         initComponents();
+        this.temp = temp;
         this.setLocationRelativeTo(this);
         ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
         Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
         lblFoto.setIcon(fondoImagen);
+    }
 
     }
 
@@ -56,7 +58,9 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      * @return Un boolean correspondiente a si esta vacia
      */
     public boolean vacios() {
-        if (txtCedulaPersonal.getText().length() > 0 && txtContraseniaPersonal.getText().length() > 0 && txtCorreoElectronicoPersonal.getText().length() > 0 && txtNombrePersonal.getText().length() > 0 && txtTelefonoPersonal.getText().length() > 0 && txtUsuarioPersonal.getText().length() > 0) {
+        if (txtCedulaPersonal.getText().length() > 0 && txtContraseniaPersonal.getText().length() > 0 && txtCorreoElectronicoPersonal.getText().length() > 0 
+                && txtNombrePersonal.getText().length() > 0 && txtTelefonoPersonal.getText().length() > 0
+                && txtUsuarioPersonal.getText().length() > 0 && fc.getSelectedFile() != null) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
@@ -202,7 +206,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnElegirFoto);
-        btnElegirFoto.setBounds(640, 320, 230, 25);
+        btnElegirFoto.setBounds(640, 320, 230, 23);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,9 +220,10 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         jPanel2.add(txtContraseniaPersonal);
         txtContraseniaPersonal.setBounds(250, 380, 310, 30);
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setText("Personal");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(250, 300, 310, 30);
+        jLabel9.setBounds(250, 310, 100, 24);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 930, 460);
@@ -261,7 +266,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnElegirFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElegirFotoActionPerformed
-        JFileChooser fc = new JFileChooser();
+        
         fc.setDialogTitle("Buscar foto o imagen");
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());
@@ -274,13 +279,13 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         if (vacios()) {
             controladorEmp.getPersona().setCedula(txtCedulaPersonal.getText());
             controladorEmp.getPersona().setNombre(txtNombrePersonal.getText());
-            controladorEmp.getPersona().setId(controladorEmp.numeroEmpleados() + 1);
-            controladorEmp.getPersona().setId_cuenta(controladorEmp.numeroEmpleados() + 1);
+            controladorEmp.getPersona().setId(controladorEmp.numeroEmpleados()+1);
+            controladorEmp.getPersona().setId_cuenta(controladorEmp.numeroEmpleados()+1);
             controladorEmp.getPersona().setCorreo(txtCorreoElectronicoPersonal.getText());
             controladorEmp.getPersona().setTelefono(txtTelefonoPersonal.getText());
-            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(), "Personal", "tipo"));
+            controladorEmp.getPersona().setId_rol(serRol.obtenerIdRol(serRol.listarRoles(),"Personal", "tipo"));
             controladorEmp.getPersona().setEstado("activo");
-            controladorEmp.getPersona().setId_departamento(-3);
+            controladorEmp.getPersona().setId_departamento(-3);                        
             controladorEmp.getCuenta().setUsuario(txtUsuarioPersonal.getText());
             controladorEmp.getCuenta().setClave(txtContraseniaPersonal.getText());
             controladorEmp.getCuenta().setEstado("activo");
@@ -301,7 +306,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,7 +382,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnElegirFoto;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

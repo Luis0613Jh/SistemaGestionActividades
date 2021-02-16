@@ -274,14 +274,14 @@ public class AdministradorVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionarEmpleadosActionPerformed
 
     private void btnGestionarProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarProyectosActionPerformed
-        GestionarProyectosVista gps = new GestionarProyectosVista();
+        GestionarProyectosVista gps = new GestionarProyectosVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);
     }//GEN-LAST:event_btnGestionarProyectosActionPerformed
 
     private void btnGestionarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarDepartamentosActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controlador);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);
@@ -294,8 +294,12 @@ public class AdministradorVista extends javax.swing.JFrame {
         lv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnGestionarPersonalDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPersonalDepartamentoActionPerformed
+        
+    }//GEN-LAST:event_btnGestionarPersonalDepartamentoActionPerformed
+
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
-        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista();
+        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
