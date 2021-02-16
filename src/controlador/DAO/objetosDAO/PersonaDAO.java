@@ -91,7 +91,7 @@ public class PersonaDAO extends AdaptadorDAO {
             }
             administrador.setId_rol(new RolServicio().obtenerIdRol(new RolServicio().listarRoles(), "Administrador", "tipo"));
             administrador.setId_departamento(-1);
-            //administrador.setPath_imagen(-1);
+            administrador.setPath_imagen("src/imagenes/ImagenAdministrador.jpeg");
             administrador.setEstado("activo");
 
             setPersona(administrador);

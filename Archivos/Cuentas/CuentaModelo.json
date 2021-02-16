@@ -1,1 +1,1 @@
-{"controlador.listaSimple.ListaSimple":{"cabecera":{"objeto":{"@class":"modelo.CuentaModelo","id":1,"external_id":0,"usuario":"admin","clave":"administracion2021","estado":"activo"}}}}
+{"controlador.listaSimple.ListaSimple":{"cabecera":{"objeto":{"@class":"modelo.CuentaModelo","id":1,"external_id":0,"usuario":"admin","clave":"administracion2021","estado":"activo"},"siguiente":{"objeto":{"@class":"modelo.CuentaModelo","id":2,"external_id":0,"usuario":"oij","clave":"oij","estado":"activo"}}}}}

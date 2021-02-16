@@ -31,6 +31,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     private ControladorPersona controladorEmp = new ControladorPersona();
     private RolServicio serRol = new RolServicio();
     private ControladorPersona temp ;
+    private JFileChooser fc = new JFileChooser();
     public CrearEmpleadoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -41,11 +42,11 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }
     public CrearEmpleadoVista(ControladorPersona temp) {
         initComponents();
+        this.temp = temp;
         this.setLocationRelativeTo(this);
         ImageIcon imagenLoginUsuario = new ImageIcon(getClass().getResource("/imagenes/insertarFoto.png"));
         Icon fondoImagen = new ImageIcon(imagenLoginUsuario.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
         lblFoto.setIcon(fondoImagen);
-        
     }
 
 
@@ -55,7 +56,9 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
      * @return Un boolean correspondiente a si esta vacia
      */
     public boolean vacios() {
-        if (txtCedulaPersonal.getText().length() > 0 && txtContraseniaPersonal.getText().length() > 0 && txtCorreoElectronicoPersonal.getText().length() > 0 && txtNombrePersonal.getText().length() > 0 && txtTelefonoPersonal.getText().length() > 0 && txtUsuarioPersonal.getText().length() > 0) {
+        if (txtCedulaPersonal.getText().length() > 0 && txtContraseniaPersonal.getText().length() > 0 && txtCorreoElectronicoPersonal.getText().length() > 0 
+                && txtNombrePersonal.getText().length() > 0 && txtTelefonoPersonal.getText().length() > 0
+                && txtUsuarioPersonal.getText().length() > 0 && fc.getSelectedFile() != null) {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Tiene campos vacios");
@@ -261,7 +264,7 @@ public class CrearEmpleadoVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnElegirFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElegirFotoActionPerformed
-        JFileChooser fc = new JFileChooser();
+        
         fc.setDialogTitle("Buscar foto o imagen");
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File archivo = new File(fc.getSelectedFile().toString());

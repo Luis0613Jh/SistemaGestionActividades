@@ -28,9 +28,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
-        tbtGestionarEmpleados.setModel(tabla);
-        tbtGestionarEmpleados.updateUI();
+        cargarTabla();
 
     }
     public GestionarEmpleadosVista(ControladorPersona temp) {
@@ -38,11 +36,8 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.controladorUsuario = temp;
         this.btnCrearEmpleado.setSelected(true);
-        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
-        tbtGestionarEmpleados.setModel(tabla);
-        tbtGestionarEmpleados.updateUI();
+        cargarTabla();
         UtilidadesVistas.cargarImagen(temp.getPersona().getPath_imagen(),jLabel1);
-
     }
 
     /**
@@ -323,9 +318,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
             boolean bajaCuenta = cuentSer.darDeBajaCuenta(((PersonaModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId_cuenta(), "id", cuentSer.listarCuentas());
             boolean bajaEmpleado = perSer.darDeBajaPersona(((PersonaModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", perSer.listarPersonas());
             if (bajaCuenta && bajaEmpleado) {
-                tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
-                tbtGestionarEmpleados.setModel(tabla);
-                tbtGestionarEmpleados.updateUI();
+                cargarTabla();
                 JOptionPane.showMessageDialog(null, "Se elimino correctamente el empleado\nde la lista");
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo eliminar");
@@ -334,6 +327,21 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
+    public void cargarTabla() {
+        System.out.println("Personas");
+        perSer.listarPersonas().imprimir();
+        System.out.println("Personas activas");
+        tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
+//        perSer.listarPersonasActivas(perSer.listarPersonas()).imprimir();
+//        tabla.setLista(perSer.listarPersonasActivas(perSer.listarPersonas()));
+        System.out.println("EN LA TABLA");
+        tabla.getLista().imprimir();
+        tabla.getLista().eliminarPorPosicion(0);
+        System.out.println("Sin administrador");
+        tabla.getLista().imprimir();
+        tbtGestionarEmpleados.setModel(tabla);
+        tbtGestionarEmpleados.updateUI();
+    }
     /**
      * @param args the command line arguments
      */
