@@ -121,6 +121,8 @@ public class ProyectoDAO extends AdaptadorDAO {
      * @return Retorna una lista con todas las coincidencias encontradas, en caso de no existir coincidencias, retorna null.
      */
     public ListaSimple listarProyectosCoincidentes(ListaSimple lista, Object dato, String atributo) {
+        lista.imprimir();
+        System.out.println("dato : " + dato +" Atributo " + atributo);
         ordenarProyectos(lista, atributo);
         return listarCoincidencias(lista, dato, atributo);
     }

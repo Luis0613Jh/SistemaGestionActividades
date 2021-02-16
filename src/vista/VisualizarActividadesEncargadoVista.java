@@ -34,7 +34,7 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnGestionarHitos.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
         if (archivo.exists()) {
             int id = (serDepa.buscarDepartamento(controlador.getPersona().getId(), "id_encargado")).getId();
             tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), id, "departamento_id")));

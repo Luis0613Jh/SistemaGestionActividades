@@ -15,8 +15,9 @@ public class ConexionDAO {
     private final String CARPETA_ACTIVIDADES = "Actividades";
     private final String CARPETA_DEPARTAMENTOS = "Departamentos";
     private final String CARPETA_ACTIVIDADES_PERSONALES = "Actividades Personales";
+    private final String CARPETA_HITOS = "Hitos";
     private XStream xstream;
-
+    
     /**
      * Cronstruye un objeto ConexionDAO, instanciando el objeto XStream.
      */
@@ -90,6 +91,9 @@ public class ConexionDAO {
 
     public String getCARPETA_ACTIVIDADES_PERSONALES() {
         return CARPETA_ACTIVIDADES_PERSONALES;
+    }
+    public String getCARPETA_HITOS() {
+        return CARPETA_HITOS;
     }
     
     /**

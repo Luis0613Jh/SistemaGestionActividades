@@ -109,6 +109,7 @@ public class AdaptadorDAO implements InterfazDAO {
                 listaTemporal.insertarFinal(objeto);
                 lista.eliminarPorObjeto(objeto);
             } else {
+                System.out.println("");
                 break;
             }
         }

@@ -1,14 +1,15 @@
-
 package vista;
 
 import controlador.ControladorActividad;
 import controlador.ControladorHito;
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.HitoServicio;
+import java.io.File;
 import javax.swing.JOptionPane;
+import modelo.ActividadModelo;
 import modelo.HitoModelo;
 import vista.tabla.tabla_hitos;
-
 
 public class GestionarHitosVista extends javax.swing.JFrame {
 
@@ -19,19 +20,31 @@ public class GestionarHitosVista extends javax.swing.JFrame {
     private ControladorActividad cotroladorActividad = new ControladorActividad();
     private tabla_hitos tablaHitos = new tabla_hitos();
     private HitoServicio serHito = new HitoServicio();
+
     public GestionarHitosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearHito.setSelected(true);
     }
-    public GestionarHitosVista(ControladorPersona controlador , ControladorActividad cotroladorActividad ) {
+
+    public GestionarHitosVista(ControladorPersona controlador, ControladorActividad cotroladorActividad) {
         initComponents();
         this.controlador = controlador;
         this.cotroladorActividad = cotroladorActividad;
         this.setLocationRelativeTo(this);
         this.btnCrearHito.setSelected(true);
-        tablaHitos.setLista(serHito.listarHitosActivos(serHito.listarHitosCoincidencias(serHito.listarHitos(),controlador.getPersona().getId(),"id_responsable")));
-        tblGestionarHitos.getModel();
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + HitoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaHitos.setLista(serHito.listarHitosActivos(serHito.listarHitosCoincidencias(serHito.listarHitos(), controlador.getPersona().getId(), "id_responsable")));
+            if (tablaHitos.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "No tiene hitos guardados guardadas");
+            }
+            tblGestionarHitos.setModel(tablaHitos);
+            tblGestionarHitos.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene actividades personales creados");
+        }
+
     }
 
     /**
@@ -227,10 +240,10 @@ public class GestionarHitosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearHitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearHitoActionPerformed
-    CrearHitoVista chv = new CrearHitoVista(controlador,cotroladorActividad );
-    this.dispose();
-    chv.setLocationRelativeTo(null);
-    chv.setVisible(true);
+        CrearHitoVista chv = new CrearHitoVista(controlador, cotroladorActividad);
+        this.dispose();
+        chv.setLocationRelativeTo(null);
+        chv.setVisible(true);
     }//GEN-LAST:event_btnCrearHitoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -243,12 +256,12 @@ public class GestionarHitosVista extends javax.swing.JFrame {
     private void btnEliminarHitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHitoActionPerformed
         int desicion = -1;
         desicion = tblGestionarHitos.getSelectedRow();
-        if(desicion == -1){
-            JOptionPane.showMessageDialog(null,"Seleccione un proyecto");
-        }else{
+        if (desicion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto");
+        } else {
             ControladorHito aux = new ControladorHito();
-            aux.setHito((HitoModelo)tablaHitos.getLista().buscarPorPosicion(desicion));
-            serHito.darDeBajaHito(aux.getHito().getId(),"id",serHito.listarHitos());
+            aux.setHito((HitoModelo) tablaHitos.getLista().buscarPorPosicion(desicion));
+            serHito.darDeBajaHito(aux.getHito().getId(), "id", serHito.listarHitos());
         }
     }//GEN-LAST:event_btnEliminarHitoActionPerformed
 
