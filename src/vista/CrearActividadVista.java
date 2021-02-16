@@ -202,7 +202,7 @@ public class CrearActividadVista extends javax.swing.JFrame {
         controladorActividad.getActividad().setExternal_id(UtilidadesControlador.generarId());
         controladorActividad.getActividad().setFechaEntrega(dateChooserFechaEntrega.getDate());
         controladorActividad.getActividad().setFechaInicio(dateChooserFechaInicio.getDate());
-        controladorActividad.getActividad().setId(UtilidadesControlador.generarId());
+        controladorActividad.getActividad().setId(controladorActividad.numeroActividades()+1);
         controladorActividad.getActividad().setNombre(txtNombreActividad.getText());
         controladorActividad.getActividad().setPrioridad((String) cbxPrioridad.getSelectedItem());
         controladorActividad.getActividad().setProyecto_id(controladorProyecto.getProyecto().getId());

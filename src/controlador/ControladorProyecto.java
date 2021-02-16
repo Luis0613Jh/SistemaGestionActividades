@@ -6,6 +6,7 @@
 
 package controlador;
 
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ProyectoServicio;
 import modelo.ProyectoModelo;
 
@@ -43,6 +44,16 @@ public class ControladorProyecto {
             return controlador.guardarProyecto();
         } catch (Exception e) {
             return false;
+        }
+    }
+    
+    public int numeroProyectos(){
+        ProyectoServicio controlador = new ProyectoServicio();
+        ListaSimple lista = controlador.listarProyectos();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
         }
     }
 }

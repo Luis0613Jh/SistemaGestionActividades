@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
 import controlador.servicio.DepartamentoServicio;
 import javax.swing.JOptionPane;
 import modelo.DepartamentoModelo;
@@ -13,10 +14,28 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
      */
     private tabla_Departamento tabla = new tabla_Departamento();
     private DepartamentoServicio seDep = new DepartamentoServicio();
-
+    private ControladorPersona controlador;
     public GestionarDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.btnCrearDepartamento.setSelected(true);
+        tabla.setLista(seDep.listarDepartamentosActivos(seDep.listarDepartamentos()));
+        if (tabla.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No tiene departamentos creados");
+            dispose();
+            GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+            this.dispose();
+            gp.setLocationRelativeTo(null);
+            gp.setVisible(true);
+        } else {
+            tbtGestionarDepartamentos.setModel(tabla);
+            tbtGestionarDepartamentos.updateUI();
+        }
+    }
+    public GestionarDepartamentosVista(ControladorPersona controlador) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.controlador = controlador;
         this.btnCrearDepartamento.setSelected(true);
         tabla.setLista(seDep.listarDepartamentosActivos(seDep.listarDepartamentos()));
         if (tabla.getLista().tamanio() < 1) {
@@ -305,7 +324,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDepartamentoActionPerformed
-        CrearDepartamentoVista cd = new CrearDepartamentoVista();
+        CrearDepartamentoVista cd = new CrearDepartamentoVista(controlador);
         this.dispose();
         cd.setLocationRelativeTo(null);
         cd.setVisible(true);
@@ -318,7 +337,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione un departamento de la tabla");
         } else {
             ControladorDepartamento aux = new ControladorDepartamento();
-            VerDetalladamenteDepartamentosVista vdd = new VerDetalladamenteDepartamentosVista(aux);
+            VerDetalladamenteDepartamentosVista vdd = new VerDetalladamenteDepartamentosVista(aux,controlador);
             this.dispose();
             vdd.setLocationRelativeTo(null);
             vdd.setVisible(true);
@@ -327,7 +346,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        AdministradorVista admin = new AdministradorVista(controlador);
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
@@ -360,7 +379,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         } else {
             ControladorDepartamento aux = new ControladorDepartamento();
             aux.setDepatamento((DepartamentoModelo) tabla.getLista().buscarPorPosicion(seleccion));
-            AsignarPersonalDepartamentoVista apd = new AsignarPersonalDepartamentoVista(aux);
+            AsignarPersonalDepartamentoVista apd = new AsignarPersonalDepartamentoVista(aux,controlador);
             apd.setLocationRelativeTo(null);
             this.dispose();
             apd.setVisible(true);

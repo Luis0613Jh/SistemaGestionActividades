@@ -66,7 +66,11 @@ public class ControladorActividadPersonal {
     public int numeroEmpleados() {
         ActividadPersonalServicio servicio = new ActividadPersonalServicio();
         ListaSimple lista = servicio.listarActividadesPersonales();
-        return lista.tamanio();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
     }
 
 }

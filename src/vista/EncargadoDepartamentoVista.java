@@ -248,7 +248,7 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionarProyectosActionPerformed
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
-        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista();
+        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed

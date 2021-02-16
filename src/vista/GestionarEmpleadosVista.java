@@ -23,7 +23,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     PersonaServicio perSer = new PersonaServicio();
     CuentaServicio cuentSer = new CuentaServicio();
     RolServicio rolSer = new RolServicio();
-    ControladorPersona temp;
+    ControladorPersona controladorUsuario;
     public GestionarEmpleadosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -36,7 +36,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     public GestionarEmpleadosVista(ControladorPersona temp) {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.temp = temp;
+        this.controladorUsuario = temp;
         this.btnCrearEmpleado.setSelected(true);
         tabla.setLista(perSer.listarPersonasCoincidencias(perSer.listarPersonas(), "activo", "estado"));
         tbtGestionarEmpleados.setModel(tabla);
@@ -273,7 +273,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
-        CrearEmpleadoVista ce = new CrearEmpleadoVista(temp);
+        CrearEmpleadoVista ce = new CrearEmpleadoVista(controladorUsuario);
         this.dispose();
         ce.setLocationRelativeTo(null);
         ce.setVisible(true);
@@ -286,7 +286,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Elija Empleado de la tabla");
         } else {
             controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
-            EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador,temp);
+            EditarEmpleadoVista ee = new EditarEmpleadoVista(controlador,controladorUsuario);
             this.dispose();
             ee.setLocationRelativeTo(null);
             ee.setVisible(true);
@@ -300,7 +300,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Elija Empleado de la tabla");
         } else {
             controlador.setPersona((PersonaModelo) tabla.getLista().buscarPorPosicion(eleccion));
-            VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador);
+            VerDetalladamenteEmpleadoVista vde = new VerDetalladamenteEmpleadoVista(controlador,controladorUsuario);
             vde.setLocationRelativeTo(null);
             vde.setVisible(true);
             this.dispose();
@@ -308,7 +308,7 @@ public class GestionarEmpleadosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerDatosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        AdministradorVista admin = new AdministradorVista(controladorUsuario);
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);

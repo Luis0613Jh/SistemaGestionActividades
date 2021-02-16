@@ -1,7 +1,9 @@
 package vista;
 
+import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
 import controlador.servicio.ProyectoServicio;
+import controlador.utilidades.UtilidadesVistas;
 import javax.swing.JOptionPane;
 import modelo.ProyectoModelo;
 import vista.tabla.tabla_Proyectos;
@@ -13,11 +15,24 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
      */
     private tabla_Proyectos tabla = new tabla_Proyectos();
     private ProyectoServicio serPro = new ProyectoServicio();
-
+    private ControladorPersona controlador;
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearProyecto.setSelected(true);
+        tabla.setLista(serPro.listarProyectosActivos(serPro.listarProyectos()));
+        if (tabla.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No hay proyectos activos");
+        }
+        tblGestionarProyectosVista.setModel(tabla);
+        tblGestionarProyectosVista.updateUI();
+    }
+    public GestionarProyectosVista(ControladorPersona controlador) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        this.btnCrearProyecto.setSelected(true);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
         tabla.setLista(serPro.listarProyectosActivos(serPro.listarProyectos()));
         if (tabla.getLista().tamanio() < 1) {
             JOptionPane.showMessageDialog(null, "No hay proyectos activos");
@@ -107,14 +122,15 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnEliminarProyecto.setText("Eliminar proyecto.");
@@ -160,9 +176,9 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(62, 62, 62)
                 .addComponent(btnCrearProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(btnEliminarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,7 +259,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProyectoActionPerformed
-        CrearProyectosVista cp = new CrearProyectosVista();
+        CrearProyectosVista cp = new CrearProyectosVista(controlador);
         this.dispose();
         cp.setLocationRelativeTo(null);
         cp.setVisible(true);
@@ -266,7 +282,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        AdministradorVista admin = new AdministradorVista(controlador);
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);

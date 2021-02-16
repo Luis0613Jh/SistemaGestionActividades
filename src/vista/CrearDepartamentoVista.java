@@ -20,12 +20,19 @@ public class CrearDepartamentoVista extends javax.swing.JFrame {
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorPersona contper =  new ControladorPersona();
-    ControladorDepartamento contdep = new ControladorDepartamento();
-    PersonaServicio serPer = new PersonaServicio();
-    RolServicio rolSer = new RolServicio();
+    private ControladorPersona contper =  new ControladorPersona();
+    private ControladorDepartamento contdep = new ControladorDepartamento();
+    private PersonaServicio serPer = new PersonaServicio();
+    private RolServicio rolSer = new RolServicio();
+    private ControladorPersona controlador;
     public CrearDepartamentoVista() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        llenarEmpleados();
+    }
+    public CrearDepartamentoVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         llenarEmpleados();
     }
@@ -165,7 +172,7 @@ txtDescripcion = new javax.swing.JTextField();
             contdep.getDepatamento().setEstado("activo");
             contdep.getDepatamento().setId_Encargado(serPer.obtenerIdPersona(serPer.listarPersonas(),(String)cbxEncargado.getSelectedItem(),"nombre"));
             contdep.getDepatamento().setDescripcion(txtDescripcion.getText());
-            contdep.getDepatamento().setId(UtilidadesControlador.generarId());
+            contdep.getDepatamento().setId(contdep.numeroDepartamentos()+1);
             contdep.getDepatamento().setExternal_id(UtilidadesControlador.generarId());
             contper.setPersona(serPer.buscarPersona(contdep.getDepatamento().getId_Encargado(),"id"));
             contper.getPersona().setId_rol(rolSer.obtenerIdRol(rolSer.listarRoles(),"Encargado","tipo"));
@@ -188,7 +195,7 @@ txtDescripcion = new javax.swing.JTextField();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+        GestionarDepartamentosVista gp = new GestionarDepartamentosVista(controlador);
         this.dispose();
         gp.setLocationRelativeTo(null);
         gp.setVisible(true);

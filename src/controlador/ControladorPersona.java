@@ -73,32 +73,6 @@ public class ControladorPersona {
         this.persona = persona;
     }
 
-    /**
-     * Metodo para clonar el objeto empleado que se enviara al guardar
-     *
-     * @return Un PersonaModelo correspondiente a la informacion clonada
-     * llenando ids
-     */
-    public PersonaModelo clonarEmpleado() {
-        PersonaModelo aux = new PersonaModelo();
-        aux.setCedula(persona.getCedula());
-        aux.setCorreo(persona.getCorreo());
-        aux.setExternal_id(UtilidadesControlador.generarId());
-        System.out.println("external "+aux.getExternal_id());
-        persona.setExternal_id(aux.getExternal_id());
-        aux.setId(numeroEmpleados() + 1);
-        persona.setId(aux.getId());
-        aux.setId_rol(persona.getId_rol());
-        System.out.println("Rol = " + persona.getId_rol());
-        aux.setId_cuenta(numeroEmpleados() + 1);
-        persona.setId_cuenta(aux.getId());
-        aux.setNombre(persona.getNombre());
-        aux.setPath_imagen(persona.getPath_imagen());
-        aux.setTelefono(persona.getTelefono());
-        aux.setEstado(persona.getEstado());
-        aux.setId_departamento(persona.getId_departamento());
-        return aux;
-    }
 
     /**
      * Metodo para guardar el empleado escribiendo en el json
@@ -109,17 +83,13 @@ public class ControladorPersona {
         boolean bandera;
         try {
             PersonaDAO ad = new PersonaDAO();
-            ad.setPersona(clonarEmpleado());
+            ad.setPersona(persona);
             CuentaDAO adc = new CuentaDAO();
-            adc.setCuenta(obtenerCuenta());
-            RolDAO adr = new RolDAO();
-            adr.setRol(obtenerRol());
+            adc.setCuenta(cuenta);
             bandera = ad.guardarPersona();
-            System.out.println("bandera 1" + bandera);;
+            System.out.println("bandera 1" + bandera);
             bandera = adc.guardarCuenta();
             System.out.println("bandera 2" + bandera);
-            bandera = adr.guardarRol();
-            System.out.println("bandera 3" + bandera);
             return bandera;
         } catch (Exception e) {
             return false;
@@ -160,7 +130,12 @@ public class ControladorPersona {
     public int numeroEmpleados() {
         PersonaDAO ad = new PersonaDAO();
         ListaSimple lista = ad.listarObjetos();
-        return lista.tamanio();
+        if(lista == null){
+            return 0;
+        }else{
+            int numero = lista.tamanio();
+            return numero;
+        }                
     }
     /**
      * Metodo que retorna un arreglo con el tipo de rol existente
