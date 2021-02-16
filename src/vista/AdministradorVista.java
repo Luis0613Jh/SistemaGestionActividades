@@ -314,6 +314,9 @@ public class AdministradorVista extends javax.swing.JFrame {
         this.dispose();
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
+        dispose();
+        
+    
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     /**

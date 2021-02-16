@@ -9,17 +9,19 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
      * Creates new form PruebaModificado
      */
     ControladorPersona controlador;
+
     public EncargadoDepartamentoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarProyectos.setSelected(true);
     }
+
     public EncargadoDepartamentoVista(ControladorPersona controlador) {
         initComponents();
         this.controlador = controlador;
         this.setLocationRelativeTo(this);
         this.btnGestionarProyectos.setSelected(true);
-        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),lblFoto);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), lblFoto);
     }
 
     /**
@@ -245,12 +247,14 @@ public class EncargadoDepartamentoVista extends javax.swing.JFrame {
         VisualizarActividadesEncargadoVista vae = new VisualizarActividadesEncargadoVista(controlador);
         vae.setLocationRelativeTo(null);
         vae.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnGestionarProyectosActionPerformed
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
         GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

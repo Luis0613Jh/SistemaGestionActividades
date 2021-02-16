@@ -252,7 +252,8 @@ public class PersonalVista extends javax.swing.JFrame {
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
         GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
-        apv.setVisible(true);        
+        apv.setVisible(true); 
+        dispose();
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

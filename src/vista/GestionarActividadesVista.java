@@ -3,12 +3,15 @@ package vista;
 import controlador.ControladorActividad;
 import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.ActividadServicio;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.ActividadModelo;
+import modelo.ActividadPersonalModelo;
 import vista.tabla.tabla_Actividad;
 
 public class GestionarActividadesVista extends javax.swing.JFrame {
@@ -41,12 +44,17 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controlador.getPersona().getId_departamento(), "departamento_id")));
-        if (tablaActividad.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES()+ File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controlador.getPersona().getId_departamento(), "departamento_id")));
+            if (tablaActividad.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+            }
+            tblActividades.setModel(tablaActividad);
+            tblActividades.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene actividades personales creados");
         }
-        tblActividades.setModel(tablaActividad);
-        tblActividades.updateUI();
 
     }
 

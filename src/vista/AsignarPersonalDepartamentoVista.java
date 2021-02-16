@@ -27,8 +27,6 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         this.controlador = controlador;
         this.controladorUsuario = controladorUsuario;
         lblNombreDepartamento.setText(controlador.getDepatamento().getNombreDepartamento());
-        tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
-        tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
         actualizar();
     }
     

@@ -2,11 +2,15 @@ package vista;
 
 import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ProyectoServicio;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.HitoModelo;
 import modelo.ProyectoModelo;
 import vista.tabla.tabla_Proyectos;
 
@@ -24,13 +28,7 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
-        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(), controlador.getPersona().getId(), "id_jefeProyecto")));
-        if (tabla.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
-        } else {
-            rSTableMetro1.setModel(tabla);
-            rSTableMetro1.updateUI();
-        }
+        System.out.println("contructor error");
     }
 
     public VisualizarProyectosJefeProyectoVista(ControladorPersona controlador) {
@@ -39,13 +37,26 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(), controlador.getPersona().getId(), "id_jefeProyecto")));
-        if (tabla.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
+        System.out.println("id jefe proyecto "+ controlador.getPersona().getId() );
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_PROYECTOS() + File.separatorChar + ProyectoModelo.class.getSimpleName() + ".json");
+        System.out.println(" respuesta"+ archivo.exists());
+        if (archivo.exists()) {
+            System.out.println("otra vez id "+controlador.getPersona().getId());
+            serProyect.listarProyectos().imprimir();
+            serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(), controlador.getPersona().getId(),"id_jefeProyecto").imprimir();
+            serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(), controlador.getPersona().getId(), "id_jefeProyecto")).imprimir();
+            tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(), controlador.getPersona().getId(), "id_jefeProyecto")));
+            System.out.println(" tamano  "+ tabla.getLista().tamanio());
+            if (tabla.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
+            } else {
+                rSTableMetro1.setModel(tabla);
+                rSTableMetro1.updateUI();
+            }
         } else {
-            rSTableMetro1.setModel(tabla);
-            rSTableMetro1.updateUI();
+            JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
         }
+
     }
 
     public void cargarImagen(String path) {

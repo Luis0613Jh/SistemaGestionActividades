@@ -1,16 +1,17 @@
-
 package vista;
 
 import controlador.ControladorDepartamento;
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.PersonaServicio;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import modelo.PersonaModelo;
 import vista.tabla.tabla_GestionarEmpleado;
-
 
 public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
 
@@ -21,21 +22,30 @@ public class VerDetalladamenteDepartamentosVista extends javax.swing.JFrame {
     private tabla_GestionarEmpleado tabla = new tabla_GestionarEmpleado();
     private PersonaServicio serPer = new PersonaServicio();
     private ControladorPersona controladorUsuario;
+
     public VerDetalladamenteDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
     }
-    public VerDetalladamenteDepartamentosVista(ControladorDepartamento controlador , ControladorPersona controladorUsuario) {
+
+    public VerDetalladamenteDepartamentosVista(ControladorDepartamento controlador, ControladorPersona controladorUsuario) {
         initComponents();
         this.controlador = controlador;
         this.controladorUsuario = controladorUsuario;
         this.setLocationRelativeTo(this);
-        tabla.setLista(serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(),controlador.getDepatamento().getId(),"id_departamento")));
-        if(tabla.getLista().tamanio() < 1){
-            JOptionPane.showMessageDialog(null,"No hay personal en este departamento");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_EMPLEADOS() + File.separatorChar + PersonaModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tabla.setLista(serPer.listarPersonasActivas(serPer.listarPersonasCoincidencias(serPer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
+            if (tabla.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "No hay personal en este departamento");
+            }
+            tblDetalleDepartamento.setModel(tabla);
+            tblDetalleDepartamento.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay personal en este departamento");
+            dispose();
         }
-        tblDetalleDepartamento.setModel(tabla);
-        tblDetalleDepartamento.updateUI();
+
     }
 
     /**

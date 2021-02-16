@@ -262,6 +262,7 @@ public class JefeProyectoVista extends javax.swing.JFrame {
         GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

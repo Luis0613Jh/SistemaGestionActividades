@@ -2,11 +2,14 @@ package vista;
 
 import controlador.ControladorActividad;
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.ActividadServicio;
 import controlador.servicio.DepartamentoServicio;
 import controlador.utilidades.UtilidadesVistas;
+import java.io.File;
 import javax.swing.JOptionPane;
 import modelo.ActividadModelo;
+import modelo.DepartamentoModelo;
 import vista.tabla.tabla_Actividad;
 
 public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
@@ -31,17 +34,24 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnGestionarHitos.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
-        int id = (serDepa.buscarDepartamento(controlador.getPersona().getId(), "id_encargado")).getId();
-        tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), id, "departamento_id")));
-        if (tablaActividades.getLista().tamanio() < 1) {
-            JOptionPane.showMessageDialog(null, "No tiene actividades asignadas");
-            dispose();
-            EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
-            edv.setVisible(true);
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            int id = (serDepa.buscarDepartamento(controlador.getPersona().getId(), "id_encargado")).getId();
+            tablaActividades.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), id, "departamento_id")));
+            if (tablaActividades.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "No tiene actividades asignadas");
+                dispose();
+                EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
+                edv.setVisible(true);
+            } else {
+                tblActividadEncargadoVista.setModel(tablaActividades);
+                tblActividadEncargadoVista.updateUI();
+            }
         } else {
-            tblActividadEncargadoVista.setModel(tablaActividades);
-            tblActividadEncargadoVista.updateUI();
+            JOptionPane.showMessageDialog(null, "No tiene actividades creados");
+            dispose();
         }
+
     }
 
     /**
@@ -239,8 +249,8 @@ public class VisualizarActividadesEncargadoVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Elija una actividad de la tabla");
         } else {
             ControladorActividad actividad = new ControladorActividad();
-            actividad.setActividad((ActividadModelo)tablaActividades.getLista().buscarPorPosicion(eleccion));
-            GestionarHitosVista cav = new GestionarHitosVista(controlador,actividad);
+            actividad.setActividad((ActividadModelo) tablaActividades.getLista().buscarPorPosicion(eleccion));
+            GestionarHitosVista cav = new GestionarHitosVista(controlador, actividad);
             this.dispose();
             cav.setLocationRelativeTo(null);
             cav.setVisible(true);

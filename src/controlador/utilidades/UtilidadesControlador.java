@@ -329,10 +329,14 @@ public class UtilidadesControlador {
     public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
         ListaSimple aux = new ListaSimple();
         for (int i = 0; i < l1.tamanio(); i++) {
-            aux.insertarFinal(l1.buscarPorPosicion(i));
+            if(l1.buscarPorPosicion(i) != null){
+                aux.insertarFinal(l1.buscarPorPosicion(i));
+            }            
         }
         for (int i = 0; i < l2.tamanio(); i++) {
-            aux.insertarFinal(l2.buscarPorPosicion(i));
+            if(l2.buscarPorPosicion(i) != null){
+                aux.insertarFinal(l2.buscarPorPosicion(i));
+            } 
         }
         return aux;
     }
