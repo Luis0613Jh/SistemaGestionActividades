@@ -6,10 +6,13 @@
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.ActividadPersonalServicio;
 import controlador.servicio.RolServicio;
 import controlador.utilidades.UtilidadesVistas;
+import java.io.File;
 import javax.swing.JOptionPane;
+import modelo.ActividadModelo;
 import modelo.ActividadPersonalModelo;
 import vista.tabla.tabla_ActividadPersonal;
 
@@ -37,7 +40,13 @@ public class GestionarActividadesPersonalesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(),jLabel1);
-        listarTabla();
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json"); 
+        if (archivo.exists()) {
+            listarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene actividades personales creados");
+        }
+        
     }
     
     public void listarTabla(){

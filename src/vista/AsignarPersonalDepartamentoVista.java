@@ -27,8 +27,6 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
         this.controlador = controlador;
         this.controladorUsuario = controladorUsuario;
         lblNombreDepartamento.setText(controlador.getDepatamento().getNombreDepartamento());
-        tabla1.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), -3, "id_departamento")));
-        tabla2.setLista(sePer.listarPersonasActivas(sePer.listarPersonasCoincidencias(sePer.listarPersonas(), controlador.getDepatamento().getId(), "id_departamento")));
         actualizar();
     }
     
@@ -237,12 +235,12 @@ public class AsignarPersonalDepartamentoVista extends javax.swing.JFrame {
 
     private void btnRevocarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevocarPersonalActionPerformed
         int seleccion = -1;
-        seleccion = tblPersonalDisponible.getSelectedRow();
+        seleccion = tbtPersonalEnDepartamento.getSelectedRow();
         if(seleccion == -1){
             JOptionPane.showMessageDialog(null, "Elija un empleado de la tabla de empleados sin departamento asignado");
         }else{
             ControladorPersona aux = new ControladorPersona();
-            aux.setPersona((PersonaModelo)tabla1.getLista().buscarPorPosicion(seleccion));
+            aux.setPersona((PersonaModelo)tabla2.getLista().buscarPorPosicion(seleccion));
             aux.getPersona().setId_departamento(-3);
             sePer.modificarPersona(aux.getPersona(),"id",sePer.listarPersonas());
             actualizar();
