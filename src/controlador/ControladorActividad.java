@@ -7,7 +7,6 @@
 package controlador;
 
 import controlador.listaSimple.ListaSimple;
-import controlador.servicio.ActividadPersonalServicio;
 import controlador.servicio.ActividadServicio;
 import modelo.ActividadModelo;
 
@@ -47,7 +46,10 @@ public class ControladorActividad {
             return false;
         }
     }
-    
+    /**
+     * Metodo para retornar el numero de actividades
+     * @return int numero de actividades
+     */
     public int numeroActividades() {
         ActividadServicio guardar = new ActividadServicio();
         ListaSimple lista = guardar.listarActividades();

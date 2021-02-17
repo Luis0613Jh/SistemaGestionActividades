@@ -69,7 +69,10 @@ public class ControladorDepartamento {
         }
         return arreglo;
     }
-    
+    /**
+     * Metodo determinar el numero de departaments
+     * @return un int con el numer de departamentos
+     */
     public int numeroDepartamentos() {
         DepartamentoServicio servicio = new DepartamentoServicio();
         ListaSimple lista = servicio.listarDepartamentos();
@@ -79,7 +82,11 @@ public class ControladorDepartamento {
             return lista.tamanio();
         }
     }
-    
+    /**
+     * Metodo para obtener el is de un string nombre
+     * @param nombre un string con el nombre del departamento a buscar
+     * @return un int con el id del departamento a buscar
+     */
     public int obtenerIdDepartmento(String nombre){
         DepartamentoServicio d = new DepartamentoServicio();
         ListaSimple a = d.listarDepartamentos();

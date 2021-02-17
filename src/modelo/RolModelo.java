@@ -6,13 +6,20 @@ public class RolModelo {
     private int external_id;
     private String tipo;
     private String estado;
-
+    /**
+     * Contructor rol
+     * @param id
+     * @param external_id
+     * @param tipo 
+     */
     public RolModelo(int id, int external_id, String tipo) {
         this.id = id;
         this.external_id = external_id;
         this.tipo = tipo;
     }
-
+    /**
+     * Contructor rol
+     */
     public RolModelo() {
        
     }

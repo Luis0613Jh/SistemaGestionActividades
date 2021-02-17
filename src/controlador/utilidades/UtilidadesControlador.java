@@ -318,7 +318,12 @@ public class UtilidadesControlador {
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
     }
-
+    /**
+     * Metodo para unir dos listas
+     * @param l1  lista uno
+     * @param l2  lista dos
+     * @return  una lista producto de la union de dos
+     */
     public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
         ListaSimple aux = new ListaSimple();
         for (int i = 0; i < l1.tamanio(); i++) {
