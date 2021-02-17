@@ -6,14 +6,10 @@ import controlador.cola.Cola;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import modelo.ActividadPersonalModelo;
 import modelo.PersonaModelo;
 import modelo.RolModelo;
-import vista.EditarEmpleadoVista;
 
 public class UtilidadesControlador {
 
@@ -231,7 +227,6 @@ public class UtilidadesControlador {
         for (int i = 0; i < dato.length; i++) {
             cdx.addItem(dato[i]);
         }
-
     }
 
     public static void cargarComboBoxEmpleados(JComboBox cdx, ListaSimple dato) {
@@ -239,7 +234,6 @@ public class UtilidadesControlador {
         for (int i = 0; i < dato.tamanio(); i++) {
             cdx.addItem(((PersonaModelo) dato.buscarPorPosicion(i)).getNombre());
         }
-
     }
 
     public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx, ListaSimple dato) {
@@ -324,7 +318,12 @@ public class UtilidadesControlador {
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
     }
-
+    /**
+     * Metodo para unir dos listas
+     * @param l1  lista uno
+     * @param l2  lista dos
+     * @return  una lista producto de la union de dos
+     */
     public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
         ListaSimple aux = new ListaSimple();
         for (int i = 0; i < l1.tamanio(); i++) {
@@ -340,6 +339,11 @@ public class UtilidadesControlador {
         return aux;
     }
 
+    /**
+     * Método que permite determinar los segundos totales a paratar de una hor.
+     * @param horaF Hora de la que se va calcular el tiempo total en segundos, es de tipo string.
+     * @return Retorna los segundos totales en segundos, es de tipo int.
+     */
     public static int determinarSegundosTotales(String horaF) {
         // Hora en la que finaliza la actividad personal
         String[] arrayHora = horaF.split(":");
@@ -352,6 +356,11 @@ public class UtilidadesControlador {
         return segundosF;
     }
 
+    /**
+     * Método que permite obtener una cola con todas las actividades personales ordenadas por hora de entrega.
+     * @param lista Lista que contiene las actividades personales.
+     * @return Retonra una cola con las actividades personales ordenadas por hora de entrega, en caso de no existir actividades personales, retorna null.
+     */
     public static Cola obtenerActividadesPersonalesPendientes(ListaSimple lista) {
         Cola cola = null;
         int tiempo;
@@ -376,8 +385,6 @@ public class UtilidadesControlador {
                 lista.eliminarPorPosicion(pos);
             }
         }
-        System.out.println("Cola");
-        cola.imprimir();
         return cola;
     }
 }

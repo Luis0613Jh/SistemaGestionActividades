@@ -13,11 +13,17 @@ public class PersonaModelo {
     private int id_departamento;
     private String path_imagen;
     private String estado;
-
+    /**
+     * Metodo obtener el id de departamento
+     * @return  un int con el identificador del departamento
+     */
     public int getId_departamento() {
         return id_departamento;
     }
-
+    /**
+     * Metodo para envir el id de departamento
+     * @param id_departamento un int
+     */
     public void setId_departamento(int id_departamento) {
         this.id_departamento = id_departamento;
     }

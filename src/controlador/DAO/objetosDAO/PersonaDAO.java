@@ -275,6 +275,11 @@ public class PersonaDAO extends AdaptadorDAO {
         return (persona != null) ? persona.getId() : -1;
     }
     
+    /**
+     * Método que permite obtener las personas registradas en el sistema, a excepción del administrador.
+     * @param lista Lista de personas en donde se va realizar la exclusión, es de tipo ListaSimple.
+     * @return Retonra la lista orignial, excluyendo el administrador del sistema.
+     */
     public ListaSimple excluirAdministrador(ListaSimple lista) {
         lista.eliminarPorPosicion(0);
         return lista;
