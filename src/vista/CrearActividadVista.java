@@ -3,6 +3,8 @@ package vista;
 import controlador.ControladorActividad;
 import controlador.ControladorDepartamento;
 import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.DepartamentoServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
@@ -12,31 +14,47 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import modelo.DepartamentoModelo;
 
 public class CrearActividadVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorActividad controladorActividad = new ControladorActividad();
-    ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
-    DepartamentoServicio serDepa = new DepartamentoServicio();
-    ControladorPersona controlador;
+    private ControladorActividad controladorActividad = new ControladorActividad();
+    private ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
+    private DepartamentoServicio serDepa = new DepartamentoServicio();
+    private ControladorProyecto controladorProyecto;
+    private ControladorPersona controlador;
+
     public CrearActividadVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         llenarDepartamentos();
     }
 
-    CrearActividadVista(ControladorPersona controlador) {
+    public CrearActividadVista(ControladorPersona controlador) {
         initComponents();
         this.controlador = controlador;
         this.setLocationRelativeTo(this);
         llenarDepartamentos();
     }
 
+    public CrearActividadVista(ControladorPersona controlador, ControladorProyecto controladorProyecto) {
+        initComponents();
+        this.controlador = controlador;
+        this.controladorProyecto = controladorProyecto;
+        this.setLocationRelativeTo(this);
+        llenarDepartamentos();
+    }
+
     public void llenarDepartamentos() {
-        UtilidadesControlador.cargarComboBoxDias(cbxDepartamento, controladorDeapartamento.departamentos());
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + DepartamentoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            UtilidadesControlador.cargarComboBoxDias(cbxDepartamento, controladorDeapartamento.departamentos());
+        } else {
+            JOptionPane.showMessageDialog(this, "No existen Departamento registrados en el sistema");
+        }
     }
 
     /**
@@ -191,28 +209,27 @@ public class CrearActividadVista extends javax.swing.JFrame {
         controladorActividad.getActividad().setExternal_id(UtilidadesControlador.generarId());
         controladorActividad.getActividad().setFechaEntrega(dateChooserFechaEntrega.getDate());
         controladorActividad.getActividad().setFechaInicio(dateChooserFechaInicio.getDate());
-        controladorActividad.getActividad().setId(UtilidadesControlador.generarId());
+        controladorActividad.getActividad().setId(controladorActividad.numeroActividades() + 1);
         controladorActividad.getActividad().setNombre(txtNombreActividad.getText());
         controladorActividad.getActividad().setPrioridad((String) cbxPrioridad.getSelectedItem());
-        controladorActividad.getActividad().setProyecto_id(7);
-        controladorDeapartamento.setDepatamento(serDepa.buscarDepartamento((String) cbxDepartamento.getSelectedItem(), "nombreDepartamento"));
-        controladorActividad.getActividad().setDepartamento_id(serDepa.obtenerIdDepartamento(serDepa.listarDepartamentos(), controladorDeapartamento.getDepatamento(), "id"));
+        controladorActividad.getActividad().setDepartamento_id(controladorDeapartamento.obtenerIdDepartmento((String) cbxDepartamento.getSelectedItem()));
+        controladorActividad.getActividad().setProyecto_id(controladorProyecto.getProyecto().getId());
         if (controladorActividad.guardarActividad()) {
             JOptionPane.showMessageDialog(null, "Se guardo correctamente");
-            AdministradorVista admin = new AdministradorVista();
+            GestionarActividadesVista gac = new GestionarActividadesVista(controlador, controladorProyecto);
             this.dispose();
-            admin.setLocationRelativeTo(null);
-            admin.setVisible(true);
+            gac.setLocationRelativeTo(null);
+            gac.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "No se logro guardar");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarActividadesVista gp = new GestionarActividadesVista();
+        GestionarActividadesVista gac = new GestionarActividadesVista(controlador, controladorProyecto);
         this.dispose();
-        gp.setLocationRelativeTo(null);
-        gp.setVisible(true);
+        gac.setLocationRelativeTo(null);
+        gac.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

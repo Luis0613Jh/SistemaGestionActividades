@@ -28,7 +28,7 @@ public class tabla_Proyectos extends AbstractTableModel{
     }
     @Override
     public int getColumnCount(){
-        return 4;
+        return 3;
     }
     @Override
     public int getRowCount(){
@@ -42,10 +42,9 @@ public class tabla_Proyectos extends AbstractTableModel{
               return "vacio";              
         } 
         switch(i1){
-            case 0 : return (String)proyecto.getCodigo(); 
-            case 1 : return (String)proyecto.getNombreProyecto();
-            case 2 : return (String)proyecto.getFechaInicio().toString();
-            case 3 : return (String)proyecto.getFechaFinal().toString();
+            case 0 : return proyecto.getNombreProyecto();
+            case 1 : return proyecto.getFechaInicio().getDay() + "/" + (proyecto.getFechaInicio().getMonth() + 1) + "/" + (proyecto.getFechaInicio().getYear() + 1900);
+            case 2 : return proyecto.getFechaFinal().getDay() + "/" + (proyecto.getFechaFinal().getMonth() + 1) + "/" + (proyecto.getFechaFinal().getYear() + 1900);
             
             default: return null;
         }
@@ -54,12 +53,10 @@ public class tabla_Proyectos extends AbstractTableModel{
     public String getColumnName(int titulo) {
         switch (titulo) {
             case 0:
-                return "Correo";
-            case 1:
                 return "nombreProyecto";
-            case 2:
+            case 1:
                 return "fechaInicio";
-            case 3:
+            case 2:
                 return "fechaFinal";            
             default:
                 return null;

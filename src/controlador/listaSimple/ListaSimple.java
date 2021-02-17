@@ -144,7 +144,7 @@ public class ListaSimple {
         boolean estaIniciada = false;
 
         if (estaVacia()) {
-            JOptionPane.showMessageDialog(null, "La lista se encuentra vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("La lista se encuentra vacía.");
         } else {
             Nodo iterador = cabecera;
             int cont = 0;
@@ -271,8 +271,9 @@ public class ListaSimple {
         if (cabecera.getObjeto().equals(objeto)) {
             cabecera = cabecera.getSiguiente();
         } else {
+            
             Nodo aux = cabecera;
-            while (!((aux.getSiguiente().getObjeto().equals(objeto)))) {
+            while (!(aux.getSiguiente().getObjeto().equals(objeto))) {
                 aux = aux.getSiguiente();
             }
             Nodo siguiente = aux.getSiguiente().getSiguiente();

@@ -1,21 +1,84 @@
-
 package vista;
 
+import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
+import controlador.servicio.ActividadServicio;
+import controlador.servicio.ProyectoServicio;
+import controlador.servicio.RolServicio;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import modelo.ActividadModelo;
+import vista.tabla.tabla_Actividad;
 
 public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
+    private ControladorPersona controlador;
+    private ControladorProyecto controladorProyecto = new ControladorProyecto();
+    private tabla_Actividad tablaActividad = new tabla_Actividad();
+    private ActividadServicio serAct = new ActividadServicio();
+
     public VerDetalladamenteProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
+    }
+
+    public VerDetalladamenteProyectosVista(ControladorPersona controlador, ControladorProyecto controladorProyecto) {
+        initComponents();
+        this.controlador = controlador;
+        this.controladorProyecto = controladorProyecto;
+        this.setLocationRelativeTo(this);
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
+            tbtDetalleProyecto.setModel(tablaActividad);
+            tbtDetalleProyecto.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+        }
+    }
+
+    public VerDetalladamenteProyectosVista(ControladorProyecto controladorProyecto) {
+        initComponents();
+        this.controladorProyecto = controladorProyecto;
+        this.setLocationRelativeTo(this);
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
+            tbtDetalleProyecto.setModel(tablaActividad);
+            tbtDetalleProyecto.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
+        }
+    }
+
+    public void determinarRol() {
+        RolServicio serRol = new RolServicio();
+        switch (serRol.buscarRol(controlador.getPersona().getId_rol(), "id").getTipo()) {
+            case "Administrador":
+                System.out.println("Es un Administrador");
+                //this.dispose();
+                GestionarProyectosVista av = new GestionarProyectosVista(controlador);
+                
+                av.setVisible(true);
+                break;
+
+            case "Jefe de Proyecto":
+                System.out.println("Es un Jefe de Proyecto");
+                //this.dispose();
+                VisualizarProyectosJefeProyectoVista jpv = new VisualizarProyectosJefeProyectoVista(controlador);
+//                this.dispose();
+                jpv.setVisible(true);
+                break;
+        }
     }
 
     /**
@@ -63,13 +126,13 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
 
         tbtDetalleProyecto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tbtDetalleProyecto.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
@@ -107,10 +170,8 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        GestionarProyectosVista gp = new GestionarProyectosVista();
         this.dispose();
-        gp.setLocationRelativeTo(null);
-        gp.setVisible(true);
+        determinarRol();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

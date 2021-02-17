@@ -1,16 +1,57 @@
-
 package vista;
 
+import controlador.ControladorDepartamento;
+import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
+import controlador.servicio.DepartamentoServicio;
+import java.io.File;
+import javax.swing.JOptionPane;
+import modelo.DepartamentoModelo;
+import modelo.ProyectoModelo;
+import vista.tabla.tabla_Departamento;
 
 public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PruebaModificado
-     */
+    private tabla_Departamento tabla = new tabla_Departamento();
+    private DepartamentoServicio seDep = new DepartamentoServicio();
+    private ControladorPersona controlador;
+
     public GestionarDepartamentosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearDepartamento.setSelected(true);
+        
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + DepartamentoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene departamentos creados");
+            dispose();
+            GestionarDepartamentosVista gp = new GestionarDepartamentosVista();
+            this.dispose();
+            gp.setLocationRelativeTo(null);
+            gp.setVisible(true);
+        }
+    }
+
+    public GestionarDepartamentosVista(ControladorPersona controlador) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        this.btnCrearDepartamento.setSelected(true);
+
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + DepartamentoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene departamentos creados");
+        }
+    }
+
+    public void cargarTabla() {
+        tabla.setLista(seDep.listarDepartamentosActivos(seDep.listarDepartamentos()));
+        tbtGestionarDepartamentos.setModel(tabla);
+        tbtGestionarDepartamentos.updateUI();
     }
 
     /**
@@ -32,10 +73,10 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         btnEliminarDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnCambiarEncargado = new rojeru_san.rsbutton.RSButtonMetro();
         btnCrearDepartamento = new rojeru_san.rsbutton.RSButtonMetro();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
         btnVerDetalladamente = new rojerusan.RSButtonMetro();
+        btnVerDetalladamente1 = new rojerusan.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbtGestionarDepartamentos = new rojerusan.RSTableMetro();
@@ -53,7 +94,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -125,7 +166,7 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,13 +174,6 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                 .addGap(0, 57, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
-
-        btnCambiarEncargado.setText("Cambiar encargado.");
-        btnCambiarEncargado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarEncargadoActionPerformed(evt);
-            }
-        });
 
         btnCrearDepartamento.setText("Crear departamento.");
         btnCrearDepartamento.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +197,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             }
         });
 
+        btnVerDetalladamente1.setText("Gestionar Personal");
+        btnVerDetalladamente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerDetalladamente1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
@@ -172,12 +213,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
                         .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                                 .addComponent(btnEliminarDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCambiarEncargado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnVerDetalladamente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -186,17 +228,17 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(48, 48, 48)
                 .addComponent(btnCrearDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnCambiarEncargado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminarDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
+                .addComponent(btnEliminarDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVerDetalladamente1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -211,13 +253,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
 
         tbtGestionarDepartamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tbtGestionarDepartamentos.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
@@ -285,40 +327,68 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDepartamentoActionPerformed
-        CrearDepartamentoVista cd = new CrearDepartamentoVista();
+        CrearDepartamentoVista cd = new CrearDepartamentoVista(controlador);
         this.dispose();
         cd.setLocationRelativeTo(null);
         cd.setVisible(true);
     }//GEN-LAST:event_btnCrearDepartamentoActionPerformed
 
-    private void btnCambiarEncargadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarEncargadoActionPerformed
-        CambiarEncargadoVista ce = new CambiarEncargadoVista();
-        this.dispose();
-        ce.setLocationRelativeTo(null);
-        ce.setVisible(true);
-    }//GEN-LAST:event_btnCambiarEncargadoActionPerformed
-
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
-        VerDetalladamenteDepartamentosVista vdd = new VerDetalladamenteDepartamentosVista();
-        this.dispose();
-        vdd.setLocationRelativeTo(null);
-        vdd.setVisible(true);
+        int seleccion = -1;
+        seleccion = tbtGestionarDepartamentos.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un departamento de la tabla");
+        } else {
+            ControladorDepartamento aux = new ControladorDepartamento();
+            VerDetalladamenteDepartamentosVista vdd = new VerDetalladamenteDepartamentosVista(aux, controlador);
+            this.dispose();
+            vdd.setLocationRelativeTo(null);
+            vdd.setVisible(true);
+        }
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        AdministradorVista admin = new AdministradorVista(controlador);
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnEliminarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDepartamentoActionPerformed
-        // TODO add your handling code here:
+        int seleccion = -1;
+        seleccion = tbtGestionarDepartamentos.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un departamento de la tabla");
+        } else {
+            boolean eliminar = seDep.darDeBajaDepartamento(((DepartamentoModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", seDep.listarDepartamentos());
+            if (eliminar) {
+                JOptionPane.showMessageDialog(null, "Se dio de baja departamento correctamente");
+                cargarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo dar de baja");
+            }
+        }
     }//GEN-LAST:event_btnEliminarDepartamentoActionPerformed
 
     private void btnInstructivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInstructivoActionPerformed
+
+    private void btnVerDetalladamente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamente1ActionPerformed
+        int seleccion = -1;
+        seleccion = tbtGestionarDepartamentos.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un departamento de la tabla");
+        } else {
+            ControladorDepartamento aux = new ControladorDepartamento();
+            aux.setDepatamento((DepartamentoModelo) tabla.getLista().buscarPorPosicion(seleccion));
+            AsignarPersonalDepartamentoVista apd = new AsignarPersonalDepartamentoVista(aux, controlador);
+            apd.setLocationRelativeTo(null);
+            this.dispose();
+            apd.setVisible(true);
+        }
+
+    }//GEN-LAST:event_btnVerDetalladamente1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,13 +429,13 @@ public class GestionarDepartamentosVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojeru_san.rsbutton.RSButtonMetro btnCambiarEncargado;
     private rojeru_san.rsbutton.RSButtonMetro btnCrearDepartamento;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarDepartamento;
     private javax.swing.JButton btnGuardarCambios;
     private javax.swing.JButton btnInstructivo;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojerusan.RSButtonMetro btnVerDetalladamente;
+    private rojerusan.RSButtonMetro btnVerDetalladamente1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

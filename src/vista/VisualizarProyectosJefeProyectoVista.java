@@ -1,13 +1,18 @@
-
 package vista;
 
 import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
+import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ProyectoServicio;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import modelo.HitoModelo;
+import modelo.ProyectoModelo;
 import vista.tabla.tabla_Proyectos;
-
 
 public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
 
@@ -15,26 +20,40 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
      * Creates new form PruebaModificado
      */
     tabla_Proyectos tabla = new tabla_Proyectos();
-    private ControladorPersona controlador ;
+    private ControladorPersona controlador;
     private ProyectoServicio serProyect = new ProyectoServicio();
+    private ControladorProyecto controladorProyecto = new ControladorProyecto();
+
     public VisualizarProyectosJefeProyectoVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
-        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(),controlador.getPersona().getId(),"id_jefeProyecto")));
-        rSTableMetro1.setModel(tabla);
-        rSTableMetro1.updateUI();
+        System.out.println("contructor error");
     }
-    public VisualizarProyectosJefeProyectoVista(ControladorPersona controlador ) {
+
+    public VisualizarProyectosJefeProyectoVista(ControladorPersona controlador) {
         initComponents();
-        this.controlador =controlador;
+        this.controlador = controlador;
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        tabla.setLista(serProyect.listarProyectosActivos(serProyect.listarProyectosCoincidencias(serProyect.listarProyectos(),controlador.getPersona().getId(),"id_jefeProyecto")));
-        rSTableMetro1.setModel(tabla);
-        rSTableMetro1.updateUI();
+        
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_PROYECTOS() + File.separatorChar + ProyectoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tabla.setLista(controladorProyecto.proyectosJefeproyecto(controlador.getPersona().getId()));
+            System.out.println(" tamano  "+ tabla.getLista().tamanio());
+            if (tabla.getLista().tamanio() < 1) {
+                JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
+            } else {
+                rSTableMetro1.setModel(tabla);
+                rSTableMetro1.updateUI();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");
+        }
+
     }
+
     public void cargarImagen(String path) {
         if (path != null) {
             ImageIcon foto = new ImageIcon(path);
@@ -249,17 +268,34 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGestionarActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActividadesActionPerformed
-        GestionarActividadesVista gac = new GestionarActividadesVista(controlador);
-        this.dispose();
-        gac.setLocationRelativeTo(null);
-        gac.setVisible(true);
+        int posicion = -1;
+        posicion = rSTableMetro1.getSelectedRow();
+        if (posicion == -1) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado proyecto");
+        } else {
+            controladorProyecto.setProyecto((ProyectoModelo) tabla.getLista().buscarPorPosicion(posicion));
+            GestionarActividadesVista gac = new GestionarActividadesVista(controlador, controladorProyecto);
+            this.dispose();
+            gac.setLocationRelativeTo(null);
+            gac.setVisible(true);
+        }
+
     }//GEN-LAST:event_btnGestionarActividadesActionPerformed
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
-        VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista();
-        this.dispose();
-        vdp.setLocationRelativeTo(null);
-        vdp.setVisible(true);
+        int posicion = -1;
+        posicion = rSTableMetro1.getSelectedRow();
+        if (posicion == -1) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado proyecto");
+        } else {
+            controladorProyecto.setProyecto((ProyectoModelo) tabla.getLista().buscarPorPosicion(posicion));
+            VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista(controlador, controladorProyecto);
+            this.dispose();
+            vdp.setLocationRelativeTo(null);
+            vdp.setVisible(true);
+
+        }
+
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

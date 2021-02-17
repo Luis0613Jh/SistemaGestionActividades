@@ -67,9 +67,7 @@ public class AdaptadorDAO implements InterfazDAO {
                 conexionDAO.getXstream().toXML(listaAux, new FileOutputStream(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json"));
             } else {
                 ListaSimple listaAux = new ListaSimple();
-                listaAux.imprimir();
                 listaAux.insertarFinal(objeto);
-                listaAux.imprimir();
                 conexionDAO.getXstream().toXML(listaAux, new FileOutputStream(conexionDAO.getCARPETA_CONTENEDORA() + File.separatorChar + carpeta + File.separatorChar + claseObjeto.getSimpleName() + ".json"));
             }
         } else {
@@ -103,15 +101,15 @@ public class AdaptadorDAO implements InterfazDAO {
      */
     @Override
     public ListaSimple listarCoincidencias(ListaSimple lista, Object dato, String atributo) {
-        ListaSimple listaTemporal = null;
+        ListaSimple listaTemporal = new ListaSimple();
 
         while (lista.tamanio() > 0) {
             Object objeto = UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
             if (objeto != null) {
-                listaTemporal = new ListaSimple();
                 listaTemporal.insertarFinal(objeto);
                 lista.eliminarPorObjeto(objeto);
             } else {
+                System.out.println("");
                 break;
             }
         }

@@ -1,16 +1,46 @@
-
 package vista;
 
+import controlador.ControladorHito;
+import controlador.ControladorPersona;
+import controlador.DAO.ConexionDAO;
+import controlador.servicio.HitoServicio;
+import controlador.utilidades.UtilidadesVistas;
+import java.io.File;
+import javax.swing.JOptionPane;
+import modelo.HitoModelo;
+import modelo.ProyectoModelo;
+import vista.tabla.tabla_hitos;
 
 public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
      */
+    private ControladorPersona controlador;
+    private tabla_hitos tablaHito = new tabla_hitos();
+    private HitoServicio servHito = new HitoServicio();
+
     public VisualizarHitosPersonalVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         //this.btnCrearActividad.setSelected(true);
+    }
+
+    public VisualizarHitosPersonalVista(ControladorPersona controlador) {
+        initComponents();
+        this.controlador = controlador;
+        this.setLocationRelativeTo(this);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), lblFoto);
+
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_HITOS() + File.separatorChar + HitoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            tablaHito.setLista(servHito.listarHitosActivos(servHito.listarHitosCoincidencias(servHito.listarHitos(), controlador.getPersona().getId(), "id_responsable")));
+            tblVisualizarHitos.setModel(tablaHito);
+            tblVisualizarHitos.updateUI();
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene hitos asignados");
+        }
+//this.btnCrearActividad.setSelected(true);
     }
 
     /**
@@ -28,8 +58,9 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblFoto = new javax.swing.JLabel();
         btnSalir = new rojeru_san.rsbutton.RSButtonMetro();
+        btnDarDeBaja = new rojeru_san.rsbutton.RSButtonMetro();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVisualizarHitos = new rojerusan.RSTableMetro();
@@ -46,7 +77,7 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -74,22 +105,23 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel1.setText("Actividades del proyecto.");
+        lblFoto.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        lblFoto.setText("Actividades del proyecto.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(lblFoto)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         btnSalir.setBackground(new java.awt.Color(255, 0, 0));
@@ -97,6 +129,13 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnDarDeBaja.setText("Dar de baja hito");
+        btnDarDeBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDarDeBajaActionPerformed(evt);
             }
         });
 
@@ -111,18 +150,24 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnDarDeBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(384, 384, 384)
+                .addGap(32, 32, 32)
+                .addComponent(btnDarDeBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(193, 193, 193)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 201, -1));
+        jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 201, 560));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -183,11 +228,24 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
         this.dispose();
-        admin.setLocationRelativeTo(null);
-        admin.setVisible(true);
+        PersonalVista pv = new PersonalVista(controlador);
+        pv.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnDarDeBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarDeBajaActionPerformed
+        int eleccion = tblVisualizarHitos.getSelectedRow();
+        if(eleccion == -1){
+            JOptionPane.showMessageDialog(null,"Seleccione el hito a dar de baja");
+        }else{
+            ControladorHito aux = new ControladorHito();
+            aux.setHito((HitoModelo)tablaHito.getLista().buscarPorPosicion(eleccion));
+            servHito.darDeBajaHito(aux.getHito().getId(),"id",servHito.listarHitos());
+            tablaHito.setLista(servHito.listarHitosActivos(servHito.listarHitosCoincidencias(servHito.listarHitos(), controlador.getPersona().getId(), "id_responsable")));
+            tblVisualizarHitos.setModel(tablaHito);
+            tblVisualizarHitos.updateUI();
+        }
+    }//GEN-LAST:event_btnDarDeBajaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,14 +538,15 @@ public class VisualizarHitosPersonalVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.rsbutton.RSButtonMetro btnDarDeBaja;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFoto;
     private javax.swing.JPanel pnlMenu;
     private rojeru_san.rslabel.RSLabelSombra rSLabelSombra1;
     private rojerusan.RSTableMetro tblVisualizarHitos;

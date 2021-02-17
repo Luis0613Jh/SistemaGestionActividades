@@ -2,12 +2,15 @@ package controlador.utilidades;
 
 import controlador.ControladorRol;
 import controlador.DAO.objetosDAO.RolDAO;
+import controlador.cola.Cola;
 import controlador.listaSimple.ListaSimple;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import modelo.ActividadPersonalModelo;
 import modelo.PersonaModelo;
 import modelo.RolModelo;
 import vista.EditarEmpleadoVista;
@@ -15,14 +18,16 @@ import vista.EditarEmpleadoVista;
 public class UtilidadesControlador {
 
     /**
-     * Método que compara dos objetos, según el atributo de la clase especificado.
+     * Método que compara dos objetos, según el atributo de la clase
+     * especificado.
+     *
      * @param objeto1 Primer objeto a comparar, es de tipo Object.
      * @param objeto2 Segundo objeto a comparar, es de tipo Object.
-     * @param atributoClase Atributo del modelo a comparar entre ambos objetos, es de tipo string.
-     * @return Retorna un entero según la comparación entre ambos objetos con el atributo especificado.
-     * > Devuelve 0 sin son iguales.
-     * > Devuelve 1 si objeto1 es mayor a objeto2.
-     * > Devuelve -1 si objeto1 es menor a objeto2.
+     * @param atributoClase Atributo del modelo a comparar entre ambos objetos,
+     * es de tipo string.
+     * @return Retorna un entero según la comparación entre ambos objetos con el
+     * atributo especificado. > Devuelve 0 sin son iguales. > Devuelve 1 si
+     * objeto1 es mayor a objeto2. > Devuelve -1 si objeto1 es menor a objeto2.
      */
     public static int compararObjetos(Object objeto1, Object objeto2, String atributoClase) {
         int i = 0;
@@ -47,16 +52,18 @@ public class UtilidadesControlador {
         }
         return i;
     }
-    
+
     /**
-     * Método que compara un objeto con un dato, según el atributo de la clase especificado para el objeto.
+     * Método que compara un objeto con un dato, según el atributo de la clase
+     * especificado para el objeto.
+     *
      * @param objeto Objeto a comparar, es de tipo Object.
      * @param dato Dato a comparar, es de tipo Object.
-     * @param atributoClase Atributo del modelo del objeto a comparar con el dato, es de tipo string.
-     * @return Retorna un entero según la comparación entre el objeto y el dato con el atributo especificado.
-     * > Devuelve 0 sin son iguales.
-     * > Devuelve 1 si objeto es mayor a dato.
-     * > Devuelve -1 si objeto es menor a dato.
+     * @param atributoClase Atributo del modelo del objeto a comparar con el
+     * dato, es de tipo string.
+     * @return Retorna un entero según la comparación entre el objeto y el dato
+     * con el atributo especificado. > Devuelve 0 sin son iguales. > Devuelve 1
+     * si objeto es mayor a dato. > Devuelve -1 si objeto es menor a dato.
      */
     public static int compararObjetoDato(Object objeto, Object dato, String atributoClase) {
         int i = 0;
@@ -89,17 +96,22 @@ public class UtilidadesControlador {
         return i;
     }
 
-    public static Object extraerDato (Object objeto, String atributoClase) {
+    public static Object extraerDato(Object objeto, String atributoClase) {
         return extraerDatoDeObjeto(objeto, atributoClase);
     }
-    
+
     /**
-     * Método que extrae la información de un objeto según su atributo de clase especificado.
+     * Método que extrae la información de un objeto según su atributo de clase
+     * especificado.
+     *
      * @param objeto Objeto a extraer su información, es de tipo Object.
-     * @param atributoClase Atributo de la clase del objeto a extraer su información, es de tipo string.
-     * @return Devuelve un objeto que contiene la información especificada del objeto según su atributo de clase.
-     * > En caso de encontrar una coincidencia, devuelve un objeto con referencia a una string o a un entero según el tipo de dato establecido. 
-     * > En caso de no encontrar ninguna coincidencia, devuelve null.
+     * @param atributoClase Atributo de la clase del objeto a extraer su
+     * información, es de tipo string.
+     * @return Devuelve un objeto que contiene la información especificada del
+     * objeto según su atributo de clase. > En caso de encontrar una
+     * coincidencia, devuelve un objeto con referencia a una string o a un
+     * entero según el tipo de dato establecido. > En caso de no encontrar
+     * ninguna coincidencia, devuelve null.
      */
     private static Object extraerDatoDeObjeto(Object objeto, String atributoClase) {
         Class clase = objeto.getClass();
@@ -130,11 +142,16 @@ public class UtilidadesControlador {
     }
 
     /**
-     * Método que ordena una lista en orden ascendente según el atributo indicado.
-     * @param inferior Posición inicial en donde va a empezar a ordenar el método, generalmente se indica la primera posición (0).
-     * @param superior Posición final en donde va a finalizar a ordenar el método, generalmente se indica la última posiciónn (lista.tamanio() -1).
+     * Método que ordena una lista en orden ascendente según el atributo
+     * indicado.
+     *
+     * @param inferior Posición inicial en donde va a empezar a ordenar el
+     * método, generalmente se indica la primera posición (0).
+     * @param superior Posición final en donde va a finalizar a ordenar el
+     * método, generalmente se indica la última posiciónn (lista.tamanio() -1).
      * @param lista Lista a ordenar.
-     * @param atributo Atributo por el cual se va a ordenar la lista, es de tipo string.
+     * @param atributo Atributo por el cual se va a ordenar la lista, es de tipo
+     * string.
      */
     public static void ordenarQuicksort(int inferior, int superior, ListaSimple lista, String atributo) {
         int i = inferior;
@@ -171,13 +188,17 @@ public class UtilidadesControlador {
     }
 
     /**
-     * Método que busca un objeto por medio del algoritmo de búsqueda binaria, según el atributo especificado de la clase del objeto a buscar.
+     * Método que busca un objeto por medio del algoritmo de búsqueda binaria,
+     * según el atributo especificado de la clase del objeto a buscar.
+     *
      * @param dato Dato a encontrar en el objeto, es de tipo Object.
-     * @param atributo Atributo por el cual se va buscar en el objeto, es de tipo String.
+     * @param atributo Atributo por el cual se va buscar en el objeto, es de
+     * tipo String.
      * @param lista Lista en donde se va a buscar el objeto especificado.
-     * @return Devuelve un objeto que contiene la información especificada del objeto según su atributo de clase.
-     * > En caso de encontrar una coincidencia, devuelve un objeto con la información del objeto encontrado, es de tipo Object.
-     * > En caso de no encontrar ninguna coincidencia, devuelve null.
+     * @return Devuelve un objeto que contiene la información especificada del
+     * objeto según su atributo de clase. 
+     * En caso de encontrar una coincidencia, devuelve un objeto con la información del objeto encontrado, es de tipo Object.
+     * En caso de no encontrar ninguna coincidencia, devuelve null.
      */
     public static Object buscarObjetoPorBusquedaBinariaPorDato(Object dato, String atributo, ListaSimple lista) {
         Object objeto = null;
@@ -200,84 +221,163 @@ public class UtilidadesControlador {
         }
         return objeto;
     }
-    
-    public static int generarId(){
-        return (int)Math.random()*1000;
+
+    public static int generarId() {
+        return (int) Math.random() * 1000;
     }
-    public static void cargarComboBoxDias(JComboBox cdx ,String[] dato){
-        cdx.removeAllItems(); 
-        for(int i = 0 ; i < dato.length ; i++){
+
+    public static void cargarComboBoxDias(JComboBox cdx, String[] dato) {
+        cdx.removeAllItems();
+        for (int i = 0; i < dato.length; i++) {
             cdx.addItem(dato[i]);
         }
-        
-       
+
     }
-        public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx ,ListaSimple dato){
-        cdx.removeAllItems();     
+
+    public static void cargarComboBoxEmpleados(JComboBox cdx, ListaSimple dato) {
+        cdx.removeAllItems();
+        for (int i = 0; i < dato.tamanio(); i++) {
+            cdx.addItem(((PersonaModelo) dato.buscarPorPosicion(i)).getNombre());
+        }
+
+    }
+
+    public static void cargarComboBoxEmpleadosParaDepartamento(JComboBox cdx, ListaSimple dato) {
+        cdx.removeAllItems();
         ControladorRol rol = new ControladorRol();
-        for(int i = 0 ; i < dato.tamanio() ; i++){
-            PersonaModelo aux = (PersonaModelo)dato.buscarPorPosicion(i);
+        for (int i = 0; i < dato.tamanio(); i++) {
+            PersonaModelo aux = (PersonaModelo) dato.buscarPorPosicion(i);
             RolModelo aux2 = rol.obtenerRolPor_Id(aux.getId_rol());
-            if(!aux2.getTipo().equalsIgnoreCase("Administrador") && aux2.getTipo() != null){
+            if (!aux2.getTipo().equalsIgnoreCase("Administrador") && aux2.getTipo() != null) {
                 cdx.addItem(aux.getNombre());
-            }            
+            }
         }
     }
-    public static void inicioRoles() throws Exception{
-        
-        RolModelo rol1 = new RolModelo(1,generarId(),"Personal");
-        RolModelo rol2 = new RolModelo(2,generarId(),"Administrador");
-        RolModelo rol3 = new RolModelo(3,generarId(),"Encargado");        
+
+    public static void inicioRoles() throws Exception {
+
+        RolModelo rol1 = new RolModelo(1, generarId(), "Personal");
+        RolModelo rol2 = new RolModelo(2, generarId(), "Administrador");
+        RolModelo rol3 = new RolModelo(3, generarId(), "Encargado");
         RolDAO r = new RolDAO();
         r.guardarObjeto(rol1);
         r.guardarObjeto(rol2);
         r.guardarObjeto(rol3);
     }
-    
+
     /**
-     * Método que valida una string para comprobar si es un número entero (positivo o negativo).
+     * Método que valida una string para comprobar si es un número entero
+     * (positivo o negativo).
+     *
      * @param numero String a verificar
-     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     * @return Retorna true si cumple con el formato de la expresión regular,
+     * caso contrario, retorna false.
      */
     public static boolean validarNumeroEntero(String numero) {
         return numero.matches("^[-]?[0-9]+$");
     }
-    
+
     /**
-     * Método que valida una string para comprobar si es un número con o sin decimales (positivo o negativo).
+     * Método que valida una string para comprobar si es un número con o sin
+     * decimales (positivo o negativo).
+     *
      * @param numero String a verificar
-     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     * @return Retorna true si cumple con el formato de la expresión regular,
+     * caso contrario, retorna false.
      */
     public static boolean validarNumeroConDecimal(String numero) {
         return numero.matches("^[-]?[0-9]+([.][0-9]+)?$");
     }
-    
+
     /**
-     * Método que valida una string para comprobar si es una cadena solo alfabetica (solo letras).
+     * Método que valida una string para comprobar si es una cadena solo
+     * alfabetica (solo letras).
+     *
      * @param numero String a verificar
-     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     * @return Retorna true si cumple con el formato de la expresión regular,
+     * caso contrario, retorna false.
      */
     public static boolean validarCadenaSoloLetras(String cadena) {
         return cadena.matches("^([A-Za-z]+[ ]?)+$");
     }
-    
+
     /**
-     * Método que valida una string para comprobar si es un nombre válido (sin números o caracteres especiales), admite espacios para el apellido.
+     * Método que valida una string para comprobar si es un nombre válido (sin
+     * números o caracteres especiales), admite espacios para el apellido.
+     *
      * @param numero String a verificar
-     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     * @return Retorna true si cumple con el formato de la expresión regular,
+     * caso contrario, retorna false.
      */
     public static boolean validarNombre(String nombre) {
         return nombre.matches("^(([A-Za-z]{1})?[a-z]+[ ]?)+$");
     }
 
     /**
-     * Método que valida una string para comprobar si cumple con el número de dígitos de una cédula.
+     * Método que valida una string para comprobar si cumple con el número de
+     * dígitos de una cédula.
+     *
      * @param numero String a verificar
-     * @return Retorna true si cumple con el formato de la expresión regular, caso contrario, retorna false.
+     * @return Retorna true si cumple con el formato de la expresión regular,
+     * caso contrario, retorna false.
      */
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
     }
-    
-    
+
+    public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
+        ListaSimple aux = new ListaSimple();
+        for (int i = 0; i < l1.tamanio(); i++) {
+            if (l1.buscarPorPosicion(i) != null) {
+                aux.insertarFinal(l1.buscarPorPosicion(i));
+            }
+        }
+        for (int i = 0; i < l2.tamanio(); i++) {
+            if (l2.buscarPorPosicion(i) != null) {
+                aux.insertarFinal(l2.buscarPorPosicion(i));
+            }
+        }
+        return aux;
+    }
+
+    public static int determinarSegundosTotales(String horaF) {
+        // Hora en la que finaliza la actividad personal
+        String[] arrayHora = horaF.split(":");
+
+        int hF = (Integer.parseInt(arrayHora[0]) * 3600);
+        int mF = (Integer.parseInt(arrayHora[1]) * 60);
+        int sF = (Integer.parseInt(arrayHora[2]));
+        int segundosF = hF + mF + sF;
+
+        return segundosF;
+    }
+
+    public static Cola obtenerActividadesPersonalesPendientes(ListaSimple lista) {
+        Cola cola = null;
+        int tiempo;
+        int auxTiempo;
+        int pos = -1;
+        ActividadPersonalModelo actividadPersonal = new ActividadPersonalModelo();
+
+        if (lista != null) {
+            cola = new Cola();
+            while (!lista.estaVacia()) {
+                auxTiempo = 999999999;
+                for (int i = 0; i < lista.tamanio(); i++) {
+                    actividadPersonal = (ActividadPersonalModelo) lista.buscarPorPosicion(i);
+                    tiempo = determinarSegundosTotales(actividadPersonal.getHora());
+
+                    if (tiempo < auxTiempo) {
+                        auxTiempo = tiempo;
+                        pos = i;
+                    }
+                }
+                cola.queue(lista.buscarPorPosicion(pos));
+                lista.eliminarPorPosicion(pos);
+            }
+        }
+        System.out.println("Cola");
+        cola.imprimir();
+        return cola;
+    }
 }

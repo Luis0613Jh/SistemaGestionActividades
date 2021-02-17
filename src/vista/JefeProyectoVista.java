@@ -252,16 +252,17 @@ public class JefeProyectoVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnProyectosAsignadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProyectosAsignadosActionPerformed
-        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista();
+        VisualizarProyectosJefeProyectoVista gps = new VisualizarProyectosJefeProyectoVista(controlador);
         this.dispose();
         gps.setLocationRelativeTo(null);
         gps.setVisible(true);
     }//GEN-LAST:event_btnProyectosAsignadosActionPerformed
 
     private void btnActividadesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesPersonalesActionPerformed
-        ActividadesPersonalesVista apv = new ActividadesPersonalesVista();
+        GestionarActividadesPersonalesVista apv = new GestionarActividadesPersonalesVista(controlador);
         apv.setLocationRelativeTo(null);
         apv.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnActividadesPersonalesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

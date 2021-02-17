@@ -1,18 +1,48 @@
-
 package vista;
 
-import vista.tabla.tabla_GestionarEmpleado;
+import controlador.ControladorPersona;
+import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
+import controlador.servicio.ProyectoServicio;
+import controlador.utilidades.UtilidadesVistas;
+import java.io.File;
+import javax.swing.JOptionPane;
+import modelo.ProyectoModelo;
+import vista.tabla.tabla_Proyectos;
 
 public class GestionarProyectosVista extends javax.swing.JFrame {
 
     /**
      * Creates new form PruebaModificado
-     */  
+     */
+    private tabla_Proyectos tabla = new tabla_Proyectos();
+    private ProyectoServicio serPro = new ProyectoServicio();
+    private ControladorPersona controlador;
+
     public GestionarProyectosVista() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.btnCrearProyecto.setSelected(true);
-        
+        tabla.setLista(serPro.listarProyectosActivos(serPro.listarProyectos()));
+        if (tabla.getLista().tamanio() < 1) {
+            JOptionPane.showMessageDialog(null, "No hay proyectos activos");
+        }
+        tblGestionarProyectosVista.setModel(tabla);
+        tblGestionarProyectosVista.updateUI();
+    }
+
+    public GestionarProyectosVista(ControladorPersona controlador) {
+        initComponents();
+        this.setLocationRelativeTo(this);
+        this.controlador = controlador;
+        this.btnCrearProyecto.setSelected(true);
+        UtilidadesVistas.cargarImagen(controlador.getPersona().getPath_imagen(), jLabel1);
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_PROYECTOS() + File.separatorChar + ProyectoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay proyectos activos");
+        }
     }
 
     /**
@@ -38,7 +68,6 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGestionarProyectosVista = new rojerusan.RSTableMetro();
-        btnGuardarCambios = new javax.swing.JButton();
 
         rSLabelSombra1.setText("rSLabelSombra1");
 
@@ -52,7 +81,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -96,17 +125,23 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 57, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnEliminarProyecto.setText("Eliminar proyecto.");
+        btnEliminarProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProyectoActionPerformed(evt);
+            }
+        });
 
         btnCrearProyecto.setText("Crear proyecto.");
         btnCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
@@ -144,15 +179,15 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(62, 62, 62)
                 .addComponent(btnCrearProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(btnEliminarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnVerDetalladamente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
+                .addGap(58, 58, 58)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jPanel1.add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 201, -1));
@@ -173,22 +208,13 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
         tblGestionarProyectosVista.setColorBackgoundHead(new java.awt.Color(0, 153, 0));
         jScrollPane1.setViewportView(tblGestionarProyectosVista);
 
-        btnGuardarCambios.setBackground(new java.awt.Color(0, 153, 0));
-        btnGuardarCambios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardarCambios.setText("Guardar cambios.");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -196,9 +222,7 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 99, -1, -1));
@@ -227,25 +251,56 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearProyectoActionPerformed
-        CrearProyectosVista cp = new CrearProyectosVista();
+        CrearProyectosVista cp = new CrearProyectosVista(controlador);
         this.dispose();
         cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_btnCrearProyectoActionPerformed
 
     private void btnVerDetalladamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetalladamenteActionPerformed
-        VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista();
-        this.dispose();
-        vdp.setLocationRelativeTo(null);
-        vdp.setVisible(true);
+        int seleccion = -1;
+        seleccion = tblGestionarProyectosVista.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto de la tabla");
+        } else {
+            ControladorProyecto aux = new ControladorProyecto();
+            aux.setProyecto((ProyectoModelo) tabla.getLista().buscarPorPosicion(seleccion));
+            VerDetalladamenteProyectosVista vdp = new VerDetalladamenteProyectosVista(controlador, aux);
+            this.dispose();
+            vdp.setLocationRelativeTo(null);
+            vdp.setVisible(true);
+        }
+
     }//GEN-LAST:event_btnVerDetalladamenteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        AdministradorVista admin = new AdministradorVista();
+        AdministradorVista admin = new AdministradorVista(controlador);
         this.dispose();
         admin.setLocationRelativeTo(null);
         admin.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnEliminarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProyectoActionPerformed
+        int seleccion = -1;
+        seleccion = tblGestionarProyectosVista.getSelectedRow();
+        if (seleccion == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un proyecto de la tabla");
+        } else {
+            boolean eliminar = serPro.darDeBajaProyecto(((ProyectoModelo) tabla.getLista().buscarPorPosicion(seleccion)).getId(), "id", serPro.listarProyectos());
+            if (eliminar) {
+                JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente");
+                cargarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "No se logro eliminar");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarProyectoActionPerformed
+
+    public void cargarTabla() {
+        tabla.setLista(serPro.listarProyectosActivos(serPro.listarProyectos()));
+        tblGestionarProyectosVista.setModel(tabla);
+        tblGestionarProyectosVista.updateUI();
+    }
 
     /**
      * @param args the command line arguments
@@ -300,7 +355,6 @@ public class GestionarProyectosVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.rsbutton.RSButtonMetro btnCrearProyecto;
     private rojeru_san.rsbutton.RSButtonMetro btnEliminarProyecto;
-    private javax.swing.JButton btnGuardarCambios;
     private rojeru_san.rsbutton.RSButtonMetro btnSalir;
     private rojeru_san.rsbutton.RSButtonMetro btnVerDetalladamente;
     private javax.swing.JButton jButton1;

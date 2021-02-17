@@ -10,9 +10,19 @@ public class PersonaModelo {
     private String cedula;
     private int id_cuenta;
     private int id_rol;
+    private int id_departamento;
     private String path_imagen;
     private String estado;
 
+    public int getId_departamento() {
+        return id_departamento;
+    }
+
+    public void setId_departamento(int id_departamento) {
+        this.id_departamento = id_departamento;
+    }
+    
+    
     /**
      * Metodo obtener id
      *

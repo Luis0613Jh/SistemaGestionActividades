@@ -6,6 +6,8 @@
 
 package controlador;
 
+import controlador.listaSimple.ListaSimple;
+import controlador.servicio.ActividadPersonalServicio;
 import controlador.servicio.ActividadServicio;
 import modelo.ActividadModelo;
 
@@ -15,17 +17,27 @@ import modelo.ActividadModelo;
  */
 public class ControladorActividad {
     private ActividadModelo actividad = new ActividadModelo();
-
+    /**
+     * Metodo para obtener la ActividadModelo de la clase
+     * @return un objeto de tipo ActividadModelo de la clase
+     */
     public ActividadModelo getActividad() {
         if(actividad == null){
             actividad = new ActividadModelo();
         }
         return actividad;
     }
-
+    /**
+     * Metodo para enviar una ActividadModelo a la clase
+     * @param actividad un objeto de tipo ActividadModelo
+     */
     public void setActividad(ActividadModelo actividad) {
         this.actividad = actividad;
     }
+    /**
+     * Metodo para guardar actividad
+     * @return un true en caso de que se guardo correctamente en caso contrario false
+     */
     public boolean guardarActividad(){
         try {
             ActividadServicio guardar = new ActividadServicio();
@@ -33,6 +45,16 @@ public class ControladorActividad {
             return guardar.guardarActividad();
         } catch (Exception e) {
             return false;
+        }
+    }
+    
+    public int numeroActividades() {
+        ActividadServicio guardar = new ActividadServicio();
+        ListaSimple lista = guardar.listarActividades();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
         }
     }
     
