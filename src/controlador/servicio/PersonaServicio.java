@@ -137,6 +137,11 @@ public class PersonaServicio {
         return personaDAO.obtenerIdPersona(lista, dato, atributo);
     }
     
+    /**
+     * Método que permite obtener las personas registradas en el sistema, a excepción del administrador.
+     * @param lista Lista de personas en donde se va realizar la exclusión, es de tipo ListaSimple.
+     * @return Retonra la lista orignial, excluyendo el administrador del sistema.
+     */
     public ListaSimple excluirAdministrador(ListaSimple lista) {
         return personaDAO.excluirAdministrador(lista);
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package controlador.utilidades;
 
@@ -11,11 +6,13 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-/**
- * 
- * @author Patricio
- */
 public class UtilidadesVistas {
+    
+    /**
+     * Método que permite cargar una imágen en un JLabel a paratir de una ruta path.
+     * @param path Ruta donde se encuentra la imágen a cargar.
+     * @param jLabel1 Componente donde se va a cargar la imágen, es de tipo JLabel
+     */
     public static void cargarImagen(String path , JLabel jLabel1) {
         if (path != null) {
             ImageIcon foto = new ImageIcon(path);
