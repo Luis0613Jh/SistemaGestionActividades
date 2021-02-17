@@ -74,7 +74,7 @@ public class VerDetalladamenteProyectosVista extends javax.swing.JFrame {
             case "Jefe de Proyecto":
                 System.out.println("Es un Jefe de Proyecto");
                 //this.dispose();
-                JefeProyectoVista jpv = new JefeProyectoVista(controlador);
+                VisualizarProyectosJefeProyectoVista jpv = new VisualizarProyectosJefeProyectoVista(controlador);
 //                this.dispose();
                 jpv.setVisible(true);
                 break;

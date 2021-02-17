@@ -65,7 +65,6 @@ public class Cola {
         if (!estaVacio()) {
             NodoCola temporal = cabecera;
             while (temporal != null) {
-                System.out.println("Cabecera: " + cabecera.getObjeto());
                 System.out.println(temporal.getObjeto());
                 temporal = temporal.getSiguiente();
             }

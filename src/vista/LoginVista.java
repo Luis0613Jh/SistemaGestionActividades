@@ -36,16 +36,13 @@ public class LoginVista extends javax.swing.JFrame {
             ListaSimple actividadesPersonales = aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), controlador.getPersona().getId(), "persona_id"));
             if (colaActividadesPersonales.tamanio() == actividadesPersonales.tamanio()) {
                 segundos--;
-                System.out.println("Segundos: " + segundos);
                 if (segundos == 0) {
                     timer.stop();
-                    System.out.println("Se terminó el tiempo");
                     cap.setActividadPersonal((ActividadPersonalModelo) colaActividadesPersonales.buscarPorPosicion(0));
                     DesktopNotify.showDesktopMessage("La tarea " + cap.getActividadPersonal().getNombre() + " ha finalizado a las: " + cap.getActividadPersonal().getHora(), "Tarea Finalizada", DesktopNotify.INFORMATION);
                     aps.darDeBajaActividadPersonal(cap.getActividadPersonal().getId(), ActividadPersonalServicio.IDENTIFICADOR, aps.listarActividadesPersonalesActivas(aps.listarActividadesPersonales()));
                     cap.setActividadPersonal(null);
                     colaActividadesPersonales.dequeue();
-                    System.out.println("Luego de haber parado el tiempo");
                     colaActividadesPersonales.imprimir();
                     if (colaActividadesPersonales.tamanio() > 0) {
                         segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
@@ -81,36 +78,29 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     public void autorizarVista(String rolNombre, ControladorPersona controlador) {
-        System.out.println("---------ROL: " + rolNombre);
 
         File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES_PERSONALES() + File.separatorChar + ActividadPersonalModelo.class.getSimpleName() + ".json");
         if (archivo.exists()) {
             iniciarReloj();
-        } else {
-            System.out.println("No existe el archivo actividades personales");
         }
 
         switch (rolNombre) {
             case "Administrador":
-                System.out.println("Es un Administrador");
                 this.dispose();
                 AdministradorVista av = new AdministradorVista(controlador);
                 av.setVisible(true);
                 break;
             case "Jefe de Proyecto":
-                System.out.println("Es un Jefe de Proyecto");
                 this.dispose();
                 JefeProyectoVista jpv = new JefeProyectoVista(controlador);
                 jpv.setVisible(true);
                 break;
             case "Encargado":
-                System.out.println("Es un Encargado");
                 this.dispose();
                 EncargadoDepartamentoVista edv = new EncargadoDepartamentoVista(controlador);
                 edv.setVisible(true);
                 break;
             case "Personal":
-                System.out.println("Es un Personal");
                 this.dispose();
                 PersonalVista pv = new PersonalVista(controlador);
                 pv.setVisible(true);
@@ -125,8 +115,7 @@ public class LoginVista extends javax.swing.JFrame {
             segundos = cap.determinarSegundosTotales(cap.determinarHora(colaActividadesPersonales));
             timer.start();
         } else {
-            System.out.println("Persona sin actividades personales");
-            DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 1400L);
+            DesktopNotify.showDesktopMessage("Sin actividades pendientes", "Aviso", DesktopNotify.TIP, 2000L);
         }
     }
 

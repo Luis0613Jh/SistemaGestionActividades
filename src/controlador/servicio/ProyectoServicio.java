@@ -7,7 +7,7 @@ import modelo.ProyectoModelo;
 public class ProyectoServicio {
 
     public static String IDENTIFICADOR = "id";
-    public static String JEFE_PROYECTO = "jefeProyecto";
+    public static String JEFE_PROYECTO = "id_jefeProyecto";
     public static String FECHA_INICIO = "fechaInicio";
     public static String FECHA_FINAL = "fechaFinal";
     public static String EXTERNAL_ID = "external_id";

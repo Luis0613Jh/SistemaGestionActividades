@@ -56,4 +56,18 @@ public class ControladorProyecto {
             return lista.tamanio();
         }
     }
+    
+    public ListaSimple proyectosJefeproyecto(int jefeProyecto){
+        ListaSimple salida = new ListaSimple();
+        ProyectoServicio aux = new ProyectoServicio();
+        ListaSimple entrada = aux.listarProyectos();
+        for(int i = 0 ; i < entrada.tamanio() ; i++){
+            ProyectoModelo x = (ProyectoModelo)entrada.buscarPorPosicion(i);
+            if(x.getId_jefeProyecto() == jefeProyecto && x.getEstado().equals("activo")){
+                salida.insertarFinal(x);
+            }
+        }
+        return salida;
+    }
+
 }

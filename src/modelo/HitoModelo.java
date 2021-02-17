@@ -109,7 +109,7 @@ public class HitoModelo {
      *
      * @return Un PersonaModelo correspondiente a responsable
      */
-    public int getResponsable() {
+    public int getId_Responsable() {
         return id_responsable;
     }
 
@@ -118,7 +118,7 @@ public class HitoModelo {
      *
      * @param id_responsable
      */
-    public void setResponsable(int id_responsable) {
+    public void setId_Responsable(int id_responsable) {
         this.id_responsable = id_responsable;
     }
 

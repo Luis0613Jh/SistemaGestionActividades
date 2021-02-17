@@ -209,10 +209,10 @@ public class CrearHitoVista extends javax.swing.JFrame {
         controladorHito.getHito().setNombre(txtNombreHito.getText());
         controladorHito.getHito().setPrioridad((String) cbxPrioridad.getSelectedItem());
         controladorPersona.setPersona(perSer.buscarPersona((String) cbxResponsable.getSelectedItem(), "nombre"));
-        controladorHito.getHito().setResponsable(perSer.obtenerIdPersona(perSer.listarPersonas(), controladorPersona.getPersona(), "id"));
+        controladorHito.getHito().setId_Responsable(perSer.obtenerIdPersona(perSer.listarPersonas(), controladorPersona.getPersona().getId(), "id"));
         if (controladorHito.guardarHito()) {
             JOptionPane.showMessageDialog(null, "Se guardo el hito correctmente");
-            CrearHitoVista chv = new CrearHitoVista(controladorPersona, controladorActividad);
+            GestionarHitosVista chv = new GestionarHitosVista(controladorPersona, controladorActividad);
             this.dispose();
             chv.setLocationRelativeTo(null);
             chv.setVisible(true);

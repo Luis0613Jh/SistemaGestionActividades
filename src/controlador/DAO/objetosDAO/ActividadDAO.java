@@ -15,7 +15,7 @@ public class ActividadDAO extends AdaptadorDAO {
      * la clase del objeto de tipo ActividadModelo y una String con la carpeta contenedora "Archivos".  
      */
     public ActividadDAO() {
-        super(new ConexionDAO(), ActividadModelo.class, new ConexionDAO().getCARPETA_PROYECTOS());
+        super(new ConexionDAO(), ActividadModelo.class, new ConexionDAO().getCARPETA_ACTIVIDADES());
     }
 
     /**

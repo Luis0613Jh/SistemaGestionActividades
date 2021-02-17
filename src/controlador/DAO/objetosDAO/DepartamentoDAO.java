@@ -71,8 +71,8 @@ public class DepartamentoDAO extends AdaptadorDAO {
      */
     public DepartamentoModelo buscarDepartamento(Object dato, String atributo, ListaSimple lista) {
         lista = ordenarDepartamentos(lista, atributo);
-        DepartamentoModelo cuenta = (DepartamentoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
-        return cuenta;
+        DepartamentoModelo departamento = (DepartamentoModelo) UtilidadesControlador.buscarObjetoPorBusquedaBinariaPorDato(dato, atributo, lista);
+        return departamento;
     }
     
     /**

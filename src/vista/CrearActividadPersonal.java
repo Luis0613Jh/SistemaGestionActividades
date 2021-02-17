@@ -6,9 +6,6 @@ import javax.swing.JOptionPane;
 
 public class CrearActividadPersonal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CrearActividadPersonal
-     */
     private ControladorPersona controlador;
     private ControladorActividadPersonal controladorActividadPersonal = new ControladorActividadPersonal();
 
