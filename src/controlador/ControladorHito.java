@@ -46,6 +46,10 @@ public class ControladorHito {
             return false;
         }
     }
+    /**
+     * Metodo retorna en numero de hitos en la lista
+     * @return int numero de hitos
+     */
     public int numeroHitos(){
         HitoServicio  guardar = new HitoServicio();
         ListaSimple lista = guardar.listarHitos();

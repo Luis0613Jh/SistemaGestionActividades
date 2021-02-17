@@ -324,7 +324,12 @@ public class UtilidadesControlador {
     public static boolean validarCedula(String cedula) {
         return cedula.matches("^[0-9]{10}$");
     }
-
+    /**
+     * Metodo para unir dos listas
+     * @param l1  lista uno
+     * @param l2  lista dos
+     * @return  una lista producto de la union de dos
+     */
     public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
         ListaSimple aux = new ListaSimple();
         for (int i = 0; i < l1.tamanio(); i++) {
@@ -339,7 +344,11 @@ public class UtilidadesControlador {
         }
         return aux;
     }
-
+    /**
+     * Metodo para determinar el tiempo total
+     * @param horaF String hora 
+     * @return un int determinar los segundos totales
+     */
     public static int determinarSegundosTotales(String horaF) {
         // Hora en la que finaliza la actividad personal
         String[] arrayHora = horaF.split(":");
@@ -351,7 +360,11 @@ public class UtilidadesControlador {
 
         return segundosF;
     }
-
+    /**
+     * Metodo para obtener una cola de las actividades personales
+     * @param lista una lista
+     * @return  una cola para obtener las actividades pendientes
+     */
     public static Cola obtenerActividadesPersonalesPendientes(ListaSimple lista) {
         Cola cola = null;
         int tiempo;

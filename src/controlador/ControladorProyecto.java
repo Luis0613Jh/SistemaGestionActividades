@@ -46,7 +46,10 @@ public class ControladorProyecto {
             return false;
         }
     }
-    
+    /**
+     * Metodo para el numero de proyectos
+     * @return el numero de proyectos existentes
+     */
     public int numeroProyectos(){
         ProyectoServicio controlador = new ProyectoServicio();
         ListaSimple lista = controlador.listarProyectos();
@@ -56,7 +59,11 @@ public class ControladorProyecto {
             return lista.tamanio();
         }
     }
-    
+    /**
+     * Metodo para una lista de los proyectos pertenecientes a un jefe de prouecto
+     * @param jefeProyecto un int el identificador de jefe de proyectos
+     * @return  una lista simple de los proyectos pertenecientes a un jefe determinado
+     */
     public ListaSimple proyectosJefeproyecto(int jefeProyecto){
         ListaSimple salida = new ListaSimple();
         ProyectoServicio aux = new ProyectoServicio();
