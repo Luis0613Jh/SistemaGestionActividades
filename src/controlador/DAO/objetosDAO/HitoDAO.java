@@ -15,7 +15,7 @@ public class HitoDAO extends AdaptadorDAO {
      * la clase del objeto de tipo HitoModelo y una String con la carpeta contenedora "Archivos".  
      */
     public HitoDAO() {
-        super(new ConexionDAO(), HitoModelo.class, new ConexionDAO().getCARPETA_PROYECTOS());
+        super(new ConexionDAO(), HitoModelo.class, new ConexionDAO().getCARPETA_HITOS());
     }
 
     /**

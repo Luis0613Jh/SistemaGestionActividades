@@ -21,6 +21,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
      * Creates new form CrearAdministrador
      */
     ControladorPersona controlador;
+    ControladorPersona controladorUsuario;
     ControladorRol controladorRol = new ControladorRol();
     ControladorCuenta controladorCuenta = new ControladorCuenta();
     public VerDetalladamenteEmpleadoVista() {
@@ -29,9 +30,10 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
         llenarDatos();
     }
 
-    public VerDetalladamenteEmpleadoVista(ControladorPersona controlador) {
+    public VerDetalladamenteEmpleadoVista(ControladorPersona controlador ,ControladorPersona controladorUsuario) {
         initComponents();
         this.controlador = controlador;
+        this.controladorUsuario = controladorUsuario;
         this.setLocationRelativeTo(this);
         llenarDatos();
     }
@@ -227,7 +229,7 @@ public class VerDetalladamenteEmpleadoVista extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controlador.setPersona(null);
-        GestionarEmpleadosVista ge = new GestionarEmpleadosVista();
+        GestionarEmpleadosVista ge = new GestionarEmpleadosVista(controladorUsuario);
         this.dispose();
         ge.setLocationRelativeTo(null);
         ge.setVisible(true);

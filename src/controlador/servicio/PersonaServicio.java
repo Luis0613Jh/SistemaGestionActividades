@@ -89,6 +89,10 @@ public class PersonaServicio {
         return personaDAO.ordenarPersonas(personaDAO.listarObjetos(), atributo);
     }
 
+    public Boolean crearAdministrador() {
+        return personaDAO.crearAdministrador();
+    }
+    
     /**
      * Método que permite buscar un objeto de tipo PersonaModelo según el dato indicado.
      * @param dato Dato mediante el cual se va a realizar la búsqueda en la lista.
@@ -131,5 +135,9 @@ public class PersonaServicio {
      */
     public int obtenerIdPersona(ListaSimple lista, Object dato, String atributo) {
         return personaDAO.obtenerIdPersona(lista, dato, atributo);
+    }
+    
+    public ListaSimple excluirAdministrador(ListaSimple lista) {
+        return personaDAO.excluirAdministrador(lista);
     }
 }

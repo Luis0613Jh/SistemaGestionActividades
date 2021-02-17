@@ -1,20 +1,24 @@
-
 package vista;
 
+import controlador.DAO.ConexionDAO;
+import controlador.servicio.PersonaServicio;
 import controlador.servicio.RolServicio;
-
+import java.io.File;
+import javax.swing.JOptionPane;
+import modelo.PersonaModelo;
 
 public class BienvenidaVista extends javax.swing.JFrame {
 
     private RolServicio rolServicio = new RolServicio();
-    
+    private PersonaServicio personaServicio = new PersonaServicio();
+
     /**
      * Creates new form Bienvenida
      */
     public BienvenidaVista() {
-        initComponents();        
+        initComponents();
         this.setLocationRelativeTo(this);
-        
+
     }
 
     /**
@@ -145,8 +149,9 @@ public class BienvenidaVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        // logica 
         rolServicio.crearRoles();
+        personaServicio.crearAdministrador();
+
         LoginVista p = new LoginVista();
         this.dispose();
         p.setVisible(true);

@@ -55,6 +55,10 @@ public class ControladorDepartamento {
             return false;
         }
     }
+    /**
+     * Metodo para obtener un array de departamentos
+     * @return  un arreglo de departamentos
+     */
     public String[] departamentos(){
         DepartamentoServicio servicio = new DepartamentoServicio();
         ListaSimple lista = servicio.listarDepartamentosActivos(servicio.listarDepartamentos());
@@ -65,4 +69,27 @@ public class ControladorDepartamento {
         }
         return arreglo;
     }
+    
+    public int numeroDepartamentos() {
+        DepartamentoServicio servicio = new DepartamentoServicio();
+        ListaSimple lista = servicio.listarDepartamentos();
+        if(lista == null){
+            return 0;
+        }else{
+            return lista.tamanio();
+        }
+    }
+    
+    public int obtenerIdDepartmento(String nombre){
+        DepartamentoServicio d = new DepartamentoServicio();
+        ListaSimple a = d.listarDepartamentos();
+        for(int i = 0 ; i < a.tamanio() ; i++){
+            DepartamentoModelo f = (DepartamentoModelo)a.buscarPorPosicion(i);
+            if(f.getNombreDepartamento().equals(nombre) && f.getEstado().equals("activo")){
+                return f.getId();
+            }
+        }
+        return -1;
+    }
+
 }
