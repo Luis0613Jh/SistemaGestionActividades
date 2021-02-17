@@ -6,31 +6,43 @@ import controlador.listaSimple.ListaSimple;
 import controlador.servicio.ActividadPersonalServicio;
 import modelo.ActividadPersonalModelo;
 import modelo.PersonaModelo;
-import controlador.DAO.objetosDAO.PersonaDAO;
 import java.time.LocalDateTime;
-import javax.swing.JOptionPane;
 
 public class ControladorActividadPersonal {
     private ActividadPersonalModelo actividadPersonal;
-
+    /**
+     * Obtener la actividad personal
+     * @return ActividadPersonalModelo retorna la actividad personal
+     */
     public ActividadPersonalModelo getActividadPersonal() {
         if(actividadPersonal == null){
             actividadPersonal = new ActividadPersonalModelo();
         }
         return actividadPersonal;
     }
-
+    /**
+     * enviar la actividad personal
+     * @param actividadPersonal  un objeto tipo ActividadPersonalModelo
+     */
     public void setActividadPersonal(ActividadPersonalModelo actividadPersonal) {
         this.actividadPersonal = actividadPersonal;
     }
-    
+    /**
+     * Metodo para obtener una lista de actividadesa personales
+     * @param persona objeto tipo PersonaModelo
+     * @return  una lista de actividades personales
+     */
     public ListaSimple obtenerListaActividadesPersonales(PersonaModelo persona) {
         ActividadPersonalServicio aps = new ActividadPersonalServicio();
         ListaSimple listaCoincidencias = aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), persona.getId(), ActividadPersonalServicio.PERSONA_ID);
         ListaSimple listaCoincidenciasActivas = aps.listarActividadesPersonalesActivas(listaCoincidencias);
         return listaCoincidenciasActivas;
     }
-    
+    /**
+     * Meetodo para determinar segundos totales
+     * @param horaF unstring
+     * @return  int los segundos totales
+     */
     public int determinarSegundosTotales(String horaF) {
         // Hora en la que finaliza la actividad personal
         String[] arrayHora = horaF.split(":");
@@ -55,12 +67,19 @@ public class ControladorActividadPersonal {
         
         return segundosTotales;
     }
-    
+    /**
+     * Metodo para determinar la hora
+     * @param cola un objeto de tipo cola
+     * @return retorna un string hora de la cola ingresada
+     */
     public String determinarHora(Cola cola) {
         ActividadPersonalModelo ap = (ActividadPersonalModelo) cola.buscarPorPosicion(0);
         return ap.getHora();
     }
-
+    /**
+     * Metodo para guardar las actividades personales
+     * @return true en caso de guardarse y false en caso contrario
+     */
     public boolean guardarActividadPersonal(){
         try {
             ActividadPersonalServicio servicio = new ActividadPersonalServicio();
@@ -75,6 +94,10 @@ public class ControladorActividadPersonal {
             return false;
         }
     }
+    /**
+     * Metodo para enumerar los empleados
+     * @return el numero existente de empleados
+     */
     public int numeroEmpleados() {
         ActividadPersonalServicio servicio = new ActividadPersonalServicio();
         ListaSimple lista = servicio.listarActividadesPersonales();
