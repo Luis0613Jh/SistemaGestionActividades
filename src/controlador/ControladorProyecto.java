@@ -56,6 +56,7 @@ public class ControladorProyecto {
             return lista.tamanio();
         }
     }
+    
     public ListaSimple proyectosJefeproyecto(int jefeProyecto){
         ListaSimple salida = new ListaSimple();
         ProyectoServicio aux = new ProyectoServicio();
@@ -68,4 +69,5 @@ public class ControladorProyecto {
         }
         return salida;
     }
+
 }

@@ -196,10 +196,9 @@ public class UtilidadesControlador {
      * tipo String.
      * @param lista Lista en donde se va a buscar el objeto especificado.
      * @return Devuelve un objeto que contiene la información especificada del
-     * objeto según su atributo de clase. > En caso de encontrar una
-     * coincidencia, devuelve un objeto con la información del objeto
-     * encontrado, es de tipo Object. > En caso de no encontrar ninguna
-     * coincidencia, devuelve null.
+     * objeto según su atributo de clase. 
+     * En caso de encontrar una coincidencia, devuelve un objeto con la información del objeto encontrado, es de tipo Object.
+     * En caso de no encontrar ninguna coincidencia, devuelve null.
      */
     public static Object buscarObjetoPorBusquedaBinariaPorDato(Object dato, String atributo, ListaSimple lista) {
         Object objeto = null;
@@ -329,28 +328,26 @@ public class UtilidadesControlador {
     public static ListaSimple unirDosListas(ListaSimple l1, ListaSimple l2) {
         ListaSimple aux = new ListaSimple();
         for (int i = 0; i < l1.tamanio(); i++) {
-            if(l1.buscarPorPosicion(i) != null){
+            if (l1.buscarPorPosicion(i) != null) {
                 aux.insertarFinal(l1.buscarPorPosicion(i));
-            }            
+            }
         }
         for (int i = 0; i < l2.tamanio(); i++) {
-            if(l2.buscarPorPosicion(i) != null){
+            if (l2.buscarPorPosicion(i) != null) {
                 aux.insertarFinal(l2.buscarPorPosicion(i));
-            } 
+            }
         }
         return aux;
     }
 
     public static int determinarSegundosTotales(String horaF) {
         // Hora en la que finaliza la actividad personal
-        System.out.println("Hora: " + horaF);
         String[] arrayHora = horaF.split(":");
 
         int hF = (Integer.parseInt(arrayHora[0]) * 3600);
         int mF = (Integer.parseInt(arrayHora[1]) * 60);
         int sF = (Integer.parseInt(arrayHora[2]));
         int segundosF = hF + mF + sF;
-        System.out.println("Segundos Totales F: " + segundosF);
 
         return segundosF;
     }
@@ -358,30 +355,23 @@ public class UtilidadesControlador {
     public static Cola obtenerActividadesPersonalesPendientes(ListaSimple lista) {
         Cola cola = null;
         int tiempo;
-        int auxTiempo = 999999999;
-        int pos = -1; 
+        int auxTiempo;
+        int pos = -1;
         ActividadPersonalModelo actividadPersonal = new ActividadPersonalModelo();
-        
+
         if (lista != null) {
             cola = new Cola();
             while (!lista.estaVacia()) {
+                auxTiempo = 999999999;
                 for (int i = 0; i < lista.tamanio(); i++) {
                     actividadPersonal = (ActividadPersonalModelo) lista.buscarPorPosicion(i);
                     tiempo = determinarSegundosTotales(actividadPersonal.getHora());
-                    System.out.println("===================================");
-                    System.out.println("Tiempo: " + tiempo);
-                    System.out.println("Aux Tiempo: " + auxTiempo);
-                    System.out.println("===================================");
 
                     if (tiempo < auxTiempo) {
-                        System.out.println("Entré al if");
                         auxTiempo = tiempo;
                         pos = i;
                     }
                 }
-                System.out.println("/////////////////");
-                System.out.println("Pos: " + pos);
-                System.out.println("/////////////////");
                 cola.queue(lista.buscarPorPosicion(pos));
                 lista.eliminarPorPosicion(pos);
             }

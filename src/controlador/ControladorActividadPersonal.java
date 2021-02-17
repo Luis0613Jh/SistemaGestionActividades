@@ -28,8 +28,6 @@ public class ControladorActividadPersonal {
         ActividadPersonalServicio aps = new ActividadPersonalServicio();
         ListaSimple listaCoincidencias = aps.listarActividadesPersonalesCoincidencias(aps.listarActividadesPersonales(), persona.getId(), ActividadPersonalServicio.PERSONA_ID);
         ListaSimple listaCoincidenciasActivas = aps.listarActividadesPersonalesActivas(listaCoincidencias);
-        System.out.println("Actividades");
-        listaCoincidenciasActivas.imprimir();
         return listaCoincidenciasActivas;
     }
     

@@ -44,16 +44,13 @@ public class GestionarActividadesVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnCrearActividad.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES()+ File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_ACTIVIDADES() + File.separatorChar + ActividadModelo.class.getSimpleName() + ".json");
         if (archivo.exists()) {
-            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controlador.getPersona().getId_departamento(), "departamento_id")));
-            if (tablaActividad.getLista().tamanio() < 1) {
-                JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
-            }
+            tablaActividad.setLista(serAct.listarActividadesActivos(serAct.listarActividadesCoincidencias(serAct.listarActividades(), controladorProyecto.getProyecto().getId(), "proyecto_id")));
             tblActividades.setModel(tablaActividad);
             tblActividades.updateUI();
         } else {
-            JOptionPane.showMessageDialog(null, "No tiene actividades personales creados");
+            JOptionPane.showMessageDialog(null, "Este proyecto no tiene actividades guardadas");
         }
 
     }

@@ -79,4 +79,17 @@ public class ControladorDepartamento {
             return lista.tamanio();
         }
     }
+    
+    public int obtenerIdDepartmento(String nombre){
+        DepartamentoServicio d = new DepartamentoServicio();
+        ListaSimple a = d.listarDepartamentos();
+        for(int i = 0 ; i < a.tamanio() ; i++){
+            DepartamentoModelo f = (DepartamentoModelo)a.buscarPorPosicion(i);
+            if(f.getNombreDepartamento().equals(nombre) && f.getEstado().equals("activo")){
+                return f.getId();
+            }
+        }
+        return -1;
+    }
+
 }

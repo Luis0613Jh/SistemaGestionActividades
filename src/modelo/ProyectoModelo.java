@@ -43,7 +43,7 @@ public class ProyectoModelo {
     /**
      * Metodo enviar jefeProyecto
      *
-     * @param jefeProyecto
+     * @param id_jefeProyecto
      */
     public void setId_jefeProyecto(int id_jefeProyecto) {
         this.id_jefeProyecto= id_jefeProyecto;

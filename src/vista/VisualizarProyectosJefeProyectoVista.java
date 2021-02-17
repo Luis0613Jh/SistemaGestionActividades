@@ -37,11 +37,10 @@ public class VisualizarProyectosJefeProyectoVista extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.btnGestionarActividades.setSelected(true);
         cargarImagen(controlador.getPersona().getPath_imagen());
-        System.out.println("id jefe proyecto "+ controlador.getPersona().getId() );
+        
         File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_PROYECTOS() + File.separatorChar + ProyectoModelo.class.getSimpleName() + ".json");
-        System.out.println(" respuesta"+ archivo.exists());
         if (archivo.exists()) {
-             tabla.setLista(controladorProyecto.proyectosJefeproyecto(controlador.getPersona().getId()));
+            tabla.setLista(controladorProyecto.proyectosJefeproyecto(controlador.getPersona().getId()));
             System.out.println(" tamano  "+ tabla.getLista().tamanio());
             if (tabla.getLista().tamanio() < 1) {
                 JOptionPane.showMessageDialog(null, "No tiene proyectos asignados");

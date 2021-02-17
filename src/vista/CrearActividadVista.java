@@ -4,6 +4,7 @@ import controlador.ControladorActividad;
 import controlador.ControladorDepartamento;
 import controlador.ControladorPersona;
 import controlador.ControladorProyecto;
+import controlador.DAO.ConexionDAO;
 import controlador.servicio.DepartamentoServicio;
 import controlador.utilidades.UtilidadesControlador;
 import java.io.File;
@@ -13,17 +14,18 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import modelo.DepartamentoModelo;
 
 public class CrearActividadVista extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearAdministrador
      */
-    ControladorActividad controladorActividad = new ControladorActividad();
-    ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
-    DepartamentoServicio serDepa = new DepartamentoServicio();
+    private ControladorActividad controladorActividad = new ControladorActividad();
+    private ControladorDepartamento controladorDeapartamento = new ControladorDepartamento();
+    private DepartamentoServicio serDepa = new DepartamentoServicio();
     private ControladorProyecto controladorProyecto;
-    ControladorPersona controlador;
+    private ControladorPersona controlador;
 
     public CrearActividadVista() {
         initComponents();
@@ -47,7 +49,12 @@ public class CrearActividadVista extends javax.swing.JFrame {
     }
 
     public void llenarDepartamentos() {
-        UtilidadesControlador.cargarComboBoxDias(cbxDepartamento, controladorDeapartamento.departamentos());
+        File archivo = new File(new ConexionDAO().getCARPETA_CONTENEDORA() + File.separatorChar + new ConexionDAO().getCARPETA_DEPARTAMENTOS() + File.separatorChar + DepartamentoModelo.class.getSimpleName() + ".json");
+        if (archivo.exists()) {
+            UtilidadesControlador.cargarComboBoxDias(cbxDepartamento, controladorDeapartamento.departamentos());
+        } else {
+            JOptionPane.showMessageDialog(this, "No existen Departamento registrados en el sistema");
+        }
     }
 
     /**
@@ -202,12 +209,11 @@ public class CrearActividadVista extends javax.swing.JFrame {
         controladorActividad.getActividad().setExternal_id(UtilidadesControlador.generarId());
         controladorActividad.getActividad().setFechaEntrega(dateChooserFechaEntrega.getDate());
         controladorActividad.getActividad().setFechaInicio(dateChooserFechaInicio.getDate());
-        controladorActividad.getActividad().setId(controladorActividad.numeroActividades()+1);
+        controladorActividad.getActividad().setId(controladorActividad.numeroActividades() + 1);
         controladorActividad.getActividad().setNombre(txtNombreActividad.getText());
         controladorActividad.getActividad().setPrioridad((String) cbxPrioridad.getSelectedItem());
+        controladorActividad.getActividad().setDepartamento_id(controladorDeapartamento.obtenerIdDepartmento((String) cbxDepartamento.getSelectedItem()));
         controladorActividad.getActividad().setProyecto_id(controladorProyecto.getProyecto().getId());
-        controladorDeapartamento.setDepatamento(serDepa.buscarDepartamento((String) cbxDepartamento.getSelectedItem(), "nombreDepartamento"));
-        controladorActividad.getActividad().setDepartamento_id(serDepa.obtenerIdDepartamento(serDepa.listarDepartamentos(), controladorDeapartamento.getDepatamento(), "id"));
         if (controladorActividad.guardarActividad()) {
             JOptionPane.showMessageDialog(null, "Se guardo correctamente");
             GestionarActividadesVista gac = new GestionarActividadesVista(controlador, controladorProyecto);
